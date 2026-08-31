@@ -4,32 +4,32 @@ import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-    <nav class="flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-2xl glass-panel bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/80 shadow-sm backdrop-blur-md transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
+    <nav class="flex items-center justify-between px-4 sm:px-5 py-2 rounded-2xl glass-panel bg-white/85 dark:bg-slate-900/85 border border-slate-200/80 dark:border-slate-800/80 shadow-sm backdrop-blur-md transition-all duration-300">
       
       <!-- Brand Logo madebyaapri -->
-      <a href="#beranda" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-500/50 rounded-xl p-1">
-        <div class="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-500 to-cyan-400 p-0.5 shadow-md shadow-brand-500/20 group-hover:shadow-brand-500/40 transition-all duration-300 group-hover:scale-105">
-          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-white font-bold text-xs tracking-tighter font-mono">
+      <a href="/#beranda" class="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-brand-500/50 rounded-xl p-1 flex-shrink-0">
+        <div class="relative w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-500 to-cyan-400 p-0.5 shadow-md shadow-brand-500/20 group-hover:shadow-brand-500/40 transition-all duration-300 group-hover:scale-105">
+          <div class="w-full h-full bg-slate-950 rounded-[9px] flex items-center justify-center text-white font-bold text-[11px] tracking-tighter font-mono">
             <span>mba</span>
           </div>
         </div>
         <div class="flex flex-col">
-          <span class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+          <span class="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors whitespace-nowrap">
             madebyaapri
           </span>
-          <span class="text-[10px] text-brand-600 dark:text-brand-400 font-semibold -mt-0.5 font-mono">
+          <span class="text-[9px] text-brand-600 dark:text-brand-400 font-semibold -mt-0.5 font-mono whitespace-nowrap hidden sm:block">
             Kang Apri • Automation
           </span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <div class="hidden md:flex items-center gap-1 lg:gap-2">
+      <!-- Desktop Navigation Links: 1-line clean, no wrapping, single words -->
+      <div class="hidden lg:flex items-center gap-1 flex-nowrap whitespace-nowrap">
         {siteConfig.navLinks.map((link) => (
           <a
             href={link.href}
-            class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60 rounded-lg transition-all"
+            class="px-2.5 py-1 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/70 rounded-lg transition-all whitespace-nowrap"
           >
             {link.name}
           </a>
@@ -37,16 +37,16 @@ import ThemeToggle from './ThemeToggle.astro';
       </div>
 
       <!-- Action Area: WhatsApp CTA + Theme Toggle + Mobile Toggle -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center gap-2 flex-shrink-0">
         <ThemeToggle />
 
         <a
           href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berkonsultasi%20mengenai%20solusi%20otomasi/sistem%20alur%20kerja."
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-sm shadow-emerald-500/25 transition-all active:scale-95"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-sm shadow-emerald-500/25 transition-all active:scale-95 whitespace-nowrap"
         >
-          <span class="text-sm">💬</span>
+          <span class="text-xs">💬</span>
           <span>Konsultasi WA</span>
         </a>
 
@@ -55,7 +55,7 @@ import ThemeToggle from './ThemeToggle.astro';
           id="mobile-menu-btn"
           type="button"
           aria-label="Buka menu navigasi mobile"
-          class="md:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none"
+          class="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none"
         >
           <svg id="menu-open-icon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -70,13 +70,13 @@ import ThemeToggle from './ThemeToggle.astro';
     <!-- Mobile Drawer Menu -->
     <div
       id="mobile-menu"
-      class="hidden md:hidden mt-2 p-4 rounded-2xl glass-panel bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-xl animate-fade-in"
+      class="hidden lg:hidden mt-2 p-4 rounded-2xl glass-panel bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-xl animate-fade-in"
     >
-      <div class="flex flex-col gap-1.5">
+      <div class="flex flex-col gap-1">
         {siteConfig.navLinks.map((link) => (
           <a
             href={link.href}
-            class="mobile-link px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-50 dark:hover:bg-slate-800/80 hover:text-brand-600 dark:hover:text-brand-400 rounded-xl transition-all"
+            class="mobile-link px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-50 dark:hover:bg-slate-800/80 hover:text-brand-600 dark:hover:text-brand-400 rounded-xl transition-all"
           >
             {link.name}
           </a>
