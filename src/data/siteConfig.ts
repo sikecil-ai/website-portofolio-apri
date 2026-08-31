@@ -67,6 +67,7 @@ export const siteConfig: SiteConfig = {
     { name: 'Artikel', href: '/#artikel' },
     { name: 'Alur', href: '/#cara-kerja' },
     { name: 'Testimoni', href: '/#testimoni' },
+    { name: 'Biaya', href: '/#investasi' },
     { name: 'FAQ', href: '/#faq' },
     { name: 'Kontak', href: '/#kontak' },
   ],
