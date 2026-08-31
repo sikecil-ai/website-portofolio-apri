@@ -14,19 +14,19 @@ import { siteConfig } from '../data/siteConfig';
       <div class="lg:col-span-7 flex flex-col items-start text-left">
         
         <!-- Status Indicator & Handle Badge -->
-        <div class="flex flex-wrap items-center gap-2 mb-6 animate-fade-in">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 shadow-sm">
+        <div class="flex items-center gap-2 mb-6 animate-fade-in">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 shadow-sm">
             <span class="relative flex h-2.5 w-2.5">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
             </span>
-            <span class="text-xs font-semibold text-slate-800 dark:text-slate-200 font-mono">
+            <span class="text-xs font-bold text-slate-800 dark:text-slate-200 font-mono">
               @madebyaapri
             </span>
-          </div>
-
-          <div class="px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/70 border border-brand-200 dark:border-brand-800 text-brand-600 dark:text-brand-400 text-xs font-medium">
-            ⚡ Zero Server Cost Architecture
+            <span class="text-slate-300 dark:text-slate-600">•</span>
+            <span class="text-xs font-semibold text-brand-600 dark:text-brand-400">
+              UI/UX &amp; Workflow Specialist
+            </span>
           </div>
         </div>
 
@@ -44,15 +44,6 @@ import { siteConfig } from '../data/siteConfig';
           Saya membantu pemilik bisnis, manajer operasional, dan organisasi merombak spreadsheet ruwet dan sistem manual menjadi <span class="font-semibold text-slate-900 dark:text-slate-100">antarmuka smartphone modern, dashboard Looker Studio, dan rekap otomatis</span> tanpa biaya sewa server bulanan.
         </p>
 
-        <!-- Location Badge -->
-        <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-8 bg-slate-100/70 dark:bg-slate-800/50 px-3.5 py-1.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
-          <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-          </svg>
-          <span>{siteConfig.location}</span>
-        </div>
-
         <!-- Clean Independent Action Buttons -->
         <div class="flex flex-wrap items-center gap-3 sm:gap-4 mb-12">
           <a
@@ -67,13 +58,13 @@ import { siteConfig } from '../data/siteConfig';
 
           <a
             href="#investasi"
-            class="px-5 py-3.5 rounded-xl text-xs sm:text-sm font-semibold border border-brand-300 dark:border-brand-800 bg-brand-50/70 dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 hover:bg-brand-100 transition-all flex items-center gap-2"
+            class="px-5 py-3.5 rounded-xl text-xs sm:text-sm font-semibold border border-brand-300 dark:border-brand-800 bg-brand-50/70 dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 hover:bg-brand-100 dark:hover:bg-brand-900/60 transition-all flex items-center gap-1.5"
           >
-            <span>💎 Lihat Skema Biaya</span>
+            <span>Lihat Skema Biaya</span>
             <span class="text-xs">↓</span>
           </a>
 
-          <a href="#proyek" class="btn-secondary py-3 px-4 text-xs sm:text-sm">
+          <a href="#proyek" class="btn-secondary py-3.5 px-4 text-xs sm:text-sm">
             <span>Showcase Sistem</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -81,23 +72,19 @@ import { siteConfig } from '../data/siteConfig';
           </a>
         </div>
 
-        <!-- Outcome-Centric Real Stats Row -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-slate-200 dark:border-slate-800/80 w-full">
+        <!-- Outcome-Centric 3 High Impact Stats Row -->
+        <div class="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-slate-200 dark:border-slate-800/80 w-full max-w-xl">
           <div>
             <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">2+ Jam/Hari</span>
-            <span class="text-xs text-slate-500 dark:text-slate-400">Waktu Operasional Dihemat</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">Waktu Dihemat</span>
           </div>
           <div>
             <span class="block text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100">150+ Proyek</span>
-            <span class="text-xs text-slate-500 dark:text-slate-400">Sistem &amp; Dokumen Sukses</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">Sistem Sukses</span>
           </div>
           <div>
             <span class="block text-2xl sm:text-3xl font-extrabold text-emerald-500">0 Detik</span>
-            <span class="text-xs text-slate-500 dark:text-slate-400">Input Delay Tabulasi Real-time</span>
-          </div>
-          <div>
-            <span class="block text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100">Rp 0</span>
-            <span class="text-xs text-slate-500 dark:text-slate-400">Biaya Server (Zero Cost)</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">Input Delay</span>
           </div>
         </div>
 
@@ -127,7 +114,7 @@ import { siteConfig } from '../data/siteConfig';
               style="animation-delay: 1s;"
             >
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span class="text-xs font-semibold text-slate-800 dark:text-slate-200">✨ UI/UX Overhaul</span>
+              <span class="text-xs font-semibold text-slate-800 dark:text-slate-200">✨ Modern UI/UX</span>
             </div>
 
             <div class="absolute -bottom-3 -right-3 px-3.5 py-1.5 rounded-xl glass-panel bg-white/90 dark:bg-slate-900/90 shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2 animate-float" style="animation-delay: 2.5s;">
