@@ -25,7 +25,6 @@ const currentYear = new Date().getFullYear();
         {siteConfig.navLinks.map((link) => (
           <a
             href={link.href}
-            target={link.href.startsWith('http') ? '_blank' : '_self'}
             class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
           >
             {link.name}
@@ -33,15 +32,16 @@ const currentYear = new Date().getFullYear();
         ))}
       </div>
 
-      <!-- Lynk.id & Back to Top -->
+      <!-- WA Consultation & Back to Top -->
       <div class="flex items-center gap-3">
         <a
-          href="https://lynk.id/madebyaapri"
+          href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berkonsultasi%20mengenai%20solusi%20otomasi."
           target="_blank"
           rel="noopener noreferrer"
-          class="px-3 py-1.5 rounded-xl border border-pink-200 dark:border-pink-900/50 bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 text-xs font-semibold hover:bg-pink-100 transition-all"
+          class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5"
         >
-          🛍️ Lynk.id Store
+          <span class="text-sm">💬</span>
+          <span>Konsultasi WA</span>
         </a>
 
         <a

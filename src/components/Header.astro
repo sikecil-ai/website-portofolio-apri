@@ -29,30 +29,25 @@ import ThemeToggle from './ThemeToggle.astro';
         {siteConfig.navLinks.map((link) => (
           <a
             href={link.href}
-            target={link.href.startsWith('http') ? '_blank' : '_self'}
-            rel={link.href.startsWith('http') ? 'noopener noreferrer' : ''}
-            class={`px-3 py-1.5 text-xs lg:text-sm font-medium rounded-lg transition-all ${
-              link.name === 'Toko Digital'
-                ? 'text-brand-600 dark:text-brand-400 bg-brand-50/80 dark:bg-brand-950/60 font-semibold hover:bg-brand-100 dark:hover:bg-brand-900/60'
-                : 'text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60'
-            }`}
+            class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60 rounded-lg transition-all"
           >
             {link.name}
           </a>
         ))}
       </div>
 
-      <!-- Action Area: Lynk.id Store CTA + Theme Toggle + Mobile Toggle -->
+      <!-- Action Area: WhatsApp CTA + Theme Toggle + Mobile Toggle -->
       <div class="flex items-center gap-2 sm:gap-3">
         <ThemeToggle />
 
         <a
-          href="https://lynk.id/madebyaapri"
+          href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berkonsultasi%20mengenai%20solusi%20otomasi/sistem%20alur%20kerja."
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 shadow-sm shadow-brand-500/25 transition-all active:scale-95"
+          class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-sm shadow-emerald-500/25 transition-all active:scale-95"
         >
-          <span>🛍️ Lynk.id Store</span>
+          <span class="text-sm">💬</span>
+          <span>Konsultasi WA</span>
         </a>
 
         <!-- Mobile Menu Button -->
@@ -81,29 +76,20 @@ import ThemeToggle from './ThemeToggle.astro';
         {siteConfig.navLinks.map((link) => (
           <a
             href={link.href}
-            target={link.href.startsWith('http') ? '_blank' : '_self'}
-            class="mobile-link px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-50 dark:hover:bg-slate-800/80 hover:text-brand-600 dark:hover:text-brand-400 rounded-xl transition-all flex items-center justify-between"
+            class="mobile-link px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-50 dark:hover:bg-slate-800/80 hover:text-brand-600 dark:hover:text-brand-400 rounded-xl transition-all"
           >
-            <span>{link.name}</span>
-            {link.href.startsWith('http') && <span class="text-xs text-brand-500">↗</span>}
+            {link.name}
           </a>
         ))}
-        <div class="pt-2 border-t border-slate-200 dark:border-slate-800 mt-1 flex flex-col gap-2">
+        <div class="pt-2 border-t border-slate-200 dark:border-slate-800 mt-1">
           <a
-            href="https://lynk.id/madebyaapri"
+            href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berkonsultasi%20mengenai%20solusi%20otomasi/sistem%20alur%20kerja."
             target="_blank"
             rel="noopener noreferrer"
-            class="mobile-link flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-brand-600 to-indigo-600 shadow-sm"
+            class="mobile-link flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold rounded-xl text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm"
           >
-            <span>🛍️ Buka Lynk.id Store</span>
-          </a>
-          <a
-            href="https://wa.me/6282118313655"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mobile-link flex items-center justify-center gap-2 w-full px-4 py-2 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
-          >
-            <span>💬 Chat WhatsApp Kang Apri</span>
+            <span class="text-base">💬</span>
+            <span>Chat WhatsApp Kang Apri</span>
           </a>
         </div>
       </div>
