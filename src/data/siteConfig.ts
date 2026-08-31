@@ -64,13 +64,13 @@ export const siteConfig: SiteConfig = {
     { name: 'Beranda', href: '#beranda' },
     { name: 'Tentang', href: '#tentang' },
     { name: 'Sistem & Solusi', href: '#proyek' },
+    { name: 'Artikel & Studi Kasus', href: '#artikel' },
     { name: 'Cara Kerja', href: '#cara-kerja' },
     { name: 'Testimoni', href: '#testimoni' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Kontak', href: '#kontak' },
   ],
   keywords: [
-    // 3 Target Repeating Keywords + Variations
     'Otomasi Alur Kerja Tanpa Server',
     'Jasa Otomasi Alur Kerja',
     'Workflow Automation Google Apps Script',
