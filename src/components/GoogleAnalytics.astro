@@ -1,0 +1,61 @@
+---
+export interface Props {
+  measurementId?: string;
+}
+
+// Support environment variable or default fallback ID
+const { measurementId = import.meta.env.PUBLIC_GA_ID || 'G-XXXXXXXXXX' } = Astro.props;
+const isProd = import.meta.env.PROD;
+---
+
+<!-- Google Analytics 4 (GA4) with Custom Conversion Tracking -->
+{measurementId && (
+  <>
+    <script
+      is:inline
+      type="text/partytown"
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+    ></script>
+    <script is:inline define:vars={{ measurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', measurementId, {
+        page_path: window.location.pathname,
+        send_page_view: true,
+        anonymize_ip: true,
+      });
+
+      // Track WhatsApp Lead Conversions & Article Reads automatically
+      document.addEventListener('DOMContentLoaded', () => {
+        // WhatsApp Click Tracking
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach((el) => {
+          el.addEventListener('click', () => {
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                event_category: 'WhatsApp',
+                event_label: el.getAttribute('href'),
+                value: 1,
+              });
+            }
+          });
+        });
+
+        // Article Read Tracking
+        document.querySelectorAll('.read-article-btn, .article-card').forEach((el) => {
+          el.addEventListener('click', () => {
+            if (typeof gtag === 'function') {
+              gtag('event', 'view_item', {
+                event_category: 'Article',
+                event_label: 'Case Study Read',
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </>
+)}

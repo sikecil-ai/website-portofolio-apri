@@ -2,6 +2,7 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import '../styles/global.css';
 import type { SEOProps } from '../types';
 
@@ -16,6 +17,7 @@ const { seo = {} } = Astro.props;
 <html lang="id" class="scroll-smooth">
   <head>
     <SEO {...seo} />
+    <GoogleAnalytics />
     
     <!-- Inline Theme Script to prevent FOUC (Flash of Unstyled Content) -->
     <script is:inline>
