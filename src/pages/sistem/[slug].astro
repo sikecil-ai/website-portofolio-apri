@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects';
+import { siteConfig } from '../../data/siteConfig';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+const seoProps = {
+  title: `${project.title} | Solusi by Kang Apri (@madebyaapri)`,
+  description: `${project.tagline} ${project.description}`,
+  canonicalURL: `${siteConfig.url}/sistem/${project.slug}`,
+  type: 'article',
+};
+
+// Filter related systems
+const otherProjects = projects.filter((p) => p.id !== project.id).slice(0, 3);
+---
+
+<Layout seo={seoProps}>
+  <div class="pt-28 pb-24 relative overflow-hidden">
+    <!-- Ambient Glows -->
+    <div class="ambient-glow bg-brand-500/15 top-20 -left-20 w-96 h-96 animate-pulse-glow"></div>
+    <div class="ambient-glow bg-cyan-500/10 top-1/2 -right-20 w-96 h-96 animate-pulse-glow" style="animation-delay: 2s;"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Back Navigation Link -->
+      <div class="mb-8">
+        <a
+          href="/#proyek"
+          class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+        >
+          <span>← Kembali ke Showcase Sistem</span>
+        </a>
+      </div>
+
+      <!-- Project Header -->
+      <header class="mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+        <div class="flex items-center gap-2.5 mb-4 flex-wrap">
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-brand-50 dark:bg-brand-950/70 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-800">
+            {project.category}
+          </span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• {project.role}</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• {project.date}</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.2] mb-4">
+          {project.title}
+        </h1>
+
+        <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed font-medium mb-6">
+          {project.tagline}
+        </p>
+
+        <!-- Preview Image -->
+        <div class="w-full aspect-[16/9] rounded-3xl overflow-hidden mb-8 border border-slate-200 dark:border-slate-800 bg-slate-950 shadow-2xl">
+          <img src={project.image} alt={project.title} class="w-full h-full object-cover object-top" />
+        </div>
+
+        <!-- Measurable Stats Grid -->
+        {project.stats && project.stats.length > 0 && (
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-6 rounded-3xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80">
+            {project.stats.map((stat) => (
+              <div class="text-center">
+                <span class="block text-2xl font-extrabold text-brand-600 dark:text-brand-400">{stat.value}</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- Project Full Details -->
+      <div class="space-y-8 mb-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">Latar Belakang &amp; Solusi Sistem</h2>
+          <p class="text-slate-700 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
+            {project.fullDescription || project.description}
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">Fitur Utama &amp; Kapabilitas</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700 dark:text-slate-300">
+            {project.features.map((feat) => (
+              <li class="flex items-start gap-2.5 p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>{feat}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">Teknologi &amp; Engine yang Digunakan</h3>
+          <div class="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom WhatsApp CTA Box -->
+      <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-600/15 via-indigo-600/10 to-emerald-600/15 border border-brand-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left mb-16">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+            Ingin Bangun Sistem Serupa untuk Bisnis Anda?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md">
+            Konsultasikan alur kerja manual atau sistem Anda sekarang langsung dengan Kang Apri. Bebas biaya sewa server bulanan.
+          </p>
+        </div>
+        <a
+          href={project.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary py-3.5 px-6 whitespace-nowrap shadow-lg shadow-brand-500/25"
+        >
+          <span class="text-base">💬</span>
+          <span>Konsultasi Sistem Ini via WA</span>
+        </a>
+      </div>
+
+      <!-- Other Systems Grid -->
+      {otherProjects.length > 0 && (
+        <div class="pt-10 border-t border-slate-200 dark:border-slate-800">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-6">Sistem Otomasi Lainnya</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {otherProjects.map((p) => (
+              <a
+                href={`/sistem/${p.slug}`}
+                class="glass-card rounded-2xl p-5 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 block group hover:border-brand-500/50 transition-all"
+              >
+                <span class="text-[10px] font-semibold text-brand-600 dark:text-brand-400 block mb-1">{p.category}</span>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-1 mb-1">
+                  {p.title}
+                </h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-3">{p.description}</p>
+                <span class="text-[11px] text-brand-600 font-semibold">Lihat Rincian →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+    </div>
+  </div>
+</Layout>
