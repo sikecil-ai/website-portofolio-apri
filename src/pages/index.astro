@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProjectGallery from '../components/ProjectGallery.astro';
+import Skills from '../components/Skills.astro';
+import Experience from '../components/Experience.astro';
+import Contact from '../components/Contact.astro';
+import { siteConfig } from '../data/siteConfig';
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <Hero />
+
+  <!-- About / Philosophy Section -->
+  <section id="tentang" class="py-20 border-t border-slate-200/60 dark:border-slate-800/60 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-cyan-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+            👨‍💻 Tentang Saya
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight mb-4">
+            Dedikasi pada <span class="text-gradient-cyan">Kualitas Kode &amp; UX</span>
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+            {siteConfig.bio}
+          </p>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+            Saya percaya bahwa website yang luar biasa adalah gabungan dari <strong class="text-slate-900 dark:text-slate-100">arsitektur yang tangguh</strong>, <strong class="text-slate-900 dark:text-slate-100">desain yang intuitif</strong>, dan <strong class="text-slate-900 dark:text-slate-100">skor SEO Google maksimal</strong> untuk memastikan aplikasi Anda mudah ditemukan dan disukai oleh pengguna.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <div class="p-6 rounded-3xl glass-card border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60">
+            <div class="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold text-xl mb-4">
+              ⚡
+            </div>
+            <h3 class="font-bold text-slate-900 dark:text-slate-100 text-base mb-2">Ultra Cepat &amp; Ringan</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Memanfaatkan arsitektur pulau Astro (Islands Architecture) untuk meminimalkan beban JavaScript dan mencapai skor 100 di Google Lighthouse.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl glass-card border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60">
+            <div class="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-xl mb-4">
+              🎯
+            </div>
+            <h3 class="font-bold text-slate-900 dark:text-slate-100 text-base mb-2">SEO Google Optimal</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Dilengkapi skema JSON-LD Schema.org, Open Graph, Twitter Cards, Sitemap otomatis, dan struktur HTML semantik untuk visibilitas mesin pencari.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl glass-card border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60">
+            <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold text-xl mb-4">
+              📱
+            </div>
+            <h3 class="font-bold text-slate-900 dark:text-slate-100 text-base mb-2">Responsif &amp; Modern</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Tampilan adaptif di semua perangkat (Desktop, Tablet, Mobile) dengan nuansa Glassmorphism, animasi halus, dan dark/light mode.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl glass-card border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60">
+            <div class="w-10 h-10 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center font-bold text-xl mb-4">
+              🛡️
+            </div>
+            <h3 class="font-bold text-slate-900 dark:text-slate-100 text-base mb-2">Type-Safe &amp; Scalable</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Kode terstruktur rapi dengan TypeScript dan modul terisolasi, memudahkan pemeliharaan dan ekspansi fitur jangka panjang.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Gallery Section -->
+  <ProjectGallery />
+
+  <!-- Skills & Tech Stack Section -->
+  <Skills />
+
+  <!-- Experience & History Section -->
+  <Experience />
+
+  <!-- Contact Section -->
+  <Contact />
+</Layout>

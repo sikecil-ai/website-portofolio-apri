@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgAi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#142634" />
+    </linearGradient>
+    <linearGradient id="glowAi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="380" rx="16" fill="url(#bgAi)" />
+
+  <!-- Left Sidebar (Document list) -->
+  <rect x="30" y="30" width="160" height="320" rx="12" fill="#1e293b" opacity="0.6" stroke="#334155" stroke-width="1" />
+  <rect x="50" y="50" width="80" height="14" rx="4" fill="#06b6d4" />
+  
+  <rect x="45" y="80" width="130" height="36" rx="8" fill="#334155" opacity="0.8" />
+  <circle cx="60" cy="98" r="6" fill="#38bdf8" />
+  <rect x="75" y="94" width="85" height="8" rx="3" fill="#cbd5e1" />
+  
+  <rect x="45" y="125" width="130" height="36" rx="8" fill="#1e293b" />
+  <circle cx="60" cy="143" r="6" fill="#94a3b8" />
+  <rect x="75" y="139" width="70" height="8" rx="3" fill="#64748b" />
+
+  <rect x="45" y="170" width="130" height="36" rx="8" fill="#1e293b" />
+  <circle cx="60" cy="188" r="6" fill="#94a3b8" />
+  <rect x="75" y="184" width="75" height="8" rx="3" fill="#64748b" />
+
+  <!-- Right AI Chat Interface -->
+  <rect x="210" y="30" width="360" height="320" rx="12" fill="#131e36" stroke="#334155" stroke-width="1" />
+  
+  <!-- AI Bot Header -->
+  <rect x="210" y="30" width="360" height="50" rx="12" fill="#1e293b" />
+  <circle cx="240" cy="55" r="14" fill="url(#glowAi)" />
+  <polygon points="237,51 243,55 237,59" fill="#ffffff" />
+  <text x="265" y="54" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="13">Gemini RAG Assistant</text>
+  <text x="265" y="68" fill="#06b6d4" font-family="sans-serif" font-size="10">● Model Active &amp; Grounded</text>
+
+  <!-- User Chat Bubble -->
+  <rect x="330" y="95" width="220" height="42" rx="12" fill="#3b82f6" opacity="0.9" />
+  <text x="345" y="115" fill="#ffffff" font-family="sans-serif" font-size="11">Tolong rangkum bagian pasal 4</text>
+  <text x="345" y="128" fill="#e0e7ff" font-family="sans-serif" font-size="10">dalam dokumen kontrak ini.</text>
+
+  <!-- AI Response Bubble -->
+  <rect x="230" y="150" width="320" height="110" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <text x="245" y="172" fill="#38bdf8" font-family="sans-serif" font-weight="bold" font-size="11">✦ Ringkasan Pasal 4:</text>
+  <rect x="245" y="185" width="280" height="6" rx="3" fill="#cbd5e1" />
+  <rect x="245" y="198" width="260" height="6" rx="3" fill="#cbd5e1" />
+  <rect x="245" y="211" width="220" height="6" rx="3" fill="#cbd5e1" />
+  <rect x="245" y="235" width="100" height="16" rx="4" fill="#06b6d4" opacity="0.2" />
+  <text x="252" y="247" fill="#06b6d4" font-family="sans-serif" font-size="9">3 Sumber Ditemukan</text>
+
+  <!-- Prompt Input Bar -->
+  <rect x="230" y="285" width="320" height="45" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+  <text x="250" y="312" fill="#94a3b8" font-family="sans-serif" font-size="11">Tanyakan apapun tentang dokumen...</text>
+  <circle cx="525" cy="307" r="12" fill="url(#glowAi)" />
+  <polygon points="522,304 530,307 522,310" fill="#ffffff" />
+</svg>

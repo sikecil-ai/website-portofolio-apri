@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://apriyantowijaya.dev/sitemap-index.xml

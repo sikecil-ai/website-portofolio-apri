@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgEcom" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#1b2a4a" />
+    </linearGradient>
+    <linearGradient id="badgeEcom" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="380" rx="16" fill="url(#bgEcom)" />
+
+  <!-- Navigation Bar -->
+  <rect x="30" y="25" width="540" height="40" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <circle cx="55" cy="45" r="10" fill="#10b981" />
+  <rect x="75" y="40" width="70" height="10" rx="3" fill="#f8fafc" />
+  <rect x="220" y="37" width="160" height="18" rx="6" fill="#0f172a" stroke="#475569" stroke-width="1" />
+  <circle cx="510" cy="45" r="10" fill="#334155" />
+  <circle cx="540" cy="45" r="10" fill="#6366f1" />
+
+  <!-- Promo Banner -->
+  <rect x="30" y="80" width="540" height="90" rx="12" fill="url(#badgeEcom)" opacity="0.9" />
+  <text x="55" y="118" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="18">Mid Season Tech Sale 🔥</text>
+  <text x="55" y="142" fill="#ecfdf5" font-family="sans-serif" font-size="12">Diskon hingga 40% untuk produk ekosistem pintar.</text>
+  <rect x="440" y="105" width="105" height="36" rx="8" fill="#0f172a" />
+  <text x="460" y="128" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="11">Beli Sekarang</text>
+
+  <!-- Product Cards Grid -->
+  <!-- Product 1 -->
+  <rect x="30" y="190" width="165" height="160" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <rect x="45" y="205" width="135" height="70" rx="6" fill="#0f172a" />
+  <circle cx="112" cy="240" r="22" fill="#38bdf8" opacity="0.4" />
+  <text x="45" y="295" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="12">Smart Watch V3</text>
+  <text x="45" y="315" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="13">Rp 1.499.000</text>
+  <rect x="45" y="325" width="135" height="18" rx="4" fill="#6366f1" />
+  <text x="85" y="338" fill="#ffffff" font-family="sans-serif" font-size="10">+ Keranjang</text>
+
+  <!-- Product 2 -->
+  <rect x="217" y="190" width="165" height="160" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <rect x="232" y="205" width="135" height="70" rx="6" fill="#0f172a" />
+  <polygon points="300,225 320,255 280,255" fill="#a855f7" opacity="0.4" />
+  <text x="232" y="295" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="12">ANC Headphones</text>
+  <text x="232" y="315" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="13">Rp 2.199.000</text>
+  <rect x="232" y="325" width="135" height="18" rx="4" fill="#6366f1" />
+  <text x="272" y="338" fill="#ffffff" font-family="sans-serif" font-size="10">+ Keranjang</text>
+
+  <!-- Product 3 -->
+  <rect x="405" y="190" width="165" height="160" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <rect x="420" y="205" width="135" height="70" rx="6" fill="#0f172a" />
+  <rect x="460" y="222" width="55" height="35" rx="4" fill="#f59e0b" opacity="0.4" />
+  <text x="420" y="295" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="12">Mechanical Keyboard</text>
+  <text x="420" y="315" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="13">Rp 899.000</text>
+  <rect x="420" y="325" width="135" height="18" rx="4" fill="#6366f1" />
+  <text x="460" y="338" fill="#ffffff" font-family="sans-serif" font-size="10">+ Keranjang</text>
+</svg>

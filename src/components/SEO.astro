@@ -1,0 +1,134 @@
+---
+import { siteConfig } from '../data/siteConfig';
+import { projects } from '../data/projects';
+import type { SEOProps } from '../types';
+
+export interface Props extends SEOProps {}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  image = siteConfig.ogImage,
+  canonicalURL = Astro.url.href,
+  type = 'website',
+} = Astro.props;
+
+const fullImageUrl = new URL(image, siteConfig.url).href;
+const fullCanonicalUrl = new URL(Astro.url.pathname, siteConfig.url).href;
+
+// JSON-LD Schema: Person
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: siteConfig.name,
+  url: siteConfig.url,
+  image: new URL('/images/avatar.svg', siteConfig.url).href,
+  jobTitle: 'Full-stack Developer & Software Engineer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Tech Innovate Studio',
+  },
+  sameAs: siteConfig.socialLinks.map((link) => link.url),
+  description: siteConfig.bio,
+  knowsAbout: [
+    'Web Development',
+    'Astro',
+    'React',
+    'Next.js',
+    'Tailwind CSS',
+    'TypeScript',
+    'Node.js',
+    'Search Engine Optimization (SEO)',
+    'Fullstack Architecture',
+    'Artificial Intelligence Integration',
+  ],
+};
+
+// JSON-LD Schema: WebSite
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteConfig.name + ' Portfolio',
+  url: siteConfig.url,
+  description: siteConfig.description,
+  author: {
+    '@type': 'Person',
+    name: siteConfig.name,
+  },
+  inLanguage: 'id-ID',
+};
+
+// JSON-LD Schema: ItemList (Portfolio Projects)
+const projectListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Portfolio Applications by ' + siteConfig.name,
+  itemListElement: projects.map((project, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'SoftwareApplication',
+      name: project.title,
+      description: project.description,
+      applicationCategory: project.category,
+      operatingSystem: 'All',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+  })),
+};
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content={Astro.generator} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+<meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content={siteConfig.keywords.join(', ')} />
+<meta name="author" content={siteConfig.author} />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<link rel="canonical" href={fullCanonicalUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={fullCanonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImageUrl} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:locale" content="id_ID" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={fullCanonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImageUrl} />
+<meta name="twitter:creator" content="@apriyantowijaya" />
+
+<!-- Font Preconnect & Loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- Google SEO Structured Data (JSON-LD) -->
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(projectListSchema)} />

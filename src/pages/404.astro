@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout seo={{ title: '404 - Halaman Tidak Ditemukan | M Apriyanto Wijaya' }}>
+  <div class="min-h-[70vh] flex items-center justify-center px-4 py-20">
+    <div class="text-center max-w-md mx-auto glass-card p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800">
+      <div class="text-7xl font-extrabold text-brand-600 dark:text-brand-400 mb-4 font-mono">
+        404
+      </div>
+      <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+        Halaman Tidak Ditemukan
+      </h1>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
+        Maaf, halaman yang Anda tuju tidak tersedia atau telah dipindahkan.
+      </p>
+      <a href="/" class="btn-primary">
+        <span>Kembali ke Beranda</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</Layout>

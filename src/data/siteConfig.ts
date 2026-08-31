@@ -1,0 +1,77 @@
+import type { SiteConfig } from '../types';
+
+export const siteConfig: SiteConfig = {
+  name: 'Muhammad Apriyanto Wijaya',
+  title: 'Muhammad Apriyanto Wijaya (Kang Apri) | Workflow Automation Specialist & Solopreneur Developer',
+  subtitle: 'Membantu bisnis, organisasi, dan UMKM mengotomatisasi alur kerja manual, membangun sistem pencatatan berbasis cloud tanpa biaya server, serta integrasi AI cerdas.',
+  description: 'Portofolio resmi Muhammad Apriyanto Wijaya (Kang Apri) — Workflow Automation Specialist, Google Workspace & AI Solutions Developer, dan Solopreneur berbasis di Kota Cimahi, Jawa Barat.',
+  bio: 'Halo! Saya Muhammad Apriyanto Wijaya (Kang Apri). Saya seorang Workflow Automation Specialist & Solopreneur Developer yang berfokus mendigitalkan proses operasional, membangun sistem otomasi tanpa sewa server (Google Apps Script & Workspace), serta integrasi AI dan aplikasi web modern.',
+  location: 'Cibeber, Cimahi Selatan, Kota Cimahi, Jawa Barat, Indonesia',
+  email: 'sohibwijaya@gmail.com',
+  phone: '+6282118313655',
+  url: 'https://apriyantowijaya.dev',
+  ogImage: '/images/og-card.png',
+  author: 'Muhammad Apriyanto Wijaya',
+  status: {
+    available: true,
+    text: 'Tersedia untuk proyek otomasi & konsultasi solusi digital',
+  },
+  socialLinks: [
+    {
+      name: 'WhatsApp',
+      url: 'https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berdiskusi%20tentang%20otomasi/proyek.',
+      icon: 'whatsapp',
+      username: '+62 821-1831-3655',
+    },
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/madebyaapri',
+      icon: 'instagram',
+      username: '@madebyaapri',
+    },
+    {
+      name: 'TikTok',
+      url: 'https://tiktok.com/@madebyaapri',
+      icon: 'tiktok',
+      username: '@madebyaapri',
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://linkedin.com/in/apriyanto-wijaya',
+      icon: 'linkedin',
+      username: 'Apriyanto Wijaya',
+    },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/apriyantowijaya',
+      icon: 'github',
+      username: 'apriyantowijaya',
+    },
+    {
+      name: 'Email',
+      url: 'mailto:sohibwijaya@gmail.com',
+      icon: 'mail',
+      username: 'sohibwijaya@gmail.com',
+    },
+  ],
+  navLinks: [
+    { name: 'Beranda', href: '#beranda' },
+    { name: 'Tentang', href: '#tentang' },
+    { name: 'Proyek & Solusi', href: '#proyek' },
+    { name: 'Keahlian', href: '#keahlian' },
+    { name: 'Pengalaman', href: '#pengalaman' },
+    { name: 'Kontak', href: '#kontak' },
+  ],
+  keywords: [
+    'Muhammad Apriyanto Wijaya',
+    'Kang Apri',
+    'Workflow Automation Specialist',
+    'Google Workspace Developer',
+    'Google Apps Script Indonesia',
+    'Otomasi Bisnis UMKM',
+    'Megumi Hotplate Cimahi',
+    'Aplikasi KOMANDO Paskibra',
+    'Solopreneur Developer Cimahi',
+    'AI Solutions Developer Indonesia',
+  ],
+};

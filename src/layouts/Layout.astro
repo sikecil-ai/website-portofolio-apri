@@ -1,0 +1,57 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import type { SEOProps } from '../types';
+
+export interface Props {
+  seo?: SEOProps;
+}
+
+const { seo = {} } = Astro.props;
+---
+
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <SEO {...seo} />
+    
+    <!-- Inline Theme Script to prevent FOUC (Flash of Unstyled Content) -->
+    <script is:inline>
+      const getInitialTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'dark'; // Default modern dark theme
+      };
+
+      const theme = getInitialTheme();
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-white dark:bg-[#090d16] text-slate-900 dark:text-slate-100 selection:bg-brand-500 selection:text-white transition-colors duration-300">
+    
+    <!-- Background Grid Texture -->
+    <div class="fixed inset-0 pointer-events-none z-0 bg-grid-pattern-light dark:bg-grid-pattern bg-[size:24px_24px] opacity-60 dark:opacity-40"></div>
+
+    <!-- Navigation Header -->
+    <Header />
+
+    <!-- Main Content Body -->
+    <main class="flex-1 relative z-10">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+  </body>
+</html>

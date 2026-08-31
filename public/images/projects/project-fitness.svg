@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgFit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#2d123b" />
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="380" rx="16" fill="url(#bgFit)" />
+
+  <!-- Mobile Mockup Center -->
+  <g transform="translate(190, 20)">
+    <!-- Phone frame -->
+    <rect width="220" height="340" rx="28" fill="#090d16" stroke="#475569" stroke-width="3" />
+    <!-- Dynamic island -->
+    <rect x="75" y="10" width="70" height="15" rx="7" fill="#1e293b" />
+    
+    <!-- App Header -->
+    <text x="25" y="52" fill="#94a3b8" font-family="sans-serif" font-size="11">Senin, 31 Agust</text>
+    <text x="25" y="72" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="16">Aktivitas Hari Ini</text>
+    
+    <!-- Progress Activity Ring -->
+    <circle cx="110" cy="140" r="50" fill="none" stroke="#334155" stroke-width="10" />
+    <circle cx="110" cy="140" r="50" fill="none" stroke="url(#ringGrad)" stroke-width="10" stroke-dasharray="314" stroke-dashoffset="65" stroke-linecap="round" />
+    
+    <text x="95" y="138" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="16">82%</text>
+    <text x="85" y="153" fill="#f472b6" font-family="sans-serif" font-size="9">740 / 900 Kcal</text>
+
+    <!-- Workout Cards -->
+    <rect x="20" y="210" width="180" height="48" rx="10" fill="#1e293b" />
+    <circle cx="45" cy="234" r="14" fill="#f97316" opacity="0.2" />
+    <text x="40" y="238" fill="#f97316" font-size="12">🏃</text>
+    <text x="70" y="228" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="11">Lari Pagi</text>
+    <text x="70" y="244" fill="#94a3b8" font-family="sans-serif" font-size="9">5.2 km • 32 min</text>
+
+    <rect x="20" y="268" width="180" height="48" rx="10" fill="#1e293b" />
+    <circle cx="45" cy="292" r="14" fill="#ec4899" opacity="0.2" />
+    <text x="40" y="296" fill="#ec4899" font-size="12">💪</text>
+    <text x="70" y="286" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="11">Upper Body Gym</text>
+    <text x="70" y="302" fill="#94a3b8" font-family="sans-serif" font-size="9">45 menit • 4 set</text>
+  </g>
+
+  <!-- Floating Stats Widgets on sides -->
+  <rect x="30" y="100" width="130" height="70" rx="12" fill="#1e293b" stroke="#334155" opacity="0.8" />
+  <text x="45" y="125" fill="#94a3b8" font-family="sans-serif" font-size="10">Detak Jantung</text>
+  <text x="45" y="152" fill="#ef4444" font-family="sans-serif" font-weight="bold" font-size="18">72 BPM</text>
+
+  <rect x="440" y="190" width="130" height="70" rx="12" fill="#1e293b" stroke="#334155" opacity="0.8" />
+  <text x="455" y="215" fill="#94a3b8" font-family="sans-serif" font-size="10">Target Hidrasi</text>
+  <text x="455" y="242" fill="#38bdf8" font-family="sans-serif" font-weight="bold" font-size="18">2.4 / 3.0 L</text>
+</svg>

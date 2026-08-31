@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgMegumi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#180b0b" />
+      <stop offset="100%" stop-color="#2d1313" />
+    </linearGradient>
+    <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="380" rx="16" fill="url(#bgMegumi)" />
+
+  <!-- Navbar -->
+  <rect x="30" y="25" width="540" height="42" rx="10" fill="#1e293b" />
+  <circle cx="55" cy="46" r="10" fill="url(#fireGrad)" />
+  <text x="50" y="50" fill="#ffffff" font-size="10">🥩</text>
+  <text x="75" y="51" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="13">Megumi Hotplate Ops &amp; Finance Automation</text>
+  <rect x="420" y="35" width="135" height="22" rx="6" fill="#ef4444" opacity="0.2" />
+  <text x="430" y="50" fill="#f87171" font-family="sans-serif" font-size="10">● Serverless (GAS + Sheets)</text>
+
+  <!-- Left: Mobile POS Input -->
+  <g transform="translate(30, 80)">
+    <rect width="180" height="270" rx="16" fill="#0f172a" stroke="#475569" stroke-width="2" />
+    <text x="20" y="30" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="11">Kasir Smartphone</text>
+    
+    <rect x="15" y="45" width="150" height="38" rx="8" fill="#1e293b" />
+    <text x="25" y="62" fill="#f8fafc" font-family="sans-serif" font-size="10">Hotplate Beef BBQ</text>
+    <text x="25" y="75" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="10">2x @ Rp 38.000</text>
+
+    <rect x="15" y="90" width="150" height="38" rx="8" fill="#1e293b" />
+    <text x="25" y="107" fill="#f8fafc" font-family="sans-serif" font-size="10">Chicken Pepper Rice</text>
+    <text x="25" y="120" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="10">3x @ Rp 28.000</text>
+
+    <!-- Total and Submit -->
+    <rect x="15" y="140" width="150" height="50" rx="8" fill="#1e293b" stroke="#334155" />
+    <text x="25" y="160" fill="#94a3b8" font-family="sans-serif" font-size="9">Total Transaksi</text>
+    <text x="25" y="180" fill="#f59e0b" font-family="sans-serif" font-weight="bold" font-size="14">Rp 160.000</text>
+
+    <rect x="15" y="200" width="150" height="35" rx="8" fill="#ef4444" />
+    <text x="35" y="222" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="10">⚡ Rekap Otomatis</text>
+  </g>
+
+  <!-- Right: Looker Studio BI Dashboard -->
+  <g transform="translate(230, 80)">
+    <rect width="340" height="270" rx="14" fill="#131e36" stroke="#334155" stroke-width="1" />
+    
+    <!-- KPI Row -->
+    <rect x="15" y="15" width="95" height="55" rx="8" fill="#1e293b" />
+    <text x="25" y="32" fill="#94a3b8" font-family="sans-serif" font-size="9">Omset Hari Ini</text>
+    <text x="25" y="55" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="13">Rp 3.450k</text>
+
+    <rect x="120" y="15" width="95" height="55" rx="8" fill="#1e293b" />
+    <text x="130" y="32" fill="#94a3b8" font-family="sans-serif" font-size="9">Laba Kotor</text>
+    <text x="130" y="55" fill="#38bdf8" font-family="sans-serif" font-weight="bold" font-size="13">58.4%</text>
+
+    <rect x="225" y="15" width="100" height="55" rx="8" fill="#1e293b" />
+    <text x="235" y="32" fill="#94a3b8" font-family="sans-serif" font-size="9">Status Stok</text>
+    <text x="235" y="55" fill="#f59e0b" font-family="sans-serif" font-weight="bold" font-size="12">Aman (Restock)</text>
+
+    <!-- Visual Chart -->
+    <rect x="15" y="80" width="310" height="120" rx="10" fill="#0f172a" />
+    <text x="25" y="100" fill="#cbd5e1" font-family="sans-serif" font-weight="bold" font-size="11">Looker Studio Visual Trends</text>
+
+    <!-- Chart Bars -->
+    <rect x="35" y="150" width="25" height="40" rx="4" fill="#6366f1" />
+    <rect x="75" y="130" width="25" height="60" rx="4" fill="#6366f1" />
+    <rect x="115" y="140" width="25" height="50" rx="4" fill="#6366f1" />
+    <rect x="155" y="115" width="25" height="75" rx="4" fill="#f97316" />
+    <rect x="195" y="125" width="25" height="65" rx="4" fill="#6366f1" />
+    <rect x="235" y="105" width="25" height="85" rx="4" fill="#10b981" />
+    <rect x="275" y="95" width="25" height="95" rx="4" fill="#10b981" />
+
+    <!-- Webhook Notification Alert -->
+    <rect x="15" y="210" width="310" height="45" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1" />
+    <circle cx="35" cy="232" r="8" fill="#10b981" />
+    <text x="31" y="236" fill="#ffffff" font-weight="bold" font-size="9">✓</text>
+    <text x="52" y="228" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="10">Webhook WA/Telegram Terkirim</text>
+    <text x="52" y="242" fill="#94a3b8" font-family="sans-serif" font-size="9">Rekap Harian Sukses Tersinkronisasi Otomatis</text>
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgScalev" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1b2a4a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="380" rx="16" fill="url(#bgScalev)" />
+
+  <!-- Navbar -->
+  <rect x="30" y="25" width="540" height="42" rx="10" fill="#1e293b" />
+  <circle cx="55" cy="46" r="10" fill="#6366f1" />
+  <text x="50" y="50" fill="#ffffff" font-size="10">🛒</text>
+  <text x="75" y="51" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="13">Scalev E-Commerce &amp; Teras Tulis Platform</text>
+  <rect x="420" y="35" width="135" height="22" rx="6" fill="#6366f1" opacity="0.2" />
+  <text x="430" y="50" fill="#a5b4fc" font-family="sans-serif" font-size="10">● Headless Storefront</text>
+
+  <!-- Left: Scalev Storefront Preview -->
+  <g transform="translate(30, 80)">
+    <rect width="250" height="270" rx="12" fill="#131e36" stroke="#334155" stroke-width="1" />
+    <text x="20" y="30" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="12">Scalev 1-Step Checkout</text>
+
+    <rect x="20" y="45" width="210" height="60" rx="8" fill="#1e293b" />
+    <text x="30" y="65" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="11">Paket Jasa Penulisan Dokumen</text>
+    <text x="30" y="80" fill="#94a3b8" font-family="sans-serif" font-size="9">Revisi Terstruktur • Format Rapi</text>
+    <text x="30" y="95" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="10">Rp 150.000 / Dokumen</text>
+
+    <!-- Checkout Form Fields -->
+    <rect x="20" y="115" width="210" height="28" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="30" y="133" fill="#94a3b8" font-family="sans-serif" font-size="9">Nama &amp; WhatsApp Klien</text>
+
+    <rect x="20" y="150" width="210" height="28" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="30" y="168" fill="#94a3b8" font-family="sans-serif" font-size="9">Upload File / Kebutuhan</text>
+
+    <rect x="20" y="190" width="210" height="38" rx="8" fill="#10b981" />
+    <text x="60" y="214" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="11">Order Langsung via WA</text>
+  </g>
+
+  <!-- Right: Teras Tulis Order Workflow -->
+  <g transform="translate(300, 80)">
+    <rect width="270" height="270" rx="12" fill="#131e36" stroke="#334155" stroke-width="1" />
+    <text x="20" y="30" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="12">Teras Tulis Workflow Engine</text>
+
+    <!-- Step 1 -->
+    <rect x="20" y="45" width="230" height="55" rx="8" fill="#1e293b" />
+    <text x="30" y="65" fill="#38bdf8" font-family="sans-serif" font-weight="bold" font-size="11">1. Auto-Invoice Google Docs</text>
+    <text x="30" y="82" fill="#94a3b8" font-family="sans-serif" font-size="9">Pembuatan invoice &amp; kuitansi otomatis via GAS</text>
+
+    <!-- Step 2 -->
+    <rect x="20" y="110" width="230" height="55" rx="8" fill="#1e293b" />
+    <text x="30" y="130" fill="#f59e0b" font-family="sans-serif" font-weight="bold" font-size="11">2. Tracking Antrian Penulisan</text>
+    <text x="30" y="147" fill="#94a3b8" font-family="sans-serif" font-size="9">Status pengerjaan &amp; deadline terpusat di Sheets</text>
+
+    <!-- Step 3 -->
+    <rect x="20" y="175" width="230" height="55" rx="8" fill="#1e293b" />
+    <text x="30" y="195" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="11">3. Pengiriman File Terstruktur</text>
+    <text x="30" y="212" fill="#94a3b8" font-family="sans-serif" font-size="9">150+ dokumen terselesaikan dengan aman</text>
+  </g>
+</svg>

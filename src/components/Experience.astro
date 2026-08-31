@@ -1,0 +1,102 @@
+---
+import { experiences } from '../data/experiences';
+---
+
+<section id="pengalaman" class="relative py-24 sm:py-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
+        💼 Rekam Jejak Karir
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight mb-4">
+        Pengalaman <span class="text-gradient">Profesional</span>
+      </h2>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        Perjalanan saya dalam mengembangkan berbagai perangkat lunak dan bekerjasama dengan tim berkinerja tinggi.
+      </p>
+    </div>
+
+    <!-- Timeline Container -->
+    <div class="relative max-w-4xl mx-auto">
+      
+      <!-- Central vertical line (desktop) -->
+      <div class="hidden sm:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-500 via-indigo-500/50 to-transparent"></div>
+
+      <div class="space-y-8 sm:space-y-12">
+        {experiences.map((exp, idx) => (
+          <div class="relative flex flex-col sm:flex-row gap-6 sm:gap-10 group">
+            
+            <!-- Timeline Node Indicator (desktop) -->
+            <div class="hidden sm:flex flex-col items-center">
+              <div class="w-8 h-8 rounded-full bg-white dark:bg-slate-950 border-2 border-brand-500 shadow-md shadow-brand-500/20 flex items-center justify-center text-brand-600 dark:text-brand-400 font-bold text-xs z-10 group-hover:scale-110 transition-transform">
+                {idx + 1}
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="flex-1 glass-card rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60">
+              
+              <!-- Header info -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div>
+                  <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100">
+                    {exp.role}
+                  </h3>
+                  <span class="text-sm font-semibold text-brand-600 dark:text-brand-400">
+                    {exp.company}
+                  </span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono">
+                    {exp.period}
+                  </span>
+                  <span class="px-2.5 py-1 text-[11px] font-semibold rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                    {exp.type}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Location & Description -->
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                {exp.location}
+              </p>
+
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                {exp.description}
+              </p>
+
+              <!-- Key Highlights -->
+              <div class="space-y-2 mb-6">
+                {exp.highlights.map((h) => (
+                  <div class="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                    <span class="text-brand-500 font-bold mt-0.5">✦</span>
+                    <span>{h}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Tech Stack Badges -->
+              <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-200/60 dark:border-slate-800/60">
+                {exp.technologies.map((t) => (
+                  <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800/70 text-slate-600 dark:text-slate-300">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+</section>

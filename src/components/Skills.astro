@@ -1,0 +1,72 @@
+---
+import { skillGroups } from '../data/skills';
+---
+
+<section id="keahlian" class="relative py-24 sm:py-32 bg-slate-50/50 dark:bg-slate-900/30 border-y border-slate-200/60 dark:border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-4">
+        ⚡ Tech Stack &amp; Keahlian
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight mb-4">
+        Teknologi yang <span class="text-gradient">Saya Gunakan</span>
+      </h2>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        Kombinasi bahasa pemrograman modern, framework teruji, arsitektur database, dan alat bantu performa tinggi yang siap pakai untuk proyek Anda.
+      </p>
+    </div>
+
+    <!-- Skills Group Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      {skillGroups.map((group) => (
+        <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60">
+          <div>
+            <!-- Group Header -->
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-brand-500/10 dark:bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-lg">
+                {group.icon === 'layout' && '🎨'}
+                {group.icon === 'server' && '⚙️'}
+                {group.icon === 'cloud' && '☁️'}
+                {group.icon === 'sparkles' && '✨'}
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100">
+                  {group.category}
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                  {group.description}
+                </p>
+              </div>
+            </div>
+
+            <!-- Skills Pills Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mt-6">
+              {group.skills.map((skill) => (
+                <div class={`p-3 rounded-2xl border transition-all duration-200 flex flex-col justify-between ${
+                  skill.highlight
+                    ? 'bg-gradient-to-b from-brand-50/70 to-indigo-50/40 dark:from-brand-950/40 dark:to-indigo-950/20 border-brand-200/80 dark:border-brand-800/60 shadow-sm'
+                    : 'bg-slate-50/80 dark:bg-slate-800/40 border-slate-200/60 dark:border-slate-700/50'
+                }`}>
+                  <span class="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 line-clamp-1">
+                    {skill.name}
+                  </span>
+                  <div class="flex items-center justify-between mt-2 pt-1 border-t border-slate-200/40 dark:border-slate-700/40">
+                    <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">
+                      {skill.level}
+                    </span>
+                    {skill.highlight && (
+                      <span class="text-[10px] text-brand-600 dark:text-brand-400 font-bold">★ Core</span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

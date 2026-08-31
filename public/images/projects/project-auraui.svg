@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgAura" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1035" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="380" rx="16" fill="url(#bgAura)" />
+
+  <!-- Code Snippet / Component Preview Card -->
+  <rect x="40" y="35" width="250" height="305" rx="12" fill="#090d16" stroke="#334155" stroke-width="1.5" />
+  <rect x="40" y="35" width="250" height="35" rx="12" fill="#1e293b" />
+  <circle cx="60" cy="52" r="4" fill="#ef4444" />
+  <circle cx="72" cy="52" r="4" fill="#f59e0b" />
+  <circle cx="84" cy="52" r="4" fill="#10b981" />
+  <text x="105" y="56" fill="#94a3b8" font-family="monospace" font-size="10">Button.tsx</text>
+
+  <!-- Syntax highlighted mockup -->
+  <text x="55" y="95" fill="#f43f5e" font-family="monospace" font-size="11">import</text>
+  <text x="100" y="95" fill="#f8fafc" font-family="monospace" font-size="11">{ cva }</text>
+  <text x="145" y="95" fill="#f43f5e" font-family="monospace" font-size="11">from</text>
+  <text x="180" y="95" fill="#10b981" font-family="monospace" font-size="11">'class-variance'</text>
+  
+  <text x="55" y="125" fill="#818cf8" font-family="monospace" font-size="11">export const</text>
+  <text x="140" y="125" fill="#38bdf8" font-family="monospace" font-size="11">buttonVariants</text>
+  <text x="55" y="145" fill="#f8fafc" font-family="monospace" font-size="11">= cva(</text>
+  <text x="70" y="165" fill="#10b981" font-family="monospace" font-size="10">'inline-flex items-center',</text>
+  <text x="70" y="185" fill="#cbd5e1" font-family="monospace" font-size="10">{ variants: {</text>
+  <text x="85" y="205" fill="#fcd34d" font-family="monospace" font-size="10">variant: {</text>
+  <text x="100" y="225" fill="#ec4899" font-family="monospace" font-size="10">primary: 'bg-brand-600',</text>
+  <text x="100" y="245" fill="#ec4899" font-family="monospace" font-size="10">outline: 'border-2',</text>
+  <text x="85" y="265" fill="#fcd34d" font-family="monospace" font-size="10">}</text>
+  <text x="70" y="285" fill="#cbd5e1" font-family="monospace" font-size="10">}}</text>
+  <text x="55" y="305" fill="#f8fafc" font-family="monospace" font-size="11">)</text>
+
+  <!-- Component Showcase on Right -->
+  <rect x="310" y="35" width="250" height="305" rx="12" fill="#131e36" stroke="#334155" stroke-width="1" />
+  <text x="330" y="70" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="14">Aura UI Components</text>
+  <text x="330" y="90" fill="#94a3b8" font-family="sans-serif" font-size="11">Production-ready accessible tokens</text>
+
+  <!-- Button Previews -->
+  <rect x="330" y="115" width="100" height="34" rx="8" fill="#6366f1" />
+  <text x="355" y="136" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="11">Primary</text>
+
+  <rect x="440" y="115" width="100" height="34" rx="8" fill="none" stroke="#6366f1" stroke-width="1.5" />
+  <text x="465" y="136" fill="#818cf8" font-family="sans-serif" font-weight="bold" font-size="11">Outline</text>
+
+  <!-- Switch / Toggle -->
+  <rect x="330" y="170" width="50" height="26" rx="13" fill="#10b981" />
+  <circle cx="367" cy="183" r="9" fill="#ffffff" />
+  <text x="390" y="188" fill="#cbd5e1" font-family="sans-serif" font-size="11">Active Switch</text>
+
+  <!-- Badge previews -->
+  <rect x="330" y="215" width="80" height="24" rx="12" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" />
+  <text x="345" y="231" fill="#f59e0b" font-family="sans-serif" font-weight="bold" font-size="10">● Warning</text>
+
+  <rect x="420" y="215" width="75" height="24" rx="12" fill="#10b981" opacity="0.2" stroke="#10b981" />
+  <text x="435" y="231" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="10">✓ Success</text>
+
+  <!-- Input box preview -->
+  <rect x="330" y="260" width="210" height="38" rx="8" fill="#090d16" stroke="#475569" stroke-width="1" />
+  <text x="345" y="284" fill="#94a3b8" font-family="sans-serif" font-size="11">user@domain.com</text>
+  <rect x="495" y="268" width="35" height="22" rx="4" fill="#334155" />
+  <text x="502" y="283" fill="#38bdf8" font-family="monospace" font-size="10">⌘K</text>
+</svg>
