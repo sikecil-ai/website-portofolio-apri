@@ -16,31 +16,32 @@ const {
 const fullImageUrl = new URL(image, siteConfig.url).href;
 const fullCanonicalUrl = new URL(Astro.url.pathname, siteConfig.url).href;
 
-// JSON-LD Schema: Person
+// JSON-LD Schema: Person with repeating core keywords
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: siteConfig.name,
+  alternateName: ['Kang Apri', 'madebyaapri'],
   url: siteConfig.url,
   image: new URL('/images/avatar.svg', siteConfig.url).href,
-  jobTitle: 'Full-stack Developer & Software Engineer',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Tech Innovate Studio',
+  jobTitle: 'Workflow Automation Specialist & Google Workspace Developer',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Kota Cimahi',
+    addressRegion: 'Jawa Barat',
+    addressCountry: 'ID',
   },
   sameAs: siteConfig.socialLinks.map((link) => link.url),
   description: siteConfig.bio,
   knowsAbout: [
-    'Web Development',
-    'Astro',
-    'React',
-    'Next.js',
-    'Tailwind CSS',
-    'TypeScript',
-    'Node.js',
-    'Search Engine Optimization (SEO)',
-    'Fullstack Architecture',
-    'Artificial Intelligence Integration',
+    'Otomasi Alur Kerja Tanpa Server',
+    'Aplikasi Kasir & Rekap Keuangan UMKM',
+    'Aplikasi Tabulasi Lomba Paskibra Real-time',
+    'Google Apps Script (GAS)',
+    'Google Workspace Automation',
+    'Looker Studio Business Intelligence',
+    'AI Automation & Gemini API',
+    'Zero Server Cost Architecture',
   ],
 };
 
@@ -48,7 +49,7 @@ const personSchema = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: siteConfig.name + ' Portfolio',
+  name: 'Kang Apri (@madebyaapri) — Otomasi Alur Kerja & Sistem Bisnis',
   url: siteConfig.url,
   description: siteConfig.description,
   author: {
@@ -58,11 +59,11 @@ const websiteSchema = {
   inLanguage: 'id-ID',
 };
 
-// JSON-LD Schema: ItemList (Portfolio Projects)
+// JSON-LD Schema: ItemList (Portfolio Applications)
 const projectListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Portfolio Applications by ' + siteConfig.name,
+  name: 'Sistem Otomasi & Aplikasi by ' + siteConfig.name,
   itemListElement: projects.map((project, index) => ({
     '@type': 'ListItem',
     position: index + 1,
@@ -71,11 +72,11 @@ const projectListSchema = {
       name: project.title,
       description: project.description,
       applicationCategory: project.category,
-      operatingSystem: 'All',
+      operatingSystem: 'All (Cloud & Mobile)',
       offers: {
         '@type': 'Offer',
         price: '0',
-        priceCurrency: 'USD',
+        priceCurrency: 'IDR',
       },
     },
   })),
@@ -93,7 +94,7 @@ const projectListSchema = {
 <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 
-<!-- Primary Meta Tags -->
+<!-- Primary Meta Tags with Google Trends Keywords -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
@@ -102,14 +103,14 @@ const projectListSchema = {
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <link rel="canonical" href={fullCanonicalUrl} />
 
-<!-- Open Graph / Facebook -->
+<!-- Open Graph / Facebook / WhatsApp -->
 <meta property="og:type" content={type} />
 <meta property="og:url" content={fullCanonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={fullImageUrl} />
 <meta property="og:image:alt" content={title} />
-<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:site_name" content="madebyaapri — Kang Apri" />
 <meta property="og:locale" content="id_ID" />
 
 <!-- Twitter / X -->
@@ -118,9 +119,9 @@ const projectListSchema = {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={fullImageUrl} />
-<meta name="twitter:creator" content="@apriyantowijaya" />
+<meta name="twitter:creator" content="@madebyaapri" />
 
-<!-- Font Preconnect & Loading -->
+<!-- Font Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
