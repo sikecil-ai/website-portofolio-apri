@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import PainPoints from '../components/PainPoints.astro';
 import ProjectGallery from '../components/ProjectGallery.astro';
+import Comparison from '../components/Comparison.astro';
 import Articles from '../components/Articles.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import Testimonials from '../components/Testimonials.astro';
@@ -17,14 +19,17 @@ import { siteConfig } from '../data/siteConfig';
   <!-- 1. Hero Section -->
   <Hero />
 
-  <!-- 2. About / Philosophy Section -->
+  <!-- 2. Problem Agitation / Pain Points Section -->
+  <PainPoints />
+
+  <!-- 3. About / Philosophy Section -->
   <section id="tentang" class="py-20 border-t border-slate-200/60 dark:border-slate-800/60 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div class="lg:col-span-5">
           <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-cyan-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
-            👨‍💻 Tentang Kang Apri (@madebyaapri)
+            Tentang Kang Apri (@madebyaapri)
           </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight mb-4">
             Dedikasi pada <span class="text-gradient-cyan">Otomasi Nyata &amp; Hasil Terukur</span>
@@ -85,30 +90,33 @@ import { siteConfig } from '../data/siteConfig';
     </div>
   </section>
 
-  <!-- 3. Project & System Showcase Section -->
+  <!-- 4. Project & System Showcase Section -->
   <ProjectGallery />
 
-  <!-- 4. Articles & Case Studies Section (8 Real Stories) -->
+  <!-- 5. Value Comparison Matrix Section (Kenapa Memilih Kami) -->
+  <Comparison />
+
+  <!-- 6. Articles & Case Studies Section (8 Real Stories) -->
   <Articles />
 
-  <!-- 5. How It Works (3 Langkah Mudah) Section -->
+  <!-- 7. How It Works (Alur Kolaborasi Cepat) Section -->
   <HowItWorks />
 
-  <!-- 6. Testimonials & Social Proof Section -->
+  <!-- 8. Testimonials & Social Proof Section -->
   <Testimonials />
 
-  <!-- 7. Pricing & Investment Tiers Section -->
+  <!-- 9. Pricing & Investment Tiers Section -->
   <Pricing />
 
-  <!-- 8. Skills & Tech Stack Section -->
+  <!-- 10. Skills & Tech Stack Section -->
   <Skills />
 
-  <!-- 9. Experience & Living Lab Section -->
+  <!-- 11. Proven Track Record & Living Lab Section -->
   <Experience />
 
-  <!-- 10. FAQ Section -->
+  <!-- 12. FAQ Section -->
   <FAQ />
 
-  <!-- 11. Contact & Direct WhatsApp Section -->
+  <!-- 13. Contact & Direct WhatsApp Section -->
   <Contact />
 </Layout>
