@@ -5,21 +5,21 @@ import ThemeToggle from './ThemeToggle.astro';
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-    <nav class="flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-2xl glass-panel bg-white/75 dark:bg-slate-900/75 border border-slate-200/80 dark:border-slate-800/80 shadow-sm backdrop-blur-md transition-all duration-300">
+    <nav class="flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-2xl glass-panel bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/80 shadow-sm backdrop-blur-md transition-all duration-300">
       
-      <!-- Brand Logo -->
+      <!-- Brand Logo madebyaapri -->
       <a href="#beranda" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-500/50 rounded-xl p-1">
-        <div class="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 p-0.5 shadow-md shadow-brand-500/20 group-hover:shadow-brand-500/40 transition-all duration-300 group-hover:scale-105">
-          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-white font-bold text-base">
-            <span>A</span>
+        <div class="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-500 to-cyan-400 p-0.5 shadow-md shadow-brand-500/20 group-hover:shadow-brand-500/40 transition-all duration-300 group-hover:scale-105">
+          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-white font-bold text-xs tracking-tighter font-mono">
+            <span>mba</span>
           </div>
         </div>
         <div class="flex flex-col">
           <span class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-            {siteConfig.name}
+            madebyaapri
           </span>
-          <span class="text-[10px] text-slate-500 dark:text-slate-400 -mt-0.5">
-            Full-stack Developer
+          <span class="text-[10px] text-brand-600 dark:text-brand-400 font-semibold -mt-0.5 font-mono">
+            Kang Apri • Automation
           </span>
         </div>
       </a>
@@ -29,25 +29,30 @@ import ThemeToggle from './ThemeToggle.astro';
         {siteConfig.navLinks.map((link) => (
           <a
             href={link.href}
-            class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60 rounded-lg transition-all"
+            target={link.href.startsWith('http') ? '_blank' : '_self'}
+            rel={link.href.startsWith('http') ? 'noopener noreferrer' : ''}
+            class={`px-3 py-1.5 text-xs lg:text-sm font-medium rounded-lg transition-all ${
+              link.name === 'Toko Digital'
+                ? 'text-brand-600 dark:text-brand-400 bg-brand-50/80 dark:bg-brand-950/60 font-semibold hover:bg-brand-100 dark:hover:bg-brand-900/60'
+                : 'text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60'
+            }`}
           >
             {link.name}
           </a>
         ))}
       </div>
 
-      <!-- Action Area: Theme Toggle + CTA Button + Mobile Toggle -->
+      <!-- Action Area: Lynk.id Store CTA + Theme Toggle + Mobile Toggle -->
       <div class="flex items-center gap-2 sm:gap-3">
         <ThemeToggle />
 
         <a
-          href="#kontak"
-          class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-xl text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 shadow-sm shadow-brand-500/25 transition-all active:scale-95"
+          href="https://lynk.id/madebyaapri"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 shadow-sm shadow-brand-500/25 transition-all active:scale-95"
         >
-          <span>Mari Diskusi</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-          </svg>
+          <span>🛍️ Lynk.id Store</span>
         </a>
 
         <!-- Mobile Menu Button -->
@@ -76,20 +81,29 @@ import ThemeToggle from './ThemeToggle.astro';
         {siteConfig.navLinks.map((link) => (
           <a
             href={link.href}
-            class="mobile-link px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-50 dark:hover:bg-slate-800/80 hover:text-brand-600 dark:hover:text-brand-400 rounded-xl transition-all"
+            target={link.href.startsWith('http') ? '_blank' : '_self'}
+            class="mobile-link px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-50 dark:hover:bg-slate-800/80 hover:text-brand-600 dark:hover:text-brand-400 rounded-xl transition-all flex items-center justify-between"
           >
-            {link.name}
+            <span>{link.name}</span>
+            {link.href.startsWith('http') && <span class="text-xs text-brand-500">↗</span>}
           </a>
         ))}
-        <div class="pt-2 border-t border-slate-200 dark:border-slate-800 mt-1">
+        <div class="pt-2 border-t border-slate-200 dark:border-slate-800 mt-1 flex flex-col gap-2">
           <a
-            href="#kontak"
-            class="mobile-link flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold rounded-xl text-white bg-brand-600 hover:bg-brand-500 shadow-sm transition-all"
+            href="https://lynk.id/madebyaapri"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mobile-link flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-brand-600 to-indigo-600 shadow-sm"
           >
-            <span>Hubungi Saya</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
+            <span>🛍️ Buka Lynk.id Store</span>
+          </a>
+          <a
+            href="https://wa.me/6282118313655"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mobile-link flex items-center justify-center gap-2 w-full px-4 py-2 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
+          >
+            <span>💬 Chat WhatsApp Kang Apri</span>
           </a>
         </div>
       </div>
