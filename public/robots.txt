@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://apriyantowijaya.dev/sitemap-index.xml
+Sitemap: https://madebyaapri.vercel.app/sitemap-index.xml

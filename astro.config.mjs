@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://apriyantowijaya.dev',
+  site: 'https://madebyaapri.vercel.app',
   integrations: [
     tailwind({
       applyBaseStyles: false,

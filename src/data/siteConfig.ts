@@ -9,7 +9,7 @@ export const siteConfig: SiteConfig = {
   location: 'Cibeber, Cimahi Selatan, Kota Cimahi, Jawa Barat',
   email: 'sohibwijaya@gmail.com',
   phone: '+6282118313655',
-  url: 'https://website-portofolio-apri.vercel.app',
+  url: 'https://madebyaapri.vercel.app',
   ogImage: '/images/avatar.svg',
   author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
   status: {
