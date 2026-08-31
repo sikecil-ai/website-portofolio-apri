@@ -1,154 +1,184 @@
 ---
 import { siteConfig } from '../data/siteConfig';
-import { projects } from '../data/projects';
-import { articles } from '../data/articles';
-import type { SEOProps } from '../types';
 
-export interface Props extends SEOProps {}
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: string;
+}
 
 const {
   title = siteConfig.title,
   description = siteConfig.description,
   image = siteConfig.ogImage,
-  canonicalURL = Astro.url.href,
+  canonicalURL = siteConfig.url,
   type = 'website',
 } = Astro.props;
 
-const fullImageUrl = new URL(image, siteConfig.url).href;
-const fullCanonicalUrl = new URL(Astro.url.pathname, siteConfig.url).href;
+const fullImageURL = image.startsWith('http')
+  ? image
+  : `${siteConfig.url}${image}`;
 
-// JSON-LD Schema: Person
+const baseSiteUrl = siteConfig.url;
+
+// Schema 1: Person (E-E-A-T Authority for Kang Apri)
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: siteConfig.name,
-  alternateName: ['Kang Apri', 'madebyaapri'],
-  url: siteConfig.url,
-  image: new URL('/images/avatar.svg', siteConfig.url).href,
-  jobTitle: 'Workflow Automation Specialist & Google Workspace Solutions Developer',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'madebyaapri Digital Solutions',
-  },
+  '@id': `${baseSiteUrl}/#person`,
+  name: 'Muhammad Apriyanto Wijaya',
+  alternateName: ['Kang Apri', '@madebyaapri', 'Apriyanto Wijaya'],
+  url: baseSiteUrl,
+  image: fullImageURL,
+  jobTitle: 'Workflow Automation Specialist & Zero Server Cost Architecture Developer',
+  description: siteConfig.bio,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Kota Cimahi',
     addressRegion: 'Jawa Barat',
-    postalCode: '40532',
     addressCountry: 'ID',
   },
-  sameAs: siteConfig.socialLinks.map((link) => link.url),
-  description: siteConfig.bio,
+  sameAs: [
+    'https://instagram.com/madebyaapri',
+    'https://tiktok.com/@madebyaapri',
+    'https://www.youtube.com/@madebyaapri',
+    'https://linkedin.com/in/apriyanto-wijaya',
+    'https://github.com/sikecil-ai',
+    'https://wa.me/6282118313655',
+  ],
   knowsAbout: [
-    'Otomasi Alur Kerja Tanpa Server',
-    'Aplikasi Kasir & Rekap Keuangan UMKM',
-    'Aplikasi Tabulasi Lomba Paskibra Real-time',
-    'Google Apps Script (GAS)',
-    'Google Workspace Automation',
+    'Workflow Automation',
+    'Google Apps Script',
+    'Google Sheets Database Engine',
     'Looker Studio Business Intelligence',
-    'AI Automation & Gemini API',
-    'Zero Server Cost Architecture',
+    'Aplikasi Kasir UMKM Zero Server Cost',
+    'Aplikasi Tabulasi Lomba Paskibra Real-time',
+    'Astro Web Framework',
+    'Python AI Bot Development',
   ],
 };
 
-// JSON-LD Schema: WebSite with SearchAction
+// Schema 2: WebSite
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': `${baseSiteUrl}/#website`,
+  url: baseSiteUrl,
   name: 'Kang Apri (@madebyaapri) — Otomasi Alur Kerja & Sistem Bisnis Tanpa Server',
-  url: siteConfig.url,
   description: siteConfig.description,
-  author: {
-    '@type': 'Person',
-    name: siteConfig.name,
+  publisher: {
+    '@id': `${baseSiteUrl}/#person`,
   },
   inLanguage: 'id-ID',
 };
 
-// JSON-LD Schema: FAQPage for Google Rich Snippets
+// Schema 3: FAQPage (Google Rich Snippets)
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Apakah benar-benar tanpa biaya sewa server bulanan (Zero Server Cost)?',
+      name: 'Apa yang dimaksud dengan Zero Server Cost Architecture?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Ya, 100% benar! Kami memanfaatkan arsitektur serverless Google Workspace (Google Sheets Database Engine, Google Apps Script, dan Looker Studio) yang disediakan gratis oleh Google tanpa biaya langganan bulanan.',
+        text: 'Zero Server Cost Architecture adalah pendekatan perancangan sistem perangkat lunak yang memanfaatkan ekosistem cloud gratis seperti Google Workspace, Google Apps Script, dan Google Sheets sebagai database engine.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Bisnis apa saja yang bisa dibuatkan sistem otomasi alur kerja & aplikasi kasir?',
+      name: 'Bagaimana alur kerja aplikasi tabulasi lomba Paskibra KOMANDO?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Semua jenis usaha! Kami telah menangani bisnis kuliner (F&B), toko retail, klinik, jasa penulisan, event organizer, panitia lomba Paskibra/LKBB, hingga administrasi sekolah.',
+        text: 'Juri menginput nilai langsung melalui formulir digital di smartphone. Nilai otomatis tersinkronisasi secara real-time (0 detik jeda) ke engine kalkulasi terpusat.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Berapa lama proses pembuatan dan implementasi sistem otomasi?',
+      name: 'Berapa lama estimasi pengerjaan sebuah sistem kustom?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Untuk kebutuhan standar seperti sistem kasir F&B atau tabulasi lomba, waktu pengerjaan umumnya memakan waktu 3 hingga 7 hari kerja sudah siap pakai dan teruji di lapangan.',
+        text: 'Waktu pengerjaan umumnya berkisar antara 3 hingga 7 hari kerja tergantung pada kompleksitas modul yang dibutuhkan.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Bagaimana cara memesan aplikasi tabulasi lomba Paskibra KOMANDO?',
+      name: 'Apakah data transaksi dan keuangan bisnis saya aman di Google Sheets?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Cukup klik tombol WhatsApp di website ini dan sampaikan tanggal event serta jumlah pleton peserta. Kami akan menyiapkan sistem tabulasi live real-time untuk kejuaraan Anda.',
+        text: 'Sangat aman. Seluruh database tersimpan di akun Google Workspace milik Anda sendiri dengan standar enkripsi enterprise dari Google.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Bagaimana cara berkonsultasi mengenai kebutuhan otomasi saya?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Anda dapat langsung mengklik tombol WhatsApp di website untuk mendiskusikan proses bisnis atau alur kerja yang ingin diotomasi.',
       },
     },
   ],
 };
 
-// JSON-LD Schema: ItemList (Portfolio Applications)
-const projectListSchema = {
+// Schema 4: ItemList for Software Products
+const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Sistem Otomasi & Aplikasi by ' + siteConfig.name,
-  itemListElement: projects.map((project, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    item: {
+  name: 'Sistem Otomasi & Aplikasi by Muhammad Apriyanto Wijaya',
+  itemListElement: [
+    {
       '@type': 'SoftwareApplication',
-      name: project.title,
-      description: project.description,
-      applicationCategory: project.category,
-      operatingSystem: 'All (Cloud, Web, Mobile)',
+      position: 1,
+      name: 'KOMANDO — Sistem Manajemen & Tabulasi Paskibra Real-time',
+      operatingSystem: 'Web, Android, iOS',
+      applicationCategory: 'BusinessApplication',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'IDR',
       },
     },
-  })),
+    {
+      '@type': 'SoftwareApplication',
+      position: 2,
+      name: 'Megumi Hotplate Automated Operations & Finance System',
+      operatingSystem: 'Web, Mobile',
+      applicationCategory: 'FinanceApplication',
+    },
+    {
+      '@type': 'SoftwareApplication',
+      position: 3,
+      name: 'Auto Content Publisher & Sales Automation Bot',
+      operatingSystem: 'Cross-platform Python',
+      applicationCategory: 'MarketingApplication',
+    },
+    {
+      '@type': 'SoftwareApplication',
+      position: 4,
+      name: 'Scalev Storefront & Teras Tulis Document Agency System',
+      operatingSystem: 'Web E-Commerce',
+      applicationCategory: 'ECommerceApplication',
+    },
+  ],
 };
 
-// JSON-LD Schema: Blog / Articles Collection
-const articlesSchema = {
+// Schema 5: Blog & Articles (Google Discover E-E-A-T)
+const blogSchema = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
   name: 'Studi Kasus & Artikel Otomasi by Kang Apri (@madebyaapri)',
-  description: 'Kumpulan cerita nyata dan studi kasus di balik layar pengembangan 7 sistem otomasi alur kerja, kasir F&B, dan tabulasi lomba.',
-  url: `${siteConfig.url}#artikel`,
-  blogPost: articles.map((article) => ({
-    '@type': 'BlogPosting',
-    headline: article.title,
-    description: article.excerpt,
-    datePublished: '2025-01-01',
-    author: {
-      '@type': 'Person',
-      name: siteConfig.name,
-    },
-    inLanguage: 'id-ID',
-  })),
+  url: `${baseSiteUrl}/#artikel`,
+  description: 'Kumpulan cerita nyata di balik layar, studi kasus otomasi bisnis tanpa server, dan sistem penjurian Paskibra.',
+  author: {
+    '@id': `${baseSiteUrl}/#person`,
+  },
 };
 
-// JSON-LD Schema: BreadcrumbList
+// Schema 6: Breadcrumbs
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -157,87 +187,74 @@ const breadcrumbSchema = {
       '@type': 'ListItem',
       position: 1,
       name: 'Beranda',
-      item: siteConfig.url,
+      item: baseSiteUrl,
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Sistem & Solusi',
-      item: `${siteConfig.url}#proyek`,
+      item: `${baseSiteUrl}/#proyek`,
     },
     {
       '@type': 'ListItem',
       position: 3,
       name: 'Artikel & Studi Kasus',
-      item: `${siteConfig.url}#artikel`,
+      item: `${baseSiteUrl}/#artikel`,
     },
     {
       '@type': 'ListItem',
       position: 4,
+      name: 'Investasi & Biaya',
+      item: `${baseSiteUrl}/#investasi`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 5,
       name: 'FAQ',
-      item: `${siteConfig.url}#faq`,
+      item: `${baseSiteUrl}/#faq`,
     },
   ],
 };
 ---
 
-<!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="generator" content={Astro.generator} />
-
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" href="/favicon.svg" />
-<meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-
-<!-- Primary Meta Tags with Google Trends Repeating Keywords -->
+<!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta name="keywords" content={siteConfig.keywords.join(', ')} />
 <meta name="author" content={siteConfig.author} />
+<meta name="publisher" content="Muhammad Apriyanto Wijaya (@madebyaapri)" />
+<meta name="keywords" content={siteConfig.keywords.join(', ')} />
+<link rel="canonical" href={canonicalURL} />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<link rel="canonical" href={fullCanonicalUrl} />
 
-<!-- Geo & Local SEO Tagging (Kota Cimahi, Jawa Barat) -->
+<!-- Geo Local SEO Tags (Kota Cimahi, Jawa Barat) -->
 <meta name="geo.region" content="ID-JB" />
 <meta name="geo.placename" content="Kota Cimahi" />
 <meta name="geo.position" content="-6.872288;107.542046" />
 <meta name="ICBM" content="-6.872288, 107.542046" />
-<meta name="language" content="Indonesian" />
 
-<!-- Open Graph / Facebook / WhatsApp -->
+<!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
-<meta property="og:url" content={fullCanonicalUrl} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={fullImageUrl} />
+<meta property="og:image" content={fullImageURL} />
 <meta property="og:image:alt" content={title} />
 <meta property="og:site_name" content="madebyaapri — Kang Apri" />
 <meta property="og:locale" content="id_ID" />
 
-<!-- Twitter / X -->
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content={fullCanonicalUrl} />
+<meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={fullImageUrl} />
+<meta name="twitter:image" content={fullImageURL} />
 <meta name="twitter:creator" content="@madebyaapri" />
 
-<!-- Font Preconnect -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-  rel="stylesheet"
-/>
-
-<!-- Google SEO Structured Data (JSON-LD Rich Snippets) -->
+<!-- Structured Data JSON-LD Schemas -->
 <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-<script type="application/ld+json" set:html={JSON.stringify(projectListSchema)} />
-<script type="application/ld+json" set:html={JSON.stringify(articlesSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
