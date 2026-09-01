@@ -30,7 +30,15 @@ Skill ini digunakan untuk memandu perancangan komponen visual, halaman depan, da
   - *"Baca Studi Kasus (5 Menit) →"*
 * **Interaktivitas:** Wajib memberikan feedback visual instan saat diklik (hover state halus, focus ring untuk aksesibilitas, perubahan teks status).
 
-### 4. 🧹 Audit Kebersihan dari "Bau AI"
+### 4. ✨ 5 Aset Animated Icons & Micro-Interactions Terpilih (Koleksi Praktisi):
+Untuk membuat antarmuka aplikasi dan web kita hidup, interaktif, dan tidak kaku tanpa membebani performa (*zero-bloat*):
+1. **[lucide-animated.com](https://lucide-animated.com):** Ikon modern minimalis dengan micro-animation interaktif saat hover/klik.
+2. **[lordicon.com](https://lordicon.com):** Pustaka ikon interaktif kaya fitur dengan dukungan Lottie JSON & CSS.
+3. **[movingicons.dev](https://movingicons.dev):** 555+ animated icons dengan style desain konsisten dan elegan.
+4. **[itshover.com/icons](https://itshover.com/icons):** Alternatif indie modern untuk efek hover tombol dan status dinamis.
+5. **[animate-ui.com/docs/icons](https://animate-ui.com/docs/icons):** Komponen UI terpadu dan icon kit untuk aplikasi full-stack.
+
+### 5. 🧹 Audit Kebersihan dari "Bau AI"
 Sebelum melakukan deploy, periksa:
 - [ ] Apakah ada icon bintang `✨` yang berlebihan? (Hapus jika tidak perlu).
 - [ ] Apakah ada cahaya neon ungu yang menyilaukan mata? (Haluskan hingga opacity < 15%).
