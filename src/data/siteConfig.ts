@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   title: 'Kang Apri — Spesialis Modernisasi Spreadsheet & Sistem Bisnis',
   subtitle: 'Ubah Spreadsheet Ribet Jadi Aplikasi Smartphone Rapi, Cepat & Menyenangkan.',
   description: 'Spesialis modernisasi spreadsheet Google Sheets & otomasi sistem bisnis tanpa biaya sewa server bulanan oleh Kang Apri (@madebyaapri) di Kota Cimahi.',
-  bio: 'Halo! Saya Kang Apri (@madebyaapri). Saya membantu pemilik bisnis dan tim operasional mengubah spreadsheet ribet menjadi aplikasi smartphone yang rapi, cepat, dan membuat kerja tim jadi lebih menyenangkan — tanpa biaya sewa server bulanan.',
+  bio: 'Halo! Aku Apri (@madebyaapri). Aku bantu pemilik bisnis dan tim operasional mengubah spreadsheet ribet menjadi aplikasi smartphone yang rapi, cepat, dan membuat kerja tim jadi lebih menyenangkan — tanpa biaya sewa server bulanan.',
   location: 'Kota Cimahi, Jawa Barat',
   email: 'sohibwijaya@gmail.com',
   phone: '+6282118313655',
