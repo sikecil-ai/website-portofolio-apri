@@ -53,10 +53,16 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
           <span>← Kembali ke Beranda &amp; Artikel</span>
         </a>
 
-        <!-- Category & Read Time Badge (Truthful) -->
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono text-slate-600 dark:text-slate-300">
-          <span>⏱️</span>
-          <span>{article.readTime}</span>
+        <!-- Read Time & Real GoatCounter Views Badge -->
+        <div class="flex items-center gap-2">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono text-slate-600 dark:text-slate-300">
+            <span>⏱️</span>
+            <span>{article.readTime}</span>
+          </div>
+          <div id="real-views-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-xs font-mono text-brand-600 dark:text-brand-400">
+            <span>👁️</span>
+            <span id="real-views-text">Dibaca <strong id="gc-count">1</strong> kali</span>
+          </div>
         </div>
       </div>
 
@@ -317,8 +323,31 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
     </article>
   </div>
 
-  <!-- Interactive Scripts for Copy Link & Instagram Share -->
+  <!-- Interactive Scripts for Copy Link, Instagram Share & Real GoatCounter Views -->
   <script is:inline define:vars={{ canonicalURL, articleTitle: article.title, slug: article.slug }}>
+    // Fetch Real Live Views from GoatCounter Open Source API
+    (function fetchRealViews() {
+      const path = location.pathname.replace(/\/$/, '');
+      const url = `https://madebyaapri.goatcounter.com/counter/${encodeURIComponent(path)}.json`;
+      
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          const count = data.count ? parseInt(data.count.replace(/,/g, ''), 10) : 1;
+          const textEl = document.getElementById('real-views-text');
+          if (textEl) {
+            textEl.innerHTML = `Dibaca <strong class="text-brand-600 dark:text-brand-400 font-bold">${count}</strong> kali`;
+          }
+        })
+        .catch(() => {
+          // Graceful fallback if offline
+          const textEl = document.getElementById('real-views-text');
+          if (textEl) {
+            textEl.innerHTML = `Dibaca <strong class="text-brand-600 dark:text-brand-400 font-bold">1</strong> kali`;
+          }
+        });
+    })();
+
     // Copy Link Handlers
     function copyArticleLink(btnId, textId) {
       const btn = document.getElementById(btnId);
