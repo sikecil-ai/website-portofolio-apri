@@ -15,9 +15,19 @@ const { article } = Astro.props;
 
 const canonicalURL = `${siteConfig.url}/artikel/${article.slug}`;
 
+const ogImageMap: Record<string, string> = {
+  'seni-vibecoding-rapi-terstruktur-kang-apri': '/images/og-vibecoding.png',
+  'kisah-komando-tabulasi-paskibra-realtime': '/images/og-komando.png',
+  'arsitektur-zero-server-cost-megumi-hotplate': '/images/og-megumi.png',
+  'otomasi-bot-python-ai-content-publisher': '/images/og-autocontent.png',
+};
+
+const articleOgImage = ogImageMap[article.slug] || '/images/og-image.png';
+
 const seoProps = {
   title: `${article.title} | Kang Apri (@madebyaapri)`,
   description: article.excerpt,
+  image: articleOgImage,
   canonicalURL: canonicalURL,
   type: 'article',
 };

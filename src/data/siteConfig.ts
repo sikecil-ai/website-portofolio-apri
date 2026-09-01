@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   email: 'sohibwijaya@gmail.com',
   phone: '+6282118313655',
   url: 'https://madebyaapri.vercel.app',
-  ogImage: '/images/avatar.svg',
+  ogImage: '/images/og-image.png',
   author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
   status: {
     available: true,
