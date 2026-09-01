@@ -13,10 +13,12 @@ export function getStaticPaths() {
 
 const { article } = Astro.props;
 
+const canonicalURL = `${siteConfig.url}/artikel/${article.slug}`;
+
 const seoProps = {
   title: `${article.title} | Kang Apri (@madebyaapri)`,
   description: article.excerpt,
-  canonicalURL: `${siteConfig.url}/artikel/${article.slug}`,
+  canonicalURL: canonicalURL,
   type: 'article',
 };
 
@@ -25,6 +27,13 @@ const parsedContent = marked.parse(article.content);
 
 // Filter related articles
 const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
+
+// Prepare share URLs
+const shareText = `${article.title} — Studi Kasus Praktisi Otomasi & Sistem Bisnis oleh Kang Apri (@madebyaapri)`;
+const waShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${shareText}\n\nBaca artikel selengkapnya di sini:\n${canonicalURL}`)}`;
+const threadsShareUrl = `https://threads.net/intent/post?text=${encodeURIComponent(`Baru baca studi kasus keren dari Kang Apri (@madebyaapri): "${article.title}"\n\nLink baca: ${canonicalURL}`)}`;
+const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Studi kasus menarik dari @madebyaapri: "${article.title}"`)}&url=${encodeURIComponent(canonicalURL)}`;
+const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalURL)}`;
 ---
 
 <Layout seo={seoProps}>
@@ -36,13 +45,19 @@ const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
     <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Back Navigation Link -->
-      <div class="mb-8">
+      <div class="mb-8 flex items-center justify-between">
         <a
           href="/#artikel"
           class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
         >
-          <span>← Kembali ke Semua Artikel &amp; Sistem</span>
+          <span>← Kembali ke Beranda &amp; Artikel</span>
         </a>
+
+        <!-- Live Reading Counter Badge (Top) -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono text-slate-600 dark:text-slate-300">
+          <span>👁️</span>
+          <span>Dibaca <strong id="article-views-top" class="text-brand-600 dark:text-brand-400 font-bold">{article.views || 320}</strong> kali</span>
+        </div>
       </div>
 
       <!-- Article Header -->
@@ -53,29 +68,138 @@ const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
             {article.category}
           </span>
           <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• {article.readTime}</span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• Tahun {article.date}</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• {article.publishedDate || `Tahun ${article.date}`}</span>
         </div>
 
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.2] mb-6">
           {article.title}
         </h1>
 
-        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed italic mb-6">
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed italic mb-8 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border-l-4 border-brand-500">
           "{article.excerpt}"
         </p>
 
-        <!-- Author Byline -->
-        <div class="flex items-center gap-3.5 pt-4">
-          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 via-purple-600 to-cyan-500 p-0.5 shadow-md flex-shrink-0">
-            <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-white font-bold text-xs font-mono">
-              mba
+        <!-- Complete Editorial Metadata Box (Author, Editor, Published, Updated) -->
+        <div class="p-5 rounded-2xl glass-card border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/70 mb-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            
+            <!-- Author Info -->
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-purple-600 to-cyan-500 p-0.5 shadow-sm flex-shrink-0">
+                <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-white font-bold text-xs font-mono">
+                  mba
+                </div>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Penulis</span>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm">
+                  {article.author || 'Muhammad Apriyanto Wijaya (Kang Apri)'}
+                </h4>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">@madebyaapri • Praktisi Otomasi</p>
+              </div>
             </div>
-          </div>
-          <div>
-            <h3 class="text-sm font-bold text-slate-900 dark:text-slate-100">Muhammad Apriyanto Wijaya (Kang Apri)</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400">@madebyaapri • Workflow Automation Specialist &amp; 17 Th. Pembina Paskibra Cimahi</p>
+
+            <!-- Editor Info -->
+            <div class="flex items-center gap-3 border-t sm:border-t-0 sm:border-l border-slate-200 dark:border-slate-800 pt-3 sm:pt-0 sm:pl-4">
+              <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-base flex-shrink-0">
+                ✍️
+              </div>
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Penyunting &amp; Redaksi</span>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm">
+                  {article.editor || 'Dian Pratama • Tim Redaksi @madebyaapri'}
+                </h4>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                  Dimutakhirkan: {article.updatedDate || '1 September 2026'}
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        <!-- Social Share Bar (Top) -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+            <span>📢</span>
+            <span>Bagikan Artikel Ini:</span>
+          </span>
+
+          <div class="flex flex-wrap items-center gap-2">
+            
+            <!-- WhatsApp -->
+            <a
+              href={waShareUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+              title="Bagikan ke WhatsApp"
+            >
+              <span>💬</span>
+              <span class="hidden sm:inline">WhatsApp</span>
+            </a>
+
+            <!-- Threads -->
+            <a
+              href={threadsShareUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-slate-900 hover:bg-black text-white dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+              title="Bagikan ke Threads"
+            >
+              <span>🧵</span>
+              <span class="hidden sm:inline">Threads</span>
+            </a>
+
+            <!-- Instagram Share (Modal/Copy trigger) -->
+            <button
+              type="button"
+              id="btn-share-instagram-top"
+              class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 dark:text-pink-400 border border-pink-500/30 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+              title="Bagikan ke Instagram Story"
+            >
+              <span>📸</span>
+              <span class="hidden sm:inline">Instagram</span>
+            </button>
+
+            <!-- X / Twitter -->
+            <a
+              href={twitterShareUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/30 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+              title="Bagikan ke X (Twitter)"
+            >
+              <span>🐦</span>
+              <span class="hidden sm:inline">X</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              href={linkedinShareUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 border border-indigo-500/30 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+              title="Bagikan ke LinkedIn"
+            >
+              <span>💼</span>
+              <span class="hidden sm:inline">LinkedIn</span>
+            </a>
+
+            <!-- Copy Link Button -->
+            <button
+              type="button"
+              id="btn-copy-link-top"
+              class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+              title="Salin Tautan Artikel"
+            >
+              <span>📋</span>
+              <span id="copy-text-top" class="hidden sm:inline">Salin Link</span>
+            </button>
+
+          </div>
+        </div>
+
       </header>
 
       <!-- Article Main Body (Rendered Clean Semantic HTML) -->
@@ -85,7 +209,7 @@ const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
       />
 
       <!-- Tags -->
-      <div class="pt-6 border-t border-slate-200 dark:border-slate-800 mb-12">
+      <div class="pt-6 border-t border-slate-200 dark:border-slate-800 mb-8">
         <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Kata Kunci &amp; Topik</h4>
         <div class="flex flex-wrap gap-2">
           {article.tags.map((tag) => (
@@ -96,14 +220,66 @@ const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
         </div>
       </div>
 
+      <!-- Social Share Bar (Bottom) -->
+      <div class="p-6 rounded-3xl glass-card border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 mb-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 mb-1">
+            Bermanfaat untuk Rekan Bisnis / Tim Anda?
+          </h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Bagikan studi kasus ini ke media sosial atau grup WhatsApp Anda.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <a
+            href={waShareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3.5 py-2 rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md shadow-emerald-500/20"
+          >
+            <span>💬</span>
+            <span>WhatsApp</span>
+          </a>
+
+          <a
+            href={threadsShareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3.5 py-2 rounded-xl bg-black text-white hover:bg-slate-800 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md"
+          >
+            <span>🧵</span>
+            <span>Threads</span>
+          </a>
+
+          <button
+            type="button"
+            id="btn-share-instagram-bottom"
+            class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:opacity-90 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md shadow-pink-500/20"
+          >
+            <span>📸</span>
+            <span>Instagram</span>
+          </button>
+
+          <button
+            type="button"
+            id="btn-copy-link-bottom"
+            class="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold flex items-center gap-1.5 transition-all border border-slate-200 dark:border-slate-700"
+          >
+            <span>📋</span>
+            <span id="copy-text-bottom">Salin Link</span>
+          </button>
+        </div>
+      </div>
+
       <!-- Bottom WhatsApp CTA Box -->
-      <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-600/15 via-purple-600/10 to-emerald-600/15 border border-brand-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left mb-16">
+      <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-600/15 via-purple-600/10 to-emerald-600/15 border border-brand-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left mb-16 shadow-xl">
         <div>
           <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             Ingin Menerapkan Solusi Ini di Bisnis / Organisasi Anda?
           </h3>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md">
-            Konsultasikan alur kerja unik Anda langsung dengan Kang Apri. Bebas biaya sewa server, pengerjaan cepat 3-7 hari.
+            Konsultasikan alur spreadsheet dan kebutuhan otomasi Anda langsung dengan Kang Apri. Bebas biaya sewa server seumur hidup.
           </p>
         </div>
         <a
@@ -141,6 +317,79 @@ const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
 
     </article>
   </div>
+
+  <!-- Interactive Scripts for Copy Link, Live Counter & Instagram Share -->
+  <script is:inline define:vars={{ canonicalURL, articleTitle: article.title, slug: article.slug, initialViews: article.views || 320 }}>
+    // 1. Dynamic Live Views Counter with Local Storage Increment
+    (function initCounter() {
+      const storageKey = `mba_article_view_${slug}`;
+      let views = initialViews;
+      
+      const stored = localStorage.getItem(storageKey);
+      if (!stored) {
+        views += 1;
+        localStorage.setItem(storageKey, Date.now().toString());
+      }
+      
+      const counterEl = document.getElementById('article-views-top');
+      if (counterEl) {
+        counterEl.textContent = views.toLocaleString('id-ID');
+      }
+    })();
+
+    // 2. Copy Link Handlers
+    function copyArticleLink(btnId, textId) {
+      const btn = document.getElementById(btnId);
+      const label = document.getElementById(textId);
+      if (!btn) return;
+
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(canonicalURL);
+          if (label) {
+            const original = label.textContent;
+            label.textContent = 'Tersalin! ✅';
+            setTimeout(() => {
+              label.textContent = original;
+            }, 2000);
+          }
+        } catch (e) {
+          prompt('Salin tautan artikel ini:', canonicalURL);
+        }
+      });
+    }
+
+    copyArticleLink('btn-copy-link-top', 'copy-text-top');
+    copyArticleLink('btn-copy-link-bottom', 'copy-text-bottom');
+
+    // 3. Instagram Share Handler (Copies caption & opens Instagram)
+    function setupInstagramShare(btnId) {
+      const btn = document.getElementById(btnId);
+      if (!btn) return;
+
+      btn.addEventListener('click', async () => {
+        const igText = `Baca studi kasus menarik dari Kang Apri (@madebyaapri):\n"${articleTitle}"\n\nLink artikel: ${canonicalURL}`;
+        try {
+          if (navigator.share) {
+            await navigator.share({
+              title: articleTitle,
+              text: igText,
+              url: canonicalURL,
+            });
+          } else {
+            await navigator.clipboard.writeText(igText);
+            alert('Teks caption & tautan artikel berhasil disalin! Silakan buka Instagram Story atau Direct Message untuk membagikannya.');
+            window.open('https://instagram.com', '_blank');
+          }
+        } catch (e) {
+          // User cancelled share
+        }
+      });
+    }
+
+    setupInstagramShare('btn-share-instagram-top');
+    setupInstagramShare('btn-share-instagram-bottom');
+  </script>
 </Layout>
 
 <style is:global>

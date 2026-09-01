@@ -91,3 +91,22 @@ export interface SEOProps {
   type?: 'website' | 'article' | 'profile';
   publishDate?: string;
 }
+
+export interface Article {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  readTime: string;
+  date: string;
+  excerpt: string;
+  content: string;
+  tags: string[];
+  coverEmoji: string;
+  projectRelation: string;
+  author?: string;
+  editor?: string;
+  publishedDate?: string;
+  updatedDate?: string;
+  views?: number;
+}

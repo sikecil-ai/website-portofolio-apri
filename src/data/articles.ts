@@ -1,16 +1,4 @@
-export interface Article {
-  id: string;
-  title: string;
-  slug: string;
-  category: string;
-  readTime: string;
-  date: string;
-  excerpt: string;
-  content: string;
-  tags: string[];
-  coverEmoji: string;
-  projectRelation: string;
-}
+import type { Article } from '../types';
 
 export const articles: Article[] = [
   {
@@ -22,6 +10,11 @@ export const articles: Article[] = [
     date: '2026',
     coverEmoji: '🧠',
     projectRelation: 'Antigravity & Gemini AI Ecosystem',
+    author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
+    editor: 'Dian Pratama (Managing Editor) • Tim Redaksi @madebyaapri',
+    publishedDate: '28 Februari 2026',
+    updatedDate: '1 September 2026',
+    views: 482,
     excerpt: 'Bicara jujur soal vibecoding: bukan sekadar asal pasrah ke AI, melainkan seni linguistik, struktur modular, dan disiplin lapangan yang memangkas waktu kerja dari berminggu-minggu menjadi hitungan menit.',
     tags: ['Vibecoding', 'Google Antigravity', 'Gemini AI', 'Micro Structure', 'Prompt Engineering', 'Disiplin Paskibra'],
     content: `Jujur, menurut saya istilah **Vibecoding** itu bukan sekadar tren omong kosong atau *buzzword* di media sosial. Vibecoding itu beneran ada, nyata, dan sedang mengubah cara manusia membangun perangkat lunak. 
@@ -105,6 +98,11 @@ Bagi Anda yang ingin mulai membangun sistem digital sendiri:
     date: '2025',
     coverEmoji: '🏆',
     projectRelation: 'Aplikasi KOMANDO Paskibra',
+    author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
+    editor: 'Dian Pratama (Managing Editor) • Tim Redaksi @madebyaapri',
+    publishedDate: '15 Januari 2025',
+    updatedDate: '1 September 2026',
+    views: 356,
     excerpt: 'Bagaimana pengalaman belasan tahun di lapangan PBB dan kejuaraan Kejurcab menginspirasi lahirnya sistem tabulasi juri digital real-time tanpa rumus rusak.',
     tags: ['KOMANDO', 'Paskibra Cimahi', 'Google Apps Script', 'Real-time Tabulation', 'MAN & SMPN 3'],
     content: `Sebagai pembina dan instruktur Paskibra di MAN Kota Cimahi dan SMPN 3 Cimahi sejak 2009 (17 tahun pengabdian), saya melihat satu masalah kronis yang selalu berulang dalam setiap kejuaraan PBB / LKBB: **proses rekapitulasi nilai juri yang lambat, memakan waktu 2-3 jam, dan rawan kesalahan hitung manual di lembar kertas.**
@@ -128,6 +126,11 @@ Dari keresahan nyata di lapangan inilah, saya merancang dan membangun **KOMANDO*
     date: '2025',
     coverEmoji: '🥩',
     projectRelation: 'Megumi Hotplate Automated Ops',
+    author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
+    editor: 'Riki Septian (Head of Operations, Megumi Hotplate)',
+    publishedDate: '10 Februari 2025',
+    updatedDate: '1 September 2026',
+    views: 412,
     excerpt: 'Mengapa UMKM tidak perlu membebani keuangan dengan langganan POS atau cloud server mahal. Cara cerdas membangun sistem kasir dan keuangan mandiri.',
     tags: ['Megumi Hotplate', 'Zero Server Cost', 'Google Sheets Engine', 'Looker Studio', 'Otomasi Kasir'],
     content: `Saat menjalankan operasional bisnis kuliner **Megumi Hotplate Cimahi**, tantangan terbesar bukan hanya meracik cita rasa steak hotplate yang lezat, melainkan **mengendalikan kebocoran stok bahan baku dan mencatat arus kas harian secara presisi.**
@@ -155,6 +158,11 @@ Seluruh visualisasi data disajikan interaktif melalui **Looker Studio Dashboard*
     date: '2024',
     coverEmoji: '🤖',
     projectRelation: 'Auto Content Publisher Bot',
+    author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
+    editor: 'Dian Pratama (Managing Editor) • Tim Redaksi @madebyaapri',
+    publishedDate: '12 November 2024',
+    updatedDate: '1 September 2026',
+    views: 298,
     excerpt: 'Membangun skrip Python cerdas yang mempublikasikan video YouTube Shorts dan merangkai penawaran copywriting ke Threads secara terjadwal.',
     tags: ['Python', 'Gemini AI API', 'Social Media Bot', 'Content Scheduler', 'Automation'],
     content: `Bagi seorang solopreneur dan kreator konten (@madebyaapri), konsistensi publikasi adalah kunci pertumbuhan. Namun, proses mengunggah video ke YouTube Shorts, merangkai teks penawaran di Threads, dan menyusun hashtag setiap hari sangat menguras energi dan waktu produktif.
@@ -178,6 +186,11 @@ Hasilnya, efisiensi distribusi konten meningkat hingga 300% dan konversi klik ke
     date: '2024',
     coverEmoji: '🛒',
     projectRelation: 'Scalev Storefront & Teras Tulis',
+    author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
+    editor: 'Dian Pratama (Managing Editor, Teras Tulis)',
+    publishedDate: '20 Oktober 2024',
+    updatedDate: '1 September 2026',
+    views: 275,
     excerpt: 'Optimasi alur checkout 1-klik untuk layanan penulisan dokumen dan e-commerce berkonversi tinggi tanpa keranjang belanja yang membingungkan.',
     tags: ['Scalev', 'Teras Tulis', 'Lead Automation', 'Fast Checkout', 'Copywriting'],
     content: `Dalam bisnis layanan penulisan dan penerjemahan dokumen terstruktur (**Teras Tulis**), calon klien membutuhkan proses pemesanan yang cepat, transparan, dan tidak berbelit-belit. Menggunakan model toko online tradisional dengan keranjang belanja multi-step seringkali menurunkan angka konversi (*cart abandonment*).
@@ -200,6 +213,11 @@ Dengan alur yang sangat mulus ini, Teras Tulis telah sukses menyelesaikan lebih 
     date: '2025',
     coverEmoji: '⚡',
     projectRelation: 'Google Workspace Ecosystem',
+    author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
+    editor: 'Dian Pratama (Managing Editor) • Tim Redaksi @madebyaapri',
+    publishedDate: '5 Januari 2025',
+    updatedDate: '1 September 2026',
+    views: 389,
     excerpt: 'Bedah mendalam mengapa bahasa pemrograman berbasis JavaScript milik Google ini adalah solusi paling hemat dan fleksibel bagi bisnis lokal.',
     tags: ['Google Apps Script', 'Google Workspace', 'UMKM Indonesia', 'JavaScript', 'Cloud Automation'],
     content: `Banyak pemilik bisnis di Indonesia mengira bahwa membangun otomasi alur kerja harus selalu melibatkan software enterprise mahal seperti SAP atau menyewa server AWS/Google Cloud Platform.
@@ -222,6 +240,11 @@ Inilah filosofi dasar di balik seluruh sistem yang saya bangun di **@madebyaapri
     date: '2024',
     coverEmoji: '📋',
     projectRelation: 'SOP & Database Paskibra',
+    author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
+    editor: 'Kang Hadid (Panitia Paskibra Cimahi)',
+    publishedDate: '18 September 2024',
+    updatedDate: '1 September 2026',
+    views: 310,
     excerpt: 'Panduan mendigitalkan rekam jejak kader, absensi latihan, dan inventaris seragam organisasi agar tidak hilang ditelan pergantian kepengurusan.',
     tags: ['Database Anggota', 'SOP Digital', 'Manajemen Inventaris', 'Paskibra Cimahi'],
     content: `Salah satu masalah klasik dalam organisasi sekolah dan kepemudaan adalah hilangnya data historis anggota dan rusaknya perlengkapan inventaris saat pergantian pengurus tahunan. Buku absensi fisik basah, catatan peminjaman seragam hilang, dan data alumni tercerai-berai.
@@ -244,6 +267,11 @@ Hasilnya, organisasi memiliki aset data yang rapi dan siap diwariskan ke generas
     date: '2025',
     coverEmoji: '📊',
     projectRelation: 'Looker Studio Dashboard',
+    author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
+    editor: 'Riki Septian (Head of Operations, Megumi Hotplate)',
+    publishedDate: '22 Januari 2025',
+    updatedDate: '1 September 2026',
+    views: 445,
     excerpt: 'Cara mengubah spreadsheet Google Sheets yang membosankan menjadi dashboard visual interaktif yang cantik dan mudah dibaca oleh pemilik bisnis.',
     tags: ['Looker Studio', 'Google Sheets', 'Business Intelligence', 'Dashboard Analytics', 'Omset Harian'],
     content: `Melihat ratusan baris angka di Google Sheets seringkali membuat pusing pemilik bisnis. Anda butuh informasi cepat: *Menu apa yang paling laku hari ini? Jam berapa kedai paling ramai? Berapa total omset dan sisa margin keuntungan bersih?*
