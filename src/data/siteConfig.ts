@@ -2,10 +2,10 @@ import type { SiteConfig } from '../types';
 
 export const siteConfig: SiteConfig = {
   name: 'Muhammad Apriyanto Wijaya',
-  title: 'Kang Apri — Jasa Upgrade UI & Otomasi Alur Kerja Bisnis',
-  subtitle: 'Modernisasi Alur Kerja Spreadsheet, Web App Kasir Smartphone, dan Sistem Penjurian Real-time.',
-  description: 'Spesialis upgrade antarmuka (UI/UX) dan otomasi alur kerja Google Workspace, kasir smartphone, dan sistem organisasi tanpa ribet oleh Kang Apri (@madebyaapri).',
-  bio: 'Halo! Saya Kang Apri (@madebyaapri). Saya membantu pemilik bisnis, manajer operasional, dan organisasi merombak spreadsheet ruwet dan sistem manual menjadi antarmuka smartphone modern, dashboard Looker Studio, dan rekap otomatis.',
+  title: 'Kang Apri — Spesialis Modernisasi Spreadsheet & Sistem Bisnis',
+  subtitle: 'Ubah Spreadsheet Ribet Jadi Aplikasi Smartphone Rapi, Cepat & Menyenangkan.',
+  description: 'Spesialis modernisasi spreadsheet Google Sheets & otomasi sistem bisnis tanpa biaya sewa server bulanan oleh Kang Apri (@madebyaapri) di Kota Cimahi.',
+  bio: 'Halo! Saya Kang Apri (@madebyaapri). Saya membantu pemilik bisnis dan tim operasional mengubah spreadsheet ribet menjadi aplikasi smartphone yang rapi, cepat, dan membuat kerja tim jadi lebih menyenangkan — tanpa biaya sewa server bulanan.',
   location: 'Kota Cimahi, Jawa Barat',
   email: 'sohibwijaya@gmail.com',
   phone: '+6282118313655',
@@ -14,12 +14,12 @@ export const siteConfig: SiteConfig = {
   author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
   status: {
     available: true,
-    text: 'Tersedia untuk Upgrade UI & Otomasi Sistem Bisnis via WhatsApp',
+    text: 'Tersedia untuk Modernisasi Spreadsheet & Sistem Bisnis via WhatsApp',
   },
   socialLinks: [
     {
       name: 'WhatsApp',
-      url: 'https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berdiskusi%20tentang%20upgrade%20sistem%20dan%20otomasi%20alur%20kerja.',
+      url: 'https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berkonsultasi%20mengenai%20upgrade%20spreadsheet%20dan%20sistem%20bisnis.',
       icon: 'whatsapp',
       username: '+62 821-1831-3655',
     },
@@ -72,13 +72,11 @@ export const siteConfig: SiteConfig = {
     { name: 'Kontak', href: '/#kontak' },
   ],
   keywords: [
-    'Jasa Upgrade UI Spreadsheet',
-    'Modernisasi Sistem Bisnis',
+    'Modernisasi Spreadsheet Bisnis',
+    'Aplikasi Kasir Google Sheets',
     'Otomasi Alur Kerja Google Apps Script',
-    'Aplikasi Kasir Smartphone UMKM',
-    'Dashboard Looker Studio Keuangan',
     'Aplikasi Tabulasi Lomba Paskibra Real-time',
-    'Sistem Penilaian LKBB KOMANDO',
+    'Dashboard Looker Studio Keuangan',
     'Kang Apri madebyaapri',
     'Zero Server Cost Architecture',
   ],
