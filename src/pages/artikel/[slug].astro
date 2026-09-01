@@ -53,10 +53,10 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
           <span>← Kembali ke Beranda &amp; Artikel</span>
         </a>
 
-        <!-- Live Reading Counter Badge (Top) -->
+        <!-- Category & Read Time Badge (Truthful) -->
         <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono text-slate-600 dark:text-slate-300">
-          <span>👁️</span>
-          <span>Dibaca <strong id="article-views-top" class="text-brand-600 dark:text-brand-400 font-bold">{article.views || 320}</strong> kali</span>
+          <span>⏱️</span>
+          <span>{article.readTime}</span>
         </div>
       </div>
 
@@ -67,8 +67,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
           <span class="px-3 py-1 text-xs font-semibold rounded-full bg-purple-50 dark:bg-purple-950/70 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
             {article.category}
           </span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• {article.readTime}</span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• {article.publishedDate || `Tahun ${article.date}`}</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• Dipublikasikan: {article.publishedDate}</span>
         </div>
 
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.2] mb-6">
@@ -93,7 +92,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
               <div>
                 <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Penulis</span>
                 <h4 class="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm">
-                  {article.author || 'Muhammad Apriyanto Wijaya (Kang Apri)'}
+                  {article.author || 'Muhammad Apriyanto Wijaya (Apri)'}
                 </h4>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">@madebyaapri • Praktisi Otomasi</p>
               </div>
@@ -107,7 +106,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
               <div>
                 <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Penyunting &amp; Redaksi</span>
                 <h4 class="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm">
-                  {article.editor || 'Dian Pratama • Tim Redaksi @madebyaapri'}
+                  {article.editor || 'Tim Redaksi @madebyaapri'}
                 </h4>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">
                   Dimutakhirkan: {article.updatedDate || '1 September 2026'}
@@ -318,26 +317,9 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
     </article>
   </div>
 
-  <!-- Interactive Scripts for Copy Link, Live Counter & Instagram Share -->
-  <script is:inline define:vars={{ canonicalURL, articleTitle: article.title, slug: article.slug, initialViews: article.views || 320 }}>
-    // 1. Dynamic Live Views Counter with Local Storage Increment
-    (function initCounter() {
-      const storageKey = `mba_article_view_${slug}`;
-      let views = initialViews;
-      
-      const stored = localStorage.getItem(storageKey);
-      if (!stored) {
-        views += 1;
-        localStorage.setItem(storageKey, Date.now().toString());
-      }
-      
-      const counterEl = document.getElementById('article-views-top');
-      if (counterEl) {
-        counterEl.textContent = views.toLocaleString('id-ID');
-      }
-    })();
-
-    // 2. Copy Link Handlers
+  <!-- Interactive Scripts for Copy Link & Instagram Share -->
+  <script is:inline define:vars={{ canonicalURL, articleTitle: article.title, slug: article.slug }}>
+    // Copy Link Handlers
     function copyArticleLink(btnId, textId) {
       const btn = document.getElementById(btnId);
       const label = document.getElementById(textId);
@@ -362,7 +344,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
     copyArticleLink('btn-copy-link-top', 'copy-text-top');
     copyArticleLink('btn-copy-link-bottom', 'copy-text-bottom');
 
-    // 3. Instagram Share Handler (Copies caption & opens Instagram)
+    // Instagram Share Handler (Copies caption & opens Instagram)
     function setupInstagramShare(btnId) {
       const btn = document.getElementById(btnId);
       if (!btn) return;
