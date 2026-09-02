@@ -509,26 +509,35 @@ function doPost(e) {
     const editProjectBtns = document.querySelectorAll('.edit-project-btn');
     const projectForm = document.getElementById('project-form');
 
-    // LocalStorage URL persistence
-    const savedGasUrl = localStorage.getItem('madebyaapri_gas_url');
-    if (savedGasUrl && gasInput) {
+    // LocalStorage URL persistence with Kang Apri default endpoint
+    const DEFAULT_GAS_ENDPOINT = 'https://script.google.com/macros/s/18sWdML03y1dJC3uvfOdMOJd9PGGDAPYg__cts7PNaukBISLCmAgvTwzc/exec';
+    const savedGasUrl = localStorage.getItem('madebyaapri_gas_url') || DEFAULT_GAS_ENDPOINT;
+    
+    if (gasInput) {
       gasInput.value = savedGasUrl;
       if (gasStatusBadge) {
-        gasStatusBadge.textContent = 'Tersambung';
+        gasStatusBadge.textContent = 'Tersambung (Siap Pakai)';
         gasStatusBadge.className = 'px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800';
       }
     }
 
     if (saveGasBtn && gasInput) {
       saveGasBtn.addEventListener('click', () => {
-        const url = gasInput.value.trim();
+        let url = gasInput.value.trim();
         if (!url) return;
+        
+        // Auto-format if user inputs raw ID instead of full URL
+        if (!url.startsWith('http://') && !url.startsWith('https://')) {
+          url = `https://script.google.com/macros/s/${url}/exec`;
+          gasInput.value = url;
+        }
+
         localStorage.setItem('madebyaapri_gas_url', url);
         if (gasStatusBadge) {
-          gasStatusBadge.textContent = 'Tersambung';
+          gasStatusBadge.textContent = 'Tersambung (Siap Pakai)';
           gasStatusBadge.className = 'px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800';
         }
-        alert('URL Google Apps Script tersimpan!');
+        alert('URL Google Apps Script berhasil tersimpan & terhubung!');
       });
     }
 
