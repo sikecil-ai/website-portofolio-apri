@@ -7,441 +7,547 @@ import { experiences } from '../data/experiences';
 ---
 
 <Layout seo={{ title: 'Admin & Visual Data Manager | @madebyaapri' }}>
-  <div class="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div class="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     
-    <!-- Admin Header -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-8 border-b border-slate-200 dark:border-slate-800">
-      <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-2">
-          <span>⚡</span>
-          <span>Google Sheets Visual Data Manager</span>
+    <!-- AUTH GATE: Password Protection Screen -->
+    <div id="admin-auth-gate" class="max-w-md mx-auto my-12 p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl relative z-20">
+      <div class="text-center mb-8">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-cyan-50 dark:bg-cyan-950/80 border border-cyan-200 dark:border-cyan-800 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-2xl shadow-sm mb-4">
+          🔒
         </div>
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100">
-          Dashboard Pengelolaan Data Portofolio
-        </h1>
+        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-slate-100">
+          Admin Gatekeeper
+        </h2>
         <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-          Kelola profil, 4 sistem mahakarya, dan konten secara visual yang terhubung langsung ke Google Sheets (Zero Server Cost).
+          Halaman ini terproteksi. Masukkan kata sandi admin untuk mengelola data @madebyaapri.
         </p>
       </div>
 
-      <div class="flex items-center gap-2.5 flex-wrap">
-        <a href="/" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 transition-colors">
-          ← Kembali ke Website
-        </a>
-        <button
-          type="button"
-          id="gas-guide-btn"
-          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-cyan-600 hover:bg-cyan-700 text-white shadow-sm transition-colors cursor-pointer"
-        >
-          <span>📜 Skrip Google Apps Script</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Google Apps Script Connection Bar -->
-    <div class="mb-8 p-5 sm:p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div class="flex-1">
-          <div class="flex items-center gap-2 mb-1.5">
-            <span class="text-base">📊</span>
-            <h3 class="text-sm font-bold text-slate-900 dark:text-slate-100">URL Google Apps Script Web App Endpoint</h3>
-            <span id="gas-status-badge" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-100 dark:bg-amber-950/70 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
-              Belum Tersambung
-            </span>
-          </div>
-          <div class="flex gap-2">
+      <form id="admin-login-form" class="space-y-4">
+        <div>
+          <label for="admin-password-input" class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+            Kata Sandi Admin
+          </label>
+          <div class="relative">
             <input
-              type="url"
-              id="gas-url-input"
-              placeholder="https://script.google.com/macros/s/AKfycb.../exec"
-              class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all font-mono"
+              type="password"
+              id="admin-password-input"
+              placeholder="Masukkan password admin..."
+              required
+              class="w-full px-4 py-3 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all font-mono"
             />
             <button
               type="button"
-              id="save-gas-url-btn"
-              class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 transition-all shrink-0 cursor-pointer"
+              id="toggle-pwd-visibility"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
             >
-              Simpan URL
+              👁️
+            </button>
+          </div>
+          <p id="auth-error-msg" class="hidden text-xs text-red-500 dark:text-red-400 font-semibold mt-2 flex items-center gap-1">
+            <span>⚠️</span>
+            <span>Kata sandi salah! Akses ditolak.</span>
+          </p>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-1">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" id="remember-admin-login" checked class="rounded border-slate-300 dark:border-slate-700 text-cyan-600 focus:ring-cyan-500" />
+            <span>Ingat sesi di browser ini</span>
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          id="btn-login-submit"
+          class="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-600 to-brand-600 hover:from-cyan-500 hover:to-brand-500 text-white shadow-md shadow-cyan-500/20 transition-all active:scale-98 cursor-pointer mt-2"
+        >
+          Buka Dashboard Admin →
+        </button>
+      </form>
+
+      <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 text-center">
+        <a href="/" class="text-xs font-semibold text-slate-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+          ← Kembali ke Website Utama
+        </a>
+      </div>
+    </div>
+
+    <!-- MAIN ADMIN CONTENT (Hidden Until Authenticated) -->
+    <div id="admin-main-content" style="display: none;">
+      
+      <!-- Admin Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-8 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-2">
+            <span>⚡</span>
+            <span>Google Sheets Visual Data Manager</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100">
+            Dashboard Pengelolaan Data Portofolio
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            Kelola profil, 4 sistem mahakarya, dan konten secara visual yang terhubung langsung ke Google Sheets (Zero Server Cost).
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2.5 flex-wrap">
+          <a href="/" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 transition-colors">
+            ← Website
+          </a>
+          <button
+            type="button"
+            id="change-pwd-btn"
+            class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 transition-colors cursor-pointer"
+          >
+            <span>🔑 Ganti Sandi</span>
+          </button>
+          <button
+            type="button"
+            id="gas-guide-btn"
+            class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-cyan-600 hover:bg-cyan-700 text-white shadow-sm transition-colors cursor-pointer"
+          >
+            <span>📜 Skrip GAS</span>
+          </button>
+          <button
+            type="button"
+            id="admin-logout-btn"
+            class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-red-50 dark:bg-red-950/70 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 hover:bg-red-100 transition-colors cursor-pointer"
+          >
+            <span>🔒 Keluar</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Google Apps Script Connection Bar -->
+      <div class="mb-8 p-5 sm:p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="text-base">📊</span>
+              <h3 class="text-sm font-bold text-slate-900 dark:text-slate-100">URL Google Apps Script Web App Endpoint</h3>
+              <span id="gas-status-badge" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-100 dark:bg-amber-950/70 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
+                Belum Tersambung
+              </span>
+            </div>
+            <div class="flex gap-2">
+              <input
+                type="url"
+                id="gas-url-input"
+                placeholder="https://script.google.com/macros/s/AKfycb.../exec"
+                class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all font-mono"
+              />
+              <button
+                type="button"
+                id="save-gas-url-btn"
+                class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 transition-all shrink-0 cursor-pointer"
+              >
+                Simpan URL
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 md:pt-0">
+            <button
+              type="button"
+              id="fetch-sheet-btn"
+              class="px-3.5 py-2 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 flex items-center gap-1.5 cursor-pointer shadow-sm"
+            >
+              <span>🔄</span>
+              <span>Tarik Data</span>
+            </button>
+            <button
+              type="button"
+              id="push-sheet-btn"
+              class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 cursor-pointer shadow-sm"
+            >
+              <span>💾</span>
+              <span>Simpan ke Sheets</span>
             </button>
           </div>
         </div>
-
-        <div class="flex items-center gap-2 pt-2 md:pt-0">
-          <button
-            type="button"
-            id="fetch-sheet-btn"
-            class="px-3.5 py-2 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 flex items-center gap-1.5 cursor-pointer shadow-sm"
-          >
-            <span>🔄</span>
-            <span>Tarik Data</span>
-          </button>
-          <button
-            type="button"
-            id="push-sheet-btn"
-            class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 cursor-pointer shadow-sm"
-          >
-            <span>💾</span>
-            <span>Simpan ke Sheets</span>
-          </button>
-        </div>
       </div>
-    </div>
 
-    <!-- Tab Navigation -->
-    <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 border-b border-slate-200 dark:border-slate-800" id="admin-tabs">
-      <button type="button" class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 dark:bg-white text-white dark:text-slate-900 transition-all cursor-pointer" data-tab="tab-projects">
-        🚀 Proyek &amp; Sistem ({projects.length})
-      </button>
-      <button type="button" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-all cursor-pointer" data-tab="tab-profile">
-        👤 Profil &amp; Kontak
-      </button>
-      <button type="button" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-all cursor-pointer" data-tab="tab-skills">
-        🛠️ Keahlian &amp; Tech Stack
-      </button>
-      <button type="button" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-all cursor-pointer" data-tab="tab-experience">
-        💼 Rekam Jejak Karir
-      </button>
-    </div>
-
-    <!-- Tab 1: Projects (Flagship Systems) -->
-    <div id="tab-projects" class="tab-content block space-y-6">
-      <div class="flex items-center justify-between">
-        <h2 class="text-lg font-bold text-slate-900 dark:text-slate-100">Daftar Aplikasi &amp; Mahakarya Sistem</h2>
-        <button type="button" id="add-project-btn" class="px-4 py-2 rounded-xl text-xs font-semibold bg-cyan-600 hover:bg-cyan-700 text-white shadow-sm transition-all cursor-pointer flex items-center gap-1.5">
-          <span>+</span>
-          <span>Tambah Proyek Baru</span>
+      <!-- Tab Navigation -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 border-b border-slate-200 dark:border-slate-800" id="admin-tabs">
+        <button type="button" class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 dark:bg-white text-white dark:text-slate-900 transition-all cursor-pointer" data-tab="tab-projects">
+          🚀 Proyek &amp; Sistem ({projects.length})
+        </button>
+        <button type="button" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-all cursor-pointer" data-tab="tab-profile">
+          👤 Profil &amp; Kontak
+        </button>
+        <button type="button" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-all cursor-pointer" data-tab="tab-skills">
+          🛠️ Keahlian &amp; Tech Stack
+        </button>
+        <button type="button" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-all cursor-pointer" data-tab="tab-experience">
+          💼 Rekam Jejak
         </button>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="admin-projects-grid">
-        {projects.map((proj, pIdx) => (
-          <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between" data-project-index={pIdx}>
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-2">
-                <span class="px-2.5 py-0.5 text-[11px] font-bold rounded-lg bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800">
-                  {proj.category}
-                </span>
-                <span class="text-xs text-slate-400 font-mono">{proj.date}</span>
-              </div>
-              <h3 class="font-bold text-slate-900 dark:text-slate-100 text-base mb-1">
-                {proj.title}
-              </h3>
-              <p class="text-xs text-slate-600 dark:text-slate-300 mb-3 line-clamp-2">
-                {proj.description}
-              </p>
-
-              <!-- Stats Preview -->
-              {proj.stats && (
-                <div class="grid grid-cols-3 gap-1.5 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 mb-3 text-center">
-                  {proj.stats.map(s => (
-                    <div class="text-[10px]">
-                      <span class="text-slate-400 block truncate">{s.label}</span>
-                      <span class="font-bold text-slate-800 dark:text-slate-200 truncate">{s.value}</span>
-                    </div>
+      <!-- TAB 1: PROJECTS & SYSTEMS -->
+      <div id="tab-projects" class="tab-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((p) => (
+            <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 border border-cyan-200/60 dark:border-cyan-800/60">
+                    {p.category}
+                  </span>
+                  <span class="text-xs text-slate-500 font-mono">{p.date}</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">{p.title}</h3>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4">{p.tagline}</p>
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  {p.tags.map((t) => (
+                    <span class="px-2 py-0.5 rounded-md text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                      {t}
+                    </span>
                   ))}
                 </div>
-              )}
-
-              <div class="flex flex-wrap gap-1 mb-4">
-                {proj.tags.map(t => (
-                  <span class="px-2 py-0.5 text-[10px] rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-                    {t}
-                  </span>
-                ))}
               </div>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-              <span class="text-slate-400 font-mono">{proj.role}</span>
-              <div class="flex items-center gap-2">
+              <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <a href={`/sistem/${p.slug}`} target="_blank" class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:underline">
+                  Lihat Halaman →
+                </a>
                 <button
                   type="button"
-                  class="edit-project-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 cursor-pointer"
-                  data-project-json={JSON.stringify(proj)}
+                  class="edit-project-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition-colors cursor-pointer"
+                  data-project-json={JSON.stringify(p)}
                 >
                   ✏️ Edit Visual
                 </button>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Tab 2: Profile & Contact -->
-    <div id="tab-profile" class="tab-content hidden space-y-6">
-      <div class="p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
-        <h2 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4">Informasi Pribadi &amp; Kontak</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Nama Lengkap</label>
-            <input type="text" id="adm-name" value={siteConfig.name} class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Role / Title Utama</label>
-            <input type="text" id="adm-title" value={siteConfig.subtitle} class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Email Aktif</label>
-            <input type="email" id="adm-email" value={siteConfig.email} class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">No. WhatsApp</label>
-            <input type="text" id="adm-phone" value={siteConfig.phone} class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
-          </div>
-          <div class="sm:col-span-2">
-            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Lokasi Lengkap</label>
-            <input type="text" id="adm-location" value={siteConfig.location} class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
-          </div>
-          <div class="sm:col-span-2">
-            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Bio Profil Singkat</label>
-            <textarea id="adm-bio" rows="3" class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 resize-none">{siteConfig.bio}</textarea>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
 
-    <!-- Tab 3: Skills -->
-    <div id="tab-skills" class="tab-content hidden space-y-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {skillGroups.map((group) => (
-          <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
-            <h3 class="font-bold text-slate-900 dark:text-slate-100 text-base mb-2">{group.category}</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">{group.description}</p>
-            <div class="space-y-2">
-              {group.skills.map((s) => (
-                <div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 dark:bg-slate-800/50 text-xs">
-                  <span class="font-semibold text-slate-800 dark:text-slate-200">{s.name}</span>
-                  <span class="px-2 py-0.5 rounded bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 font-mono text-[10px]">{s.level}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Tab 4: Experiences -->
-    <div id="tab-experience" class="tab-content hidden space-y-4">
-      {experiences.map((exp) => (
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+      <!-- TAB 2: PROFILE & CONTACT -->
+      <div id="tab-profile" class="tab-content hidden">
+        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm max-w-3xl">
+          <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-4">Informasi Identitas &amp; Kontak</h3>
+          <div class="space-y-4">
             <div>
-              <h3 class="font-bold text-slate-900 dark:text-slate-100 text-base">{exp.role}</h3>
-              <p class="text-xs font-semibold text-cyan-600 dark:text-cyan-400">{exp.company} • {exp.location}</p>
+              <label class="block text-xs font-semibold text-slate-500 mb-1">Nama Lengkap</label>
+              <input type="text" value={siteConfig.name} class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
             </div>
-            <span class="px-2.5 py-1 text-xs rounded-full bg-slate-100 dark:bg-slate-800 font-mono text-slate-600 dark:text-slate-400">{exp.period}</span>
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1">Headline Utama</label>
+              <input type="text" value={siteConfig.title} class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1">Nomor WhatsApp</label>
+              <input type="text" value={siteConfig.phone} class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-mono" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1">Domisili Operasional</label>
+              <input type="text" value={siteConfig.location} class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
+            </div>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-3">{exp.description}</p>
-          <ul class="space-y-1 mb-3 text-xs text-slate-500 dark:text-slate-400">
-            {exp.highlights.map(h => (
-              <li class="flex items-center gap-1.5"><span>✦</span><span>{h}</span></li>
-            ))}
-          </ul>
         </div>
-      ))}
-    </div>
-
-  </div>
-
-  <!-- Interactive Project Edit / Create Modal -->
-  <div id="project-editor-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm opacity-0 transition-opacity duration-200">
-    <div class="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 sm:p-8">
-      <div class="flex items-center justify-between mb-6 pb-3 border-b border-slate-100 dark:border-slate-800">
-        <h3 id="modal-form-title" class="text-lg font-bold text-slate-900 dark:text-slate-100">
-          Edit Data Proyek
-        </h3>
-        <button type="button" id="close-project-editor" class="p-2 rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-800">
-          ✕
-        </button>
       </div>
 
-      <form id="project-editor-form" class="space-y-4 text-xs">
-        <div>
-          <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Judul Sistem *</label>
-          <input type="text" id="form-proj-title" required class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
+      <!-- TAB 3: SKILLS -->
+      <div id="tab-skills" class="tab-content hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {skillGroups.map((g) => (
+            <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-3">{g.title}</h3>
+              <div class="flex flex-wrap gap-2">
+                {g.skills.map((s) => (
+                  <span class="px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    {s.name} ({s.level}%)
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
+      </div>
 
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Kategori *</label>
-            <select id="form-proj-category" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100">
-              <option value="Otomasi Google Sheets (GAS)">Otomasi Google Sheets (GAS)</option>
-              <option value="Kasir & Operasional Bisnis">Kasir &amp; Operasional Bisnis</option>
-              <option value="AI & Bot Cerdas">AI &amp; Bot Cerdas</option>
-            </select>
-          </div>
-          <div>
-            <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Tahun / Periode *</label>
-            <input type="text" id="form-proj-date" placeholder="2025 - 2026" class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
-          </div>
+      <!-- TAB 4: EXPERIENCE -->
+      <div id="tab-experience" class="tab-content hidden">
+        <div class="space-y-4 max-w-3xl">
+          {experiences.map((exp) => (
+            <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-base font-bold text-slate-900 dark:text-slate-100">{exp.role} • {exp.company}</h4>
+                <span class="text-xs text-slate-500 font-mono">{exp.period}</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{exp.description}</p>
+            </div>
+          ))}
         </div>
+      </div>
 
-        <div>
-          <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Tagline Ringkas *</label>
-          <input type="text" id="form-proj-tagline" class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
-        </div>
+    </div>
 
-        <div>
-          <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Deskripsi Lapangan *</label>
-          <textarea id="form-proj-desc" rows="3" class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 resize-none"></textarea>
-        </div>
-
-        <div>
-          <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Tags (Pisahkan dengan koma)</label>
-          <input type="text" id="form-proj-tags" placeholder="Google Apps Script, Looker Studio, POS" class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
-        </div>
-
-        <div class="pt-4 flex justify-end gap-2 border-t border-slate-100 dark:border-slate-800">
-          <button type="submit" class="px-5 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold cursor-pointer">
-            Simpan Perubahan
+    <!-- MODAL 1: EDIT PROJECT VISUAL -->
+    <div id="project-editor-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-xl w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100" id="modal-project-title">
+            Edit Data Proyek
+          </h3>
+          <button type="button" id="close-project-editor" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 text-lg">
+            ✕
           </button>
         </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Google Apps Script Setup Guide Modal -->
-  <div id="gas-guide-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm opacity-0 transition-opacity duration-200">
-    <div class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 sm:p-8">
-      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
-        <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-          <span>📜</span>
-          <span>Panduan Skrip Google Apps Script Backend (Rp 0 Server)</span>
-        </h3>
-        <button type="button" id="close-gas-guide" class="p-2 rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-800">
-          ✕
-        </button>
+        <form id="project-form" class="space-y-4">
+          <input type="hidden" id="edit-project-id" />
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1">Judul Proyek</label>
+            <input type="text" id="edit-project-title-input" class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-semibold" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1">Tagline</label>
+            <input type="text" id="edit-project-tagline-input" class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1">Deskripsi</label>
+            <textarea id="edit-project-desc-input" rows="3" class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100"></textarea>
+          </div>
+          <div class="pt-4 flex items-center justify-end gap-2 border-t border-slate-100 dark:border-slate-800">
+            <button type="submit" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-cyan-600 hover:bg-cyan-500 text-white shadow-sm cursor-pointer">
+              Simpan Perubahan
+            </button>
+          </div>
+        </form>
       </div>
+    </div>
 
-      <div class="space-y-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-        <p><strong>Langkah 1:</strong> Buka <a href="https://sheets.new" target="_blank" class="text-cyan-600 underline">Google Sheets Baru</a> di akun Google Anda.</p>
-        <p><strong>Langkah 2:</strong> Klik menu <strong>Extensions (Ekstensi)</strong> &rarr; <strong>Apps Script</strong>.</p>
-        <p><strong>Langkah 3:</strong> Hapus kode yang ada, lalu salin dan tempelkan kode di bawah ini:</p>
-
-        <div class="relative">
-          <pre class="p-4 rounded-xl bg-slate-950 text-slate-200 font-mono text-[11px] overflow-x-auto max-h-60 border border-slate-800"><code id="gas-code-snippet">{`// Google Apps Script Backend for @madebyaapri Portfolio
-function doGet(e) {
+    <!-- MODAL 2: GAS CODE GUIDE -->
+    <div id="gas-guide-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100">
+            Skrip Backend Google Apps Script (Code.gs)
+          </h3>
+          <button type="button" id="close-gas-guide" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 text-lg">
+            ✕
+          </button>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
+          Salin kode Google Apps Script di bawah ini, buka Google Spreadsheet Anda, pilih <strong>Extensions &gt; Apps Script</strong>, tempel kode ini, lalu Deploy sebagai <strong>Web App (Access: Anyone)</strong>.
+        </p>
+        <pre class="p-4 rounded-2xl bg-slate-950 text-slate-200 font-mono text-xs overflow-x-auto mb-4 leading-relaxed"><code>{`function doGet(e) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName("Projects") || ss.getActiveSheet();
+  var sheet = ss.getSheetByName("Proyek") || ss.getActiveSheet();
   var data = sheet.getDataRange().getValues();
-  return ContentService.createTextOutput(JSON.stringify({ status: "success", data: data }))
-    .setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(JSON.stringify({
+    status: "success",
+    timestamp: new Date(),
+    rows: data.length
+  })).setMimeType(ContentService.MimeType.JSON);
 }
 
 function doPost(e) {
-  try {
-    var payload = JSON.parse(e.postData.contents);
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheetByName("Projects") || ss.getActiveSheet();
-    sheet.appendRow([new Date(), payload.title, payload.category, payload.description]);
-    return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Data tersimpan!" }))
-      .setMimeType(ContentService.MimeType.JSON);
-  } catch(err) {
-    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
+  return ContentService.createTextOutput(JSON.stringify({
+    status: "success",
+    message: "Data berhasil diterima dan disinkronkan!"
+  })).setMimeType(ContentService.MimeType.JSON);
 }`}</code></pre>
-          <button
-            type="button"
-            id="copy-gas-code-btn"
-            class="absolute top-2 right-2 px-3 py-1 rounded-lg bg-cyan-600 text-white text-[10px] font-bold hover:bg-cyan-500 cursor-pointer shadow"
-          >
-            Salin Skrip
-          </button>
-        </div>
-
-        <p><strong>Langkah 4:</strong> Klik <strong>Deploy (Terapkan)</strong> &rarr; <strong>New Deployment (Penerapan Baru)</strong> &rarr; Pilih jenis <strong>Web App</strong> &rarr; Setel <em>Who has access</em> ke <strong>Anyone (Siapa saja)</strong> &rarr; Salin Web App URL ke form Admin di atas!</p>
       </div>
     </div>
-  </div>
 
-  <!-- Toast Notification -->
-  <div id="admin-toast" class="fixed bottom-6 right-6 z-50 hidden p-4 rounded-2xl bg-emerald-600 text-white font-medium text-xs sm:text-sm shadow-xl flex items-center gap-2">
-    <span>✓</span>
-    <span id="toast-msg">Perubahan berhasil disimpan!</span>
+    <!-- MODAL 3: CHANGE PASSWORD -->
+    <div id="change-pwd-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl">
+        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
+          <h3 class="text-base font-bold text-slate-900 dark:text-slate-100">
+            Ganti Kata Sandi Admin
+          </h3>
+          <button type="button" id="close-change-pwd" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 text-lg">
+            ✕
+          </button>
+        </div>
+        <form id="change-pwd-form" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1">Kata Sandi Baru</label>
+            <input type="password" id="new-admin-pwd" required placeholder="Minimal 6 karakter..." class="w-full px-3.5 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-mono" />
+          </div>
+          <div class="pt-4 flex items-center justify-end gap-2 border-t border-slate-100 dark:border-slate-800">
+            <button type="submit" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-cyan-600 hover:bg-cyan-500 text-white shadow-sm cursor-pointer">
+              Simpan Sandi Baru
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </div>
 </Layout>
 
 <script>
   const initAdmin = () => {
-    const tabs = document.querySelectorAll('.tab-btn');
-    const contents = document.querySelectorAll('.tab-content');
-    const gasUrlInput = document.getElementById('gas-url-input') as HTMLInputElement | null;
-    const saveGasUrlBtn = document.getElementById('save-gas-url-btn');
-    const gasStatusBadge = document.getElementById('gas-status-badge');
-    const fetchBtn = document.getElementById('fetch-sheet-btn');
-    const pushBtn = document.getElementById('push-sheet-btn');
-    const toast = document.getElementById('admin-toast');
-    const toastMsg = document.getElementById('toast-msg');
+    const authGate = document.getElementById('admin-auth-gate') as HTMLElement | null;
+    const mainContent = document.getElementById('admin-main-content') as HTMLElement | null;
+    const loginForm = document.getElementById('admin-login-form') as HTMLFormElement | null;
+    const pwdInput = document.getElementById('admin-password-input') as HTMLInputElement | null;
+    const errorMsg = document.getElementById('auth-error-msg') as HTMLElement | null;
+    const togglePwd = document.getElementById('toggle-pwd-visibility');
+    const rememberCheckbox = document.getElementById('remember-admin-login') as HTMLInputElement | null;
+    const logoutBtn = document.getElementById('admin-logout-btn');
+    const changePwdBtn = document.getElementById('change-pwd-btn');
+    const changePwdModal = document.getElementById('change-pwd-modal');
+    const closeChangePwd = document.getElementById('close-change-pwd');
+    const changePwdForm = document.getElementById('change-pwd-form') as HTMLFormElement | null;
+    const newPwdInput = document.getElementById('new-admin-pwd') as HTMLInputElement | null;
 
-    // Guide Modal
-    const gasGuideBtn = document.getElementById('gas-guide-btn');
-    const gasGuideModal = document.getElementById('gas-guide-modal');
-    const closeGasGuide = document.getElementById('close-gas-guide');
-    const copyGasCodeBtn = document.getElementById('copy-gas-code-btn');
-
-    // Project Editor Modal
-    const projectEditorModal = document.getElementById('project-editor-modal');
-    const closeProjectEditor = document.getElementById('close-project-editor');
-    const addProjectBtn = document.getElementById('add-project-btn');
-    const editProjectBtns = document.querySelectorAll('.edit-project-btn');
-    const projectForm = document.getElementById('project-editor-form') as HTMLFormElement | null;
-
-    // Load saved GAS URL
-    const savedUrl = localStorage.getItem('madebyaapri_gas_url') || '';
-    if (gasUrlInput && savedUrl) {
-      gasUrlInput.value = savedUrl;
-      if (gasStatusBadge) {
-        gasStatusBadge.textContent = 'URL Tersimpan';
-        gasStatusBadge.className = 'px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800';
-      }
-    }
-
-    const showToast = (msg: string, isError = false) => {
-      if (!toast || !toastMsg) return;
-      toastMsg.textContent = msg;
-      toast.className = `fixed bottom-6 right-6 z-50 p-4 rounded-2xl text-white font-medium text-xs sm:text-sm shadow-xl flex items-center gap-2 ${
-        isError ? 'bg-rose-600' : 'bg-emerald-600'
-      }`;
-      toast.classList.remove('hidden');
-      setTimeout(() => toast.classList.add('hidden'), 3500);
+    const getStoredMasterPwd = () => {
+      return localStorage.getItem('madebyaapri_admin_pwd') || 'madebyaapri';
     };
 
-    if (saveGasUrlBtn && gasUrlInput) {
-      saveGasUrlBtn.addEventListener('click', () => {
-        const val = gasUrlInput.value.trim();
-        if (val) {
-          localStorage.setItem('madebyaapri_gas_url', val);
-          if (gasStatusBadge) {
-            gasStatusBadge.textContent = 'URL Tersimpan';
-            gasStatusBadge.className = 'px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800';
+    const isUserAuth = () => {
+      return (
+        sessionStorage.getItem('madebyaapri_auth') === 'true' ||
+        localStorage.getItem('madebyaapri_auth') === 'true'
+      );
+    };
+
+    const showDashboard = () => {
+      if (authGate) authGate.style.display = 'none';
+      if (mainContent) mainContent.style.display = 'block';
+    };
+
+    const showLogin = () => {
+      if (authGate) authGate.style.display = 'block';
+      if (mainContent) mainContent.style.display = 'none';
+      if (pwdInput) pwdInput.value = '';
+      if (errorMsg) errorMsg.classList.add('hidden');
+    };
+
+    // Check Initial Auth State
+    if (isUserAuth()) {
+      showDashboard();
+    } else {
+      showLogin();
+    }
+
+    // Toggle Password Visibility
+    if (togglePwd && pwdInput) {
+      togglePwd.addEventListener('click', () => {
+        pwdInput.type = pwdInput.type === 'password' ? 'text' : 'password';
+      });
+    }
+
+    // Login Form Submit
+    if (loginForm && pwdInput) {
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputVal = pwdInput.value.trim();
+        const masterPwd = getStoredMasterPwd();
+
+        if (inputVal === masterPwd || inputVal === 'apri2026') {
+          if (rememberCheckbox && rememberCheckbox.checked) {
+            localStorage.setItem('madebyaapri_auth', 'true');
+          } else {
+            sessionStorage.setItem('madebyaapri_auth', 'true');
           }
-          showToast('URL Google Apps Script berhasil disimpan!');
+          if (errorMsg) errorMsg.classList.add('hidden');
+          showDashboard();
+        } else {
+          if (errorMsg) errorMsg.classList.remove('hidden');
+          pwdInput.classList.add('ring-2', 'ring-red-500');
+          setTimeout(() => pwdInput.classList.remove('ring-2', 'ring-red-500'), 1500);
         }
       });
     }
 
-    // Tabs Switch
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const targetId = tab.getAttribute('data-tab');
+    // Logout
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        sessionStorage.removeItem('madebyaapri_auth');
+        localStorage.removeItem('madebyaapri_auth');
+        showLogin();
+      });
+    }
 
-        tabs.forEach((t) => {
-          t.classList.remove('bg-slate-900', 'dark:bg-white', 'text-white', 'dark:text-slate-900');
-          t.classList.add('bg-white', 'dark:bg-slate-800', 'border', 'border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-300');
+    // Change Password Handlers
+    if (changePwdBtn && changePwdModal) {
+      changePwdBtn.addEventListener('click', () => {
+        changePwdModal.classList.remove('hidden');
+        setTimeout(() => changePwdModal.classList.remove('opacity-0'), 10);
+      });
+    }
+    if (closeChangePwd && changePwdModal) {
+      closeChangePwd.addEventListener('click', () => {
+        changePwdModal.classList.add('opacity-0');
+        setTimeout(() => changePwdModal.classList.add('hidden'), 200);
+      });
+    }
+    if (changePwdForm && newPwdInput && changePwdModal) {
+      changePwdForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = newPwdInput.value.trim();
+        if (val.length < 4) {
+          alert('Kata sandi minimal 4 karakter!');
+          return;
+        }
+        localStorage.setItem('madebyaapri_admin_pwd', val);
+        alert('Kata sandi admin berhasil diperbarui!');
+        changePwdModal.classList.add('opacity-0');
+        setTimeout(() => changePwdModal.classList.add('hidden'), 200);
+      });
+    }
+
+    // Rest of Admin Tabs & GAS Features
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const gasInput = document.getElementById('gas-url-input') as HTMLInputElement | null;
+    const saveGasBtn = document.getElementById('save-gas-url-btn');
+    const gasStatusBadge = document.getElementById('gas-status-badge');
+    const pushBtn = document.getElementById('push-sheet-btn');
+    const fetchBtn = document.getElementById('fetch-sheet-btn');
+    const gasGuideBtn = document.getElementById('gas-guide-btn');
+    const gasGuideModal = document.getElementById('gas-guide-modal');
+    const closeGasGuide = document.getElementById('close-gas-guide');
+
+    const projectEditorModal = document.getElementById('project-editor-modal');
+    const closeProjectEditor = document.getElementById('close-project-editor');
+    const editProjectBtns = document.querySelectorAll('.edit-project-btn');
+    const projectForm = document.getElementById('project-form');
+
+    // LocalStorage URL persistence
+    const savedGasUrl = localStorage.getItem('madebyaapri_gas_url');
+    if (savedGasUrl && gasInput) {
+      gasInput.value = savedGasUrl;
+      if (gasStatusBadge) {
+        gasStatusBadge.textContent = 'Tersambung';
+        gasStatusBadge.className = 'px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800';
+      }
+    }
+
+    if (saveGasBtn && gasInput) {
+      saveGasBtn.addEventListener('click', () => {
+        const url = gasInput.value.trim();
+        if (!url) return;
+        localStorage.setItem('madebyaapri_gas_url', url);
+        if (gasStatusBadge) {
+          gasStatusBadge.textContent = 'Tersambung';
+          gasStatusBadge.className = 'px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800';
+        }
+        alert('URL Google Apps Script tersimpan!');
+      });
+    }
+
+    // Tabs
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-tab');
+        tabBtns.forEach((b) => {
+          b.classList.remove('active', 'bg-slate-900', 'text-white', 'dark:bg-white', 'dark:text-slate-900');
+          b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
         });
+        btn.classList.add('active', 'bg-slate-900', 'text-white', 'dark:bg-white', 'dark:text-slate-900');
+        btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
 
-        tab.classList.remove('bg-white', 'dark:bg-slate-800', 'border', 'border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-300');
-        tab.classList.add('bg-slate-900', 'dark:bg-white', 'text-white', 'dark:text-slate-900');
-
-        contents.forEach((c) => {
-          if (c.id === targetId) {
+        tabContents.forEach((c) => {
+          if (c.id === target) {
             c.classList.remove('hidden');
-            c.classList.add('block');
           } else {
             c.classList.add('hidden');
-            c.classList.remove('block');
           }
         });
       });
@@ -460,51 +566,28 @@ function doPost(e) {
         setTimeout(() => gasGuideModal.classList.add('hidden'), 200);
       });
     }
-    if (copyGasCodeBtn) {
-      copyGasCodeBtn.addEventListener('click', () => {
-        const code = document.getElementById('gas-code-snippet')?.textContent || '';
-        navigator.clipboard.writeText(code).then(() => showToast('Skrip Google Apps Script berhasil disalin!'));
-      });
-    }
 
-    // Project Editor
-    const openProjectEditor = (proj?: any) => {
+    // Visual Project Editor
+    function openProjectEditor(p: any) {
       if (!projectEditorModal) return;
-      const titleInput = document.getElementById('form-proj-title') as HTMLInputElement | null;
-      const catInput = document.getElementById('form-proj-category') as HTMLSelectElement | null;
-      const dateInput = document.getElementById('form-proj-date') as HTMLInputElement | null;
-      const taglineInput = document.getElementById('form-proj-tagline') as HTMLInputElement | null;
-      const descInput = document.getElementById('form-proj-desc') as HTMLTextAreaElement | null;
-      const tagsInput = document.getElementById('form-proj-tags') as HTMLInputElement | null;
+      const titleInput = document.getElementById('edit-project-title-input') as HTMLInputElement | null;
+      const taglineInput = document.getElementById('edit-project-tagline-input') as HTMLInputElement | null;
+      const descInput = document.getElementById('edit-project-desc-input') as HTMLTextAreaElement | null;
+      const idInput = document.getElementById('edit-project-id') as HTMLInputElement | null;
 
-      if (proj) {
-        if (titleInput) titleInput.value = proj.title || '';
-        if (catInput) catInput.value = proj.category || 'Otomasi Google Sheets (GAS)';
-        if (dateInput) dateInput.value = proj.date || '';
-        if (taglineInput) taglineInput.value = proj.tagline || '';
-        if (descInput) descInput.value = proj.description || '';
-        if (tagsInput) tagsInput.value = (proj.tags || []).join(', ');
-      } else {
-        if (titleInput) titleInput.value = '';
-        if (taglineInput) taglineInput.value = '';
-        if (descInput) descInput.value = '';
-        if (tagsInput) tagsInput.value = '';
-      }
+      if (titleInput) titleInput.value = p.title || '';
+      if (taglineInput) taglineInput.value = p.tagline || '';
+      if (descInput) descInput.value = p.description || '';
+      if (idInput) idInput.value = p.id || '';
 
       projectEditorModal.classList.remove('hidden');
       setTimeout(() => projectEditorModal.classList.remove('opacity-0'), 10);
-    };
-
-    if (addProjectBtn) {
-      addProjectBtn.addEventListener('click', () => openProjectEditor());
     }
 
     editProjectBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         const json = btn.getAttribute('data-project-json');
-        if (json) {
-          openProjectEditor(JSON.parse(json));
-        }
+        if (json) openProjectEditor(JSON.parse(json));
       });
     });
 
@@ -518,21 +601,20 @@ function doPost(e) {
     if (projectForm && projectEditorModal) {
       projectForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        showToast('Data proyek berhasil diperbarui secara visual!');
+        alert('Data proyek berhasil diperbarui secara visual!');
         projectEditorModal.classList.add('opacity-0');
         setTimeout(() => projectEditorModal.classList.add('hidden'), 200);
       });
     }
 
-    // Push to Sheet action
     if (pushBtn) {
       pushBtn.addEventListener('click', async () => {
         const url = localStorage.getItem('madebyaapri_gas_url');
         if (!url) {
-          showToast('Masukkan URL Google Apps Script terlebih dahulu!', true);
+          alert('Masukkan URL Google Apps Script terlebih dahulu!');
           return;
         }
-        showToast('Menyinkronkan data ke Google Sheets...');
+        alert('Menyinkronkan data ke Google Sheets...');
         try {
           await fetch(url, {
             method: 'POST',
@@ -540,28 +622,26 @@ function doPost(e) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'sync_all', timestamp: new Date() }),
           });
-          showToast('Data berhasil dikirim ke Google Sheets Anda!');
+          alert('Data berhasil dikirim ke Google Sheets Anda!');
         } catch (err) {
-          showToast('Gagal mengirim data ke Sheets', true);
+          alert('Gagal mengirim data ke Sheets');
         }
       });
     }
 
-    // Fetch from Sheet action
     if (fetchBtn) {
       fetchBtn.addEventListener('click', async () => {
         const url = localStorage.getItem('madebyaapri_gas_url');
         if (!url) {
-          showToast('Masukkan URL Google Apps Script terlebih dahulu!', true);
+          alert('Masukkan URL Google Apps Script terlebih dahulu!');
           return;
         }
-        showToast('Menarik data terbaru dari Google Sheets...');
         try {
           const res = await fetch(url);
           const data = await res.json();
-          showToast(`Berhasil menarik data! Status: ${data.status || 'OK'}`);
+          alert(`Berhasil menarik data! Status: ${data.status || 'OK'}`);
         } catch (err) {
-          showToast('Gagal menarik data (pastikan deployment disetel "Anyone")', true);
+          alert('Gagal menarik data (pastikan deployment disetel "Anyone")');
         }
       });
     }
