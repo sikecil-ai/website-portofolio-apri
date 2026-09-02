@@ -411,8 +411,18 @@ import { experiences } from '../data/experiences';
  * MASTER DATABASE GOOGLE APPS SCRIPT - PORTOFOLIO @madebyaapri
  * Single Source of Truth Database untuk Proyek, Artikel, Profil & Keahlian
  */
+var SPREADSHEET_ID = "1ufCJkbi5XBVxQ65Xb_NdR3fviAEJMBs2VJeWEJ-hxJo";
+
+function getTargetSpreadsheet() {
+  try {
+    return SpreadsheetApp.getActiveSpreadsheet() || SpreadsheetApp.openById(SPREADSHEET_ID);
+  } catch (e) {
+    return SpreadsheetApp.openById(SPREADSHEET_ID);
+  }
+}
+
 function doGet(e) {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = getTargetSpreadsheet();
   initMasterSheets(ss);
   
   var pData = ss.getSheetByName("Proyek").getDataRange().getValues();
@@ -452,6 +462,7 @@ function doGet(e) {
   return ContentService.createTextOutput(JSON.stringify({
     status: "success",
     timestamp: new Date(),
+    spreadsheet_id: SPREADSHEET_ID,
     profile: profile,
     projects: projects,
     articles: articles
@@ -460,7 +471,7 @@ function doGet(e) {
 
 function doPost(e) {
   try {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var ss = getTargetSpreadsheet();
     initMasterSheets(ss);
     var p = JSON.parse(e.postData.contents);
     
