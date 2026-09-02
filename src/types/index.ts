@@ -5,7 +5,7 @@ export interface Project {
   tagline: string;
   description: string;
   fullDescription?: string;
-  category: 'Web App' | 'Mobile App' | 'Fullstack' | 'AI & Data' | 'Open Source';
+  category: 'Otomasi Google Sheets (GAS)' | 'Kasir & Operasional Bisnis' | 'AI & Bot Cerdas' | string;
   tags: string[];
   image: string;
   demoUrl?: string;
