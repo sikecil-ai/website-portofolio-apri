@@ -1,88 +1,98 @@
 ---
+const testimonials = [
+  {
+    quote: 'Dulu tim kasir kami selalu pusing tiap jam tutup kedai karena rekap nota manual makan waktu 1-2 jam. Setelah Kang Apri merombak sistem kasir ke form smartphone yang terhubung langsung ke Google Sheets & Looker Studio, laba kotor dan stok bumbu terhitung otomatis dalam hitungan detik. Sangat menghemat waktu dan Rp 0 sewa server seumur hidup!',
+    name: 'Riki Septian',
+    role: 'Head of Operations • Megumi Hotplate Cimahi',
+    icon: '🥩',
+    badge: 'Living Lab Bisnis Kuliner',
+  },
+  {
+    quote: 'Aplikasi KOMANDO benar-benar merevolusi administrasi organisasi Paskibra kami. Database 147 anggota dan rekapitulasi kehadiran latihan yang biasanya memakan waktu berhari-hari, kini selesai dalam 1 klik siap cetak ke format PDF.',
+    name: 'Kang Hadid',
+    role: 'Pembina & Pelatih Paskibra • MAN & SMPN 3 Cimahi',
+    icon: '🎖️',
+    badge: 'Organisasi Paskibra (147 Anggota)',
+  },
+  {
+    quote: 'Si Paling Rekap diuji secara resmi pada Kejurcab FORBASI Cabang Kota Cimahi 2026. Rekapitulasi nilai juri LKBB yang biasanya membuat pengumuman ngaret berjam-jam, berubah menjadi instan 0 detik. Hasil standing langsung keluar untuk bahan evaluasi pelatih secara transparan dan 100% valid.',
+    name: 'Panitia Kejurcab FORBASI 2026',
+    role: 'Tim Tabulasi & Penjurian • FORBASI Kota Cimahi',
+    icon: '🏆',
+    badge: 'Uji Resmi FORBASI Cimahi 2026',
+  },
+  {
+    quote: 'Arsitektur storefront Scalev dan otomatisasi draft invoice via Google Workspace yang dibangun Kang Apri membuat alur pemesanan jasa dokumen kami mengalir cepat langsung ke WhatsApp tanpa ada lead yang tercecer. Pengelolaan 150+ proyek penulisan jadi sangat rapi dan berkonversi tinggi.',
+    name: 'Dian Pratama',
+    role: 'Managing Editor • Teras Tulis Agency',
+    icon: '🛒',
+    badge: 'Scalev Storefront (150+ Proyek)',
+  },
+];
 ---
 
-<section id="testimoni" class="relative py-24 sm:py-32">
+<section id="testimoni" class="relative py-24 sm:py-32 bg-slate-50/50 dark:bg-[#070b14]/50 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
     <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 text-amber-600 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4">
-        Bukti Nyata &amp; Hasil Lapangan
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-cyan-700 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+        <span>💬</span>
+        <span>Pembuktian Nyata di Lapangan</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight mb-4">
-        Cerita Keberhasilan <span class="text-gradient">Upgrade Sistem</span>
+      
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.2] mb-4">
+        Cerita Keberhasilan <span class="text-gradient-cyan">Mitra &amp; Living Lab</span>
       </h2>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-        Bagaimana perombakan alur kerja dan antarmuka oleh Kang Apri membantu tim operasional bekerja 3x lebih cepat tanpa beban server.
+      
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        Bagaimana sistem otomasi dan antarmuka smartphone oleh Kang Apri (@madebyaapri) terbukti memangkas waktu kerja dan menghemat biaya di dunia nyata.
       </p>
     </div>
 
-    <!-- Testimonials Grid with Real Named Stakeholders -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-      
-      <!-- Testimonial 1 -->
-      <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
-            ★★★★★
-          </div>
-          <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-6 italic">
-            "Dulu tim kasir kami selalu pusing tiap jam tutup kedai karena rekap nota manual makan waktu 1-2 jam. Setelah Kang Apri merombak sistem kasir ke form smartphone yang terhubung langsung ke Google Sheets &amp; Looker Studio, laba kotor dan stok bumbu terhitung otomatis dalam detik. Sangat menghemat waktu!"
-          </p>
-        </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-slate-200/60 dark:border-slate-800/60">
-          <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-lg">
-            🥩
-          </div>
+    <!-- Testimonials 2-Column Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      {testimonials.map((t) => (
+        <div class="p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between">
           <div>
-            <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Riki Septian</h4>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400">Head of Operations • Megumi Hotplate Cimahi</p>
-          </div>
-        </div>
-      </div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-lg bg-cyan-50 dark:bg-cyan-950/70 text-cyan-700 dark:text-cyan-400 text-[11px] font-bold border border-cyan-200/60 dark:border-cyan-800/60">
+                {t.badge}
+              </span>
+              <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                ★★★★★
+              </div>
+            </div>
 
-      <!-- Testimonial 2 -->
-      <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
-            ★★★★★
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-6 italic">
+              "{t.quote}"
+            </p>
           </div>
-          <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-6 italic">
-            "Aplikasi KOMANDO benar-benar merevolusi jalannya kejuaraan Paskibra kami di Cimahi. Rekapitulasi nilai puluhan pleton yang biasanya bikin acara ngaret hingga 2 jam, selesai seketika dengan input juri digital 0 detik. Hasil klasemen juara langsung siap cetak ke PDF."
-          </p>
-        </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-slate-200/60 dark:border-slate-800/60">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold text-lg">
-            🏆
-          </div>
-          <div>
-            <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Kang Hadid &amp; Tim Tabulasi</h4>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400">Panitia Kejurcab Paskibra • MAN &amp; SMPN 3 Cimahi</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- Testimonial 3 -->
-      <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
-            ★★★★★
-          </div>
-          <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-6 italic">
-            "Arsitektur storefront Scalev dan otomatisasi draft invoice via Google Workspace yang dibangun Kang Apri membuat alur pemesanan jasa dokumen kami mengalir cepat tanpa ada lead WhatsApp yang tercecer. Pengelolaan 150+ proyek jadi sangat rapi."
-          </p>
-        </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-slate-200/60 dark:border-slate-800/60">
-          <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-lg">
-            📄
-          </div>
-          <div>
-            <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Dian Pratama</h4>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400">Managing Editor • Teras Tulis Agency</p>
+          <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <div class="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-center font-bold text-xl shrink-0">
+              {t.icon}
+            </div>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">{t.name}</h4>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">{t.role}</p>
+            </div>
           </div>
         </div>
-      </div>
+      ))}
+    </div>
 
+    <!-- Bottom Social Proof CTA Bridge -->
+    <div class="mt-12 text-center">
+      <a
+        href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20melihat%20testimoni%20lapangan%20di%20website%20dan%20ingin%20berkonsultasi%20sistem%20serupa."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-100 shadow-sm transition-all"
+      >
+        <span>💡 Ingin merasakan efisiensi serupa untuk bisnismu?</span>
+        <span class="text-cyan-400 dark:text-cyan-600 font-bold">Konsultasi via WA →</span>
+      </a>
     </div>
 
   </div>

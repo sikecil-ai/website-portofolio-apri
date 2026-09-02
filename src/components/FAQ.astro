@@ -2,47 +2,66 @@
 const faqs = [
   {
     question: 'Apakah benar-benar tanpa biaya sewa server bulanan (Zero Server Cost)?',
-    answer: 'Ya, 100% benar! Kami memanfaatkan arsitektur serverless Google Workspace (Google Sheets Database Engine, Google Apps Script, dan Looker Studio) yang disediakan gratis oleh Google. Anda tidak perlu membayar langganan server VPS atau hosting bulanan ratusan ribu rupiah.',
+    answer: 'Ya, 100% benar! Kami memanfaatkan arsitektur serverless Google Workspace (Google Sheets Database Engine, Google Apps Script, dan Looker Studio) yang disediakan gratis oleh Google. Anda tidak perlu membayar langganan server VPS atau software bulanan ratusan ribu rupiah seumur hidup.',
   },
   {
     question: 'Bisnis apa saja yang bisa dibuatkan sistem otomasi alur kerja & aplikasi kasir?',
-    answer: 'Semua jenis usaha! Kami telah menangani bisnis kuliner (F&B), toko retail, klinik, jasa penulisan, event organizer, panitia lomba Paskibra/LKBB, hingga administrasi sekolah. Sistem akan disesuaikan khusus dengan proses bisnis unik Anda.',
+    answer: 'Semua jenis usaha! Kami telah menangani bisnis kuliner (F&B), toko retail, klinik, jasa penulisan, event organizer, panitia lomba Paskibra/LKBB, hingga administrasi sekolah. Sistem dirancang mengikuti alur kerja unik tim Anda.',
   },
   {
     question: 'Berapa lama proses pembuatan dan implementasi sistem otomasi?',
-    answer: 'Untuk kebutuhan standar (seperti sistem kasir F&B atau tabulasi lomba), waktu pengerjaan umumnya memakan waktu 3 hingga 7 hari kerja sudah siap pakai dan teruji di lapangan.',
+    answer: 'Untuk kebutuhan standar (seperti sistem kasir F&B atau tabulasi lomba), waktu pengerjaan umumnya memakan waktu 3 hingga 5 hari kerja sudah siap pakai dan teruji langsung di lapangan.',
   },
   {
     question: 'Bagaimana jika tim saya masih awam teknologi? Apakah ada panduannya?',
-    answer: 'Tentu saja! Setiap sistem yang kami bangun dirancang sangat simpel (cukup pakai smartphone). Kami juga menyertakan video tutorial cara pakai 1-klik dan sesi pendampingan via Google Meet / WhatsApp hingga tim Anda lancar mengoperasikannya.',
+    answer: 'Tentu saja! Setiap sistem yang kami bangun dirancang sangat simpel (cukup pakai smartphone). Kami juga menyertakan buku panduan (SOP) + video tutorial cara pakai 1-klik dan sesi pendampingan via Google Meet / WhatsApp hingga tim Anda lancar mengoperasikannya.',
   },
   {
-    question: 'Bagaimana cara memesan aplikasi tabulasi lomba Paskibra KOMANDO?',
-    answer: 'Cukup klik tombol WhatsApp di website ini dan sampaikan tanggal event serta jumlah pleton/kategori yang akan dilombakan. Kami akan menyiapkan sistem tabulasi live real-time untuk kejuaraan Anda.',
+    question: 'Bagaimana cara memesan aplikasi tabulasi lomba Paskibra & LKBB?',
+    answer: 'Cukup klik tombol WhatsApp di website ini dan sampaikan tanggal event serta jumlah pleton/kategori yang akan dilombakan. Kami akan menyiapkan sistem tabulasi live real-time 0 detik untuk kejuaraan Anda.',
   },
 ];
+
+const faqPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+};
 ---
 
-<section id="faq" class="relative py-24 sm:py-32 bg-slate-50/50 dark:bg-slate-900/30 border-t border-slate-200/60 dark:border-slate-800/60">
+<section id="faq" class="relative py-24 sm:py-32 bg-slate-50/50 dark:bg-[#070b14]/50 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-20">
+  <!-- FAQ Structured Data for Google SERP Accordions -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema)} />
+
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
     <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-600 dark:text-brand-400 text-xs font-semibold uppercase tracking-wider mb-4">
-        Pertanyaan Umum & FAQ
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-cyan-700 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+        <span>❓</span>
+        <span>Pertanyaan Umum &amp; FAQ</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight mb-4">
-        Pertanyaan yang <span class="text-gradient">Sering Diajukan</span>
+      
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.2] mb-4">
+        Pertanyaan yang <span class="text-gradient-cyan">Sering Diajukan</span>
       </h2>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+      
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
         Jawaban transparan seputar sistem otomasi alur kerja tanpa server, aplikasi kasir UMKM, dan tabulasi lomba Paskibra.
       </p>
     </div>
 
     <!-- FAQ Accordion Container -->
     <div class="space-y-4" id="faq-accordion">
-      {faqs.map((faq, idx) => (
-        <div class="glass-card rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 overflow-hidden transition-all">
+      {faqs.map((faq) => (
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden transition-all shadow-sm">
           <button
             type="button"
             class="faq-trigger w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
@@ -51,30 +70,15 @@ const faqs = [
             <span class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100">
               {faq.question}
             </span>
-            <span class="faq-icon w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-brand-600 dark:text-brand-400 font-bold transition-transform duration-300 flex-shrink-0">
+            <span class="faq-icon w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-cyan-600 dark:text-cyan-400 font-bold transition-transform duration-300 flex-shrink-0">
               +
             </span>
           </button>
-          <div class="faq-content hidden px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/50">
+          <div class="faq-content hidden px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800">
             {faq.answer}
           </div>
         </div>
       ))}
-    </div>
-
-    <!-- Bottom Question Box -->
-    <div class="mt-12 text-center p-6 rounded-2xl glass-card border border-slate-200 dark:border-slate-800">
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-3">
-        Masih punya pertanyaan lain seputar kebutuhan sistem bisnis Anda?
-      </p>
-      <a
-        href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20punya%20pertanyaan%20seputar%20sistem%20otomasi."
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
-      >
-        <span>💬 Tanyakan Langsung via WhatsApp Kang Apri →</span>
-      </a>
     </div>
 
   </div>
@@ -87,23 +91,19 @@ const faqs = [
     triggers.forEach((trigger) => {
       trigger.addEventListener('click', () => {
         const content = trigger.nextElementSibling as HTMLElement | null;
-        const icon = trigger.querySelector('.faq-icon');
+        const icon = trigger.querySelector('.faq-icon') as HTMLElement | null;
         const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
 
         // Toggle state
-        if (isExpanded) {
-          trigger.setAttribute('aria-expanded', 'false');
-          content?.classList.add('hidden');
-          if (icon) {
-            icon.textContent = '+';
-            icon.classList.remove('rotate-45');
-          }
-        } else {
-          trigger.setAttribute('aria-expanded', 'true');
-          content?.classList.remove('hidden');
-          if (icon) {
-            icon.textContent = '−';
-            icon.classList.add('rotate-45');
+        trigger.setAttribute('aria-expanded', String(!isExpanded));
+
+        if (content) {
+          if (isExpanded) {
+            content.classList.add('hidden');
+            if (icon) icon.textContent = '+';
+          } else {
+            content.classList.remove('hidden');
+            if (icon) icon.textContent = '−';
           }
         }
       });

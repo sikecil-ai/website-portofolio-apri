@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingActions from '../components/FloatingActions.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import { siteConfig } from '../data/siteConfig';
 import '../styles/global.css';
 import type { SEOProps } from '../types';
 
@@ -12,13 +13,21 @@ export interface Props {
 }
 
 const { seo = {} } = Astro.props;
+
+// Sanitize Canonical URL without trailing slash
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '';
+const defaultCanonical = `${siteConfig.url}${pathname}`;
+const finalSeo = {
+  ...seo,
+  canonicalURL: seo.canonicalURL ? seo.canonicalURL.replace(/\/$/, '') : defaultCanonical,
+};
 ---
 
 <!DOCTYPE html>
 <html lang="id" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <SEO {...seo} />
+    <SEO {...finalSeo} />
     <GoogleAnalytics />
     
     <!-- Dark Mode Init Script (No Flash of Wrong Theme) -->
@@ -58,6 +67,5 @@ const { seo = {} } = Astro.props;
 
     <!-- Floating Actions: Scroll to Top & WhatsApp FAB -->
     <FloatingActions />
-
   </body>
 </html>

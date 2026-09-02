@@ -53,9 +53,10 @@ export const siteConfig: SiteConfig = {
     { name: 'Tentang', href: '/#tentang' },
     { name: 'Sistem', href: '/#proyek' },
     { name: 'Komparasi', href: '/#komparasi' },
+    { name: 'Keahlian', href: '/#keahlian' },
     { name: 'Artikel', href: '/#artikel' },
-    { name: 'Cara Kerja', href: '/#cara-kerja' },
-    { name: 'Layanan', href: '/#investasi' },
+    { name: 'Testimoni', href: '/#testimoni' },
+    { name: 'Layanan', href: '/#layanan' },
     { name: 'Kontak', href: '/#kontak' },
   ],
   keywords: [
