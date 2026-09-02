@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { siteConfig } from '../data/siteConfig';
 import { projects } from '../data/projects';
+import { articles } from '../data/articles';
 import { skillGroups } from '../data/skills';
 import { experiences } from '../data/experiences';
 ---
@@ -182,6 +183,9 @@ import { experiences } from '../data/experiences';
         <button type="button" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-all cursor-pointer" data-tab="tab-experience">
           💼 Rekam Jejak
         </button>
+        <button type="button" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-all cursor-pointer" data-tab="tab-articles">
+          📰 Artikel ({articles.length})
+        </button>
       </div>
 
       <!-- TAB 1: PROJECTS & SYSTEMS -->
@@ -281,6 +285,38 @@ import { experiences } from '../data/experiences';
         </div>
       </div>
 
+      <!-- TAB 5: ARTICLES -->
+      <div id="tab-articles" class="tab-content hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {articles.map((a) => (
+            <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 border border-cyan-200/60 dark:border-cyan-800/60">
+                    {a.category}
+                  </span>
+                  <span class="text-xs text-slate-500 font-mono">{a.readTime}</span>
+                </div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2 line-clamp-2">{a.title}</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 line-clamp-3 leading-relaxed">{a.excerpt}</p>
+              </div>
+              <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <a href={`/artikel/${a.slug}`} target="_blank" class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:underline">
+                  Baca Artikel →
+                </a>
+                <button
+                  type="button"
+                  class="edit-article-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition-colors cursor-pointer"
+                  data-article-json={JSON.stringify(a)}
+                >
+                  ✏️ Edit Artikel
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
 
     <!-- MODAL 1: EDIT PROJECT VISUAL -->
@@ -311,6 +347,46 @@ import { experiences } from '../data/experiences';
           <div class="pt-4 flex items-center justify-end gap-2 border-t border-slate-100 dark:border-slate-800">
             <button type="submit" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-cyan-600 hover:bg-cyan-500 text-white shadow-sm cursor-pointer">
               Simpan Perubahan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL 1B: EDIT ARTICLE VISUAL -->
+    <div id="article-editor-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-xl w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100" id="modal-article-title">
+            Edit Metadata Artikel
+          </h3>
+          <button type="button" id="close-article-editor" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 text-lg">
+            ✕
+          </button>
+        </div>
+        <form id="article-form" class="space-y-4">
+          <input type="hidden" id="edit-article-slug" />
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1">Judul Artikel</label>
+            <input type="text" id="edit-article-title-input" class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-semibold" />
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1">Kategori</label>
+              <input type="text" id="edit-article-category-input" class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1">Estimasi Baca</label>
+              <input type="text" id="edit-article-readtime-input" class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1">Ringkasan / Excerpt</label>
+            <textarea id="edit-article-excerpt-input" rows="4" class="w-full px-3 py-2 rounded-xl text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 leading-relaxed"></textarea>
+          </div>
+          <div class="pt-4 flex items-center justify-end gap-2 border-t border-slate-100 dark:border-slate-800">
+            <button type="submit" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-cyan-600 hover:bg-cyan-500 text-white shadow-sm cursor-pointer">
+              Simpan Metadata Artikel
             </button>
           </div>
         </form>
@@ -736,6 +812,53 @@ function initMasterSheets(ss) {
         alert('Data proyek berhasil diperbarui secara visual!');
         projectEditorModal.classList.add('opacity-0');
         setTimeout(() => projectEditorModal.classList.add('hidden'), 200);
+      });
+    }
+
+    // Visual Article Editor
+    const articleEditorModal = document.getElementById('article-editor-modal');
+    const closeArticleEditor = document.getElementById('close-article-editor');
+    const editArticleBtns = document.querySelectorAll('.edit-article-btn');
+    const articleForm = document.getElementById('article-form');
+
+    function openArticleEditor(a: any) {
+      if (!articleEditorModal) return;
+      const titleInput = document.getElementById('edit-article-title-input') as HTMLInputElement | null;
+      const categoryInput = document.getElementById('edit-article-category-input') as HTMLInputElement | null;
+      const readtimeInput = document.getElementById('edit-article-readtime-input') as HTMLInputElement | null;
+      const excerptInput = document.getElementById('edit-article-excerpt-input') as HTMLTextAreaElement | null;
+      const slugInput = document.getElementById('edit-article-slug') as HTMLInputElement | null;
+
+      if (titleInput) titleInput.value = a.title || '';
+      if (categoryInput) categoryInput.value = a.category || '';
+      if (readtimeInput) readtimeInput.value = a.readTime || '';
+      if (excerptInput) excerptInput.value = a.excerpt || '';
+      if (slugInput) slugInput.value = a.slug || '';
+
+      articleEditorModal.classList.remove('hidden');
+      setTimeout(() => articleEditorModal.classList.remove('opacity-0'), 10);
+    }
+
+    editArticleBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const json = btn.getAttribute('data-article-json');
+        if (json) openArticleEditor(JSON.parse(json));
+      });
+    });
+
+    if (closeArticleEditor && articleEditorModal) {
+      closeArticleEditor.addEventListener('click', () => {
+        articleEditorModal.classList.add('opacity-0');
+        setTimeout(() => articleEditorModal.classList.add('hidden'), 200);
+      });
+    }
+
+    if (articleForm && articleEditorModal) {
+      articleForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Metadata artikel berhasil diperbarui secara visual!');
+        articleEditorModal.classList.add('opacity-0');
+        setTimeout(() => articleEditorModal.classList.add('hidden'), 200);
       });
     }
 
