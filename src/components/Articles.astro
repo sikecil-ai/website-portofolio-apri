@@ -1,38 +1,37 @@
 ---
 import { articles } from '../data/articles';
 
-const categories = ['Semua', 'Vibecoding & AI Engineering', 'Studi Kasus Paskibra', 'Otomasi Bisnis & F&B', 'AI & Bot Automation', 'Teknologi & Efisiensi'];
+const categories = ['Semua', 'Otomasi Bisnis & F&B', 'Studi Kasus Paskibra', 'Vibecoding & AI'];
 ---
 
-<section id="artikel" class="relative py-24 sm:py-32 bg-slate-50/50 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800/60 overflow-hidden">
-  <!-- Subtle ambient glows -->
-  <div class="ambient-glow bg-brand-500/10 top-1/4 -left-20 w-96 h-96 animate-pulse-glow"></div>
-  <div class="ambient-glow bg-purple-500/10 bottom-20 -right-20 w-96 h-96 animate-pulse-glow" style="animation-delay: 2s;"></div>
-
+<section id="artikel" class="relative py-24 sm:py-32 bg-white/60 dark:bg-[#070b14]/60 border-t border-slate-200/60 dark:border-slate-800/60 overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
     <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
-      <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 text-purple-600 dark:text-purple-400 text-xs font-semibold uppercase tracking-wider mb-4">
-        Cerita Nyata &amp; Studi Kasus
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-cyan-700 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+        <span>📚</span>
+        <span>Studi Kasus &amp; Cerita Lapangan</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight mb-4">
-        Di Balik Layar <span class="text-gradient">Proyek &amp; Sistem Otomasi</span>
+      
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.2] mb-4">
+        Di Balik Layar <span class="text-gradient-cyan">Otomasi &amp; Sistem Nyata</span>
       </h2>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-        Kisah nyata, tantangan teknis di lapangan, dan filosofi vibecoding terstruktur oleh Kang Apri (@madebyaapri).
+      
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        Kisah nyata memecahkan masalah rekap, arsitektur tanpa server bulanan, dan disiplin vibecoding terstruktur oleh Kang Apri (@madebyaapri).
       </p>
     </div>
 
-    <!-- Category Filter Bar -->
+    <!-- Category Filter Bar (F&B Next to Semua) -->
     <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none justify-start md:justify-center" id="article-filters">
       {categories.map((cat, idx) => (
         <button
           type="button"
-          class={`article-filter-btn px-4 py-2 text-xs sm:text-sm font-medium rounded-xl transition-all duration-200 whitespace-nowrap cursor-pointer ${
+          class={`article-filter-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-200 whitespace-nowrap cursor-pointer ${
             idx === 0
-              ? 'bg-purple-600 text-white shadow-md shadow-purple-500/30'
-              : 'bg-slate-100 dark:bg-slate-800/70 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+              ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-sm'
+              : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
           }`}
           data-category={cat}
         >
@@ -41,11 +40,13 @@ const categories = ['Semua', 'Vibecoding & AI Engineering', 'Studi Kasus Paskibr
       ))}
     </div>
 
-    <!-- Articles Grid -->
+    <!-- Articles Grid (6 Initial Cards, expand on click or filter) -->
     <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-      {articles.map((article) => (
+      {articles.map((article, idx) => (
         <article
-          class="article-card glass-card rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 flex flex-col justify-between group hover:-translate-y-1.5 hover:border-purple-500/40 transition-all duration-300"
+          class={`article-card rounded-2xl p-6 sm:p-7 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 flex flex-col justify-between group ${
+            idx >= 6 ? 'hidden-initial hidden' : ''
+          }`}
           data-category={article.category}
         >
           <div>
@@ -53,48 +54,82 @@ const categories = ['Semua', 'Vibecoding & AI Engineering', 'Studi Kasus Paskibr
             <div class="flex items-center justify-between gap-2 mb-4">
               <div class="flex items-center gap-2">
                 <span class="text-2xl">{article.coverEmoji}</span>
-                <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-lg bg-purple-50 dark:bg-purple-950/70 text-purple-600 dark:text-purple-400 border border-purple-200/60 dark:border-purple-800/60">
+                <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-lg bg-cyan-50 dark:bg-cyan-950/70 text-cyan-700 dark:text-cyan-400 border border-cyan-200/60 dark:border-cyan-800/60">
                   {article.category}
                 </span>
               </div>
-              <span class="text-[11px] text-slate-400 font-mono">{article.readTime}</span>
+              <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{article.readTime}</span>
             </div>
 
             <!-- Title -->
             <a href={`/artikel/${article.slug}`}>
-              <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors mb-3 line-clamp-2">
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors mb-3 line-clamp-2 leading-snug">
                 {article.title}
               </h3>
             </a>
 
             <!-- Excerpt -->
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6 line-clamp-3">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6 line-clamp-3">
               {article.excerpt}
             </p>
 
             <!-- Tags -->
             <div class="flex flex-wrap gap-1.5 mb-6">
               {article.tags.slice(0, 3).map((tag) => (
-                <span class="px-2 py-0.5 text-[10px] font-medium rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                <span class="px-2 py-0.5 text-[10px] font-medium rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60">
                   #{tag}
                 </span>
               ))}
             </div>
           </div>
 
-          <!-- Bottom Action Button: Direct link to dedicated page -->
-          <div class="pt-4 border-t border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between">
-            <span class="text-[11px] text-slate-400 font-mono">{article.projectRelation}</span>
+          <!-- Bottom Action Button -->
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{article.projectRelation}</span>
             <a
               href={`/artikel/${article.slug}`}
-              class="inline-flex items-center gap-1 text-xs font-bold text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform"
+              class="inline-flex items-center gap-1 text-xs font-bold text-cyan-600 dark:text-cyan-400 group-hover:translate-x-1 transition-transform"
             >
-              <span>Baca Cerita</span>
+              <span>Baca Studi Kasus</span>
               <span>→</span>
             </a>
           </div>
         </article>
       ))}
+    </div>
+
+    <!-- Show All 8 Articles Toggle Button -->
+    {articles.length > 6 && (
+      <div id="show-more-articles-container" class="mt-10 text-center">
+        <button
+          type="button"
+          id="show-more-articles-btn"
+          class="px-6 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all"
+        >
+          Lihat Semua 8 Cerita &amp; Studi Kasus ↓
+        </button>
+      </div>
+    )}
+
+    <!-- Bottom CTA Bridge -->
+    <div class="mt-14 p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+      <div>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">
+          Tertarik Menerapkan Solusi Serupa untuk Bisnismu?
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+          Dari tabulasi lomba, kasir F&amp;B, hingga otomasi konten—diskusikan langsung alur yang Anda butuhkan.
+        </p>
+      </div>
+
+      <a
+        href="https://wa.me/6282118313655?text=Halo%20Apri,%20aku%20tertarik%20mendiskusikan%20salah%20satu%20studi%20kasus%20di%20website%20untuk%20bisnisku."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shrink-0 px-6 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-xs sm:text-sm shadow-sm transition-all"
+      >
+        <span>💬 Konsultasi bareng Apri via WA →</span>
+      </a>
     </div>
 
   </div>
@@ -104,31 +139,60 @@ const categories = ['Semua', 'Vibecoding & AI Engineering', 'Studi Kasus Paskibr
   const initArticlesFilter = () => {
     const filterBtns = document.querySelectorAll('.article-filter-btn');
     const cards = document.querySelectorAll('.article-card') as NodeListOf<HTMLElement>;
+    const showMoreBtn = document.getElementById('show-more-articles-btn');
+    const showMoreContainer = document.getElementById('show-more-articles-container');
 
     let activeCategory = 'Semua';
+    let isExpanded = false;
+
+    const renderVisibility = () => {
+      cards.forEach((card, idx) => {
+        const category = card.dataset.category || '';
+        const matchesCategory = activeCategory === 'Semua' || category === activeCategory;
+
+        if (!matchesCategory) {
+          card.style.display = 'none';
+        } else {
+          if (activeCategory === 'Semua' && !isExpanded && idx >= 6) {
+            card.style.display = 'none';
+          } else {
+            card.style.display = 'flex';
+          }
+        }
+      });
+
+      if (showMoreContainer) {
+        if (activeCategory !== 'Semua' || isExpanded) {
+          showMoreContainer.style.display = 'none';
+        } else {
+          showMoreContainer.style.display = 'block';
+        }
+      }
+    };
+
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener('click', () => {
+        isExpanded = true;
+        renderVisibility();
+      });
+    }
 
     filterBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         filterBtns.forEach((b) => {
-          b.classList.remove('bg-purple-600', 'text-white', 'shadow-md', 'shadow-purple-500/30');
-          b.classList.add('bg-slate-100', 'dark:bg-slate-800/70', 'text-slate-600', 'dark:text-slate-300');
+          b.classList.remove('bg-slate-900', 'dark:bg-white', 'text-white', 'dark:text-slate-900', 'shadow-sm');
+          b.classList.add('bg-white', 'dark:bg-slate-800', 'border', 'border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-300');
         });
 
-        btn.classList.remove('bg-slate-100', 'dark:bg-slate-800/70', 'text-slate-600', 'dark:text-slate-300');
-        btn.classList.add('bg-purple-600', 'text-white', 'shadow-md', 'shadow-purple-500/30');
+        btn.classList.remove('bg-white', 'dark:bg-slate-800', 'border', 'border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-300');
+        btn.classList.add('bg-slate-900', 'dark:bg-white', 'text-white', 'dark:text-slate-900', 'shadow-sm');
 
         activeCategory = btn.getAttribute('data-category') || 'Semua';
-
-        cards.forEach((card) => {
-          const category = card.dataset.category || '';
-          if (activeCategory === 'Semua' || category === activeCategory) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+        renderVisibility();
       });
     });
+
+    renderVisibility();
   };
 
   initArticlesFilter();

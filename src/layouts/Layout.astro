@@ -2,6 +2,7 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FloatingActions from '../components/FloatingActions.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import '../styles/global.css';
 import type { SEOProps } from '../types';
@@ -13,27 +14,25 @@ export interface Props {
 const { seo = {} } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="id" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
   <head>
+    <meta charset="UTF-8" />
     <SEO {...seo} />
     <GoogleAnalytics />
-    <!-- GoatCounter Open-Source Privacy Analytics -->
-    <script data-goatcounter="https://madebyaapri.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     
-    <!-- Inline Theme Script to prevent FOUC (Flash of Unstyled Content) -->
+    <!-- Dark Mode Init Script (No Flash of Wrong Theme) -->
     <script is:inline>
-      const getInitialTheme = () => {
+      const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
           return 'dark';
         }
-        return 'dark'; // Default modern dark theme
-      };
+        return 'dark'; // Default dark mode
+      })();
 
-      const theme = getInitialTheme();
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
       } else {
@@ -41,7 +40,7 @@ const { seo = {} } = Astro.props;
       }
     </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-white dark:bg-[#090d16] text-slate-900 dark:text-slate-100 selection:bg-brand-500 selection:text-white transition-colors duration-300">
+  <body class="min-h-screen flex flex-col bg-white dark:bg-[#090d16] text-slate-900 dark:text-slate-100 selection:bg-cyan-500 selection:text-white transition-colors duration-300">
     
     <!-- Background Grid Texture -->
     <div class="fixed inset-0 pointer-events-none z-0 bg-grid-pattern-light dark:bg-grid-pattern bg-[size:24px_24px] opacity-60 dark:opacity-40"></div>
@@ -56,6 +55,9 @@ const { seo = {} } = Astro.props;
 
     <!-- Footer -->
     <Footer />
+
+    <!-- Floating Actions: Scroll to Top & WhatsApp FAB -->
+    <FloatingActions />
 
   </body>
 </html>
