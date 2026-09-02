@@ -5,54 +5,45 @@ import PainPoints from '../components/PainPoints.astro';
 import AboutSection from '../components/AboutSection.astro';
 import ProjectGallery from '../components/ProjectGallery.astro';
 import Comparison from '../components/Comparison.astro';
+import Skills from '../components/Skills.astro';
 import Articles from '../components/Articles.astro';
 import HowItWorks from '../components/HowItWorks.astro';
-import Testimonials from '../components/Testimonials.astro';
 import Pricing from '../components/Pricing.astro';
-import Skills from '../components/Skills.astro';
-import Experience from '../components/Experience.astro';
 import FAQ from '../components/FAQ.astro';
 import Contact from '../components/Contact.astro';
-import { siteConfig } from '../data/siteConfig';
 ---
 
 <Layout>
-  <!-- 1. Hero Section -->
+  <!-- 1. Hero Section (Seksi A) -->
   <Hero />
 
-  <!-- 2. Problem Agitation / Pain Points Section -->
+  <!-- 2. Problem Agitation / Pain Points Section (Seksi B) -->
   <PainPoints />
 
-  <!-- 3. About / Philosophy Section -->
+  <!-- 3. About & Philosophy Section (Seksi C) -->
   <AboutSection />
 
-  <!-- 4. Project & System Showcase Section -->
+  <!-- 4. 4 Master Flagship Systems Showcase (Seksi D) -->
   <ProjectGallery />
 
-  <!-- 5. Value Comparison Matrix Section (Kenapa Memilih Kami) -->
+  <!-- 5. Value Comparison Matrix Section (Seksi E) -->
   <Comparison />
 
-  <!-- 6. Articles & Case Studies Section (8 Real Stories) -->
-  <Articles />
-
-  <!-- 7. How It Works (Alur Kolaborasi Cepat) Section -->
-  <HowItWorks />
-
-  <!-- 8. Testimonials & Social Proof Section -->
-  <Testimonials />
-
-  <!-- 9. Pricing & Investment Tiers Section -->
-  <Pricing />
-
-  <!-- 10. Skills & Tech Stack Section -->
+  <!-- 6. Technology & Engine Section -->
   <Skills />
 
-  <!-- 11. Proven Track Record & Living Lab Section -->
-  <Experience />
+  <!-- 7. Articles & Case Studies Section (Seksi F) -->
+  <Articles />
 
-  <!-- 12. FAQ Section -->
+  <!-- 8. How It Works (Seksi G1) -->
+  <HowItWorks />
+
+  <!-- 9. Pricing & Investment Tiers Section (Seksi G2) -->
+  <Pricing />
+
+  <!-- 10. FAQ Section (Seksi G3) -->
   <FAQ />
 
-  <!-- 13. Contact & Direct WhatsApp Section -->
+  <!-- 11. Contact & Direct WhatsApp Section (Seksi G4) -->
   <Contact />
 </Layout>
