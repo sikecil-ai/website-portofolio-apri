@@ -3,7 +3,7 @@ const pricingTiers = [
   {
     name: '1-Hour Workflow Diagnostic',
     tagline: 'Sesi Bedah Alur Kerja & Titik Kebocoran Waktu',
-    price: 'Konsultasi Bebas Risiko',
+    price: 'Mulai Rp 150.000',
     type: 'Sesi 60 Menit (Via Google Meet / WA)',
     description: 'Sesi diagnosa intensif 60 menit untuk memetakan 3 titik kebocoran waktu dan biaya terbesar pada operasional bisnis Anda, plus 1 lembar roadmap solusi.',
     features: [
@@ -13,14 +13,14 @@ const pricingTiers = [
       'Dokumen 1 lembar Actionable Automation Roadmap',
     ],
     ctaText: '💬 Klaim Sesi Diagnostic',
-    waText: 'Halo Kang Apri, saya mau ambil sesi 1-Hour Workflow Diagnostic untuk membedah alur kerja bisnis saya.',
+    waText: 'Halo Kang Apri, saya mau ambil sesi 1-Hour Workflow Diagnostic (Rp 150rb) untuk membedah alur kerja bisnis saya.',
     highlight: false,
     badge: '★ Entry Hook (Bebas Risiko)',
   },
   {
     name: 'Sistem Kasir & Operasional Bisnis (Si Paling Kasir)',
     tagline: 'Sistem Kasir, Stok & Dashboard Tanpa Biaya Server',
-    price: 'Investasi Sesuai Alur Tim',
+    price: 'Mulai Rp 1.500.000',
     type: 'Sekali Bayar (Rp 0 Biaya Bulanan Seumur Hidup)',
     description: 'Solusi unggulan untuk merombak operasional bisnis F&B / retail ke form smartphone, otomatisasi HPP, dan Looker Studio Dashboard.',
     features: [
@@ -31,14 +31,14 @@ const pricingTiers = [
       'Garansi pendampingan langsung hingga tim lancar',
     ],
     ctaText: '💬 Diskusi Alur & Estimasi',
-    waText: 'Halo Kang Apri, saya ingin membangun Sistem Kasir & Operasional F&B tanpa sewa server untuk bisnis saya.',
+    waText: 'Halo Kang Apri, saya ingin membangun Sistem Kasir & Operasional F&B (Si Paling Kasir) mulai Rp 1,5 Juta untuk bisnis saya.',
     highlight: true,
     badge: '★ Paling Populer (Bisnis & F&B)',
   },
   {
     name: 'Live Event Tabulation (KOMANDO & Si Paling Rekap)',
     tagline: 'Sistem Penjurian Digital & Tabulasi Real-Time 0 Detik',
-    price: 'Investasi Per Kejuaraan',
+    price: 'Mulai Rp 750.000',
     type: 'Per Kejuaraan / Musim Lomba',
     description: 'Didesain khusus untuk panitia kejuaraan LKBB, Paskibra, atau lomba organisasi yang ingin rekapitulasi nilai juri 100% digital tanpa jeda waktu.',
     features: [
@@ -49,14 +49,14 @@ const pricingTiers = [
       'Dukungan live briefing operator tabulasi sebelum hari H',
     ],
     ctaText: '💬 Konsultasi Tabulasi Event',
-    waText: 'Halo Kang Apri, saya tertarik dengan Sistem Tabulasi Kejuaraan Si Paling Rekap untuk event/lomba kami.',
+    waText: 'Halo Kang Apri, saya tertarik dengan Sistem Tabulasi Kejuaraan Si Paling Rekap (mulai Rp 750rb) untuk event kami.',
     highlight: false,
     badge: '★ High-Stakes Accuracy',
   },
 ];
 ---
 
-<section id="investasi" class="relative py-24 sm:py-32 bg-slate-50/50 dark:bg-[#070b14]/50 border-t border-slate-200/60 dark:border-slate-800/60">
+<section id="layanan" class="relative py-24 sm:py-32 bg-slate-50/50 dark:bg-[#070b14]/50 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
@@ -71,7 +71,7 @@ const pricingTiers = [
       </h2>
       
       <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-        Investasi transparan yang disesuaikan dengan kebutuhan alur tim Anda. <strong>Tanpa beban sewa server bulanan seumur hidup (Rp 0/bulan)</strong>.
+        Investasi transparan mulai dari diagnosa alur kerja hingga sistem terpadu siap pakai. <strong>Tanpa beban sewa server bulanan seumur hidup (Rp 0/bulan)</strong>.
       </p>
     </div>
 
@@ -101,79 +101,65 @@ const pricingTiers = [
               : 'border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm'
           }`}
         >
-          {tier.badge && (
-            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[11px] font-bold shadow-sm whitespace-nowrap">
+          {tier.highlight && (
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-cyan-600 text-white font-bold text-[11px] shadow-md uppercase tracking-wider">
               {tier.badge}
             </div>
           )}
 
           <div>
-            <!-- Header Tier -->
-            <div class="mb-6 pt-2">
-              <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 mb-1 leading-snug">
-                {tier.name}
-              </h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400">{tier.tagline}</p>
-            </div>
+            {!tier.highlight && (
+              <span class="inline-block px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-bold mb-3">
+                {tier.badge}
+              </span>
+            )}
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mt-2 mb-1">
+              {tier.name}
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">
+              {tier.tagline}
+            </p>
 
-            <!-- Price Box -->
-            <div class="mb-6 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
-              <span class="block text-xl font-extrabold text-slate-900 dark:text-slate-100">
+            <!-- Price Display with starting amount -->
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 mb-6">
+              <span class="block text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-slate-100">
                 {tier.price}
               </span>
-              <span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+              <span class="text-xs font-semibold text-cyan-600 dark:text-cyan-400">
                 {tier.type}
               </span>
             </div>
 
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
               {tier.description}
             </p>
 
-            <!-- Features List -->
+            <!-- Feature list -->
             <ul class="space-y-2.5 mb-8 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
               {tier.features.map((feat) => (
-                <li class="flex items-start gap-2.5">
-                  <span class="text-emerald-500 font-bold mt-0.5">✓</span>
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-500 font-bold mt-0.5">✓</span>
                   <span>{feat}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <!-- Bottom CTA Button -->
-          <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-            <a
-              href={`https://wa.me/6282118313655?text=${encodeURIComponent(tier.waText)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={`w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all ${
-                tier.highlight
-                  ? 'bg-cyan-600 hover:bg-cyan-700 text-white shadow-sm'
-                  : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200'
-              }`}
-            >
-              <span>{tier.ctaText}</span>
-              <span>→</span>
-            </a>
-          </div>
+          <!-- Direct WhatsApp Button -->
+          <a
+            href={`https://wa.me/6282118313655?text=${encodeURIComponent(tier.waText)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`w-full py-3.5 px-4 rounded-xl font-semibold text-xs sm:text-sm text-center flex items-center justify-center gap-2 transition-all ${
+              tier.highlight
+                ? 'bg-cyan-600 hover:bg-cyan-500 text-white shadow-md'
+                : 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 shadow-sm'
+            }`}
+          >
+            <span>{tier.ctaText}</span>
+          </a>
         </div>
       ))}
-    </div>
-
-    <!-- Custom Needs Banner -->
-    <div class="mt-12 text-center p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-        Punya spreadsheet formula ruwet atau butuh integrasi sistem multi-cabang?
-        <a
-          href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20punya%20kebutuhan%20sistem%20otomasi%20kustom."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="font-semibold text-cyan-600 dark:text-cyan-400 hover:underline ml-1"
-        >
-          Diskusikan Kebutuhan Khusus via WhatsApp →
-        </a>
-      </p>
     </div>
 
   </div>

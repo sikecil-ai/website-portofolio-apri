@@ -2,7 +2,7 @@
 import { siteConfig } from '../data/siteConfig';
 ---
 
-<section id="kontak" class="relative py-24 sm:py-32 bg-white/60 dark:bg-[#070b14]/60 border-t border-slate-200/60 dark:border-slate-800/60 overflow-hidden">
+<section id="kontak" class="relative py-24 sm:py-32 bg-white/60 dark:bg-[#070b14]/60 border-t border-slate-200/60 dark:border-slate-800/60 overflow-hidden scroll-mt-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
@@ -21,127 +21,151 @@ import { siteConfig } from '../data/siteConfig';
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
+    <!-- Symmetrical 2-Column Container -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">
       
-      <!-- Left Column: Contact Cards & Socials -->
-      <div class="lg:col-span-5 flex flex-col gap-6">
+      <!-- Left Column: Harmonized Contact & Profile Card -->
+      <div class="lg:col-span-5 flex flex-col justify-between gap-5 h-full">
         
-        <!-- Direct WhatsApp Card -->
+        <!-- Direct WhatsApp Priority Card -->
         <a
           href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berkonsultasi%20mengenai%20upgrade%20sistem%20otomasi."
           target="_blank"
           rel="noopener noreferrer"
-          class="rounded-3xl p-6 sm:p-7 border border-emerald-300 dark:border-emerald-800/80 bg-emerald-50/50 dark:bg-emerald-950/30 block group hover:border-emerald-500 transition-all shadow-sm"
+          class="rounded-3xl p-6 sm:p-7 border border-emerald-300 dark:border-emerald-800/80 bg-emerald-50/60 dark:bg-emerald-950/40 block group hover:border-emerald-500 transition-all shadow-sm flex-1 flex flex-col justify-between"
         >
-          <div class="flex items-center justify-between gap-3 mb-2">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xl">
-                💬
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xl shrink-0">
+                  💬
+                </div>
+                <div>
+                  <h3 class="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">Fast Response WhatsApp</h3>
+                  <p class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-slate-100">+62 821-1831-3655</p>
+                </div>
               </div>
-              <div>
-                <h3 class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Fast Response WhatsApp</h3>
-                <p class="text-base font-bold text-slate-900 dark:text-slate-100">+62 821-1831-3655</p>
-              </div>
+              <span class="text-emerald-600 dark:text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">→</span>
             </div>
-            <span class="text-emerald-500 group-hover:translate-x-1 transition-transform">→</span>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Konsultasi langsung tanpa perantara. Arsitektur sistem dan estimasi dijelaskan secara transparan.
+            </p>
           </div>
-          <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">
-            Konsultasi langsung tanpa perantara. Arsitektur sistem dan estimasi dijelaskan secara transparan.
-          </p>
+          <div class="mt-4 pt-3 border-t border-emerald-200/60 dark:border-emerald-800/60 flex items-center gap-2 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Online &amp; Siap Diskusi Hari Ini</span>
+          </div>
         </a>
 
-        <!-- Local Base Card -->
-        <div class="rounded-3xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold text-lg">
-              📍
+        <!-- Location & Socials Combined Card -->
+        <div class="rounded-3xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold text-lg shrink-0">
+                📍
+              </div>
+              <div>
+                <h3 class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Lokasi &amp; Domisili</h3>
+                <p class="text-sm font-bold text-slate-900 dark:text-slate-100">Cibeber, Kota Cimahi</p>
+              </div>
             </div>
-            <div>
-              <h3 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Lokasi &amp; Domisili</h3>
-              <p class="text-sm font-bold text-slate-900 dark:text-slate-100">Cibeber, Kota Cimahi</p>
-            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-4">
+              Area Bandung Raya &amp; implementasi online ke seluruh Indonesia.
+            </p>
           </div>
-          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            Melayani konsultasi langsung untuk area Bandung Raya &amp; implementasi online ke seluruh Indonesia.
-          </p>
-        </div>
 
-        <!-- Social Channels -->
-        <div class="rounded-3xl p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">Sosial Media Resmi @madebyaapri</h4>
-          <div class="flex flex-col gap-2">
-            {siteConfig.socialLinks.filter(l => ['Threads', 'Instagram', 'LinkedIn'].includes(l.name)).map((link) => (
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800">
+            <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Saluran Resmi @madebyaapri</h4>
+            <div class="grid grid-cols-3 gap-2">
               <a
-                href={link.url}
+                href="https://www.threads.net/@madebyaapri"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/60 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 transition-all text-xs font-semibold"
+                class="p-2 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/60 dark:border-slate-700/60 text-center text-xs font-semibold text-slate-700 dark:text-slate-200 transition-colors"
               >
-                <span>{link.name}</span>
-                <span class="text-slate-400 text-xs font-normal">{link.username}</span>
+                Threads
               </a>
-            ))}
+              <a
+                href="https://www.instagram.com/madebyaapri"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/60 dark:border-slate-700/60 text-center text-xs font-semibold text-slate-700 dark:text-slate-200 transition-colors"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.linkedin.com/in/m-apriyanto-wijaya-8705b6144/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/60 dark:border-slate-700/60 text-center text-xs font-semibold text-slate-700 dark:text-slate-200 transition-colors"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
 
       </div>
 
       <!-- Right Column: Interactive Quick Message Form -->
-      <div class="lg:col-span-7">
-        <div class="rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mb-1">Kirim Pesan WhatsApp Cepat</h3>
-          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-6">
-            Isi formulir ringkas di bawah ini, tombol akan otomatis membuat format chat WhatsApp yang rapi ke Kang Apri.
-          </p>
+      <div class="lg:col-span-7 flex flex-col h-full">
+        <div class="rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between h-full">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mb-1">Kirim Pesan WhatsApp Cepat</h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-6">
+              Isi formulir ringkas di bawah ini, tombol akan otomatis membuat format chat WhatsApp yang rapi ke Kang Apri.
+            </p>
 
-          <form id="contact-form" class="space-y-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form id="contact-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Nama Anda / Brand *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    placeholder="Contoh: Budi / Kedai Kopi"
+                    class="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label for="service" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Kebutuhan Utama *</label>
+                  <select
+                    id="service"
+                    class="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all"
+                  >
+                    <option value="Sistem Kasir & Operasional F&B">Sistem Kasir &amp; Operasional F&B</option>
+                    <option value="Tabulasi Kejuaraan Paskibra / LKBB">Tabulasi Kejuaraan Paskibra / LKBB</option>
+                    <option value="Manajemen Database & Presensi Organisasi">Manajemen Database &amp; Presensi Organisasi</option>
+                    <option value="1-Hour Workflow Diagnostic (Rp 150rb)">1-Hour Workflow Diagnostic (Rp 150rb)</option>
+                    <option value="Otomasi Konten AI & Bot Cerdas">Otomasi Konten AI &amp; Bot Cerdas</option>
+                    <option value="Kebutuhan Kustom Lainnya">Kebutuhan Kustom Lainnya</option>
+                  </select>
+                </div>
+              </div>
+
               <div>
-                <label for="name" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Nama Anda / Brand *</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
+                <label for="message" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Ceritakan Kendala / Alur Kerja Anda *</label>
+                <textarea
+                  id="message"
+                  rows="4"
                   required
-                  placeholder="Contoh: Budi / Kedai Kopi"
-                  class="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all"
-                />
+                  placeholder="Contoh: Rekap kasir harian masih manual dan butuh waktu 2 jam tiap malam, ingin otomatis masuk ke Google Sheets..."
+                  class="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all resize-none"
+                ></textarea>
               </div>
 
-              <div>
-                <label for="service" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Kebutuhan Utama *</label>
-                <select
-                  id="service"
-                  name="service"
-                  class="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all"
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  class="w-full py-3.5 px-6 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-100 shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <option value="Sistem Kasir & Operasional Bisnis (Si Paling Kasir)">Sistem Kasir &amp; Operasional F&amp;B</option>
-                  <option value="Tabulasi Kejuaraan LKBB/Paskibra (Si Paling Rekap)">Tabulasi Kejuaraan LKBB / Paskibra</option>
-                  <option value="Otomasi Alur Spreadsheet Kustom">Otomasi Alur Spreadsheet Kustom</option>
-                  <option value="Sesi 1-Hour Diagnostic">Sesi 1-Hour Diagnostic</option>
-                </select>
+                  <span>💬 Kirim Pesan ke WhatsApp Kang Apri →</span>
+                </button>
               </div>
-            </div>
-
-            <div>
-              <label for="message" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Ceritakan Kendala / Alur Kerja Anda *</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-                placeholder="Contoh: Rekap kasir harian masih manual dan butuh waktu 2 jam tiap malam, ingin otomatis masuk ke Google Sheets..."
-                class="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all resize-none"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              class="w-full py-3.5 px-6 rounded-xl text-xs sm:text-sm font-semibold text-white bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>💬 Kirim Pesan ke WhatsApp Kang Apri →</span>
-            </button>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -152,19 +176,23 @@ import { siteConfig } from '../data/siteConfig';
 
 <script>
   const initContactForm = () => {
-    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const form = document.getElementById('contact-form');
     if (!form) return;
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = (document.getElementById('name') as HTMLInputElement)?.value.trim() || 'Teman';
-      const service = (document.getElementById('service') as HTMLSelectElement)?.value || 'Konsultasi Sistem';
-      const message = (document.getElementById('message') as HTMLTextAreaElement)?.value.trim() || '';
+      const nameInput = document.getElementById('name') as HTMLInputElement | null;
+      const serviceSelect = document.getElementById('service') as HTMLSelectElement | null;
+      const messageInput = document.getElementById('message') as HTMLTextAreaElement | null;
 
-      const waText = `Halo Kang Apri, saya ${name}. Saya tertarik dengan layanan ${service}.\n\nDetail kendala/kebutuhan saya:\n${message}`;
-      const waUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waText)}`;
+      const name = nameInput?.value || '';
+      const service = serviceSelect?.value || '';
+      const message = messageInput?.value || '';
 
-      window.open(waUrl, '_blank');
+      const text = `Halo Kang Apri (@madebyaapri),\n\nSaya *${name}* ingin berkonsultasi mengenai:\n📌 *Kebutuhan:* ${service}\n\n📝 *Deskripsi Alur / Kendala:*\n"${message}"\n\nMohon info estimasi dan langkah selanjutnya ya Kang. Terima kasih!`;
+
+      const encodedText = encodeURIComponent(text);
+      window.open(`https://wa.me/6282118313655?text=${encodedText}`, '_blank');
     });
   };
 
