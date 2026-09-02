@@ -3,17 +3,14 @@ export interface Props {
   measurementId?: string;
 }
 
-// Support environment variable or default fallback ID
-const { measurementId = import.meta.env.PUBLIC_GA_ID || 'G-XXXXXXXXXX' } = Astro.props;
-const isProd = import.meta.env.PROD;
+const { measurementId = 'G-KRQSJ5S3PC' } = Astro.props;
 ---
 
-<!-- Google Analytics 4 (GA4) with Custom Conversion Tracking -->
+<!-- Google tag (gtag.js) - GA4 Tracking with Event Dispatcher -->
 {measurementId && (
   <>
     <script
       is:inline
-      type="text/partytown"
       async
       src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
     ></script>
@@ -29,33 +26,58 @@ const isProd = import.meta.env.PROD;
         anonymize_ip: true,
       });
 
-      // Track WhatsApp Lead Conversions & Article Reads automatically
-      document.addEventListener('DOMContentLoaded', () => {
-        // WhatsApp Click Tracking
+      // Advanced WhatsApp & CRO Event Tracking
+      const initTracking = () => {
+        // Track all WhatsApp Buttons with section contextual data
         document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach((el) => {
           el.addEventListener('click', () => {
+            const href = el.getAttribute('href') || '';
+            const section = el.closest('section')?.id || 'general';
+            const label = el.textContent?.trim() || 'WhatsApp CTA';
+
             if (typeof gtag === 'function') {
               gtag('event', 'generate_lead', {
                 event_category: 'WhatsApp',
-                event_label: el.getAttribute('href'),
+                event_label: label,
+                section_id: section,
+                destination: href,
                 value: 1,
               });
             }
           });
         });
 
-        // Article Read Tracking
-        document.querySelectorAll('.read-article-btn, .article-card').forEach((el) => {
+        // Track Article Card / Case Study Clicks
+        document.querySelectorAll('.article-card, a[href*="/artikel/"]').forEach((el) => {
           el.addEventListener('click', () => {
             if (typeof gtag === 'function') {
-              gtag('event', 'view_item', {
-                event_category: 'Article',
-                event_label: 'Case Study Read',
+              gtag('event', 'select_content', {
+                content_type: 'article',
+                item_id: el.getAttribute('href') || '',
               });
             }
           });
         });
-      });
+
+        // Track Project Showcase / Detail Clicks
+        document.querySelectorAll('.project-card, a[href*="/sistem/"]').forEach((el) => {
+          el.addEventListener('click', () => {
+            if (typeof gtag === 'function') {
+              gtag('event', 'select_item', {
+                item_list_name: 'Project Showcase',
+                item_id: el.getAttribute('href') || '',
+              });
+            }
+          });
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTracking);
+      } else {
+        initTracking();
+      }
+      document.addEventListener('astro:after-swap', initTracking);
     </script>
   </>
 )}
