@@ -2,86 +2,103 @@
 const comparisons = [
   {
     parameter: 'Kecepatan Pengerjaan',
-    softwareHouse: '2 – 4 Minggu (Birokrasi tim panjang & lambat)',
-    madebyaapri: '3 – 5 Hari Kerja (Agile, langsung siap pakai)',
-    winner: true,
+    conventional: '2 – 4 Minggu (Birokrasi tim panjang & lambat)',
+    madebyaapri: '3 – 5 Hari Kerja (Agile, langsung siap pakai & uji coba)',
   },
   {
     parameter: 'Biaya Server & Pemeliharaan',
-    softwareHouse: 'Biaya sewa server/cloud bulanan (Rp 300rb – Rp 2jt/bln)',
-    madebyaapri: 'Rp 0 / Bulan (Zero Server Cost Google Workspace)',
-    winner: true,
+    conventional: 'Wajib sewa cloud bulanan (Rp 300rb – Rp 2jt/bulan)',
+    madebyaapri: 'Rp 0 / Bulan Seumur Hidup (Google Workspace Engine)',
   },
   {
-    parameter: 'Pemahaman Masalah Nyata',
-    softwareHouse: 'Berdasarkan teori rekayasa software & asumsi meja',
-    madebyaapri: 'Praktisi Lapangan Nyata (Owner Megumi F&B & 17 Th Paskibra)',
-    winner: true,
+    parameter: 'Pemahaman Masalah Lapangan',
+    conventional: 'Berdasarkan asumsi meja & teori software steril',
+    madebyaapri: 'Praktisi Lapangan Nyata (Teruji di lomba & kedai harian)',
+  },
+  {
+    parameter: 'Fleksibilitas Alur Kerja',
+    conventional: 'Tim Anda dipaksa tunduk pada aturan software yang kaku',
+    madebyaapri: 'Sistem fleksibel dirancang mengikuti ritme kebiasaan tim Anda',
   },
   {
     parameter: 'Gaya Bahasa Komunikasi',
-    softwareHouse: 'Bahasa teknis, jargon IT rumit & membingungkan',
+    conventional: 'Penuh istilah IT rumit & jargon yang membingungkan',
     madebyaapri: 'Bahasa Pemilik Bisnis (Lugas, to-the-point, gampil dipahami)',
-    winner: true,
   },
   {
     parameter: 'Pendampingan & SOP',
-    softwareHouse: 'Sering diserahkan tanpa panduan video cara pakai tim',
-    madebyaapri: 'Garansi pendampingan sampai jalan + Video tutorial 1-klik',
-    winner: true,
+    conventional: 'Diserahkan begitu saja tanpa panduan cara pakai tim',
+    madebyaapri: 'Pendampingan sampai lancar + Video panduan + Buku SOP',
   },
 ];
 ---
 
-<section class="py-24 sm:py-32 relative bg-slate-50/50 dark:bg-slate-900/30 border-t border-slate-200/60 dark:border-slate-800/60">
+<section id="komparasi" class="py-24 sm:py-32 relative bg-slate-50/60 dark:bg-[#070b14]/60 border-t border-slate-200/60 dark:border-slate-800/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
     <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-600 dark:text-brand-400 text-xs font-semibold uppercase tracking-wider mb-4">
-        Keunggulan Kompetitif
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-cyan-700 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+        <span>⚖️</span>
+        <span>Matriks Perbandingan Nilai</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight mb-4">
-        Kenapa Memilih <span class="text-gradient">@madebyaapri?</span>
+      
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.2] mb-4">
+        Kenapa Memilih <span class="text-gradient-cyan">@madebyaapri?</span>
       </h2>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-        Perbandingan nilai nyata antara menyewa software house korporat konvensional vs bermitra langsung dengan praktisi otomasi.
+      
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        Perbandingan nilai nyata antara menyewa vendor IT konvensional vs bermitra langsung dengan praktisi otomasi alur kerja.
       </p>
     </div>
 
-    <!-- Comparison Table Container -->
-    <div class="max-w-4xl mx-auto rounded-3xl overflow-hidden glass-card border border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-slate-900/80 shadow-xl">
+    <!-- Comparison Table Container (Google Pixel Minimalist Aesthetic) -->
+    <div class="max-w-4xl mx-auto rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
       
       <!-- Table Header -->
-      <div class="grid grid-cols-12 p-4 sm:p-6 bg-slate-100/80 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-bold">
-        <div class="col-span-4 text-slate-600 dark:text-slate-400">Parameter Kebutuhan</div>
-        <div class="col-span-4 text-slate-500 dark:text-slate-400">Software House Biasa</div>
-        <div class="col-span-4 text-brand-600 dark:text-brand-400 font-extrabold flex items-center gap-1">
-          <span>★ @madebyaapri</span>
+      <div class="grid grid-cols-12 p-4 sm:p-6 bg-slate-100/90 dark:bg-slate-800/90 border-b border-slate-200 dark:border-slate-700/80 text-xs sm:text-sm font-bold">
+        <div class="col-span-4 text-slate-600 dark:text-slate-300">Parameter Kebutuhan</div>
+        <div class="col-span-4 text-slate-500 dark:text-slate-400">Vendor IT Konvensional</div>
+        <div class="col-span-4 text-cyan-600 dark:text-cyan-400 font-extrabold flex items-center gap-1.5">
+          <span>★</span>
+          <span>@madebyaapri</span>
         </div>
       </div>
 
       <!-- Table Rows -->
-      <div class="divide-y divide-slate-200/60 dark:divide-slate-800/60">
+      <div class="divide-y divide-slate-100 dark:divide-slate-800/80">
         {comparisons.map((item, idx) => (
           <div class={`grid grid-cols-12 p-4 sm:p-6 items-center text-xs sm:text-sm transition-colors ${
-            idx % 2 === 0 ? 'bg-transparent' : 'bg-slate-50/50 dark:bg-slate-900/30'
+            idx % 2 === 0 ? 'bg-transparent' : 'bg-slate-50/40 dark:bg-slate-800/20'
           }`}>
-            <div class="col-span-4 font-bold text-slate-900 dark:text-slate-100 pr-2">
+            <div class="col-span-4 font-bold text-slate-900 dark:text-slate-100 pr-2 leading-snug">
               {item.parameter}
             </div>
-            <div class="col-span-4 text-slate-500 dark:text-slate-400 pr-2 leading-relaxed">
-              <span class="text-rose-500 font-bold mr-1">✕</span>
-              <span>{item.softwareHouse}</span>
+            <div class="col-span-4 text-slate-500 dark:text-slate-400 pr-2 leading-relaxed text-[11px] sm:text-xs">
+              <span class="text-rose-500 font-bold mr-1 shrink-0">✕</span>
+              <span>{item.conventional}</span>
             </div>
-            <div class="col-span-4 font-semibold text-slate-900 dark:text-slate-100 bg-brand-50/50 dark:bg-brand-950/30 p-2 sm:p-3 rounded-xl border border-brand-200/60 dark:border-brand-800/60 leading-relaxed">
-              <span class="text-emerald-500 font-bold mr-1">✓</span>
-              <span>{item.madebyaapri}</span>
+            <div class="col-span-4 font-medium text-slate-900 dark:text-slate-100 bg-cyan-50/60 dark:bg-cyan-950/40 p-2.5 sm:p-3.5 rounded-xl border border-cyan-100 dark:border-cyan-900/60 leading-relaxed text-[11px] sm:text-xs">
+              <span class="text-emerald-500 font-bold mr-1 shrink-0">✓</span>
+              <span class="font-semibold text-slate-900 dark:text-slate-100">{item.madebyaapri}</span>
             </div>
           </div>
         ))}
       </div>
 
+    </div>
+
+    <!-- Bottom CTA Bridge -->
+    <div class="mt-12 text-center">
+      <a
+        href="https://wa.me/6282118313655?text=Halo%20Apri,%20aku%20mau%20konsultasi%20upgrade%20alur%20kerja%20bisnis%20tanpa%20biaya%20server%20bulanan."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-100 shadow-sm transition-all group"
+      >
+        <span>💡 Ingin upgrade alur kerja tanpa beban biaya server bulanan?</span>
+        <span class="text-cyan-400 dark:text-cyan-600 font-bold group-hover:translate-x-1 transition-transform">Ngobrol bareng Apri →</span>
+      </a>
     </div>
 
   </div>
