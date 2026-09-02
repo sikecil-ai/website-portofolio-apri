@@ -332,14 +332,17 @@ import { experiences } from '../data/experiences';
           Salin kode Google Apps Script di bawah ini, buka Google Spreadsheet Anda, pilih <strong>Extensions &gt; Apps Script</strong>, tempel kode ini, lalu Deploy sebagai <strong>Web App (Access: Anyone)</strong>.
         </p>
         <pre class="p-4 rounded-2xl bg-slate-950 text-cyan-300 font-mono text-[11px] overflow-x-auto mb-4 leading-relaxed max-h-96"><code>{`/**
- * BACKEND GOOGLE APPS SCRIPT - PORTOFOLIO @madebyaapri
+ * MASTER DATABASE GOOGLE APPS SCRIPT - PORTOFOLIO @madebyaapri
+ * Single Source of Truth Database untuk Proyek, Artikel, Profil & Keahlian
  */
 function doGet(e) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  initSheetsIfNotExist(ss);
+  initMasterSheets(ss);
   
   var pData = ss.getSheetByName("Proyek").getDataRange().getValues();
+  var aData = ss.getSheetByName("Artikel").getDataRange().getValues();
   var profData = ss.getSheetByName("Profil").getDataRange().getValues();
+  var kData = ss.getSheetByName("Keahlian").getDataRange().getValues();
   
   var projects = [];
   for (var i = 1; i < pData.length; i++) {
@@ -348,21 +351,41 @@ function doGet(e) {
       title: pData[i][1],
       category: pData[i][2],
       tagline: pData[i][3],
-      description: pData[i][4]
+      description: pData[i][4],
+      status: pData[i][5]
     });
+  }
+
+  var articles = [];
+  for (var i = 1; i < aData.length; i++) {
+    articles.push({
+      slug: aData[i][0],
+      title: aData[i][1],
+      category: aData[i][2],
+      readTime: aData[i][3],
+      date: aData[i][4],
+      excerpt: aData[i][5]
+    });
+  }
+
+  var profile = {};
+  for (var i = 1; i < profData.length; i++) {
+    profile[profData[i][0]] = profData[i][1];
   }
   
   return ContentService.createTextOutput(JSON.stringify({
     status: "success",
     timestamp: new Date(),
-    projects: projects
+    profile: profile,
+    projects: projects,
+    articles: articles
   })).setMimeType(ContentService.MimeType.JSON);
 }
 
 function doPost(e) {
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    initSheetsIfNotExist(ss);
+    initMasterSheets(ss);
     var p = JSON.parse(e.postData.contents);
     
     if (p.action === 'save_project' && p.project) {
@@ -396,7 +419,9 @@ function doPost(e) {
   }
 }
 
-function initSheetsIfNotExist(ss) {
+// Inisialisasi Otomatis 4 Tab Sheet Database Master
+function initMasterSheets(ss) {
+  // 1. Sheet Proyek
   var pSheet = ss.getSheetByName("Proyek");
   if (!pSheet) {
     pSheet = ss.insertSheet("Proyek");
@@ -406,6 +431,44 @@ function initSheetsIfNotExist(ss) {
     pSheet.appendRow(["si-paling-kasir", "Si Paling Kasir — F&B POS & Stock Management", "Bisnis F&B", "Kasir Smartphone & Hitung HPP Bumbu Harian Otomatis", "Sistem kasir smartphone zero-server living lab Megumi Hotplate.", "Aktif", new Date()]);
     pSheet.appendRow(["si-paling-threads", "Si Paling Threads — Auto-Publisher & Lead Bot", "AI Automation", "Distribusi Konten & Penawaran Terjadwal Gemini AI", "Bot otomasi publikasi konten dan sales funnel otomatis.", "Aktif", new Date()]);
     pSheet.getRange("A1:G1").setBackground("#0891B2").setFontColor("#FFFFFF").setFontWeight("bold");
+  }
+
+  // 2. Sheet Profil
+  var profSheet = ss.getSheetByName("Profil");
+  if (!profSheet) {
+    profSheet = ss.insertSheet("Profil");
+    profSheet.appendRow(["Kunci Parameter", "Isi Data"]);
+    profSheet.appendRow(["Nama", "Muhammad Apriyanto Wijaya (Kang Apri)"]);
+    profSheet.appendRow(["Headline", "Kang Apri — Spesialis Modernisasi Spreadsheet & Sistem Bisnis"]);
+    profSheet.appendRow(["WhatsApp", "+6282118313655"]);
+    profSheet.appendRow(["Email", "sohibwijaya@gmail.com"]);
+    profSheet.appendRow(["Domisili", "Cibeber, Kota Cimahi, Jawa Barat"]);
+    profSheet.appendRow(["Bio", "Membantu bisnis dan organisasi mengubah spreadsheet ribet menjadi alur kerja smartphone rapi tanpa biaya sewa server bulanan."]);
+    profSheet.getRange("A1:B1").setBackground("#0891B2").setFontColor("#FFFFFF").setFontWeight("bold");
+  }
+
+  // 3. Sheet Artikel
+  var aSheet = ss.getSheetByName("Artikel");
+  if (!aSheet) {
+    aSheet = ss.insertSheet("Artikel");
+    aSheet.appendRow(["Slug", "Judul", "Kategori", "Waktu Baca", "Tanggal", "Ringkasan"]);
+    aSheet.appendRow(["seni-vibecoding-rapi-terstruktur-kang-apri", "Seni Vibe-Coding: Rahasia Membangun Sistem Tanpa Halusinasi AI", "Vibecoding & AI", "6 Menit Baca", "31 Agustus 2026", "Pendekatan modular Kang Apri dalam memanfaatkan AI untuk membangun sistem bisnis yang rapi dan minim bug."]);
+    aSheet.appendRow(["kisah-komando-tabulasi-paskibra-realtime", "Kisah di Balik KOMANDO: Tabulasi Real-Time LKBB 0 Detik Delay", "Studi Kasus Paskibra", "8 Menit Baca", "31 Agustus 2026", "Bagaimana sistem tabulasi real-time memangkas antrean pengumuman juara kejuaraan Paskibra di Kota Cimahi."]);
+    aSheet.appendRow(["arsitektur-zero-server-cost-megumi-hotplate", "Arsitektur Zero Server Cost: Kasir Smartphone Megumi Hotplate", "Otomasi Bisnis & F&B", "7 Menit Baca", "31 Agustus 2026", "Bedah teknis sistem POS dan HPP bumbu harian tanpa biaya langganan software bulanan."]);
+    aSheet.appendRow(["otomasi-bot-python-ai-content-publisher", "Otomasi Bot AI: Distribusi Konten & Penawaran Terjadwal", "Vibecoding & AI", "5 Menit Baca", "31 Agustus 2026", "Strategi membangun bot publisher otomatis menggunakan Google Gemini AI API Engine."]);
+    aSheet.getRange("A1:F1").setBackground("#0891B2").setFontColor("#FFFFFF").setFontWeight("bold");
+  }
+
+  // 4. Sheet Keahlian
+  var kSheet = ss.getSheetByName("Keahlian");
+  if (!kSheet) {
+    kSheet = ss.insertSheet("Keahlian");
+    kSheet.appendRow(["Kategori Engine", "Nama Teknologi", "Persentase Level", "Deskripsi"]);
+    kSheet.appendRow(["Spreadsheet & Apps Script", "Google Apps Script & Sheets Engine", "95%", "Arsitektur database zero server cost & web app endpoint."]);
+    kSheet.appendRow(["Artificial Intelligence", "Google Gemini AI API Engine", "90%", "Otomasi distribusi konten dan natural language processing."]);
+    kSheet.appendRow(["Business Intelligence", "Looker Studio BI Dashboard", "92%", "Visualisasi grafik omset dan laporan HPP harian real-time."]);
+    kSheet.appendRow(["Modern Web Architecture", "Astro & Tailwind CSS", "90%", "Frontend ultra-cepat dengan skor audit dan SEO kelas enterprise."]);
+    kSheet.getRange("A1:D1").setBackground("#0891B2").setFontColor("#FFFFFF").setFontWeight("bold");
   }
 }`}</code></pre>
       </div>
