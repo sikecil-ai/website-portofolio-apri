@@ -331,22 +331,82 @@ import { experiences } from '../data/experiences';
         <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
           Salin kode Google Apps Script di bawah ini, buka Google Spreadsheet Anda, pilih <strong>Extensions &gt; Apps Script</strong>, tempel kode ini, lalu Deploy sebagai <strong>Web App (Access: Anyone)</strong>.
         </p>
-        <pre class="p-4 rounded-2xl bg-slate-950 text-slate-200 font-mono text-xs overflow-x-auto mb-4 leading-relaxed"><code>{`function doGet(e) {
+        <pre class="p-4 rounded-2xl bg-slate-950 text-cyan-300 font-mono text-[11px] overflow-x-auto mb-4 leading-relaxed max-h-96"><code>{`/**
+ * BACKEND GOOGLE APPS SCRIPT - PORTOFOLIO @madebyaapri
+ */
+function doGet(e) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName("Proyek") || ss.getActiveSheet();
-  var data = sheet.getDataRange().getValues();
+  initSheetsIfNotExist(ss);
+  
+  var pData = ss.getSheetByName("Proyek").getDataRange().getValues();
+  var profData = ss.getSheetByName("Profil").getDataRange().getValues();
+  
+  var projects = [];
+  for (var i = 1; i < pData.length; i++) {
+    projects.push({
+      id: pData[i][0],
+      title: pData[i][1],
+      category: pData[i][2],
+      tagline: pData[i][3],
+      description: pData[i][4]
+    });
+  }
+  
   return ContentService.createTextOutput(JSON.stringify({
     status: "success",
     timestamp: new Date(),
-    rows: data.length
+    projects: projects
   })).setMimeType(ContentService.MimeType.JSON);
 }
 
 function doPost(e) {
-  return ContentService.createTextOutput(JSON.stringify({
-    status: "success",
-    message: "Data berhasil diterima dan disinkronkan!"
-  })).setMimeType(ContentService.MimeType.JSON);
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    initSheetsIfNotExist(ss);
+    var p = JSON.parse(e.postData.contents);
+    
+    if (p.action === 'save_project' && p.project) {
+      var sheet = ss.getSheetByName("Proyek");
+      var data = sheet.getDataRange().getValues();
+      var found = false;
+      for (var i = 1; i < data.length; i++) {
+        if (data[i][0] == p.project.id) {
+          sheet.getRange(i + 1, 2).setValue(p.project.title);
+          sheet.getRange(i + 1, 4).setValue(p.project.tagline);
+          sheet.getRange(i + 1, 5).setValue(p.project.description);
+          sheet.getRange(i + 1, 7).setValue(new Date());
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        sheet.appendRow([p.project.id, p.project.title, p.project.category, p.project.tagline, p.project.description, "Aktif", new Date()]);
+      }
+    }
+    
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "success",
+      message: "Data berhasil disimpan ke Spreadsheet!"
+    })).setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "error",
+      message: err.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function initSheetsIfNotExist(ss) {
+  var pSheet = ss.getSheetByName("Proyek");
+  if (!pSheet) {
+    pSheet = ss.insertSheet("Proyek");
+    pSheet.appendRow(["ID", "Judul", "Kategori", "Tagline", "Deskripsi", "Status", "Terakhir Update"]);
+    pSheet.appendRow(["komando", "KOMANDO — Paskibra Management & Tabulation", "Organisasi", "Database 147 Anggota & Absensi 1-Klik Siap Print", "Sistem manajemen anggota dan tabulasi nilai latihan Paskibra.", "Aktif", new Date()]);
+    pSheet.appendRow(["si-paling-rekap", "Si Paling Rekap — Tabulasi Kejuaraan Real-Time", "Kejuaraan", "Live Standing LKBB 0 Detik Delay Tanpa Antre", "Sistem rekapitulasi nilai juri lomba multi-kategori teruji FORBASI 2026.", "Aktif", new Date()]);
+    pSheet.appendRow(["si-paling-kasir", "Si Paling Kasir — F&B POS & Stock Management", "Bisnis F&B", "Kasir Smartphone & Hitung HPP Bumbu Harian Otomatis", "Sistem kasir smartphone zero-server living lab Megumi Hotplate.", "Aktif", new Date()]);
+    pSheet.appendRow(["si-paling-threads", "Si Paling Threads — Auto-Publisher & Lead Bot", "AI Automation", "Distribusi Konten & Penawaran Terjadwal Gemini AI", "Bot otomasi publikasi konten dan sales funnel otomatis.", "Aktif", new Date()]);
+    pSheet.getRange("A1:G1").setBackground("#0891B2").setFontColor("#FFFFFF").setFontWeight("bold");
+  }
 }`}</code></pre>
       </div>
     </div>
