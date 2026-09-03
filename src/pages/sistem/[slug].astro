@@ -13,8 +13,9 @@ export function getStaticPaths() {
 const { project } = Astro.props;
 
 const seoProps = {
-  title: `${project.title} | Solusi by Kang Apri (@madebyaapri)`,
+  title: `${project.title} | Aplikasi & Sistem by Kang Apri (@madebyaapri)`,
   description: `${project.tagline} ${project.description}`,
+  image: project.image,
   canonicalURL: `${siteConfig.url}/sistem/${project.slug}`,
   type: 'article',
 };
@@ -24,128 +25,391 @@ const otherProjects = projects.filter((p) => p.id !== project.id).slice(0, 3);
 ---
 
 <Layout seo={seoProps}>
-  <div class="pt-28 pb-24 relative overflow-hidden">
-    <!-- Ambient Glows -->
-    <div class="ambient-glow bg-brand-500/15 top-20 -left-20 w-96 h-96 animate-pulse-glow"></div>
-    <div class="ambient-glow bg-cyan-500/10 top-1/2 -right-20 w-96 h-96 animate-pulse-glow" style="animation-delay: 2s;"></div>
+  <div class="pt-24 sm:pt-28 pb-24 relative overflow-hidden bg-white dark:bg-[#070b14]">
+    <!-- Ambient Glow Backgrounds -->
+    <div class="ambient-glow bg-cyan-500/10 top-20 -left-20 w-80 h-80 sm:w-96 sm:h-96 animate-pulse-glow"></div>
+    <div class="ambient-glow bg-blue-500/10 top-1/3 -right-20 w-96 h-96 animate-pulse-glow" style="animation-delay: 2s;"></div>
 
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Breadcrumb Navigation -->
       <nav aria-label="Breadcrumb" class="mb-6 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
         <a href="/" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Beranda</a>
         <span>/</span>
-        <a href="/#proyek" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Sistem</a>
+        <a href="/#proyek" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Etalase Sistem</a>
         <span>/</span>
         <span class="text-slate-800 dark:text-slate-200 truncate max-w-xs">{project.title.split('—')[0].trim()}</span>
       </nav>
 
-      <!-- Project Header -->
-      <header class="mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
-        <div class="flex items-center gap-2.5 mb-4 flex-wrap">
-          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-brand-50 dark:bg-brand-950/70 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-800">
-            {project.category}
-          </span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• {project.role}</span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">• {project.date}</span>
-        </div>
-
-        <h1 class="type-h1 mb-4">
-          {project.title}
-        </h1>
-
-        <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed font-medium mb-6">
-          {project.tagline}
-        </p>
-
-        <!-- Preview Image -->
-        <div class="w-full aspect-[16/9] rounded-3xl overflow-hidden mb-8 border border-slate-200 dark:border-slate-800 bg-slate-950 shadow-2xl">
-          <img src={project.image} alt={project.title} class="w-full h-full object-cover object-top" />
-        </div>
-
-        <!-- Measurable Stats Grid -->
-        {project.stats && project.stats.length > 0 && (
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-6 rounded-3xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80">
-            {project.stats.map((stat) => (
-              <div class="text-center">
-                <span class="block text-2xl font-extrabold text-brand-600 dark:text-brand-400">{stat.value}</span>
-                <span class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider">{stat.label}</span>
-              </div>
-            ))}
+      <!-- ============================================================ -->
+      <!-- 1. GOOGLE PLAY STORE / APP STORE HERO HEADER                 -->
+      <!-- ============================================================ -->
+      <header class="p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200/80 dark:border-slate-800/80 shadow-sm mb-8">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          
+          <!-- Squircle App Icon (ala Play Store) -->
+          <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl sm:rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-slate-800 bg-slate-950 group">
+            <img
+              src={project.appIcon || project.image}
+              alt={`Icon ${project.title}`}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute bottom-1.5 left-1.5 right-1.5 text-center">
+              <span class="text-[9px] font-black uppercase tracking-wider text-cyan-300 bg-black/60 px-1.5 py-0.5 rounded">
+                GAS App
+              </span>
+            </div>
           </div>
-        )}
+
+          <!-- App Title & Identity -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-cyan-100 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/80">
+                {project.category}
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                {project.verifiedBadge || 'Aplikasi Resmi Terverifikasi'}
+              </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-slate-100 tracking-tight leading-tight mb-2">
+              {project.title}
+            </h1>
+
+            <p class="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 mb-4">
+              Developer: <strong class="text-slate-900 dark:text-slate-200">{project.developer || 'Muhammad Apriyanto Wijaya (@madebyaapri)'}</strong> • Cibeber, Kota Cimahi
+            </p>
+
+            <!-- Play Store Call-to-Action Bar -->
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs sm:text-sm shadow-md hover:bg-slate-800 dark:hover:bg-slate-100 transition-all cursor-pointer"
+              >
+                <span>🚀 Buka Web App / Demo</span>
+              </a>
+
+              {project.articleSlug && (
+                <a
+                  href={`/artikel/${project.articleSlug}`}
+                  class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs sm:text-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 transition-all cursor-pointer"
+                >
+                  <span>📖 Baca Kisah di Balik Layar</span>
+                </a>
+              )}
+
+              <a
+                href={`https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berkonsultasi%20mengenai%20sistem%20seperti%20${encodeURIComponent(project.title)}.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 font-medium text-xs transition-colors"
+              >
+                <span>💬 Konsultasi Sistem</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Play Store Key Metrics Strip -->
+        <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
+          
+          <!-- Rating -->
+          <div class="flex flex-col items-center justify-center p-2">
+            <div class="flex items-center gap-1 text-amber-500 font-black text-lg sm:text-xl">
+              <span>{project.rating || '5.0'}</span>
+              <span>★</span>
+            </div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">
+              {project.reviewCount || 'Audit Lapangan'}
+            </span>
+          </div>
+
+          <!-- Capacity / Users -->
+          <div class="flex flex-col items-center justify-center p-2 border-l border-slate-200/80 dark:border-slate-800/80">
+            <span class="text-lg sm:text-xl font-black text-slate-900 dark:text-slate-100">
+              {project.stats?.[1]?.value || '147+'}
+            </span>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">
+              {project.stats?.[1]?.label || 'Anggota Aktif'}
+            </span>
+          </div>
+
+          <!-- Speed -->
+          <div class="flex flex-col items-center justify-center p-2 border-l border-slate-200/80 dark:border-slate-800/80">
+            <span class="text-lg sm:text-xl font-black text-cyan-600 dark:text-cyan-400">
+              {project.stats?.[2]?.value || '5 Menit'}
+            </span>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">
+              {project.stats?.[2]?.label || 'Cetak SPJ'}
+            </span>
+          </div>
+
+          <!-- Server Cost -->
+          <div class="flex flex-col items-center justify-center p-2 border-l border-slate-200/80 dark:border-slate-800/80 col-span-1">
+            <span class="text-lg sm:text-xl font-black text-emerald-600 dark:text-emerald-400">
+              {project.stats?.[3]?.value || 'Rp 0'}
+            </span>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">
+              Biaya Server
+            </span>
+          </div>
+
+          <!-- Safety / Code Scale -->
+          <div class="flex flex-col items-center justify-center p-2 border-l border-slate-200/80 dark:border-slate-800/80 col-span-2 sm:col-span-1">
+            <span class="text-lg sm:text-xl font-black text-indigo-600 dark:text-indigo-400">
+              {project.stats?.[4]?.value || '20.000+'}
+            </span>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">
+              Baris Kode Bersih
+            </span>
+          </div>
+
+        </div>
       </header>
 
-      <!-- Project Full Details -->
-      <div class="space-y-8 mb-12">
-        <div>
-          <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">Latar Belakang &amp; Solusi Sistem</h2>
-          <p class="text-slate-700 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
-            {project.fullDescription || project.description}
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">Fitur Utama &amp; Kapabilitas</h3>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700 dark:text-slate-300">
-            {project.features.map((feat) => (
-              <li class="flex items-start gap-2.5 p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>{feat}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">Teknologi &amp; Engine yang Digunakan</h3>
-          <div class="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                {tag}
-              </span>
-            ))}
+      <!-- ============================================================ -->
+      <!-- 2. HORIZONTAL SCREENSHOTS & GALLERY SLIDER (Play Store Style)-->
+      <!-- ============================================================ -->
+      <section class="mb-14">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+              <span>📱</span>
+              <span>Tangkapan Layar &amp; Modul Antarmuka</span>
+            </h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+              Geser ke samping untuk melihat tampilan modul sistem di lapangan
+            </p>
+          </div>
+          <div class="hidden sm:flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+            <span>Scroll menyamping</span>
+            <span>→</span>
           </div>
         </div>
-      </div>
 
-      <!-- Bottom WhatsApp CTA Box -->
-      <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-600/15 via-indigo-600/10 to-emerald-600/15 border border-brand-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left mb-16">
-        <div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-            Ingin Bangun Sistem Serupa untuk Bisnis Anda?
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md">
-            Konsultasikan alur kerja manual atau sistem Anda sekarang langsung dengan Kang Apri. Bebas biaya sewa server bulanan.
+        <!-- Scrollable Carousel Container -->
+        <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-thin snap-x snap-mandatory">
+          {project.screenshots && project.screenshots.length > 0 ? (
+            project.screenshots.map((screen, idx) => (
+              <div class="snap-start shrink-0 w-[280px] sm:w-[340px] rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col shadow-sm group">
+                <!-- Mockup Display Screen -->
+                <div class="h-44 sm:h-52 bg-slate-950 relative overflow-hidden flex items-center justify-center p-4 border-b border-slate-200 dark:border-slate-800">
+                  <div class="w-full h-full rounded-xl bg-slate-900 border border-cyan-500/20 flex flex-col items-center justify-center text-center p-4 relative group-hover:border-cyan-500/40 transition-all">
+                    <span class="text-2xl sm:text-3xl mb-2">
+                      {idx === 0 ? '📊' : idx === 1 ? '📲' : idx === 2 ? '📝' : '🖨️'}
+                    </span>
+                    <span class="text-xs font-bold text-cyan-400 mb-1">{screen.tag}</span>
+                    <span class="text-[11px] font-semibold text-slate-300 line-clamp-1">{screen.title}</span>
+                    <div class="mt-2 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+                      {screen.statsHighlight}
+                    </div>
+                  </div>
+                </div>
+                <!-- Description Body -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 mb-1.5">
+                      {screen.title}
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                      {screen.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div class="w-full p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 text-center border border-slate-200 dark:border-slate-800">
+              <img src={project.image} alt={project.title} class="max-w-md mx-auto rounded-xl shadow-md" />
+            </div>
+          )}
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 3. TENTANG APLIKASI INI (About This App - Morino Protocol)   -->
+      <!-- ============================================================ -->
+      <section class="mb-14 p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold uppercase tracking-wider mb-4">
+            <span>📋</span>
+            <span>Tentang Aplikasi Ini</span>
+          </div>
+
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+            Mengapa Sistem Ini Lahir di Lapangan?
+          </h2>
+
+          <div class="prose dark:prose-invert max-w-none text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed space-y-4">
+            <p>
+              Aplikasi <strong>KOMANDO</strong> bukan dibangun dari ruang ber-AC yang teoritis, melainkan dari kepedihan nyata di lapangan sekolah madrasah Kota Cimahi.
+            </p>
+            <p>
+              Setiap kali pelatih ingin mengambil gaji atau honorarium dari sekolah, pihak madrasah mewajibkan laporan lengkap bertanda tangan <strong>Pelatih, Pembina, Kesiswaan, hingga Kepala Madrasah</strong>. Dulu, pekerjaan administratif ini dikerjakan secara manual oleh siswa: mencatat di buku absen kertas, menyalin rekapan nilai materi, dan mengetik ulang satu per satu.
+            </p>
+            <div class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 my-4">
+              <strong class="text-amber-900 dark:text-amber-200 block mb-1">Titik Nyeri Utama (Pain Point):</strong>
+              <p class="text-xs sm:text-sm text-amber-800 dark:text-amber-300 m-0">
+                Pengerjaan manual oleh anak-anak memakan waktu <strong>1 hingga 3 bulan</strong>. Imbasnya sangat fatal: <em>pembayaran honor pelatih tertahan berbulan-bulan hanya gara-gara urusan birokrasi berkas fisik!</em>
+              </p>
+            </div>
+            <p>
+              Melalui eksplorasi intensif bersama Gemini dan Claude di Antigravity, Kang Apri merancang arsitektur 100% gratis menggunakan <strong>Google Workspace, Google Sheets sebagai database relasional, dan Google Apps Script (GAS)</strong>. Hasilnya? Rekapitulasi administrasi yang dulu butuh waktu 3 bulan, kini <strong>selesai dalam 5 menit dan langsung siap cetak ke format resmi instansi!</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 4. FITUR UNGGULAN & MANFAAT OPERASIONAL (Feature-to-Benefit) -->
+      <!-- ============================================================ -->
+      <section class="mb-14">
+        <div class="text-left mb-8">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
+            <span>✨</span>
+            <span>Fitur &amp; Nilai Tambah</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">
+            Dampak Nyata pada Operasional Organisasi
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+            Setiap modul dibangun bukan sekadar pajangan, melainkan solusi efisiensi waktu kerja
           </p>
         </div>
-        <a
-          href={project.demoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-primary w-full sm:w-auto py-3.5 px-6 text-center justify-center shadow-lg shadow-brand-500/25"
-        >
-          <span class="text-base">💬</span>
-          <span>Konsultasi Sistem Ini via WA</span>
-        </a>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {project.featureBenefits?.map((item, idx) => (
+            <div class="p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 flex flex-col justify-between hover:border-cyan-500/40 transition-colors">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    {item.tag}
+                  </span>
+                  <span class="text-xs font-mono font-bold text-cyan-600 dark:text-cyan-400">
+                    Modul 0{idx + 1}
+                  </span>
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 mb-2">
+                  {item.feature}
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {item.benefit}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 5. SPESIFIKASI TEKNIS & KEAMANAN (Technical Specs)           -->
+      <!-- ============================================================ -->
+      <section class="mb-14 p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="text-xl">🛡️</span>
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100">
+              Spesifikasi Teknis &amp; Keamanan Data
+            </h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+              Ditenagai infrastruktur Google Workspace Cloud dengan zero latency
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+          {project.systemSpecs?.map((spec) => (
+            <div class="p-3.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 flex flex-col justify-center">
+              <span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">{spec.label}</span>
+              <span class="font-bold text-slate-900 dark:text-slate-100 mt-0.5">{spec.value}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 6. TANYA JAWAB UMUM SISTEM (FAQ Objection Killer)            -->
+      <!-- ============================================================ -->
+      <section class="mb-14">
+        <div class="text-left mb-6">
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+            <span>❓</span>
+            <span>Pertanyaan yang Sering Diajukan</span>
+          </h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Klarifikasi teknis seputar adopsi dan keamanan data
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          {project.faqs?.map((faq) => (
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+              <h3 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
+                {faq.question}
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- 7. DIRECTIVE CLOSING CTA (Morino Protocol Section 7)         -->
+      <!-- ============================================================ -->
+      <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 text-white border border-slate-800 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left mb-16 relative overflow-hidden">
+        <div class="relative z-10">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 mb-3">
+            <span>✓</span>
+            <span>Konsultasi Alur Kerja 100% Bebas Risiko</span>
+          </span>
+          <h3 class="text-xl sm:text-2xl font-black tracking-tight mb-2">
+            Punya Masalah Administrasi Serupa di Organisasi Anda?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 max-w-lg leading-relaxed">
+            Tidak perlu buang anggaran jutaan rupiah untuk sewa software kaku. Diskusikan alur kerja Anda langsung dengan Kang Apri, dan mari kita bangun sistem yang tepat guna.
+          </p>
+        </div>
+        
+        <div class="relative z-10 shrink-0 w-full sm:w-auto">
+          <a
+            href={`https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20sudah%20melihat%20halaman%20sistem%20KOMANDO%20dan%20tertarik%20berdiskusi%20untuk%20organisasi%20saya.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
+          >
+            <span>💬 Ambil Sesi Ngobrol Gratis via WA</span>
+          </a>
+        </div>
       </div>
 
       <!-- Other Systems Grid -->
       {otherProjects.length > 0 && (
         <div class="pt-10 border-t border-slate-200 dark:border-slate-800">
-          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-6">Sistem Otomasi Lainnya</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 mb-6">
+            Eksplorasi Sistem Otomasi Lainnya
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             {otherProjects.map((p) => (
               <a
                 href={`/sistem/${p.slug}`}
-                class="glass-card rounded-2xl p-5 border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 block group hover:border-brand-500/50 transition-all"
+                class="rounded-2xl p-5 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 block group hover:border-cyan-500/50 transition-all"
               >
-                <span class="text-[10px] font-semibold text-brand-600 dark:text-brand-400 block mb-1">{p.category}</span>
-                <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-1 mb-1">
+                <span class="text-[10px] font-bold text-cyan-600 dark:text-cyan-400 block mb-1 uppercase tracking-wider">{p.category}</span>
+                <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-1 mb-1">
                   {p.title}
                 </h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-3">{p.description}</p>
-                <span class="text-[11px] text-brand-600 font-semibold">Lihat Rincian →</span>
+                <span class="text-[11px] text-cyan-600 dark:text-cyan-400 font-bold group-hover:underline">Buka Etalase Aplikasi →</span>
               </a>
             ))}
           </div>

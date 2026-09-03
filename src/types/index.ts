@@ -8,6 +8,11 @@ export interface Project {
   category: 'Otomasi Google Sheets (GAS)' | 'Kasir & Operasional Bisnis' | 'AI & Bot Cerdas' | string;
   tags: string[];
   image: string;
+  appIcon?: string;
+  rating?: string;
+  reviewCount?: string;
+  developer?: string;
+  verifiedBadge?: string;
   demoUrl?: string;
   repoUrl?: string;
   featured: boolean;
@@ -16,12 +21,34 @@ export interface Project {
   stats?: {
     label: string;
     value: string;
+    icon?: string;
   }[];
   features?: string[];
+  featureBenefits?: {
+    feature: string;
+    benefit: string;
+    tag?: string;
+  }[];
+  screenshots?: {
+    title: string;
+    description: string;
+    tag: string;
+    image?: string;
+    statsHighlight?: string;
+  }[];
   technologies: {
     name: string;
     icon?: string;
   }[];
+  systemSpecs?: {
+    label: string;
+    value: string;
+  }[];
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
+  articleSlug?: string;
 }
 
 export interface SkillItem {
