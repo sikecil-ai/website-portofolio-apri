@@ -107,6 +107,38 @@
   .badge {
     @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full;
   }
+
+  /* =============================================
+     TYPOGRAPHY DESIGN TOKENS — @madebyaapri
+     Single Source of Truth for all text levels
+     ============================================= */
+
+  /* H1 — Hero & Article/System Page Titles */
+  /* Mobile: 30px | Tablet: 36px | Desktop: 48px */
+  /* Weight: extrabold (800) | Leading: 1.2 | Tracking: tight */
+  .type-h1 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.2] text-slate-900 dark:text-slate-50;
+  }
+
+  /* H2 — Section Headers (deliberately smaller than H1) */
+  /* Mobile: 24px | Tablet: 30px | Desktop: 36px */
+  /* Weight: bold (700) | Leading: 1.3 | Tracking: tight */
+  .type-h2 {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-[1.3] text-slate-900 dark:text-slate-50;
+  }
+
+  /* H3 — Card Titles & Sub-section Headers */
+  /* Mobile: 18px | All breakpoints consistent */
+  /* Weight: bold (700) | Leading: snug */
+  .type-h3 {
+    @apply text-lg font-bold leading-snug text-slate-800 dark:text-slate-100;
+  }
+
+  /* Body — Descriptions, Paragraphs, Card Copy */
+  /* 14px | Leading: relaxed (1.625) */
+  .type-body {
+    @apply text-sm leading-relaxed text-slate-600 dark:text-slate-300;
+  }
 }
 
 /* Background Grids & Ambient Glow */
