@@ -114,9 +114,7 @@ Yuk bagikan tanggapanmu atau ngobrol santai langsung via WhatsApp di bawah!`,
     updatedDate: '3 September 2026',
     excerpt: 'Bagaimana drama pencairan honor pelatih melahirkan KOMANDO: sistem manajemen Paskibra 20.000 baris kode yang memangkas laporan 3 bulan jadi 5 menit siap print.',
     tags: ['KOMANDO', 'Manajemen Paskibra', 'Google Apps Script', 'Zero Server Cost', 'Cimahi'],
-    content: `Harus saya luruskan sejak awal: KOMANDO bukan sistem tabulasi juri lomba. Sistem penjurian lomba itu namanya Si Paling Rekap. 
-
-KOMANDO adalah sistem manajemen organisasi Paskibra terpadu yang lahir dari sebuah drama klasik di lingkungan sekolah: urusan birokrasi dan pencairan honor pelatih.
+    content: `KOMANDO adalah sistem manajemen organisasi Paskibra terpadu yang lahir dari sebuah drama klasik di lingkungan sekolah: urusan birokrasi dan pencairan honor pelatih.
 
 Bagi siapa pun yang pernah melatih ekstrakurikuler di madrasah atau sekolah negeri, Anda pasti paham alurnya: untuk bisa mencairkan honor pelatih bulanan, ada berkas laporan pertanggungjawaban fisik tebal yang harus ditandatangani berjenjang—mulai dari Pembina, Wakil Kepala Madrasah Bidang Kesiswaan, hingga Kepala Madrasah.
 
