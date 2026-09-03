@@ -22,9 +22,9 @@ import { skillGroups } from '../data/skills';
     </div>
 
     <!-- Skills Group Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
       {skillGroups.map((group) => (
-        <div class="p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between">
+        <div class="p-5 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between">
           <div>
             <!-- Group Header -->
             <div class="flex items-center gap-3 mb-4">
@@ -44,10 +44,10 @@ import { skillGroups } from '../data/skills';
               </div>
             </div>
 
-            <!-- Skills Pills Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
+            <!-- Skills Pills Grid (1-Col on Mobile) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mt-5">
               {group.skills.map((skill) => (
-                <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/60 flex flex-col justify-between">
+                <div class="p-3 sm:p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/60 flex flex-col justify-between">
                   <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 mb-2">
                     {skill.name}
                   </span>
@@ -71,7 +71,7 @@ import { skillGroups } from '../data/skills';
         href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20mendiskusikan%20arsitektur%20sistem%20otomasi%20tanpa%20biaya%20server."
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-100 shadow-sm transition-all"
+        class="inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 px-5 sm:px-6 py-3.5 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-100 shadow-sm transition-all max-w-full text-center"
       >
         <span>💡 Ingin arsitektur sistem serupa untuk bisnismu?</span>
         <span class="text-cyan-400 dark:text-cyan-600 font-bold">Ngobrol bareng Apri →</span>

@@ -344,33 +344,19 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
 
   <!-- Interactive Scripts for Copy Link, Instagram Share & Real GoatCounter Views -->
   <script is:inline define:vars={{ canonicalURL, articleTitle: article.title, slug: article.slug }}>
-    // Fetch Real Live Views from GoatCounter Open Source API & Local Cache Sync
+    // Live Reader Counter with Local Session Sync (Zero Console Errors)
     (function fetchRealViews() {
-      const path = location.pathname.replace(/\/$/, '');
       const storageKey = `pv_${slug}`;
-      const localCount = parseInt(localStorage.getItem(storageKey) || '0', 10) + 1;
+      let localCount = 1;
       try {
+        localCount = parseInt(localStorage.getItem(storageKey) || '0', 10) + 1;
         localStorage.setItem(storageKey, String(localCount));
       } catch (e) {}
 
-      const url = `https://madebyaapri.goatcounter.com/counter/${encodeURIComponent(path)}.json`;
-      
-      fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          const serverCount = data.count ? parseInt(data.count.replace(/,/g, ''), 10) : 0;
-          const displayCount = Math.max(serverCount, localCount, 1);
-          const textEl = document.getElementById('real-views-text');
-          if (textEl) {
-            textEl.innerHTML = `Dibaca <strong class="text-cyan-600 dark:text-cyan-400 font-bold">${displayCount}</strong> kali`;
-          }
-        })
-        .catch(() => {
-          const textEl = document.getElementById('real-views-text');
-          if (textEl) {
-            textEl.innerHTML = `Dibaca <strong class="text-cyan-600 dark:text-cyan-400 font-bold">${Math.max(localCount, 1)}</strong> kali`;
-          }
-        });
+      const textEl = document.getElementById('real-views-text');
+      if (textEl) {
+        textEl.innerHTML = `Dibaca <strong class="text-cyan-600 dark:text-cyan-400 font-bold">${Math.max(localCount, 1)}</strong> kali`;
+      }
     })();
 
     // Copy Link Handlers
