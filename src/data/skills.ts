@@ -9,7 +9,7 @@ export const skillGroups: SkillGroup[] = [
       { name: 'Google Apps Script (GAS)', level: 'Senjata Utama', highlight: true, icon: 'gas' },
       { name: 'Google Sheets Modular Engine', level: 'Senjata Utama', highlight: true, icon: 'sheets' },
       { name: 'Formulir Digital Smartphone', level: 'Teruji di Lapangan', highlight: true, icon: 'mobile' },
-      { name: 'Webhook & Otomasi WhatsApp', level: 'Produksi Aktif', highlight: true, icon: 'webhook' },
+      { name: 'Koneksi Web App GAS (doGet & doPost API)', level: 'Produksi Aktif', highlight: true, icon: 'webhook' },
     ],
   },
   {
