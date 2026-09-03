@@ -16,3 +16,4 @@ Aturan ini wajib diacu sebelum mengakhiri setiap tugas penambahan fitur, perubah
 8. [x] **Local Authority:** Memuat geo-tag koordinat GPS Kota Cimahi (`-6.872288, 107.542046`).
 9. [x] **Tipografi Bersih:** Nol simbol markdown mentah (`**`, `###`, `---`), di-compile rapi dengan marked.
 10. [x] **Direct WhatsApp Closing:** Seluruh CTA mengarah langsung ke WA `+62 821-1831-3655` dengan pesan kontekstual.
+11. [x] **8-Section Architecture (Morino Protocol):** Halaman sistem/penawaran wajib memandu pembaca melewati 8 tahap psikologis: Headline -> Subheadline -> Problem & Amplify -> Unique System -> Proof Stack -> Feature-Benefit Pairing -> Directive CTA -> FAQ (rujuk `.agents/rules/morino-landing-page-protocol.md`).
