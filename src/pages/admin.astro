@@ -51,24 +51,17 @@ import { experiences } from '../data/experiences';
           </p>
         </div>
 
-        <div class="p-3.5 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-xs text-slate-700 dark:text-slate-300 flex flex-col gap-2">
-          <div class="flex items-center justify-between">
-            <span class="font-semibold text-cyan-800 dark:text-cyan-300">💡 Sandi Admin:</span>
-            <code class="px-2 py-0.5 rounded bg-white dark:bg-slate-800 text-cyan-700 dark:text-cyan-400 font-mono font-bold text-xs">madebyaapri</code>
-          </div>
-          <button
-            type="button"
-            id="quick-login-btn"
-            class="w-full py-2 px-3 rounded-xl text-xs font-bold bg-cyan-600 hover:bg-cyan-500 text-white transition-all text-center cursor-pointer shadow-sm flex items-center justify-center gap-1.5"
-          >
-            <span>⚡ Masuk Langsung (1-Klik Tanpa Ketik)</span>
-          </button>
+        <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-1">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" id="remember-admin-login" checked class="rounded border-slate-300 dark:border-slate-700 text-cyan-600 focus:ring-cyan-500" />
+            <span>Ingat sesi di browser ini</span>
+          </label>
         </div>
 
         <button
           type="submit"
           id="btn-login-submit"
-          class="w-full py-3 px-4 rounded-xl font-bold text-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-md hover:bg-slate-800 dark:hover:bg-slate-100 transition-all active:scale-98 cursor-pointer mt-1"
+          class="w-full py-3 px-4 rounded-xl font-bold text-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-md hover:bg-slate-800 dark:hover:bg-slate-100 transition-all active:scale-98 cursor-pointer mt-2"
         >
           Buka Dashboard Admin →
         </button>
@@ -790,16 +783,6 @@ function initMasterSheets(ss) {
           pwdInput.classList.add('ring-2', 'ring-red-500');
           setTimeout(() => pwdInput.classList.remove('ring-2', 'ring-red-500'), 1500);
         }
-      });
-    }
-
-    // Quick 1-Click Login for Owner
-    const quickLoginBtn = document.getElementById('quick-login-btn');
-    if (quickLoginBtn && pwdInput) {
-      quickLoginBtn.addEventListener('click', () => {
-        pwdInput.value = 'madebyaapri';
-        localStorage.setItem('madebyaapri_auth', 'true');
-        showDashboard();
       });
     }
 
