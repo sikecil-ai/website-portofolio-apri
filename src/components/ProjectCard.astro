@@ -3,17 +3,19 @@ import type { Project } from '../types';
 
 export interface Props {
   project: Project;
+  index?: number;
 }
 
-const { project } = Astro.props;
+const { project, index = 0 } = Astro.props;
 ---
 
 <div
-  class="project-card rounded-2xl overflow-hidden flex flex-col group border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 cursor-pointer w-full"
+  class={`project-card rounded-2xl overflow-hidden flex flex-col group border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 cursor-pointer w-full ${index >= 4 ? 'hidden' : ''}`}
   data-category={project.category}
   data-tags={project.tags.join(',').toLowerCase()}
   data-title={project.title.toLowerCase()}
   data-project-json={JSON.stringify(project)}
+  data-index={index}
 >
   <!-- Card Header & Clean Real-Screenshot Mockup Showcase -->
   <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-950 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-center">

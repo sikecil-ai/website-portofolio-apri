@@ -63,10 +63,28 @@ const categories = ['Semua', 'Otomasi Google Sheets (GAS)', 'Kasir & Operasional
 
     <!-- Cards Grid -->
     <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
-      {projects.map((project) => (
-        <ProjectCard project={project} />
+      {projects.map((project, idx) => (
+        <ProjectCard project={project} index={idx} />
       ))}
     </div>
+
+    <!-- Expand / Collapse All Projects Button -->
+    {projects.length > 4 && (
+      <div id="expand-projects-container" class="mt-10 flex justify-center">
+        <button
+          type="button"
+          id="btn-expand-projects"
+          class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold text-xs sm:text-sm border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 cursor-pointer group"
+          aria-expanded="false"
+        >
+          <span id="expand-icon" class="text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform duration-200">📂</span>
+          <span id="expand-text">Tampilkan Semua Mahakarya ({projects.length} Sistem)</span>
+          <svg id="expand-arrow" class="w-4 h-4 text-slate-400 group-hover:text-cyan-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+    )}
 
     <!-- Empty State -->
     <div id="empty-state" class="hidden text-center py-16 px-4">
@@ -177,6 +195,10 @@ const categories = ['Semua', 'Otomasi Google Sheets (GAS)', 'Kasir & Operasional
     const searchInput = document.getElementById('project-search') as HTMLInputElement | null;
     const cards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
     const emptyState = document.getElementById('empty-state');
+    const expandContainer = document.getElementById('expand-projects-container');
+    const expandBtn = document.getElementById('btn-expand-projects');
+    const expandText = document.getElementById('expand-text');
+    const expandArrow = document.getElementById('expand-arrow');
 
     // Modal elements
     const modal = document.getElementById('project-modal');
@@ -194,14 +216,21 @@ const categories = ['Semua', 'Otomasi Google Sheets (GAS)', 'Kasir & Operasional
 
     let activeCategory = 'Semua';
     let searchQuery = '';
+    let isExpanded = false;
+    const INITIAL_VISIBLE_LIMIT = 4;
 
     const filterCards = () => {
+      let matchedCount = 0;
       let visibleCount = 0;
+      const isFilteringOrSearching = activeCategory !== 'Semua' || searchQuery !== '';
 
       cards.forEach((card) => {
+        card.classList.remove('hidden');
+
         const category = card.dataset.category || '';
         const title = card.dataset.title || '';
         const tags = card.dataset.tags || '';
+        const cardIndex = parseInt(card.dataset.index || '0', 10);
 
         const matchesCategory = activeCategory === 'Semua' || category === activeCategory;
         const matchesSearch =
@@ -210,22 +239,72 @@ const categories = ['Semua', 'Otomasi Google Sheets (GAS)', 'Kasir & Operasional
           tags.includes(searchQuery) ||
           category.toLowerCase().includes(searchQuery);
 
-        if (matchesCategory && matchesSearch) {
-          card.style.display = 'flex';
-          visibleCount++;
+        const isMatch = matchesCategory && matchesSearch;
+
+        if (isMatch) {
+          matchedCount++;
+          // When filtering or searching, show all matched cards. When in default browse, respect 4-card limit unless expanded.
+          const shouldShow = isFilteringOrSearching || isExpanded || cardIndex < INITIAL_VISIBLE_LIMIT;
+
+          if (shouldShow) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
         } else {
           card.style.display = 'none';
         }
       });
 
       if (emptyState) {
-        if (visibleCount === 0) {
+        if (matchedCount === 0) {
           emptyState.classList.remove('hidden');
         } else {
           emptyState.classList.add('hidden');
         }
       }
+
+      // Manage expand button visibility based on filter state
+      if (expandContainer) {
+        if (isFilteringOrSearching || matchedCount <= INITIAL_VISIBLE_LIMIT) {
+          expandContainer.style.display = 'none';
+        } else {
+          expandContainer.style.display = 'flex';
+        }
+      }
     };
+
+    // Expand / Collapse Button Click Listener
+    if (expandBtn) {
+      expandBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        expandBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+        if (expandText) {
+          expandText.textContent = isExpanded
+            ? 'Tutup Sebagian Sistem'
+            : `Tampilkan Semua Mahakarya (${cards.length} Sistem)`;
+        }
+        if (expandArrow) {
+          if (isExpanded) {
+            expandArrow.classList.add('rotate-180');
+          } else {
+            expandArrow.classList.remove('rotate-180');
+          }
+        }
+
+        filterCards();
+
+        // Scroll gracefully back to projects grid when collapsed
+        if (!isExpanded) {
+          const gallerySection = document.getElementById('proyek');
+          if (gallerySection) {
+            gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    }
 
     // Category Button Clicks
     filterBtns.forEach((btn) => {
@@ -355,6 +434,9 @@ const categories = ['Semua', 'Otomasi Google Sheets (GAS)', 'Kasir & Operasional
         closeModal();
       }
     });
+
+    // Initial run to sync visibility and expand states
+    filterCards();
   };
 
   initGallery();
