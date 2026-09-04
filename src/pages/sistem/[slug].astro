@@ -183,53 +183,68 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
                 </div>
 
                 <!-- Desktop Screen Content -->
-                <div class="p-3 bg-slate-950 text-white min-h-[190px] flex flex-col justify-between">
-                  <div>
-                    <div class="flex items-center justify-between border-b border-slate-800 pb-1.5 mb-2">
-                      <div class="flex items-center gap-1.5">
-                        <div class="w-5 h-5 rounded bg-cyan-600 flex items-center justify-center font-bold text-[9px] text-white">
-                          GAS
+                {project.heroDesktopImage ? (
+                  <div class="relative overflow-hidden bg-slate-950 aspect-[16/10] sm:aspect-[16/9.5]">
+                    <img
+                      src={project.heroDesktopImage}
+                      alt={`${project.title} - Antarmuka Desktop`}
+                      class="w-full h-full object-cover object-top"
+                      loading="eager"
+                    />
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-1.5 flex items-center justify-between text-[8px] text-slate-300">
+                      <span class="font-bold text-cyan-400">● LIVE MAN KOTA CIMAHI</span>
+                      <span class="bg-slate-900/90 px-1.5 py-0.5 rounded text-slate-400 font-mono">Google Apps Script</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div class="p-3 bg-slate-950 text-white min-h-[190px] flex flex-col justify-between">
+                    <div>
+                      <div class="flex items-center justify-between border-b border-slate-800 pb-1.5 mb-2">
+                        <div class="flex items-center gap-1.5">
+                          <div class="w-5 h-5 rounded bg-cyan-600 flex items-center justify-center font-bold text-[9px] text-white">
+                            GAS
+                          </div>
+                          <span class="text-[11px] font-bold text-slate-200">{project.title.split('—')[0].trim()}</span>
                         </div>
-                        <span class="text-[11px] font-bold text-slate-200">{project.title.split('—')[0].trim()}</span>
+                        <span class="px-1.5 py-0.5 rounded text-[8px] font-bold bg-emerald-500/20 text-emerald-400">
+                          ● LIVE CLOUD
+                        </span>
                       </div>
-                      <span class="px-1.5 py-0.5 rounded text-[8px] font-bold bg-emerald-500/20 text-emerald-400">
-                        ● LIVE CLOUD
-                      </span>
+
+                      <!-- Metrics Grid Mockup -->
+                      <div class="grid grid-cols-3 gap-1.5 mb-2 text-center">
+                        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                          <span class="text-[7px] text-slate-400 block font-bold">TOTAL AKTIF</span>
+                          <span class="text-xs font-black text-cyan-400">{project.stats?.[1]?.value || '871'}</span>
+                        </div>
+                        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                          <span class="text-[7px] text-slate-400 block font-bold">STREAK / HARI</span>
+                          <span class="text-xs font-black text-amber-400">28 Hari</span>
+                        </div>
+                        <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                          <span class="text-[7px] text-slate-400 block font-bold">BIAYA SERVER</span>
+                          <span class="text-xs font-black text-emerald-400">Rp 0</span>
+                        </div>
+                      </div>
+
+                      <!-- Simulated Chart / List -->
+                      <div class="p-2 rounded-lg bg-slate-900/80 border border-slate-800 text-[9px] space-y-1">
+                        <div class="flex items-center justify-between text-slate-300">
+                          <span>Monitoring Kelas / Divisi</span>
+                          <span class="text-emerald-400 font-bold">98.4% Terisi</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                          <div class="bg-gradient-to-r from-cyan-500 to-emerald-400 h-full w-[85%]"></div>
+                        </div>
+                      </div>
                     </div>
 
-                    <!-- Metrics Grid Mockup -->
-                    <div class="grid grid-cols-3 gap-1.5 mb-2 text-center">
-                      <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
-                        <span class="text-[7px] text-slate-400 block font-bold">TOTAL AKTIF</span>
-                        <span class="text-xs font-black text-cyan-400">{project.stats?.[1]?.value || '871'}</span>
-                      </div>
-                      <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
-                        <span class="text-[7px] text-slate-400 block font-bold">STREAK / HARI</span>
-                        <span class="text-xs font-black text-amber-400">28 Hari</span>
-                      </div>
-                      <div class="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
-                        <span class="text-[7px] text-slate-400 block font-bold">BIAYA SERVER</span>
-                        <span class="text-xs font-black text-emerald-400">Rp 0</span>
-                      </div>
-                    </div>
-
-                    <!-- Simulated Chart / List -->
-                    <div class="p-2 rounded-lg bg-slate-900/80 border border-slate-800 text-[9px] space-y-1">
-                      <div class="flex items-center justify-between text-slate-300">
-                        <span>Monitoring Kelas / Divisi</span>
-                        <span class="text-emerald-400 font-bold">98.4% Terisi</span>
-                      </div>
-                      <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
-                        <div class="bg-gradient-to-r from-cyan-500 to-emerald-400 h-full w-[85%]"></div>
-                      </div>
+                    <div class="pt-1.5 flex items-center justify-between text-[8px] text-slate-400 border-t border-slate-800/80 mt-1.5">
+                      <span>Database Google Sheets Terhubung</span>
+                      <span class="text-cyan-400 font-bold">🖨️ Ekspor Siap Cetak</span>
                     </div>
                   </div>
-
-                  <div class="pt-1.5 flex items-center justify-between text-[8px] text-slate-400 border-t border-slate-800/80 mt-1.5">
-                    <span>Database Google Sheets Terhubung</span>
-                    <span class="text-cyan-400 font-bold">🖨️ Ekspor Siap Cetak</span>
-                  </div>
-                </div>
+                )}
               </div>
 
               <!-- 2. SMARTPHONE FRAME (Floating Overlap ala AgenSoal) -->
@@ -776,11 +791,24 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
         ›
       </button>
 
-      <!-- Phone Frame Container -->
-      <div class="relative max-h-[72vh] sm:max-h-[76vh] w-auto max-w-[90vw] sm:max-w-[340px] rounded-2xl sm:rounded-3xl border-2 border-slate-700 bg-slate-900 overflow-hidden shadow-2xl flex flex-col">
+      <!-- Adaptive Frame Container (Phone or Desktop Laptop) -->
+      <div id="lightbox-frame-container" class="relative max-h-[72vh] sm:max-h-[76vh] w-auto max-w-[90vw] sm:max-w-[340px] rounded-2xl sm:rounded-3xl border-2 border-slate-700 bg-slate-900 overflow-hidden shadow-2xl flex flex-col transition-all duration-300">
         <!-- Phone Notch Header -->
-        <div class="pt-1.5 pb-1 px-3 bg-slate-950 flex items-center justify-center border-b border-slate-800 shrink-0">
+        <div id="lightbox-notch" class="pt-1.5 pb-1 px-3 bg-slate-950 flex items-center justify-center border-b border-slate-800 shrink-0">
           <div class="w-10 h-1 rounded-full bg-slate-700"></div>
+        </div>
+
+        <!-- Desktop Browser Header (Shown only in Desktop mode) -->
+        <div id="lightbox-browser-header" class="hidden px-3 py-1.5 bg-slate-800 border-b border-slate-700 flex items-center justify-between shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+          </div>
+          <div class="px-3 py-0.5 rounded-md bg-slate-900 text-[10px] font-mono text-slate-400 max-w-[280px] truncate border border-slate-700">
+            {project.demoUrl || 'https://sites.google.com/view/g7kaih'}
+          </div>
+          <span class="text-[9px] font-bold text-cyan-400 uppercase tracking-wider">Desktop Mode</span>
         </div>
 
         <!-- Scrollable High-Res Image Viewport -->
@@ -927,7 +955,25 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
       if (lightboxDesc) lightboxDesc.textContent = desc || '';
       if (lightboxCounter) lightboxCounter.textContent = `${idx + 1} / ${screenshotCards.length}`;
 
-      // Reset scroll to top of phone view on slide change
+      // Adaptive framing: desktop widescreen vs mobile phone
+      const lightboxFrameContainer = document.getElementById('lightbox-frame-container');
+      const lightboxNotch = document.getElementById('lightbox-notch');
+      const lightboxBrowserHeader = document.getElementById('lightbox-browser-header');
+      const isDesktop = tag && tag.toLowerCase().includes('desktop');
+
+      if (lightboxFrameContainer && lightboxNotch && lightboxBrowserHeader) {
+        if (isDesktop) {
+          lightboxFrameContainer.className = "relative max-h-[76vh] w-full max-w-[94vw] lg:max-w-4xl rounded-2xl border-2 border-slate-700 bg-slate-900 overflow-hidden shadow-2xl flex flex-col transition-all duration-300";
+          lightboxNotch.classList.add('hidden');
+          lightboxBrowserHeader.classList.remove('hidden');
+        } else {
+          lightboxFrameContainer.className = "relative max-h-[72vh] sm:max-h-[76vh] w-auto max-w-[90vw] sm:max-w-[340px] rounded-2xl sm:rounded-3xl border-2 border-slate-700 bg-slate-900 overflow-hidden shadow-2xl flex flex-col transition-all duration-300";
+          lightboxNotch.classList.remove('hidden');
+          lightboxBrowserHeader.classList.add('hidden');
+        }
+      }
+
+      // Reset scroll to top of view on slide change
       if (lightboxScrollContainer) {
         lightboxScrollContainer.scrollTop = 0;
       }
