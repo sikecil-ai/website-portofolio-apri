@@ -204,8 +204,112 @@ Sekarang kamu bisa langsung mendaftarkan pangkalan secara mandiri melalui portal
 Yuk bagikan ceritamu atau ngobrol santai langsung bareng Kang Apri via WhatsApp di bawah!`,
   },
   {
+    id: '9',
+    title: 'Kisah G7KAIH Mankoci: Dari Fotokopi Kertas ke Sistem Otomasi 871 Siswa MAN Kota Cimahi',
+    slug: 'kisah-g7kaih-mankoci-sistem-kebiasaan-siswa',
+    category: 'Otomasi Madrasah & Edukasi',
+    readTime: '7 Menit Baca',
+    date: '2026',
+    coverEmoji: '🏫',
+    projectRelation: 'G7KAIH Mankoci — MAN Kota Cimahi',
+    author: 'Muhammad Apriyanto Wijaya (Apri)',
+    editor: 'Pak Kholis Aliyudin (Guru BK MAN Kota Cimahi)',
+    publishedDate: '4 September 2026',
+    updatedDate: '4 September 2026',
+    excerpt: 'Perjalanan membangun sistem G7KAIH Mankoci: silaturahmi ke guru BK Pak Kholis Aliyudin, memotong penderitaan ratusan kertas fotokopi menjadi aplikasi tap-tap 1 menit untuk 871 siswa MAN Kota Cimahi.',
+    tags: ['G7KAIH', 'MAN Kota Cimahi', 'Otomasi Madrasah', 'Google Apps Script', 'Habit Tracker', 'Sedekah Alumni', 'Gemini Pro'],
+    content: `Bagi saya, sekolah bukan sekadar tempat menuntut ilmu lalu dilupakan begitu saja setelah wisuda kelulusan. Sampai hari ini, saya masih rutin menyempatkan diri mampir ke almamater tercinta, **MAN Kota Cimahi (Mankoci)**. Entah sekadar menyapa bapak dan ibu guru untuk merawat silaturahmi, maupun mendampingi adik-adik latihan Paskibra di lapangan upacara.
+
+Dari kebiasaan silaturahmi itulah, sebuah mahakarya sistem lahir.
+
+Suatu hari, saya mengobrol santai dengan **Pak Kholis Aliyudin**, guru Bimbingan Konseling (BK) saya sejak zaman sekolah dulu. Saya bercerita jujur tentang kesibukan saya di bidang otomasi sistem dan kemampuan membangun aplikasi berbasis ekosistem cloud. Mendengar cerita itu, mata Pak Kholis langsung berbinar. Beliau mengutarakan sebuah keresahan besar yang sedang dihadapi madrasah terkait program karakter bertajuk: **Gerakan 7 Kebiasaan Anak Indonesia Hebat (G7KAIH)**.
+
+"Pri, bapak minta bantuan buatin sistem aplikasi ya, supaya anak-anak bisa melapor kebiasaan harian mereka dan laporannya otomatis tercatat jadi bahan penilaian BK," pinta beliau.
+
+Tanpa ragu sedikit pun, saya langsung menyanggupi tantangan tersebut.
+
+---
+
+### Penderitaan Kertas Fotokopi: Ketika Ratusan Berkas Bikin Guru Pusing
+
+Sebelum ada sistem G7KAIH digital, program pembentukan karakter di madrasah berjalan secara manual. Anak-anak harus memfotokopi lembaran kertas angket kebiasaan, lalu mengisinya satu per satu setiap hari dengan pena.
+
+Dampaknya sangat merepotkan:
+1. **Pemeriksaan Super Lambat:** Guru BK dan wali kelas harus memeriksa tumpukan fisik kertas dari ratusan siswa. Sangat memakan waktu dan menguras tenaga.
+2. **Rawan Hilang & Rusak:** Lembaran kertas mudah tercecer, robek, atau basah di dalam tas siswa.
+3. **Siswa Malas Mengisi:** Karena repot harus menulis tangan setiap hari, banyak siswa yang akhirnya mengisi asal-asalan hanya di akhir pekan (*sistem kebut semalam*), sehingga esensi pembentukan kebiasaan harian menjadi hilang.
+
+Madrasah butuh solusi di mana anak-anak bisa melapor dengan sangat ringan, data langsung masuk secara real-time, dan sistem yang membacakan kalkulasinya sehingga seluruh siswa terpantau tanpa kecuali.
+
+---
+
+### Eksplorasi Bersama Gemini Pro & Lahirnya Dashboard Pertama
+
+Seperti biasa, proses *vibecoding* saya dipandu oleh partner dialog andalan saya: **Google Gemini Pro** dan **Claude**. Apalagi belakangan Google baru saja merilis pembaruan model kecerdasan seperti Gemini 3.8 yang kekuatannya semakin mendekati Anthropic Claude. Saya sangat mengagumi bagaimana ekosistem Google memberikan ruang bagi para kreator untuk berinovasi.
+
+Setelah logika sistem matang, saya langsung mengeksekusinya menggunakan **Google Apps Script (GAS) dan Google Sheets Engine**.
+
+Awalnya, sistem ini diuji coba untuk **571 siswa** (angkatan kelas 10 dan 11). Begitu versi pertama selesai, saya langsung setorkan ke Pak Kholis. Hasilnya langsung membuat pihak sekolah terkesima. Kampanye sosialisasi digulirkan lewat WhatsApp grup, para wali kelas aktif mengingatkan, bahkan **Ibu Kepala Madrasah membuatkan poster resmi** untuk menyosialisasikan penggunaan aplikasi G7KAIH.
+
+Keberhasilan itu terus berlanjut. Saat kenaikan kelas dan tahun ajaran berganti, basis pengguna melonjak pesat hingga sistem ini menangani **871 siswa aktif**!
+
+Di proyek G7KAIH inilah sebuah lompatan desain baru terjadi dalam perjalanan saya: **pertama kali saya merancang antarmuka Dashboard Web Desktop lengkap bersama tampilan Mobile**. 
+
+Jika sebelumnya sistem KOMANDO didesain *full mobile view* untuk anggota di lapangan, kini admin sekolah dan guru BK membutuhkan layar lebar di laptop untuk mengelola database 871 anak. Saya buatkan dashboard terpadu: admin bisa mengedit data siswa secara massal, memantau persentase kepatuhan per angkatan, dan mencetak lembar rapor evaluasi karakter—baik **per siswa individual maupun rekapitulasi satu kelas utuh dalam 1 kali klik**.
+
+---
+
+### Dua Fitur Andalan: Tap-Tap 1 Menit & Pelacak Streak Harian
+
+Ada dua fitur kunci yang membuat siswa MAN Kota Cimahi sangat menyukai aplikasi ini:
+
+1. **Input Cepat Tap-Tap (Anti Ngetik):** Kami sadar, musuh terbesar aplikasi pelaporan adalah rasa malas mengetik. Di G7KAIH, siswa cukup membuka web app dari HP, lalu tap tombol centang "Ya" untuk 7 kebiasaan (bangun pagi & berdoa, ibadah tepat waktu, olahraga rutin, gemar membaca, makan makanan sehat, bermasyarakat/bantu orang tua, dan tidur teratur). **Seluruh proses selesai dalam waktu kurang dari 1 menit!**
+2. **Fitur Streak & Retroactive Input:** Sistem dilengkapi penghitung *streak* (rekor hari berturut-turut) yang memicu semangat berkompetisi positif antar-siswa. Selain itu, jika ada hari di mana siswa berhalangan mengisi, mereka tetap bisa mencatat tanggal yang terlewat sehingga rekam jejak pembiasaan tetap utuh.
+
+Seluruh data transaksi 871 siswa ini berjalan stabil di atas server Google Workspace dengan biaya bulanan **Rp 0 seumur hidup**.
+
+---
+
+### Berkah Sedekah Alumni: Niat Tulus yang Membuka Jalan Rezeki
+
+Ada satu momen yang sangat membekas di hati saya. Ketika sistem sudah berjalan sempurna dan seluruh guru madrasah merasakan kemudahannya, Pak Kholis berniat memberikan bayaran profesional kepada saya.
+
+Namun, waktu itu saya tolak dengan tulus:
+*"Pak, gak usah bayar. Ini itung-itung sedekah karya dari saya sebagai alumni untuk almamater tercinta."*
+
+Bagi saya, madrasah dan para guru telah memberikan banyak bekal hidup yang tidak ternilai harganya. Memberikan sistem otomasi terbaik adalah cara kecil saya berbakti.
+
+Ternyata, niat baik tidak pernah kembali dengan tangan kosong. Melihat kualitas sistem yang begitu rapi, Pak Kholis justru berniat membantu menawarkan dan menjualkan sistem G7KAIH ini ke sekolah-sekolah dan madrasah lain yang sedang kesulitan mendata karakter siswanya. Sungguh sebuah rezeki dan keberkahan yang tidak pernah saya duga sebelumnya.
+
+---
+
+### Mau Melihat Tampilan Aplikasi & Spesifikasi Teknis G7KAIH?
+
+Penasaran bagaimana tampilan antarmuka mobile tap-tap 1 menit dan dashboard desktop yang digunakan oleh 871 siswa MAN Kota Cimahi?
+
+👉 **[Buka Lembar Etalase Aplikasi G7KAIH di Sini (Play Store Style) →](/sistem/g7kaih-sistem-kebiasaan-anak-hebat)**
+
+---
+
+### Filosofi Lapangan: Berani Unjuk Gigi & Menjaga Silaturahmi
+
+Pelajaran paling berharga dari proyek G7KAIH Mankoci adalah: **kita harus berani menunjukkan kemampuan dan karya nyata kita kepada orang lain**. Jangan memendam keahlian sendirian di kamar. Ketika orang lain melihat bukti solusi yang kita tawarkan, rasa percaya akan tumbuh, dan amanah besar akan datang dengan sendirinya.
+
+Namun yang terpenting: tetaplah rendah hati. Jangan sombong, dan jangan pernah melupakan orang-orang terdahulu yang pernah membimbing kita. Pintu rezeki dan keberkahan karya seringkali terbuka bukan dari orang asing di internet, melainkan dari hangatnya tali silaturahmi dengan guru-guru kita sendiri.
+
+---
+
+### Rangkuman & Sekarang Giliranmu: Menurutmu Bagaimana?
+Sistem G7KAIH Mankoci membuktikan bahwa program karakter madrasah untuk 871 siswa bisa berjalan otomatis, menyenangkan, dan bebas kertas fotokopi hanya bermodalkan antarmuka tap-tap 1 menit dan infrastruktur Google Workspace tanpa biaya server.
+
+**Bagaimana sistem pemantauan karakter atau administrasi di sekolah, pesantren, atau komunitas Anda saat ini? Apakah masih berkutat dengan tumpukan kertas fisik?**
+
+Yuk, bagikan cerita atau konsultasikan otomasi alur kerja madrasah dan komunitasmu langsung bersama Kang Apri via WhatsApp!`,
+  },
+  {
     id: '2',
     title: 'Arsitektur Zero Server Cost: Bedah Sistem Megumi Hotplate Menghitung HPP & Laba Tanpa Sewa Server',
+
     slug: 'arsitektur-zero-server-cost-megumi-hotplate',
     category: 'Otomasi Bisnis & F&B',
     readTime: '5 Menit Baca',
@@ -407,108 +511,6 @@ Mengubah tabel angka menjadi grafik visual interaktif membuat pengambilan keputu
 
 **Grafik apa yang paling ingin kamu pantau setiap pagi dari layar HP-mu?** Mari kita wujudkan dashboard Looker Studio untuk bisnismu via WhatsApp!`,
   },
-  {
-    id: '9',
-    title: 'Kisah G7KAIH Mankoci: Dari Fotokopi Kertas ke Sistem Otomasi 871 Siswa MAN Kota Cimahi',
-    slug: 'kisah-g7kaih-mankoci-sistem-kebiasaan-siswa',
-    category: 'Otomasi Madrasah & Edukasi',
-    readTime: '7 Menit Baca',
-    date: '2026',
-    coverEmoji: '🏫',
-    projectRelation: 'G7KAIH Mankoci — MAN Kota Cimahi',
-    author: 'Muhammad Apriyanto Wijaya (Apri)',
-    editor: 'Pak Kholis Aliyudin (Guru BK MAN Kota Cimahi)',
-    publishedDate: '4 September 2026',
-    updatedDate: '4 September 2026',
-    excerpt: 'Perjalanan membangun sistem G7KAIH Mankoci: silaturahmi ke guru BK Pak Kholis Aliyudin, memotong penderitaan ratusan kertas fotokopi menjadi aplikasi tap-tap 1 menit untuk 871 siswa MAN Kota Cimahi.',
-    tags: ['G7KAIH', 'MAN Kota Cimahi', 'Otomasi Madrasah', 'Google Apps Script', 'Habit Tracker', 'Sedekah Alumni', 'Gemini Pro'],
-    content: `Bagi saya, sekolah bukan sekadar tempat menuntut ilmu lalu dilupakan begitu saja setelah wisuda kelulusan. Sampai hari ini, saya masih rutin menyempatkan diri mampir ke almamater tercinta, **MAN Kota Cimahi (Mankoci)**. Entah sekadar menyapa bapak dan ibu guru untuk merawat silaturahmi, maupun mendampingi adik-adik latihan Paskibra di lapangan upacara.
-
-Dari kebiasaan silaturahmi itulah, sebuah mahakarya sistem lahir.
-
-Suatu hari, saya mengobrol santai dengan **Pak Kholis Aliyudin**, guru Bimbingan Konseling (BK) saya sejak zaman sekolah dulu. Saya bercerita jujur tentang kesibukan saya di bidang otomasi sistem dan kemampuan membangun aplikasi berbasis ekosistem cloud. Mendengar cerita itu, mata Pak Kholis langsung berbinar. Beliau mengutarakan sebuah keresahan besar yang sedang dihadapi madrasah terkait program karakter bertajuk: **Gerakan 7 Kebiasaan Anak Indonesia Hebat (G7KAIH)**.
-
-"Pri, bapak minta bantuan buatin sistem aplikasi ya, supaya anak-anak bisa melapor kebiasaan harian mereka dan laporannya otomatis tercatat jadi bahan penilaian BK," pinta beliau.
-
-Tanpa ragu sedikit pun, saya langsung menyanggupi tantangan tersebut.
-
----
-
-### Penderitaan Kertas Fotokopi: Ketika Ratusan Berkas Bikin Guru Pusing
-
-Sebelum ada sistem G7KAIH digital, program pembentukan karakter di madrasah berjalan secara manual. Anak-anak harus memfotokopi lembaran kertas angket kebiasaan, lalu mengisinya satu per satu setiap hari dengan pena.
-
-Dampaknya sangat merepotkan:
-1. **Pemeriksaan Super Lambat:** Guru BK dan wali kelas harus memeriksa tumpukan fisik kertas dari ratusan siswa. Sangat memakan waktu dan menguras tenaga.
-2. **Rawan Hilang & Rusak:** Lembaran kertas mudah tercecer, robek, atau basah di dalam tas siswa.
-3. **Siswa Malas Mengisi:** Karena repot harus menulis tangan setiap hari, banyak siswa yang akhirnya mengisi asal-asalan hanya di akhir pekan (*sistem kebut semalam*), sehingga esensi pembentukan kebiasaan harian menjadi hilang.
-
-Madrasah butuh solusi di mana anak-anak bisa melapor dengan sangat ringan, data langsung masuk secara real-time, dan sistem yang membacakan kalkulasinya sehingga seluruh siswa terpantau tanpa kecuali.
-
----
-
-### Eksplorasi Bersama Gemini Pro & Lahirnya Dashboard Pertama
-
-Seperti biasa, proses *vibecoding* saya dipandu oleh partner dialog andalan saya: **Google Gemini Pro** dan **Claude**. Apalagi belakangan Google baru saja merilis pembaruan model kecerdasan seperti Gemini 3.8 yang kekuatannya semakin mendekati Anthropic Claude. Saya sangat mengagumi bagaimana ekosistem Google memberikan ruang bagi para kreator untuk berinovasi.
-
-Setelah logika sistem matang, saya langsung mengeksekusinya menggunakan **Google Apps Script (GAS) dan Google Sheets Engine**.
-
-Awalnya, sistem ini diuji coba untuk **571 siswa** (angkatan kelas 10 dan 11). Begitu versi pertama selesai, saya langsung setorkan ke Pak Kholis. Hasilnya langsung membuat pihak sekolah terkesima. Kampanye sosialisasi digulirkan lewat WhatsApp grup, para wali kelas aktif mengingatkan, bahkan **Ibu Kepala Madrasah membuatkan poster resmi** untuk menyosialisasikan penggunaan aplikasi G7KAIH.
-
-Keberhasilan itu terus berlanjut. Saat kenaikan kelas dan tahun ajaran berganti, basis pengguna melonjak pesat hingga sistem ini menangani **871 siswa aktif**!
-
-Di proyek G7KAIH inilah sebuah lompatan desain baru terjadi dalam perjalanan saya: **pertama kali saya merancang antarmuka Dashboard Web Desktop lengkap bersama tampilan Mobile**. 
-
-Jika sebelumnya sistem KOMANDO didesain *full mobile view* untuk anggota di lapangan, kini admin sekolah dan guru BK membutuhkan layar lebar di laptop untuk mengelola database 871 anak. Saya buatkan dashboard terpadu: admin bisa mengedit data siswa secara massal, memantau persentase kepatuhan per angkatan, dan mencetak lembar rapor evaluasi karakter—baik **per siswa individual maupun rekapitulasi satu kelas utuh dalam 1 kali klik**.
-
----
-
-### Dua Fitur Andalan: Tap-Tap 1 Menit & Pelacak Streak Harian
-
-Ada dua fitur kunci yang membuat siswa MAN Kota Cimahi sangat menyukai aplikasi ini:
-
-1. **Input Cepat Tap-Tap (Anti Ngetik):** Kami sadar, musuh terbesar aplikasi pelaporan adalah rasa malas mengetik. Di G7KAIH, siswa cukup membuka web app dari HP, lalu tap tombol centang "Ya" untuk 7 kebiasaan (bangun pagi & berdoa, ibadah tepat waktu, olahraga rutin, gemar membaca, makan makanan sehat, bermasyarakat/bantu orang tua, dan tidur teratur). **Seluruh proses selesai dalam waktu kurang dari 1 menit!**
-2. **Fitur Streak & Retroactive Input:** Sistem dilengkapi penghitung *streak* (rekor hari berturut-turut) yang memicu semangat berkompetisi positif antar-siswa. Selain itu, jika ada hari di mana siswa berhalangan mengisi, mereka tetap bisa mencatat tanggal yang terlewat sehingga rekam jejak pembiasaan tetap utuh.
-
-Seluruh data transaksi 871 siswa ini berjalan stabil di atas server Google Workspace dengan biaya bulanan **Rp 0 seumur hidup**.
-
----
-
-### Berkah Sedekah Alumni: Niat Tulus yang Membuka Jalan Rezeki
-
-Ada satu momen yang sangat membekas di hati saya. Ketika sistem sudah berjalan sempurna dan seluruh guru madrasah merasakan kemudahannya, Pak Kholis berniat memberikan bayaran profesional kepada saya.
-
-Namun, waktu itu saya tolak dengan tulus:
-*"Pak, gak usah bayar. Ini itung-itung sedekah karya dari saya sebagai alumni untuk almamater tercinta."*
-
-Bagi saya, madrasah dan para guru telah memberikan banyak bekal hidup yang tidak ternilai harganya. Memberikan sistem otomasi terbaik adalah cara kecil saya berbakti.
-
-Ternyata, niat baik tidak pernah kembali dengan tangan kosong. Melihat kualitas sistem yang begitu rapi, Pak Kholis justru berniat membantu menawarkan dan menjualkan sistem G7KAIH ini ke sekolah-sekolah dan madrasah lain yang sedang kesulitan mendata karakter siswanya. Sungguh sebuah rezeki dan keberkahan yang tidak pernah saya duga sebelumnya.
-
----
-
-### Mau Melihat Tampilan Aplikasi & Spesifikasi Teknis G7KAIH?
-
-Penasaran bagaimana tampilan antarmuka mobile tap-tap 1 menit dan dashboard desktop yang digunakan oleh 871 siswa MAN Kota Cimahi?
-
-👉 **[Buka Lembar Etalase Aplikasi G7KAIH di Sini (Play Store Style) →](/sistem/g7kaih-sistem-kebiasaan-anak-hebat)**
-
----
-
-### Filosofi Lapangan: Berani Unjuk Gigi & Menjaga Silaturahmi
-
-Pelajaran paling berharga dari proyek G7KAIH Mankoci adalah: **kita harus berani menunjukkan kemampuan dan karya nyata kita kepada orang lain**. Jangan memendam keahlian sendirian di kamar. Ketika orang lain melihat bukti solusi yang kita tawarkan, rasa percaya akan tumbuh, dan amanah besar akan datang dengan sendirinya.
-
-Namun yang terpenting: tetaplah rendah hati. Jangan sombong, dan jangan pernah melupakan orang-orang terdahulu yang pernah membimbing kita. Pintu rezeki dan keberkahan karya seringkali terbuka bukan dari orang asing di internet, melainkan dari hangatnya tali silaturahmi dengan guru-guru kita sendiri.
-
----
-
-### Rangkuman & Sekarang Giliranmu: Menurutmu Bagaimana?
-Sistem G7KAIH Mankoci membuktikan bahwa program karakter madrasah untuk 871 siswa bisa berjalan otomatis, menyenangkan, dan bebas kertas fotokopi hanya bermodalkan antarmuka tap-tap 1 menit dan infrastruktur Google Workspace tanpa biaya server.
-
-**Bagaimana sistem pemantauan karakter atau administrasi di sekolah, pesantren, atau komunitas Anda saat ini? Apakah masih berkutat dengan tumpukan kertas fisik?**
-
-Yuk, bagikan cerita atau konsultasikan otomasi alur kerja madrasah dan komunitasmu langsung bersama Kang Apri via WhatsApp!`,
-  },
 ];
+
 
