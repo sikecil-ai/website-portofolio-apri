@@ -6,7 +6,7 @@
 
 ## 🏛️ BAB 1: IDENTITAS & PERSONA BRAND
 
-* **Nama Lengkap:** Muhammad Apriyanto Wijaya
+* **Nama Lengkap (KTP):** M. Apriyanto Wijaya
 * **Panggilan Akrab / Personal Brand:** Kang Apri (`@madebyaapri`)
 * **Gelar / Peran Utama:** *UI/UX & Workflow Automation Specialist • Zero Server Cost Architect*
 * **Latar Belakang Praktisi:** 
@@ -110,4 +110,4 @@ Dokumentasi seluruh parameter audit yang diuji secara berkala untuk mencegah ter
 
 ---
 
-*Dokumen ini merupakan Single Source of Truth permanen milik Muhammad Apriyanto Wijaya (@madebyaapri). Segala pembaruan sistem di masa mendatang wajib merujuk dan memperbarui dokumen ini.*
+*Dokumen ini merupakan Single Source of Truth permanen milik M. Apriyanto Wijaya (@madebyaapri). Segala pembaruan sistem di masa mendatang wajib merujuk dan memperbarui dokumen ini.*

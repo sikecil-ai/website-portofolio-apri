@@ -69,7 +69,7 @@ $g.DrawEllipse($avatarPen, 60, 360, 50, 50)
 $avatarFont = New-Object System.Drawing.Font("Arial", 18, [System.Drawing.FontStyle]::Bold)
 $g.DrawString("A", $avatarFont, $brushWhite, 73, 370)
 
-$g.DrawString("Muhammad Apriyanto Wijaya (@madebyaapri)", $fontAuthor, $brushWhite, 125, 366)
+$g.DrawString("M. Apriyanto Wijaya (@madebyaapri)", $fontAuthor, $brushWhite, 125, 366)
 $brushAuthorSub = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(255, 100, 116, 139))
 $g.DrawString("Lead Automation Architect • Alumni MAN Kota Cimahi", $fontSub, $brushAuthorSub, 125, 388)
 

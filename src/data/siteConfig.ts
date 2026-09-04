@@ -1,7 +1,7 @@
 import type { SiteConfig } from '../types';
 
 export const siteConfig: SiteConfig = {
-  name: 'Muhammad Apriyanto Wijaya',
+  name: 'M. Apriyanto Wijaya',
   title: 'Kang Apri — Spesialis Modernisasi Spreadsheet & Sistem Bisnis',
   subtitle: 'Ubah Spreadsheet Ribet Jadi Alur Kerja Rapi, Cepat & Tanpa Biaya Server Bulanan.',
   description: 'Spesialis modernisasi spreadsheet Google Sheets & otomasi sistem bisnis tanpa biaya sewa server bulanan oleh Kang Apri (@madebyaapri) di Cibeber, Kota Cimahi.',
@@ -11,7 +11,7 @@ export const siteConfig: SiteConfig = {
   phone: '+6282118313655',
   url: 'https://madebyaapri.vercel.app',
   ogImage: '/images/og-image.png',
-  author: 'Muhammad Apriyanto Wijaya (Kang Apri)',
+  author: 'M. Apriyanto Wijaya (Kang Apri)',
   status: {
     available: true,
     text: 'Tersedia untuk Modernisasi Spreadsheet & Sistem Bisnis via WhatsApp',
@@ -39,7 +39,7 @@ export const siteConfig: SiteConfig = {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/m-apriyanto-wijaya-8705b6144/',
       icon: 'linkedin',
-      username: 'Muhammad Apriyanto Wijaya',
+      username: 'M. Apriyanto Wijaya',
     },
     {
       name: 'Email',
@@ -62,6 +62,7 @@ export const siteConfig: SiteConfig = {
   keywords: [
     'madebyaapri',
     'Kang Apri Cimahi',
+    'M. Apriyanto Wijaya',
     'Muhammad Apriyanto Wijaya',
     'Otomasi Google Sheets Cimahi',
     'Jasa Google Apps Script Bandung',
