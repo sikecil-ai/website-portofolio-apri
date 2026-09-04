@@ -8,6 +8,8 @@ export interface Project {
   category: 'Otomasi Google Sheets (GAS)' | 'Kasir & Operasional Bisnis' | 'AI & Bot Cerdas' | string;
   tags: string[];
   image: string;
+  heroMobileImage?: string;
+  heroDesktopImage?: string;
   appIcon?: string;
   rating?: string;
   reviewCount?: string;
