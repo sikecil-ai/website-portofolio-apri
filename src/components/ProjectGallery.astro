@@ -255,7 +255,7 @@ const categories = ['Semua', 'Otomasi Google Sheets (GAS)', 'Kasir & Operasional
     const openModal = (project: any) => {
       if (!modal || !modalImage || !modalTitle || !modalDesc || !modalCategory || !modalDate || !modalFeatures || !modalTags || !modalStats) return;
 
-      modalImage.src = project.image;
+      modalImage.src = project.heroDesktopImage || project.heroMobileImage || project.image;
       modalImage.alt = project.title;
       modalTitle.textContent = project.title;
       modalCategory.textContent = project.category;
