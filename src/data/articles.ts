@@ -440,7 +440,7 @@ Sebelum ada sistem G7KAIH digital, program pembentukan karakter di madrasah berj
 
 Dampaknya sangat merepotkan:
 1. **Pemeriksaan Super Lambat:** Guru BK dan wali kelas harus memeriksa tumpukan fisik kertas dari ratusan siswa. Sangat memakan waktu dan menguras tenaga.
-2. **Rawat Hilang & Rusak:** Lembaran kertas mudah tercecer, robek, atau basah di dalam tas siswa.
+2. **Rawan Hilang & Rusak:** Lembaran kertas mudah tercecer, robek, atau basah di dalam tas siswa.
 3. **Siswa Malas Mengisi:** Karena repot harus menulis tangan setiap hari, banyak siswa yang akhirnya mengisi asal-asalan hanya di akhir pekan (*sistem kebut semalam*), sehingga esensi pembentukan kebiasaan harian menjadi hilang.
 
 Madrasah butuh solusi di mana anak-anak bisa melapor dengan sangat ringan, data langsung masuk secara real-time, dan sistem yang membacakan kalkulasinya sehingga seluruh siswa terpantau tanpa kecuali.
