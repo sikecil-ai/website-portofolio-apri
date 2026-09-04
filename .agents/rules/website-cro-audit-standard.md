@@ -17,3 +17,4 @@ Aturan ini wajib diacu sebelum mengakhiri setiap tugas penambahan fitur, perubah
 9. [x] **Tipografi Bersih:** Nol simbol markdown mentah (`**`, `###`, `---`), di-compile rapi dengan marked.
 10. [x] **Direct WhatsApp Closing:** Seluruh CTA mengarah langsung ke WA `+62 821-1831-3655` dengan pesan kontekstual.
 11. [x] **8-Section Architecture (Morino Protocol):** Halaman sistem/penawaran wajib memandu pembaca melewati 8 tahap psikologis: Headline -> Subheadline -> Problem & Amplify -> Unique System -> Proof Stack -> Feature-Benefit Pairing -> Directive CTA -> FAQ (rujuk `.agents/rules/morino-landing-page-protocol.md`).
+12. [x] **Dual-Device Closing Showcase (AgenSoal Benchmark):** Halaman sistem wajib menyajikan visualisasi antarmuka ganda (frame laptop/desktop untuk dashboard admin berdampingan dengan smartphone untuk input cepat pengguna/siswa) demi memaksimalkan konversi closing institusi/sekolah.
