@@ -197,6 +197,10 @@ Sistem yang hebat tidak selalu harus lahir dari pendanaan startup bernilai milia
 **Nah, menurutmu gimana sebagai pembaca?**
 Apakah organisasi, komunitas, atau ekskul di tempatmu saat ini masih terjebak drama rekap absensi dan laporan bertumpuk-tumpuk di berkas kertas fisik? Punya alur kerja yang ingin kamu buat jadi 1-klik siap print seperti KOMANDO?
 
+🚀 **Tertarik mendigitalisasi pangkalan Paskibra sekolahmu?**
+Sekarang kamu bisa langsung mendaftarkan pangkalan secara mandiri melalui portal resmi kami:
+👉 [**Daftarkan Pangkalan Paskibra Sekolahmu di KOMANDO**](https://sites.google.com/view/1-komando)
+
 Yuk bagikan ceritamu atau ngobrol santai langsung bareng Kang Apri via WhatsApp di bawah!`,
   },
   {

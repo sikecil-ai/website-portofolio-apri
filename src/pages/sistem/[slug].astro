@@ -90,9 +90,13 @@ const otherProjects = projects.filter((p) => p.id !== project.id).slice(0, 3);
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs sm:text-sm shadow-md hover:bg-slate-800 dark:hover:bg-slate-100 transition-all cursor-pointer"
+                class={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer ${
+                  project.slug === 'komando-sistem-manajemen-paskibra'
+                    ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                    : 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100'
+                }`}
               >
-                <span>🚀 Buka Web App / Demo</span>
+                <span>{project.slug === 'komando-sistem-manajemen-paskibra' ? '📝 Daftarkan Pangkalan (Live)' : '🚀 Buka Web App / Demo'}</span>
               </a>
 
               {project.articleSlug && (

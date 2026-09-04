@@ -16,7 +16,7 @@ export const projects: Project[] = [
     reviewCount: '147 Anggota & Purna',
     developer: 'Muhammad Apriyanto Wijaya (@madebyaapri)',
     verifiedBadge: 'Terverifikasi Resmi di MAN Cimahi & SMPN 3 Cimahi',
-    demoUrl: 'https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20dengan%20Sistem%20Manajemen%20Organisasi%20KOMANDO%20dan%20ingin%20melihat%20demo%20langsung.',
+    demoUrl: 'https://sites.google.com/view/1-komando',
     repoUrl: 'https://github.com/sikecil-ai/website-portofolio-apri',
     articleSlug: 'kisah-komando-sistem-manajemen-paskibra',
     featured: true,
