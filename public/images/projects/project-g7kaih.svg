@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgG7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091322" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="cyanG7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="emeraldG7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="amberG7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" rx="20" fill="url(#bgG7)" />
+
+  <!-- Top Navigation Header -->
+  <rect x="25" y="20" width="550" height="46" rx="12" fill="#131e36" stroke="#1e293b" stroke-width="1.5" />
+  <rect x="38" y="31" width="24" height="24" rx="7" fill="url(#cyanG7)" />
+  <text x="44" y="48" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="13">G7</text>
+  
+  <text x="72" y="47" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="13">G7KAIH Mankoci — MAN Kota Cimahi</text>
+  <rect x="425" y="32" width="138" height="22" rx="6" fill="#10b981" opacity="0.2" />
+  <text x="435" y="47" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="10">● 871 SISWA AKTIF</text>
+
+  <!-- Left Column: Mobile Tap-Tap Habit Input Form -->
+  <rect x="25" y="78" width="255" height="280" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+  <rect x="25" y="78" width="255" height="36" rx="14" fill="#172554" />
+  <text x="40" y="101" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="11">📱 Form Input Tap-Tap (1 Menit)</text>
+  <text x="215" y="101" fill="#93c5fd" font-family="system-ui, -apple-system, sans-serif" font-size="9">Kelas X-XI</text>
+
+  <!-- Habit Items (7 Kebiasaan) -->
+  <g transform="translate(40, 122)">
+    <!-- 1. Bangun Pagi -->
+    <rect x="0" y="0" width="225" height="25" rx="6" fill="#1e293b" />
+    <circle cx="12" cy="12.5" r="5" fill="#10b981" />
+    <text x="25" y="16" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="10">1. Bangun Pagi &amp; Berdoa</text>
+    <rect x="180" y="4" width="40" height="17" rx="4" fill="url(#emeraldG7)" />
+    <text x="188" y="16" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="9">✓ Ya</text>
+
+    <!-- 2. Ibadah Tepat Waktu -->
+    <rect x="0" y="29" width="225" height="25" rx="6" fill="#1e293b" />
+    <circle cx="12" cy="12.5" r="5" fill="#10b981" />
+    <text x="25" y="16" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="10">2. Ibadah Tepat Waktu</text>
+    <rect x="180" y="4" width="40" height="17" rx="4" fill="url(#emeraldG7)" />
+    <text x="188" y="16" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="9">✓ Ya</text>
+
+    <!-- 3. Berolahraga Fisik -->
+    <rect x="0" y="58" width="225" height="25" rx="6" fill="#1e293b" />
+    <circle cx="12" cy="12.5" r="5" fill="#10b981" />
+    <text x="25" y="16" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="10">3. Berolahraga Rutin</text>
+    <rect x="180" y="4" width="40" height="17" rx="4" fill="url(#emeraldG7)" />
+    <text x="188" y="16" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="9">✓ Ya</text>
+
+    <!-- 4. Gemar Membaca / Literasi -->
+    <rect x="0" y="87" width="225" height="25" rx="6" fill="#1e293b" />
+    <circle cx="12" cy="12.5" r="5" fill="#10b981" />
+    <text x="25" y="16" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="10">4. Membaca &amp; Belajar</text>
+    <rect x="180" y="4" width="40" height="17" rx="4" fill="url(#emeraldG7)" />
+    <text x="188" y="16" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="9">✓ Ya</text>
+
+    <!-- 5. Makan Makanan Sehat -->
+    <rect x="0" y="116" width="225" height="25" rx="6" fill="#1e293b" />
+    <circle cx="12" cy="12.5" r="5" fill="#10b981" />
+    <text x="25" y="16" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="10">5. Makanan Sehat Bergizi</text>
+    <rect x="180" y="4" width="40" height="17" rx="4" fill="url(#emeraldG7)" />
+    <text x="188" y="16" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="9">✓ Ya</text>
+
+    <!-- 6. Bantu Orang Tua -->
+    <rect x="0" y="145" width="225" height="25" rx="6" fill="#1e293b" />
+    <circle cx="12" cy="12.5" r="5" fill="#10b981" />
+    <text x="25" y="16" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="10">6. Bermasyarakat / Bantu Ortu</text>
+    <rect x="180" y="4" width="40" height="17" rx="4" fill="url(#emeraldG7)" />
+    <text x="188" y="16" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="9">✓ Ya</text>
+
+    <!-- 7. Istirahat Cukup -->
+    <rect x="0" y="174" width="225" height="25" rx="6" fill="#1e293b" />
+    <circle cx="12" cy="12.5" r="5" fill="#10b981" />
+    <text x="25" y="16" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="10">7. Tidur Cepat &amp; Teratur</text>
+    <rect x="180" y="4" width="40" height="17" rx="4" fill="url(#emeraldG7)" />
+    <text x="188" y="16" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="9">✓ Ya</text>
+  </g>
+
+  <rect x="40" y="325" width="225" height="24" rx="6" fill="#0284c7" />
+  <text x="95" y="341" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="10">Kirim Laporan (1 Tap)</text>
+
+  <!-- Right Column: Desktop Admin Dashboard & Metrics -->
+  <rect x="295" y="78" width="280" height="280" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+  <rect x="295" y="78" width="280" height="36" rx="14" fill="#1e1b4b" />
+  <text x="310" y="101" fill="#a78bfa" font-family="system-ui, sans-serif" font-weight="bold" font-size="11">🖥️ Dashboard Guru BK &amp; Wali Kelas</text>
+
+  <!-- Metric Badges Row -->
+  <g transform="translate(310, 122)">
+    <rect x="0" y="0" width="78" height="50" rx="8" fill="#1e293b" />
+    <text x="10" y="20" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="8">TOTAL SISWA</text>
+    <text x="10" y="40" fill="#38bdf8" font-family="system-ui, sans-serif" font-weight="black" font-size="16">871</text>
+
+    <rect x="86" y="0" width="78" height="50" rx="8" fill="#1e293b" />
+    <text x="96" y="20" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="8">STREAK AKTIF</text>
+    <text x="96" y="40" fill="#f59e0b" font-family="system-ui, sans-serif" font-weight="black" font-size="16">28 Hari</text>
+
+    <rect x="172" y="0" width="78" height="50" rx="8" fill="#1e293b" />
+    <text x="182" y="20" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="8">BIAYA SERVER</text>
+    <text x="182" y="40" fill="#10b981" font-family="system-ui, sans-serif" font-weight="black" font-size="16">Rp 0</text>
+  </g>
+
+  <!-- Analytics / Chart Bars Simulation -->
+  <g transform="translate(310, 185)">
+    <rect x="0" y="0" width="250" height="70" rx="8" fill="#131e36" />
+    <text x="12" y="18" fill="#cbd5e1" font-family="system-ui, sans-serif" font-weight="bold" font-size="10">Tingkat Kepatuhan Per Angkatan</text>
+    
+    <text x="12" y="38" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="8">Kelas X (442 Siswa)</text>
+    <rect x="110" y="30" width="125" height="10" rx="3" fill="#1e293b" />
+    <rect x="110" y="30" width="118" height="10" rx="3" fill="url(#cyanG7)" />
+
+    <text x="12" y="56" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="8">Kelas XI (429 Siswa)</text>
+    <rect x="110" y="48" width="125" height="10" rx="3" fill="#1e293b" />
+    <rect x="110" y="48" width="112" height="10" rx="3" fill="url(#emeraldG7)" />
+  </g>
+
+  <!-- Actions: Print per Siswa / Kelas -->
+  <g transform="translate(310, 268)">
+    <rect x="0" y="0" width="250" height="42" rx="8" fill="#1e293b" />
+    <text x="12" y="18" fill="#cbd5e1" font-family="system-ui, sans-serif" font-weight="bold" font-size="9">Ekspor Rapor Karakter:</text>
+    <rect x="12" y="24" width="108" height="14" rx="4" fill="#334155" />
+    <text x="20" y="34" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="8">🖨️ Cetak Per Siswa</text>
+
+    <rect x="128" y="24" width="108" height="14" rx="4" fill="#334155" />
+    <text x="136" y="34" fill="#34d399" font-family="system-ui, sans-serif" font-size="8">📊 Cetak Per Kelas</text>
+  </g>
+
+  <rect x="310" y="322" width="250" height="26" rx="6" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="1" />
+  <text x="345" y="338" fill="#34d399" font-family="system-ui, sans-serif" font-weight="bold" font-size="9.5">✓ Sinkron Google Sheets Database API</text>
+</svg>
