@@ -480,7 +480,16 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
         <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-thin snap-x snap-mandatory">
           {project.screenshots && project.screenshots.length > 0 ? (
             project.screenshots.map((screen, idx) => (
-              <div class="snap-start shrink-0 w-[280px] sm:w-[320px] rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col shadow-sm hover:shadow-lg hover:border-cyan-500/50 transition-all group">
+              <div
+                class="screenshot-card snap-start shrink-0 w-[280px] sm:w-[320px] rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col shadow-sm hover:shadow-xl hover:border-cyan-500/60 transition-all group cursor-pointer"
+                data-index={idx}
+                data-image={screen.image || ''}
+                data-title={screen.title}
+                data-tag={screen.tag}
+                data-stats={screen.statsHighlight || ''}
+                data-desc={screen.description}
+                title="Klik untuk melihat layar penuh 1080p"
+              >
                 <div class="h-48 sm:h-56 bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-200 dark:border-slate-800">
                   {screen.image ? (
                     <div class="w-full h-full relative overflow-hidden">
@@ -491,6 +500,15 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
                         loading="lazy"
                       />
                       <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                      
+                      <!-- Hover Overlay: Zoom Indicator -->
+                      <div class="absolute inset-0 bg-slate-950/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                        <span class="px-3 py-1.5 rounded-xl text-[11px] font-black bg-white/95 text-slate-900 shadow-xl flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                          <span>🔍</span>
+                          <span>Perbesar Layar Penuh</span>
+                        </span>
+                      </div>
+
                       <div class="absolute top-2.5 left-2.5">
                         <span class="px-2 py-0.5 rounded-lg text-[9px] font-black uppercase tracking-wider bg-slate-900/90 text-cyan-400 border border-cyan-500/30 backdrop-blur-sm">
                           {screen.tag}
@@ -700,8 +718,114 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
     </div>
   </div>
 
-  <!-- Interactive Dual-Device Switcher Script -->
+  <!-- ============================================================ -->
+  <!-- FULLSCREEN LIGHTBOX MODAL (1080p Smartphone Zoom Viewer)     -->
+  <!-- ============================================================ -->
+  <div
+    id="screenshot-lightbox"
+    class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-200 flex flex-col justify-between p-3 sm:p-5 select-none"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Penampil Tangkapan Layar Penuh"
+  >
+    <!-- Lightbox Top Bar -->
+    <div class="flex items-center justify-between gap-4 max-w-5xl w-full mx-auto pb-2.5 border-b border-slate-800 shrink-0">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <span id="lightbox-counter" class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-slate-900 text-cyan-400 border border-slate-700">
+          1 / 9
+        </span>
+        <span id="lightbox-tag" class="px-2.5 py-1 rounded-lg text-[11px] font-black uppercase tracking-wider bg-cyan-950/80 text-cyan-300 border border-cyan-800/80">
+          Modul
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="hidden md:inline-block text-[11px] text-slate-400 font-mono">
+          Tekan [← / →] untuk navigasi • [ESC] untuk tutup
+        </span>
+        <button
+          type="button"
+          id="lightbox-close-btn"
+          class="w-9 h-9 rounded-xl bg-slate-900 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 border border-slate-700 flex items-center justify-center transition-colors cursor-pointer text-lg font-bold"
+          aria-label="Tutup"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+
+    <!-- Lightbox Center Viewport -->
+    <div class="relative flex-1 flex items-center justify-center my-2 sm:my-3 overflow-hidden max-w-5xl w-full mx-auto">
+      <!-- Floating Prev Button -->
+      <button
+        type="button"
+        id="lightbox-prev-btn"
+        class="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-slate-900/90 hover:bg-cyan-600 text-white border border-slate-700 flex items-center justify-center text-2xl font-bold transition-all shadow-2xl hover:scale-110 cursor-pointer"
+        aria-label="Sebelumnya"
+      >
+        ‹
+      </button>
+
+      <!-- Floating Next Button -->
+      <button
+        type="button"
+        id="lightbox-next-btn"
+        class="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-slate-900/90 hover:bg-cyan-600 text-white border border-slate-700 flex items-center justify-center text-2xl font-bold transition-all shadow-2xl hover:scale-110 cursor-pointer"
+        aria-label="Selanjutnya"
+      >
+        ›
+      </button>
+
+      <!-- Phone Frame Container -->
+      <div class="relative max-h-[72vh] sm:max-h-[76vh] w-auto max-w-[90vw] sm:max-w-[340px] rounded-2xl sm:rounded-3xl border-2 border-slate-700 bg-slate-900 overflow-hidden shadow-2xl flex flex-col">
+        <!-- Phone Notch Header -->
+        <div class="pt-1.5 pb-1 px-3 bg-slate-950 flex items-center justify-center border-b border-slate-800 shrink-0">
+          <div class="w-10 h-1 rounded-full bg-slate-700"></div>
+        </div>
+
+        <!-- Scrollable High-Res Image Viewport -->
+        <div id="lightbox-scroll-container" class="overflow-y-auto max-h-[calc(72vh-22px)] sm:max-h-[calc(76vh-22px)] scrollbar-thin bg-slate-950">
+          <img
+            id="lightbox-img"
+            src=""
+            alt="Tangkapan Layar Penuh"
+            class="w-full h-auto object-contain block"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Bottom Caption Bar -->
+    <div class="max-w-5xl w-full mx-auto pt-2.5 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-left shrink-0">
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2 flex-wrap mb-1">
+          <h3 id="lightbox-title" class="text-xs sm:text-sm font-bold text-white truncate">
+            Judul Modul
+          </h3>
+          <span id="lightbox-stats" class="px-2 py-0.5 rounded-md text-[9px] font-bold bg-cyan-600/90 text-white shadow-sm">
+            Highlight
+          </span>
+        </div>
+        <p id="lightbox-desc" class="text-[11px] sm:text-xs text-slate-300 leading-relaxed line-clamp-2 sm:line-clamp-1">
+          Deskripsi modul
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-end sm:self-center shrink-0">
+        <button
+          type="button"
+          id="lightbox-close-bottom-btn"
+          class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition-colors cursor-pointer"
+        >
+          Tutup (ESC)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Dual-Device Switcher & Lightbox Script -->
   <script is:inline>
+    // 1. Dual-Device Switcher
     const btnDual = document.getElementById('btn-view-dual');
     const btnDesktop = document.getElementById('btn-view-desktop');
     const btnMobile = document.getElementById('btn-view-mobile');
@@ -753,5 +877,119 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
         mobileFrame.style.transform = 'scale(1.35)';
       });
     }
+
+    // 2. Fullscreen Screenshot Lightbox
+    const lightbox = document.getElementById('screenshot-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxTag = document.getElementById('lightbox-tag');
+    const lightboxStats = document.getElementById('lightbox-stats');
+    const lightboxDesc = document.getElementById('lightbox-desc');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+    const lightboxCloseBottomBtn = document.getElementById('lightbox-close-bottom-btn');
+    const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
+    const lightboxNextBtn = document.getElementById('lightbox-next-btn');
+    const lightboxScrollContainer = document.getElementById('lightbox-scroll-container');
+
+    const screenshotCards = Array.from(document.querySelectorAll('.screenshot-card'));
+    let currentIndex = 0;
+
+    function updateLightbox(idx) {
+      if (!screenshotCards.length) return;
+      if (idx < 0) idx = screenshotCards.length - 1;
+      if (idx >= screenshotCards.length) idx = 0;
+      currentIndex = idx;
+
+      const card = screenshotCards[idx];
+      if (!card) return;
+
+      const img = card.dataset.image;
+      const title = card.dataset.title;
+      const tag = card.dataset.tag;
+      const stats = card.dataset.stats;
+      const desc = card.dataset.desc;
+
+      if (lightboxImg && img) {
+        lightboxImg.src = img;
+        lightboxImg.alt = title || 'Tangkapan Layar';
+      }
+      if (lightboxTitle) lightboxTitle.textContent = title || '';
+      if (lightboxTag) lightboxTag.textContent = tag || '';
+      if (lightboxStats) {
+        if (stats) {
+          lightboxStats.textContent = stats;
+          lightboxStats.style.display = 'inline-block';
+        } else {
+          lightboxStats.style.display = 'none';
+        }
+      }
+      if (lightboxDesc) lightboxDesc.textContent = desc || '';
+      if (lightboxCounter) lightboxCounter.textContent = `${idx + 1} / ${screenshotCards.length}`;
+
+      // Reset scroll to top of phone view on slide change
+      if (lightboxScrollContainer) {
+        lightboxScrollContainer.scrollTop = 0;
+      }
+    }
+
+    function openLightbox(idx) {
+      updateLightbox(idx);
+      if (lightbox) {
+        lightbox.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          lightbox.classList.remove('opacity-0');
+          lightbox.classList.add('opacity-100');
+        });
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox() {
+      if (lightbox) {
+        lightbox.classList.remove('opacity-100');
+        lightbox.classList.add('opacity-0');
+        setTimeout(() => {
+          lightbox.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 200);
+      }
+    }
+
+    screenshotCards.forEach((card, idx) => {
+      card.addEventListener('click', () => openLightbox(idx));
+    });
+
+    if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+    if (lightboxCloseBottomBtn) lightboxCloseBottomBtn.addEventListener('click', closeLightbox);
+
+    if (lightboxPrevBtn) {
+      lightboxPrevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateLightbox(currentIndex - 1);
+      });
+    }
+
+    if (lightboxNextBtn) {
+      lightboxNextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateLightbox(currentIndex + 1);
+      });
+    }
+
+    // Close on backdrop click (outside phone frame)
+    if (lightbox) {
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox || lightbox.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') updateLightbox(currentIndex - 1);
+      if (e.key === 'ArrowRight') updateLightbox(currentIndex + 1);
+    });
   </script>
 </Layout>
