@@ -1,15 +1,22 @@
 ---
 const testimonials = [
   {
-    quote: 'Mengelola database 147 anggota aktif dan absensi latihan mingguan sekarang tinggal buka smartphone. Begitu butuh laporan pertanggungjawaban untuk pihak sekolah, cukup 1 klik langsung siap print rapi ke format PDF tanpa perlu bongkar tumpukan berkas fisik lagi.',
-    name: 'Pelatih & Pembina Paskibra',
-    role: 'Unit Paskibra MAN & SMPN 3 Cimahi • Kota Cimahi',
-    icon: '🎖️',
-    badge: 'Organisasi Paskibra (147 Anggota)',
+    quote: 'Dulu ratusan lembar fotokopi jurnal karakter bikin meja BK penuh dan rekapnya makan waktu berminggu-minggu. Dengan sistem G7KAIH buatan Kang Apri, 871 siswa mengisi langsung dari HP dalam 1 menit, dan kami para guru bisa memantau grafik kepatuhan harian secara live tanpa biaya server sepeser pun.',
+    name: 'Kholis Aliyudin, S.Pd.',
+    role: 'Guru Bimbingan Konseling • MAN Kota Cimahi',
+    icon: '🏫',
+    badge: 'G7KAIH (871 Siswa Aktif)',
   },
   {
-    quote: 'Sistem Si Paling Rekap di Kejurcab FORBASI Kota Cimahi 2026 benar-benar membantu. Standing nilai langsung keluar seketika saat lomba berjalan dan langsung jadi bahan diskusi objektif para pelatih di lokasi. Kalkulasi skornya 100% akurat tanpa komplain, dan panitia tidak perlu begadang untuk rekap manual.',
-    name: 'Ketua Panitia Pelaksana',
+    quote: 'Mengelola database 147 anggota aktif dan absensi latihan mingguan sekarang tinggal buka smartphone. Begitu butuh laporan pertanggungjawaban untuk pihak sekolah, cukup 1 klik langsung siap print rapi ke format PDF tanpa perlu bongkar tumpukan berkas fisik lagi.',
+    name: 'Pembina & Pelatih Satuan Paskibra',
+    role: 'Satuan Paskibra MAN & SMPN 3 Cimahi • Kota Cimahi',
+    icon: '🎖️',
+    badge: 'KOMANDO (147 Anggota Aktif)',
+  },
+  {
+    quote: 'Sistem Si Paling Rekap di Kejurcab FORBASI Kota Cimahi 2026 benar-benar mengubah standar lomba. Standing nilai langsung keluar seketika saat peserta tampil dan langsung jadi bahan evaluasi objektif. Kalkulasi skor 100% akurat tanpa jeda rekap manual berjam-jam.',
+    name: 'Panitia Pelaksana Kejurcab FORBASI',
     role: 'Kejurcab FORBASI Kota Cimahi 2026 • Kota Cimahi',
     icon: '🏆',
     badge: 'Uji Resmi Kejurcab FORBASI 2026',
@@ -32,14 +39,14 @@ const testimonials = [
       </h2>
       
       <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-        Testimoni jujur dan apa adanya dari pelatih organisasi dan panitia kejuaraan yang membuktikan langsung efisiensi sistem Kang Apri (@madebyaapri).
+        Testimoni jujur dan apa adanya dari guru bimbingan konseling, pelatih organisasi, dan panitia kejuaraan yang membuktikan langsung efisiensi sistem Kang Apri (@madebyaapri).
       </p>
     </div>
 
-    <!-- Testimonials 2-Column Grid (Focused & High Impact) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+    <!-- Testimonials 3-Column Grid (High Impact Proof) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 max-w-7xl mx-auto">
       {testimonials.map((t) => (
-        <div class="p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between">
+        <div class="p-6 sm:p-7 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:border-cyan-500/40 transition-all flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between gap-2 mb-4">
               <span class="px-2.5 py-1 rounded-lg bg-cyan-50 dark:bg-cyan-950/70 text-cyan-700 dark:text-cyan-400 text-[11px] font-bold border border-cyan-200/60 dark:border-cyan-800/60">
@@ -59,9 +66,9 @@ const testimonials = [
             <div class="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-center font-bold text-xl shrink-0">
               {t.icon}
             </div>
-            <div>
-              <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">{t.name}</h4>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400">{t.role}</p>
+            <div class="min-w-0">
+              <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 truncate">{t.name}</h4>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 truncate">{t.role}</p>
             </div>
           </div>
         </div>

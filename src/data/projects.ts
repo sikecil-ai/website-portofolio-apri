@@ -204,7 +204,7 @@ export const projects: Project[] = [
     reviewCount: '871 Siswa & Guru',
     developer: 'M. Apriyanto Wijaya (@madebyaapri)',
     verifiedBadge: 'Terverifikasi Resmi di MAN Kota Cimahi',
-    demoUrl: 'https://sites.google.com/view/g7kaih/mankoci',
+    demoUrl: 'https://sites.google.com/view/g-7kaih/mancimahi',
     repoUrl: 'https://github.com/sikecil-ai/website-portofolio-apri',
     articleSlug: 'kisah-g7kaih-mankoci-sistem-kebiasaan-siswa',
     featured: true,

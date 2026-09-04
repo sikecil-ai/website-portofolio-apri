@@ -2,52 +2,42 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import PainPoints from '../components/PainPoints.astro';
-import AboutSection from '../components/AboutSection.astro';
-import ProjectGallery from '../components/ProjectGallery.astro';
 import Comparison from '../components/Comparison.astro';
-import Skills from '../components/Skills.astro';
-import Articles from '../components/Articles.astro';
+import ProjectGallery from '../components/ProjectGallery.astro';
+import AboutSection from '../components/AboutSection.astro';
 import Testimonials from '../components/Testimonials.astro';
+import Articles from '../components/Articles.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import Pricing from '../components/Pricing.astro';
 import FAQ from '../components/FAQ.astro';
 import Contact from '../components/Contact.astro';
+import MobileBottomBar from '../components/MobileBottomBar.astro';
 ---
 
 <Layout>
-  <!-- 1. Hero Section (Seksi A) -->
+  <!-- Babak 1: The Executive Hero -->
   <Hero />
 
-  <!-- 2. Problem Agitation / Pain Points Section (Seksi B) -->
+  <!-- Babak 2: The Radical Contrast (Pain Points & Value Comparison Matrix) -->
   <PainPoints />
-
-  <!-- 3. About & Philosophy Section (Seksi C) -->
-  <AboutSection />
-
-  <!-- 4. 4 Master Flagship Systems Showcase (Seksi D) -->
-  <ProjectGallery />
-
-  <!-- 5. Value Comparison Matrix Section (Seksi E) -->
   <Comparison />
 
-  <!-- 6. Technology & Engine Section -->
-  <Skills />
+  <!-- Babak 3: The Crown Jewels Showroom (5 Flagship Systems Showcase) -->
+  <ProjectGallery />
 
-  <!-- 7. Articles & Case Studies Section (Seksi F) -->
-  <Articles />
-
-  <!-- 8. Living Lab Testimonials Section -->
+  <!-- Babak 4: The Verifiable Authority (About Kang Apri + Real People Testimonials) -->
+  <AboutSection />
   <Testimonials />
 
-  <!-- 9. How It Works (Seksi G1) -->
+  <!-- Babak 5: The Field Case Studies (Articles & Deep Field Stories) -->
+  <Articles />
+
+  <!-- Babak 6: The VIP Closing & Investment (How It Works + Pricing + FAQ + Contact) -->
   <HowItWorks />
-
-  <!-- 10. Pricing & Investment Tiers Section (Seksi G2) -->
   <Pricing />
-
-  <!-- 11. FAQ Section (Seksi G3) -->
   <FAQ />
-
-  <!-- 12. Contact & Direct WhatsApp Section (Seksi G4) -->
   <Contact />
+
+  <!-- Floating Mobile VIP HUD Bar (Quick Action Shortcut on Smartphone) -->
+  <MobileBottomBar />
 </Layout>
