@@ -87,10 +87,14 @@ import { siteConfig } from '../data/siteConfig';
 
       </div>
 
-      <!-- Right Visual Column (Desktop Only: Harmonic Pixel Card) -->
+      <!-- Right Visual Column (Desktop Only: Harmonic Pixel Card with Organic Zero-Gravity Floating Effects) -->
       <div class="hidden lg:flex lg:col-span-5 justify-center relative">
         <div class="relative w-72 sm:w-88 md:w-96 aspect-square">
-          <div class="relative w-full h-full rounded-3xl p-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl flex items-center justify-center">
+          <!-- Ambient Background Glow Ring -->
+          <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/25 via-blue-500/15 to-purple-500/20 blur-2xl animate-pulse"></div>
+
+          <!-- Avatar Main Container with subtle float -->
+          <div class="relative w-full h-full rounded-3xl p-4 bg-slate-50/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-2xl backdrop-blur-xl flex items-center justify-center animate-float-gentle">
             <img
               src="/images/avatar.svg"
               alt="Kang Apri - madebyaapri"
@@ -100,20 +104,26 @@ import { siteConfig } from '../data/siteConfig';
               loading="eager"
             />
 
-            <!-- Floating Badges -->
+            <!-- Floating Badge 1: Modern UI/UX -->
             <div
-              class="absolute -top-3 -left-2 sm:-left-3 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 shadow-md border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 text-xs font-semibold text-slate-800 dark:text-slate-200"
+              class="absolute -top-3 -left-2 sm:-left-3 px-3.5 py-1.5 rounded-xl bg-white/95 dark:bg-slate-800/95 shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200 backdrop-blur-md animate-float-delayed-1"
             >
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
               <span>Modern UI/UX</span>
             </div>
 
-            <div class="absolute -bottom-3 -right-2 sm:-right-3 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 shadow-md border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 text-xs font-semibold text-slate-800 dark:text-slate-200">
+            <!-- Floating Badge 2: Google Apps Script -->
+            <div
+              class="absolute -bottom-3 -right-2 sm:-right-3 px-3.5 py-1.5 rounded-xl bg-white/95 dark:bg-slate-800/95 shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200 backdrop-blur-md animate-float-delayed-2"
+            >
               <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
               <span>Google Apps Script</span>
             </div>
 
-            <div class="absolute top-1/2 -right-4 sm:-right-6 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 shadow-md border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 text-xs font-semibold text-slate-800 dark:text-slate-200">
+            <!-- Floating Badge 3: Looker Studio BI -->
+            <div
+              class="absolute top-1/2 -right-4 sm:-right-6 px-3.5 py-1.5 rounded-xl bg-white/95 dark:bg-slate-800/95 shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200 backdrop-blur-md animate-float-delayed-3"
+            >
               <span class="w-2 h-2 rounded-full bg-blue-500"></span>
               <span>Looker Studio BI</span>
             </div>

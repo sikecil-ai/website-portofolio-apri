@@ -158,3 +158,47 @@
 .animate-pulse-glow {
   animation: pulse-glow 8s ease-in-out infinite;
 }
+
+/* Zero-Gravity Floating Animations for Hero Profile & Badges */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(7px) rotate(-0.4deg);
+  }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 5s ease-in-out infinite;
+}
+
+.animate-float-delayed-1 {
+  animation: float-gentle 5.8s ease-in-out 0.5s infinite;
+}
+
+.animate-float-delayed-2 {
+  animation: float-reverse 6.2s ease-in-out 1.8s infinite;
+}
+
+.animate-float-delayed-3 {
+  animation: float-gentle 5.4s ease-in-out 2.6s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-gentle,
+  .animate-float-delayed-1,
+  .animate-float-delayed-2,
+  .animate-float-delayed-3 {
+    animation: none !important;
+  }
+}
