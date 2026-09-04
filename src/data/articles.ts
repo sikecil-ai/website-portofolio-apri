@@ -213,16 +213,16 @@ Yuk bagikan ceritamu atau ngobrol santai langsung bareng Kang Apri via WhatsApp 
     coverEmoji: '🏫',
     projectRelation: 'G7KAIH Mankoci — MAN Kota Cimahi',
     author: 'M. Apriyanto Wijaya (Apri)',
-    editor: 'Pak Kholis Aliyudin (Guru BK MAN Kota Cimahi)',
+    editor: 'Pak Kholis Aliyudin, M.Si. (Guru BK MAN Kota Cimahi)',
     publishedDate: '4 September 2026',
     updatedDate: '4 September 2026',
-    excerpt: 'Perjalanan membangun sistem G7KAIH Mankoci: silaturahmi ke guru BK Pak Kholis Aliyudin, memotong penderitaan ratusan kertas fotokopi menjadi aplikasi tap-tap 1 menit untuk 871 siswa MAN Kota Cimahi.',
+    excerpt: 'Perjalanan membangun sistem G7KAIH Mankoci: silaturahmi ke guru BK Pak Kholis Aliyudin, M.Si., memotong penderitaan ratusan kertas fotokopi menjadi aplikasi tap-tap 1 menit untuk 871 siswa MAN Kota Cimahi.',
     tags: ['G7KAIH', 'MAN Kota Cimahi', 'Otomasi Madrasah', 'Google Apps Script', 'Habit Tracker', 'Sedekah Alumni', 'Gemini Pro'],
     content: `Bagi saya, sekolah bukan sekadar tempat menuntut ilmu lalu dilupakan begitu saja setelah wisuda kelulusan. Sampai hari ini, saya masih rutin menyempatkan diri mampir ke almamater tercinta, **MAN Kota Cimahi (Mankoci)**. Entah sekadar menyapa bapak dan ibu guru untuk merawat silaturahmi, maupun mendampingi adik-adik latihan Paskibra di lapangan upacara.
 
 Dari kebiasaan silaturahmi itulah, sebuah mahakarya sistem lahir.
 
-Suatu hari, saya mengobrol santai dengan **Pak Kholis Aliyudin**, guru Bimbingan Konseling (BK) saya sejak zaman sekolah dulu. Saya bercerita jujur tentang kesibukan saya di bidang otomasi sistem dan kemampuan membangun aplikasi berbasis ekosistem cloud. Mendengar cerita itu, mata Pak Kholis langsung berbinar. Beliau mengutarakan sebuah keresahan besar yang sedang dihadapi madrasah terkait program karakter bertajuk: **Gerakan 7 Kebiasaan Anak Indonesia Hebat (G7KAIH)**.
+Suatu hari, saya mengobrol santai dengan **Pak Kholis Aliyudin, M.Si.**, guru Bimbingan Konseling (BK) saya sejak zaman sekolah dulu. Saya bercerita jujur tentang kesibukan saya di bidang otomasi sistem dan kemampuan membangun aplikasi berbasis ekosistem cloud. Mendengar cerita itu, mata Pak Kholis langsung berbinar. Beliau mengutarakan sebuah keresahan besar yang sedang dihadapi madrasah terkait program karakter bertajuk: **Gerakan 7 Kebiasaan Anak Indonesia Hebat (G7KAIH)**.
 
 "Pri, bapak minta bantuan buatin sistem aplikasi ya, supaya anak-anak bisa melapor kebiasaan harian mereka dan laporannya otomatis tercatat jadi bahan penilaian BK," pinta beliau.
 

@@ -160,7 +160,7 @@ export const projects: Project[] = [
     slug: 'g7kaih-sistem-kebiasaan-anak-hebat',
     tagline: 'Monitoring 871 siswa MAN Kota Cimahi, input tap-tap 1 menit, streak harian, & dashboard rapor karakter siap cetak.',
     description: 'Sistem monitoring kebiasaan siswa harian berbasis Google Apps Script untuk 871 siswa MAN Kota Cimahi dengan form input cepat 1 menit dan dashboard guru BK.',
-    fullDescription: 'G7KAIH Mankoci (Gerakan 7 Kebiasaan Anak Indonesia Hebat) dibangun atas kolaborasi silaturahmi Kang Apri bersama guru BK MAN Kota Cimahi, Pak Kholis Aliyudin. Sistem ini menggantikan ratusan lembar fotokopi kertas manual yang merepotkan menjadi antarmuka tap-tap smartphone untuk 871 siswa serta dashboard pemantauan desktop untuk wali kelas dan guru BK tanpa biaya server sepeser pun.',
+    fullDescription: 'G7KAIH Mankoci (Gerakan 7 Kebiasaan Anak Indonesia Hebat) dibangun atas kolaborasi silaturahmi Kang Apri bersama guru BK MAN Kota Cimahi, Pak Kholis Aliyudin, M.Si. Sistem ini menggantikan ratusan lembar fotokopi kertas manual yang merepotkan menjadi antarmuka tap-tap smartphone untuk 871 siswa serta dashboard pemantauan desktop untuk wali kelas dan guru BK tanpa biaya server sepeser pun.',
     category: 'Otomasi Google Sheets (GAS)',
     tags: ['Google Apps Script', 'Google Sheets Engine', 'Dashboard BK', '871 Siswa Aktif', 'MAN Kota Cimahi', 'Habit Tracker'],
     image: '/images/og-g7kaih.png',
