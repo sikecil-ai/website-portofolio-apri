@@ -205,24 +205,24 @@ Yuk bagikan ceritamu atau ngobrol santai langsung bareng Kang Apri via WhatsApp 
   },
   {
     id: '9',
-    title: 'Kisah G7KAIH Mankoci: Dari Fotokopi Kertas ke Sistem Otomasi 871 Siswa MAN Kota Cimahi',
+    title: 'Kisah G-7KAIH: Dari Fotokopi Kertas ke Sistem Otomasi 871 Siswa MAN Kota Cimahi',
     slug: 'kisah-g7kaih-mankoci-sistem-kebiasaan-siswa',
     category: 'Otomasi Madrasah & Edukasi',
     readTime: '7 Menit Baca',
     date: '2026',
     coverEmoji: '🏫',
-    projectRelation: 'G7KAIH Mankoci — MAN Kota Cimahi',
+    projectRelation: 'G-7KAIH — Gerakan 7 Kebiasaan Indonesia Hebat di MAN Kota Cimahi',
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Pak Kholis Aliyudin, M.Si. (Guru BK MAN Kota Cimahi)',
     publishedDate: '4 September 2026',
     updatedDate: '4 September 2026',
-    excerpt: 'Perjalanan membangun sistem G7KAIH Mankoci: silaturahmi ke guru BK Pak Kholis Aliyudin, M.Si., memotong penderitaan ratusan kertas fotokopi menjadi aplikasi tap-tap 1 menit untuk 871 siswa MAN Kota Cimahi.',
-    tags: ['G7KAIH', 'MAN Kota Cimahi', 'Otomasi Madrasah', 'Google Apps Script', 'Habit Tracker', 'Sedekah Alumni', 'Gemini Pro'],
+    excerpt: 'Perjalanan membangun sistem G-7KAIH: silaturahmi ke guru BK Pak Kholis Aliyudin, M.Si., mengawal Gerakan 7 Kebiasaan Indonesia Hebat di MAN Kota Cimahi untuk 871 siswa.',
+    tags: ['G-7KAIH', 'MAN Kota Cimahi', 'Otomasi Madrasah', 'Google Apps Script', 'Habit Tracker', 'Sedekah Alumni', 'Gemini Pro'],
     content: `Bagi saya, sekolah bukan sekadar tempat menuntut ilmu lalu dilupakan begitu saja setelah wisuda kelulusan. Sampai hari ini, saya masih rutin menyempatkan diri mampir ke almamater tercinta, **MAN Kota Cimahi (Mankoci)**. Entah sekadar menyapa bapak dan ibu guru untuk merawat silaturahmi, maupun mendampingi adik-adik latihan Paskibra di lapangan upacara.
 
 Dari kebiasaan silaturahmi itulah, sebuah mahakarya sistem lahir.
 
-Suatu hari, saya mengobrol santai dengan **Pak Kholis Aliyudin, M.Si.**, guru Bimbingan Konseling (BK) saya sejak zaman sekolah dulu. Saya bercerita jujur tentang kesibukan saya di bidang otomasi sistem dan kemampuan membangun aplikasi berbasis ekosistem cloud. Mendengar cerita itu, mata Pak Kholis langsung berbinar. Beliau mengutarakan sebuah keresahan besar yang sedang dihadapi madrasah terkait program karakter bertajuk: **Gerakan 7 Kebiasaan Anak Indonesia Hebat (G7KAIH)**.
+Suatu hari, saya mengobrol santai dengan **Pak Kholis Aliyudin, M.Si.**, guru Bimbingan Konseling (BK) saya sejak zaman sekolah dulu. Saya bercerita jujur tentang kesibukan saya di bidang otomasi sistem dan kemampuan membangun aplikasi berbasis ekosistem cloud. Mendengar cerita itu, mata Pak Kholis langsung berbinar. Beliau mengutarakan sebuah keresahan besar yang sedang dihadapi madrasah terkait program karakter bertajuk: **Gerakan 7 Kebiasaan Anak Indonesia Hebat (G-7KAIH)**.
 
 "Pri, bapak minta bantuan buatin sistem aplikasi ya, supaya anak-anak bisa melapor kebiasaan harian mereka dan laporannya otomatis tercatat jadi bahan penilaian BK," pinta beliau.
 
@@ -287,20 +287,20 @@ Ternyata, niat baik tidak pernah kembali dengan tangan kosong. Melihat kualitas 
 
 Penasaran bagaimana tampilan antarmuka mobile tap-tap 1 menit dan dashboard desktop yang digunakan oleh 871 siswa MAN Kota Cimahi?
 
-👉 **[Buka Lembar Etalase Aplikasi G7KAIH di Sini (Play Store Style) →](/sistem/g7kaih-sistem-kebiasaan-anak-hebat)**
+👉 **[Buka Lembar Etalase Aplikasi G-7KAIH di Sini (Play Store Style) →](/sistem/g7kaih-sistem-kebiasaan-anak-hebat)**
 
 ---
 
 ### Filosofi Lapangan: Berani Unjuk Gigi & Menjaga Silaturahmi
 
-Pelajaran paling berharga dari proyek G7KAIH Mankoci adalah: **kita harus berani menunjukkan kemampuan dan karya nyata kita kepada orang lain**. Jangan memendam keahlian sendirian di kamar. Ketika orang lain melihat bukti solusi yang kita tawarkan, rasa percaya akan tumbuh, dan amanah besar akan datang dengan sendirinya.
+Pelajaran paling berharga dari proyek G-7KAIH adalah: **kita harus berani menunjukkan kemampuan dan karya nyata kita kepada orang lain**. Jangan memendam keahlian sendirian di kamar. Ketika orang lain melihat bukti solusi yang kita tawarkan, rasa percaya akan tumbuh, dan amanah besar akan datang dengan sendirinya.
 
 Namun yang terpenting: tetaplah rendah hati. Jangan sombong, dan jangan pernah melupakan orang-orang terdahulu yang pernah membimbing kita. Pintu rezeki dan keberkahan karya seringkali terbuka bukan dari orang asing di internet, melainkan dari hangatnya tali silaturahmi dengan guru-guru kita sendiri.
 
 ---
 
 ### Rangkuman & Sekarang Giliranmu: Menurutmu Bagaimana?
-Sistem G7KAIH Mankoci membuktikan bahwa program karakter madrasah untuk 871 siswa bisa berjalan otomatis, menyenangkan, dan bebas kertas fotokopi hanya bermodalkan antarmuka tap-tap 1 menit dan infrastruktur Google Workspace tanpa biaya server.
+Sistem G-7KAIH membuktikan bahwa program karakter Gerakan 7 Kebiasaan Indonesia Hebat di MAN Kota Cimahi untuk 871 siswa bisa berjalan otomatis, menyenangkan, dan bebas kertas fotokopi hanya bermodalkan antarmuka tap-tap 1 menit dan infrastruktur Google Workspace tanpa biaya server.
 
 **Bagaimana sistem pemantauan karakter atau administrasi di sekolah, pesantren, atau komunitas Anda saat ini? Apakah masih berkutat dengan tumpukan kertas fisik?**
 

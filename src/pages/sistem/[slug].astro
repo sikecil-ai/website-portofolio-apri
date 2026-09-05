@@ -133,7 +133,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl font-bold text-xs text-white bg-cyan-600 hover:bg-cyan-500 shadow-[0_3px_0_#0891b2] transition-transform active:translate-y-[1px] active:shadow-none cursor-pointer text-center whitespace-nowrap"
               >
-                <span>{project.slug === 'komando-sistem-manajemen-paskibra' ? '📝 Portal Pangkalan (Live)' : '🚀 Buka Portal Demo (Live)'}</span>
+                <span>{project.slug === 'komando-sistem-manajemen-paskibra' ? '📝 Portal Pangkalan (Live)' : project.slug === 'g7kaih-sistem-kebiasaan-anak-hebat' ? '🚀 Buka Portal & Registrasi (Live)' : '🚀 Buka Portal Demo (Live)'}</span>
               </a>
 
               {project.articleSlug && (

@@ -156,11 +156,11 @@ export const projects: Project[] = [
   },
   {
     id: '5',
-    title: 'G7KAIH Mankoci — Sistem Monitoring 7 Kebiasaan Siswa Hebat',
+    title: 'G-7KAIH — Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
     slug: 'g7kaih-sistem-kebiasaan-anak-hebat',
-    tagline: 'Monitoring 871 siswa MAN Kota Cimahi, input tap-tap 1 menit, streak harian, & dashboard rapor karakter siap cetak.',
-    description: 'Sistem monitoring kebiasaan siswa harian berbasis Google Apps Script untuk 871 siswa MAN Kota Cimahi dengan form input cepat 1 menit dan dashboard guru BK.',
-    fullDescription: 'G7KAIH Mankoci (Gerakan 7 Kebiasaan Anak Indonesia Hebat) dibangun atas kolaborasi silaturahmi Kang Apri bersama guru BK MAN Kota Cimahi, Pak Kholis Aliyudin, M.Si. Sistem ini menggantikan ratusan lembar fotokopi kertas manual yang merepotkan menjadi antarmuka tap-tap smartphone untuk 871 siswa serta dashboard pemantauan desktop untuk wali kelas dan guru BK tanpa biaya server sepeser pun.',
+    tagline: 'Monitoring 871 siswa implementasi Gerakan 7 Kebiasaan Indonesia Hebat di MAN Kota Cimahi, input tap-tap 1 menit, streak harian, & dashboard rapor karakter siap cetak.',
+    description: 'Platform SaaS monitoring Gerakan 7 Kebiasaan Indonesia Hebat untuk 871 siswa di MAN Kota Cimahi dengan form input cepat 1 menit dan dashboard guru BK.',
+    fullDescription: 'G-7KAIH (Gerakan 7 Kebiasaan Anak Indonesia Hebat) dibangun atas kolaborasi silaturahmi Kang Apri bersama guru BK MAN Kota Cimahi, Pak Kholis Aliyudin, M.Si. Kini bertransformasi menjadi platform SaaS multi-tenant yang siap diadopsi sekolah dan madrasah mana pun. Sistem ini menggantikan ratusan lembar fotokopi kertas manual yang merepotkan menjadi antarmuka tap-tap smartphone untuk 871 siswa serta dashboard pemantauan desktop untuk wali kelas dan guru BK tanpa biaya server sepeser pun.',
     category: 'Otomasi Google Sheets (GAS)',
     tags: ['Google Apps Script', 'Google Sheets Engine', 'Dashboard BK', '871 Siswa Aktif', 'MAN Kota Cimahi', 'Habit Tracker'],
     image: '/images/og-g7kaih.png',
@@ -171,7 +171,7 @@ export const projects: Project[] = [
     reviewCount: '871 Siswa & Guru',
     developer: 'M. Apriyanto Wijaya (@madebyaapri)',
     verifiedBadge: 'Terverifikasi Resmi di MAN Kota Cimahi',
-    demoUrl: 'https://sites.google.com/view/g-7kaih/mancimahi',
+    demoUrl: 'https://sites.google.com/view/g-7kaih',
     repoUrl: 'https://github.com/sikecil-ai/website-portofolio-apri',
     articleSlug: 'kisah-g7kaih-mankoci-sistem-kebiasaan-siswa',
     featured: true,
@@ -280,16 +280,16 @@ export const projects: Project[] = [
     ],
     faqs: [
       {
-        question: 'Apa itu Gerakan 7 Kebiasaan Anak Indonesia Hebat (G7KAIH)?',
-        answer: 'G7KAIH adalah program pembentukan karakter siswa yang mencakup 7 pilar: bangun pagi & berdoa, ibadah tepat waktu, berolahraga rutin, gemar membaca, makan makanan sehat, bermasyarakat/membantu orang tua, serta istirahat teratur.',
+        question: 'Apa itu Gerakan 7 Kebiasaan Anak Indonesia Hebat (G-7KAIH)?',
+        answer: 'G-7KAIH adalah sistem monitoring pembiasaan karakter siswa yang mencakup 7 pilar: bangun pagi & berdoa, ibadah tepat waktu, berolahraga rutin, gemar membaca, makan makanan sehat, bermasyarakat/membantu orang tua, serta istirahat teratur.',
       },
       {
         question: 'Apakah sistem ini bisa menampung ribuan siswa tanpa server berbayar?',
         answer: 'Bisa! Arsitektur Google Apps Script yang terhubung ke Google Sheets Engine mampu menangani ribuan transaksi harian dengan kuota gratis Google Workspace yang sangat melimpah.',
       },
       {
-        question: 'Bisakah sekolah atau madrasah lain mengadopsi sistem G7KAIH ini?',
-        answer: 'Sangat bisa! Sistem ini dirancang modular sehingga daftar kebiasaan, jumlah kelas, maupun format cetak rapor dapat disesuaikan dengan SOP masing-masing sekolah.',
+        question: 'Bisakah sekolah atau madrasah lain mengadopsi sistem G-7KAIH ini?',
+        answer: 'Sangat bisa! G-7KAIH kini berarsitektur SaaS multi-tenant. Setiap sekolah atau madrasah dapat mendaftarkan instansinya dan mendapatkan portal jurnal siswa serta dashboard pemantauan BK mandiri dalam hitungan menit.',
       },
     ],
     technologies: [
