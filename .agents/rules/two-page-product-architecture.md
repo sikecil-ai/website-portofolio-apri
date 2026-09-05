@@ -32,7 +32,7 @@ Aturan ini wajib diacu saat merilis, memperbarui, atau mempublikasikan sistem ma
   4. *Tactile Action Buttons Bar (AgenSoal Style):*
      - Tombol aksi tegas dengan efek klik solid shadow (misal: `[ 🚀 Buka Portal Demo (Sites) ]` + `[ 📖 Baca Kisah di Balik Layar ]` + `[ 💬 Konsultasi WA Langsung ]`).
   5. *Interactive Viewport Switcher / Tabs:* Pengunjung dapat berganti melihat detail tampilan "Desktop Admin" vs "Mobile Pengguna".
-  6. *Horizontal Screenshot & Modules Slider:* Kartu mockup modul fitur yang bisa digeser menyamping (*snap scroll*).
+  6. *Horizontal Screenshot & Modules Slider:* Kartu mockup modul fitur yang bisa digeser menyamping (*snap scroll*), terhubung ke modal lightbox adaptif yang WAJIB mematuhi standar `adaptive-screenshot-lightbox-standard.md` dan skill `screenshot-lightbox-framing`.
   7. *Feature-to-Benefit Pairing ("So What?" Test):* Setiap fitur dipasangkan dengan dampak nyata bagi operasional.
   8. *Spesifikasi Teknis & Keamanan Google Workspace Cloud (Zero Server Cost).*
   9. *FAQ Silent Objection Killer:* Menghancurkan keraguan tersembunyi instansi.
