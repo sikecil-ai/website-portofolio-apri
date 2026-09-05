@@ -744,7 +744,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
     aria-label="Penampil Tangkapan Layar Penuh"
   >
     <!-- Lightbox Top Bar -->
-    <div class="flex items-center justify-between gap-4 max-w-5xl w-full mx-auto pb-2.5 border-b border-slate-800 shrink-0">
+    <div class="flex items-center justify-between gap-4 max-w-5xl lg:max-w-6xl xl:max-w-7xl w-full mx-auto pb-2.5 border-b border-slate-800 shrink-0">
       <div class="flex items-center gap-2 sm:gap-3">
         <span id="lightbox-counter" class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-slate-900 text-cyan-400 border border-slate-700">
           1 / 9
@@ -770,7 +770,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
     </div>
 
     <!-- Lightbox Center Viewport -->
-    <div class="relative flex-1 flex items-center justify-center my-2 sm:my-3 overflow-hidden max-w-5xl w-full mx-auto">
+    <div class="relative flex-1 flex items-center justify-center my-2 sm:my-3 overflow-hidden max-w-5xl lg:max-w-6xl xl:max-w-7xl w-full mx-auto">
       <!-- Floating Prev Button -->
       <button
         type="button"
@@ -812,7 +812,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
         </div>
 
         <!-- Scrollable High-Res Image Viewport -->
-        <div id="lightbox-scroll-container" class="overflow-y-auto max-h-[calc(72vh-22px)] sm:max-h-[calc(76vh-22px)] scrollbar-thin bg-slate-950">
+        <div id="lightbox-scroll-container" class="overflow-y-auto max-h-[calc(78vh-36px)] sm:max-h-[calc(82vh-36px)] scrollbar-thin bg-slate-950">
           <img
             id="lightbox-img"
             src=""
@@ -824,7 +824,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
     </div>
 
     <!-- Lightbox Bottom Caption Bar -->
-    <div class="max-w-5xl w-full mx-auto pt-2.5 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-left shrink-0">
+    <div class="max-w-5xl lg:max-w-6xl xl:max-w-7xl w-full mx-auto pt-2.5 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-left shrink-0">
       <div class="flex-1 min-w-0">
         <div class="flex items-center gap-2 flex-wrap mb-1">
           <h3 id="lightbox-title" class="text-xs sm:text-sm font-bold text-white truncate">
@@ -959,11 +959,15 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
       const lightboxFrameContainer = document.getElementById('lightbox-frame-container');
       const lightboxNotch = document.getElementById('lightbox-notch');
       const lightboxBrowserHeader = document.getElementById('lightbox-browser-header');
-      const isDesktop = tag && tag.toLowerCase().includes('desktop');
+      
+      const desktopKeywords = ['desktop', 'cms', 'admin', 'standing', 'leaderboard', 'a4', 'tablet', 'dokumen', 'berita acara', 'rekap', 'dashboard', 'setting'];
+      const lowerTag = (tag || '').toLowerCase();
+      let isDesktop = desktopKeywords.some(function(kw) { return lowerTag.includes(kw); });
 
-      if (lightboxFrameContainer && lightboxNotch && lightboxBrowserHeader) {
-        if (isDesktop) {
-          lightboxFrameContainer.className = "relative max-h-[76vh] w-full max-w-[94vw] lg:max-w-4xl rounded-2xl border-2 border-slate-700 bg-slate-900 overflow-hidden shadow-2xl flex flex-col transition-all duration-300";
+      function applyFraming(isWide) {
+        if (!lightboxFrameContainer || !lightboxNotch || !lightboxBrowserHeader) return;
+        if (isWide) {
+          lightboxFrameContainer.className = "relative max-h-[78vh] sm:max-h-[82vh] w-full max-w-[96vw] lg:max-w-5xl xl:max-w-6xl rounded-2xl border-2 border-slate-700 bg-slate-900 overflow-hidden shadow-2xl flex flex-col transition-all duration-300";
           lightboxNotch.classList.add('hidden');
           lightboxBrowserHeader.classList.remove('hidden');
         } else {
@@ -971,6 +975,30 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
           lightboxNotch.classList.remove('hidden');
           lightboxBrowserHeader.classList.add('hidden');
         }
+      }
+
+      // Check aspect ratio if image is already loaded or cached
+      if (lightboxImg && lightboxImg.complete && lightboxImg.naturalWidth && lightboxImg.naturalHeight) {
+        if (lightboxImg.naturalWidth >= lightboxImg.naturalHeight * 1.05) {
+          isDesktop = true;
+        } else if (lightboxImg.naturalHeight > lightboxImg.naturalWidth * 1.2) {
+          isDesktop = false;
+        }
+      }
+
+      applyFraming(isDesktop);
+
+      // Re-evaluate dynamically when image finishes loading
+      if (lightboxImg) {
+        lightboxImg.onload = function() {
+          if (lightboxImg.naturalWidth && lightboxImg.naturalHeight) {
+            if (lightboxImg.naturalWidth >= lightboxImg.naturalHeight * 1.05) {
+              applyFraming(true);
+            } else if (lightboxImg.naturalHeight > lightboxImg.naturalWidth * 1.2) {
+              applyFraming(false);
+            }
+          }
+        };
       }
 
       // Reset scroll to top of view on slide change
