@@ -349,7 +349,7 @@ Sebelum ada Si Paling Rekap, panitia lomba LKBB di mana-mana harus mengetik manu
 
 Saya curahkan seluruh alur pemikiran tersebut ke **Google Antigravity IDE**. Saya merancang sistemnya secara terbalik: saya bangun tampilan antarmuka **Live Standing Klasemen** terlebih dahulu, baru menarik alur logika ke belakang mengenai dari mana data tersebut berasal dan bagaimana cara mengolahnya.
 
-Dari sanalah lahir konsep **"Rekap Tap-Tap"**: antarmuka formulir digital yang dirancang khusus untuk layar sentuh (*touchscreen*—baik tablet, smartphone, maupun laptop). Petugas rekap tidak perlu lagi repot mengetik angka melalui keyboard; cukup melakukan *tap-tap* pada tombol skor yang tertera di layar.
+Dari sanalah lahir konsep **"Rekap Tap-Tap"**: antarmuka formulir digital yang dirancang khusus untuk layar sentuh (baik tablet, smartphone, maupun laptop touchscreen). Petugas rekap tidak perlu lagi repot mengetik angka melalui keyboard; cukup melakukan *tap-tap* pada tombol skor yang tertera di layar.
 
 Data hasil *tap-tap* tersebut langsung tersimpan dalam format **JSON terstruktur** dan diolah di atas engine Google Apps Script. Di sinilah saya menerapkan satu prinsip arsitektur sistem yang fundamental: **Single Source of Truth (SSOT)**. Sistem secara otomatis memisahkan klasemen Juara Umum dan Juara Per Kategori, lengkap dengan logika resmi pemecah skor seri (**Tie-Break**) yang berjalan otomatis dan adil tanpa intervensi manual.
 
@@ -366,7 +366,7 @@ Ada **3 Kategori Lomba** yang dipertandingkan:
 
 Dan masing-masing kategori tersebut melombakan **4 Kategori Usia**: tingkat **SD, SMP, SMA, hingga PURNA**. 
 
-Karena padatnya kesibukan masing-masing anggota panitia, tim rekap jarang memiliki waktu khusus untuk berkumpul dan gladi resik bersama. Dan benar saja, tepat di hari pertama ketika lomba sesi pembuka—yakni kategori **LOBB tingkat SD**—baru saja berjalan, drama horor meledak tanpa peringatan.
+Karena padatnya kesibukan masing-masing anggota panitia, tim rekap jarang memiliki waktu khusus untuk berkumpul dan gladi resik bersama. Dan benar saja, tepat di hari pertama ketika lomba sesi pembuka, yakni kategori **LOBB tingkat SD**, baru saja berjalan, drama horor meledak tanpa peringatan.
 
 Tiba-tiba suasana meja rekap mendadak tegang luar biasa. Apa yang tampil di layar besar standing klasemen, apa yang keluar di lembar cetak print A4, dan hasil perhitungan di laptop panitia **berbeda semua angkanya!**
 
@@ -403,7 +403,7 @@ Saya mengisolasi diri di sudut meja, membuka laptop, dan membedah *Console Log* 
 
 Saya bedah akar masalahnya satu per satu secara runut, jujur, lugas, dan terstruktur tanpa baper. Skrip perbaikan diuji baris demi baris langsung di console browser.
 
-Hasilnya? Sungguh sebuah mukjizat kerja keras dan ketenangan pikiran: **Tepat dalam waktu 1 jam—persis ketika seluruh pleton kategori SMP selesai tampil di lapangan—seluruh bug tuntas terisolasi!**
+Hasilnya? Berkat fokus penuh dan kepala dingin, tepat dalam waktu 1 jam, persis ketika seluruh pleton kategori SD selesai tampil di lapangan, seluruh bug tuntas terisolasi!
 
 Alur input nilai tap-tap kembali lancar tanpa hambatan, ranking standing klasemen bergerak presisi, dan modul cetak lembar hasil print A4 klop 100% tanpa selisih satu angka pun! Alhamdulillaah!
 
@@ -415,7 +415,7 @@ Begitu sistem kembali beroperasi mulus, atmosfer di Kompleks Pemkot Cimahi berba
 
 Layar display standing klasemen yang tersinkronisasi otomatis setiap **32 detik** seketika mengubah tradisi lomba LKBB yang kaku. Para pelatih tidak lagi duduk termenung menunggu kabar di bawah tenda; mereka berkerumun di depan layar dengan antusias, saling berdiskusi santai, dan menganalisis kelebihan serta kekurangan pasukan masing-masing secara objektif.
 
-Momen paling mendebarkan terjadi ketika pasukan asuhan **Kang Moh**—sosok ketua yang sangat kami hormati dan segani di lingkungan Paskibra Cimahi—tampil sebagai peserta pamungkas di nomor urut terakhir. Seluruh mata panitia, juri, dan pelatih tertuju lurus pada pergerakan angka di layar monitor. Begitu nilai pos terakhir dimasukkan oleh petugas, sistem langsung mengalkulasi peringkat dalam sekejap tanpa jeda, mengunci daftar juara secara mutlak.
+Momen paling mendebarkan terjadi ketika pasukan asuhan **Kang Moh**, sosok ketua yang sangat kami hormati dan segani di lingkungan Paskibra Cimahi, tampil sebagai peserta pamungkas di nomor urut terakhir. Seluruh mata panitia, juri, dan pelatih tertuju lurus pada pergerakan angka di layar monitor. Begitu nilai pos terakhir dimasukkan oleh petugas, sistem langsung mengalkulasi peringkat dalam sekejap tanpa jeda, mengunci daftar juara secara mutlak.
 
 Di hadapan seluruh jajaran panitia dan pengurus FORBASI yang berkumpul, **Kang Jabar (Pembina PPI / Purna Paskibraka Indonesia)** secara terbuka melontarkan apresiasi tinggi kepada saya:
 
@@ -436,7 +436,7 @@ Bahkan, ada satu modul penting yang belum sempat dibuat sebelumnya: **Modul Ceta
 Dengan tenang, saya memanfaatkan arsitektur modular yang sudah rapi di Antigravity. Sistem cetak Berita Acara tersebut **saya bangun secara kilat hanya 1 jam sebelum peserta terakhir tampil di arena!** Dan alhamdulillah, modul tersebut selesai tepat waktu, terisi otomatis sesuai hasil akhir klasemen, dan langsung ditandatangani oleh dewan juri tanpa kendala sedikit pun.
 
 Capaian terukur dari penerapan Si Paling Rekap di Kejurcab FORBASI Cimahi 2026:
-1. **Zero Delay (Pangkas 2–4 Jam Jadi 0 Detik):** Tidak ada lagi tradisi menunggu hasil rekap berjam-jam hingga larut malam. Data terbarui secara live setiap 32 detik.
+1. **Zero Delay (Pangkas 2 sampai 4 Jam Jadi 0 Detik):** Tidak ada lagi tradisi menunggu hasil rekap berjam-jam hingga larut malam. Data terbarui secara live setiap 32 detik.
 2. **0% Sengketa (100% ACC Pelatih):** Seluruh pelatih dari berbagai kontingen menandatangani lembar berita acara hasil kejuaraan tanpa ada satu pun nota protes atau perselisihan nilai.
 3. **Zero Server Cost:** Seluruh lalu lintas data kejuaraan berjalan kokoh di atas Google Sheets Modular Engine dan Google Apps Script tanpa membebani kas panitia untuk sewa server cloud bulanan.
 
