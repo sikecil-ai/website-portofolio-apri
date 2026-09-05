@@ -80,9 +80,9 @@ Target utama `@madebyaapri` adalah pengambil keputusan berbudget (*high-budget d
 
 * **Framework Web:** Astro v5.18+ (Pure Static Site Generator — Super Cepat).
 * **Styling:** Tailwind CSS (Mobile-first, Glassmorphism, Dark/Light Mode).
-* **Multi-Page SEO Architecture:** 15 Halaman statis terdaftar di `sitemap-index.xml`:
-  - 4 Halaman Sistem: `/sistem/[slug]`
-  - 8 Halaman Artikel: `/artikel/[slug]`
+* **Multi-Page SEO Architecture:** 18 Halaman statis terdaftar di `sitemap-index.xml`:
+  - 5 Halaman Sistem: `/sistem/[slug]`
+  - 10 Halaman Artikel: `/artikel/[slug]`
   - Halaman Index, Admin, dan 404.
 * **Standar Penulisan Artikel (Human Copywriting Engine):**
   - Wajib diawali dengan wawancara 10 pertanyaan mendalam.

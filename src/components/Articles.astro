@@ -98,7 +98,7 @@ const categories = ['Semua', 'Otomasi Bisnis & F&B', 'Studi Kasus Paskibra', 'Vi
       ))}
     </div>
 
-    <!-- Show All 8 Articles Toggle Button -->
+    <!-- Show All Articles Toggle Button -->
     {articles.length > 6 && (
       <div id="show-more-articles-container" class="mt-10 text-center">
         <button
@@ -106,7 +106,7 @@ const categories = ['Semua', 'Otomasi Bisnis & F&B', 'Studi Kasus Paskibra', 'Vi
           id="show-more-articles-btn"
           class="px-6 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all"
         >
-          Lihat Semua 8 Cerita &amp; Studi Kasus ↓
+          Lihat Semua {articles.length} Cerita &amp; Studi Kasus ↓
         </button>
       </div>
     )}
