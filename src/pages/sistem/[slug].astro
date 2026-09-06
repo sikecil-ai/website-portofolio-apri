@@ -177,7 +177,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
                     <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
                   </div>
                   <div class="px-2.5 py-0.5 rounded-md bg-slate-900/80 text-[8px] font-mono text-slate-400 max-w-[180px] truncate border border-slate-700">
-                    {project.demoUrl || 'https://sites.google.com/view/g7kaih'}
+                    {project.slug === 'si-paling-rekap-tabulasi-kejuaraan' ? 'sipalingrekap.madebyapri.live' : (project.demoUrl || 'https://sites.google.com/view/g7kaih')}
                   </div>
                   <span class="text-[8px] font-bold text-cyan-400 uppercase tracking-wider">Desktop Admin</span>
                 </div>
@@ -701,7 +701,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700 transition-all cursor-pointer text-center"
           >
-            <span>🚀 Buka Link Registrasi Sites →</span>
+            <span>{project.slug === 'si-paling-rekap-tabulasi-kejuaraan' ? '🚀 Buka Live Demo Tabulasi →' : '🚀 Buka Link Registrasi Sites →'}</span>
           </a>
         </div>
       </div>

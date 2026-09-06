@@ -317,7 +317,7 @@ export const projects: Project[] = [
     reviewCount: '1.600+ Peserta & Pelatih',
     developer: 'M. Apriyanto Wijaya (@madebyaapri)',
     verifiedBadge: 'Teruji Resmi di Kejurcab FORBASI Kota Cimahi 2026',
-    demoUrl: 'https://sites.google.com/view/sipalingrekap',
+    demoUrl: 'https://script.google.com/macros/s/AKfycbzOUYFyOZ_Fa6t052tWAPue9e8LU5jLLA-VXQIxp1EXL21tP9sjdzcK2F_Bt-pZc6ov/exec',
     repoUrl: 'https://github.com/sikecil-ai/website-portofolio-apri',
     articleSlug: 'kisah-si-paling-rekap-tabulasi-kejuaraan-forbasi',
     featured: true,
