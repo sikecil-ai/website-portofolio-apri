@@ -14,11 +14,11 @@ export const articles: Article[] = [
     editor: 'Tim Redaksi @madebyaapri',
     publishedDate: '10 September 2026',
     updatedDate: '10 September 2026',
-    excerpt: 'Refleksi jujur memegang POCO F3 di tengah gempuran iPhone 16 dan HP layar lipat: Mengapa perang spesifikasi layar 4K, RAM 24GB, dan audio 192kHz sudah melampaui batas biologis pancaindra manusia.',
+    excerpt: 'Refleksi jujur memegang POCO F3 di tengah gempuran iPhone 18 Pro dan HP layar lipat: Mengapa perang spesifikasi layar 4K, RAM 24GB, dan audio 192kHz sudah melampaui batas biologis pancaindra manusia.',
     tags: ['Gadget', 'Smartphone', 'POCO F3', 'Filosofi Teknologi', 'Batas Indra Manusia', 'Inovasi Software'],
     content: `Pernahkah kita merasa bahwa perlombaan smartphone dari tahun ke tahun terasa semakin semu?
 
-Setiap beberapa bulan sekali, lini masa media sosial kita dibombardir oleh kabar peluncuran gadget mewah: Apple mengumumkan iPhone 16 series dengan tombol Camera Control dan Apple Intelligence, Samsung merilis Galaxy Z Fold 6 dan Z Flip 6 dengan bodi lipat tipis berbanderol Rp 26 jutaan ke atas, disusul Xiaomi yang meluncurkan Xiaomi 14 Ultra berkamera Leica dan Xiaomi Mix Flip.
+Setiap beberapa bulan sekali, lini masa media sosial kita dibombardir oleh kabar peluncuran gadget mewah: Apple mengumumkan iPhone 18 Pro dengan segala gegap gempita fiturnya, Samsung merilis Galaxy Z Fold 6 dan Z Flip 6 dengan bodi lipat tipis berbanderol Rp 26 jutaan ke atas, disusul Xiaomi yang meluncurkan Xiaomi 14 Ultra berkamera Leica dan Xiaomi Mix Flip.
 
 Layar dipromosikan semakin terang hingga ribuan nits, refresh rate dipacu sampai 144Hz hingga 240Hz, kamera dipaksa tembus 200 Megapixel, dan sertifikasi audio dilabeli Hi-Res 24-bit/192kHz.
 
