@@ -35,6 +35,7 @@ Skill ini mengatur alur kerja kolaboratif antara Apri dan AI untuk menciptakan a
   - **The Real Struggle:** Drama dan masalah nyata yang dialami di lapangan.
   - **The Breakthrough Solution:** Bedah sistem dan arsitektur tanpa server yang dibangun.
   - **Measurable Impact:** Bukti angka riil (hemat waktu, nol biaya server).
+  - **Fresh News & Temporal Alignment:** Jika memuat berita rilis produk, gadget, atau tren industri, WAJIB merujuk pada perkembangan paling mutakhir di tahun berjalan (2026). Dilarang menyajikan berita usang sebagai kabar baru. Seluruh tautan berita resmi wajib dicantumkan di daftar rujukan.
   - **🎯 RUMUS BAKU PENUTUP ARTIKEL (WAJIB DI SETIAP ARTIKEL):**
     1. *Rangkuman Intisari & Linkback:* 1 paragraf kuat merangkum esensi tulisan.
     2. *Pertanyaan Interaktif ke Pembaca:* *"Nah, menurutmu gimana sebagai pembaca? Apakah kamu juga mengalami hal serupa...?"*

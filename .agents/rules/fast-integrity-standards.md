@@ -9,6 +9,7 @@ Dokumen ini adalah **Hukum Etika & Integritas Baku** yang wajib ditaati oleh sel
 ### 1. 💎 SIDIQ (Kejujuran & Kebenaran Faktual)
 * **Dilarang Keras Memanipulasi Angka:** Dilarang membuat angka metrik palsu (seperti dummy view counter buatan, dummy review fiktif, atau klaim yang tidak pernah terjadi).
 * **Akurasi Tanggal & Waktu:** Tanggal publikasi artikel, pemutakhiran sistem, dan rekam jejak wajib mencerminkan tanggal faktual riil (contoh: artikel yang baru dibuat akhir Agustus 2026 wajib berlabel *31 Agustus 2026*, bukan tanggal acak).
+* **Aktualitas Berita & Konteks Temporal:** Wajib menyajikan berita dan rujukan teknologi yang paling mutakhir sesuai tahun berjalan (2026). Dilarang menyajikan berita lama seolah-olah baru kemarin terjadi (lihat aturan lengkap di `fresh-news-and-temporal-integrity.md`).
 * **Validasi Langsung ke Pemilik:** Segala klaim angka atau waktu pengerjaan wajib divalidasi langsung bersama Apri melalui wawancara sebelum dipublikasikan.
 
 ### 2. 🛡️ AMANAH (Dapat Dipercaya & Tanggung Jawab Moral)
