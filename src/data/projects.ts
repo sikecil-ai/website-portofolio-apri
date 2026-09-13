@@ -20,6 +20,26 @@ export const projects: Project[] = [
     demoUrl: 'https://sites.google.com/view/1-komando',
     repoUrl: 'https://github.com/sikecil-ai/website-portofolio-apri',
     articleSlug: 'kisah-komando-sistem-manajemen-paskibra',
+    onboardingGuide: {
+      guideDocUrl: 'https://docs.google.com/document/d/e/2PACX-1vQ-KOMANDO-SOP-GUIDE-OFFICIAL/pub',
+      steps: [
+        {
+          num: 1,
+          title: 'Atur Identitas & Logo Pangkalan',
+          desc: 'Buka menu Pengaturan untuk melengkapi data pangkalan madrasah/sekolah dan upload logo resmi pangkalan agar otomatis tertera di kop surat KTA dan sertifikat resmi.',
+        },
+        {
+          num: 2,
+          title: 'Input 1 Anggota Percontohan',
+          desc: 'Buka formulir registrasi anggota di Web App, daftarkan 1 anggota uji coba untuk memverifikasi pencatatan database dan penerbitan Nomor Registrasi Anggota (NRA) otomatis.',
+        },
+        {
+          num: 3,
+          title: 'Uji Coba Cetak Laporan 1-Klik',
+          desc: 'Akses menu Preview KTA / Laporan Anggota, klik tombol Cetak PDF. Verifikasi tata letak lembar cetak standar A4 siap serah ke Pembina atau Kepala Madrasah.',
+        },
+      ],
+    },
     featured: true,
     date: '2024 - 2026',
     role: 'Lead Architect & Creator',
@@ -174,6 +194,26 @@ export const projects: Project[] = [
     demoUrl: 'https://sites.google.com/view/g-7kaih',
     repoUrl: 'https://github.com/sikecil-ai/website-portofolio-apri',
     articleSlug: 'kisah-g7kaih-mankoci-sistem-kebiasaan-siswa',
+    onboardingGuide: {
+      guideDocUrl: 'https://docs.google.com/document/d/e/2PACX-1vQ-G7KAIH-SOP-GUIDE-OFFICIAL/pub',
+      steps: [
+        {
+          num: 1,
+          title: 'Verifikasi 7 Indikator Kebiasaan',
+          desc: 'Buka Database Google Sheets pada tab Master Indikator. Pastikan 7 butir kebiasaan karakter (Bangun Pagi, Ibadah, Berbakti, dll.) telah selaras dengan visi tata tertib sekolah.',
+        },
+        {
+          num: 2,
+          title: 'Daftarkan Kelas & Siswa Uji Coba',
+          desc: 'Input 1 data rombel/kelas percontohan ke tab Data Siswa di spreadsheet master agar nama siswa langsung terindeks di formulir checklist mobile guru dan siswa.',
+        },
+        {
+          num: 3,
+          title: 'Simulasi Input Smartphone & Dashboard',
+          desc: 'Rekam 1 checklist kebiasaan via web mobile, amati grafik poin kepatuhan siswa yang langsung teragregasi secara otomatis di dashboard analitik Looker Studio.',
+        },
+      ],
+    },
     featured: true,
     date: '2025 - 2026',
     role: 'System Architect & Alumni Contributor',
@@ -320,6 +360,26 @@ export const projects: Project[] = [
     demoUrl: 'https://script.google.com/macros/s/AKfycbzOUYFyOZ_Fa6t052tWAPue9e8LU5jLLA-VXQIxp1EXL21tP9sjdzcK2F_Bt-pZc6ov/exec',
     repoUrl: 'https://github.com/sikecil-ai/website-portofolio-apri',
     articleSlug: 'kisah-si-paling-rekap-tabulasi-kejuaraan-forbasi',
+    onboardingGuide: {
+      guideDocUrl: 'https://docs.google.com/document/d/e/2PACX-1vQ-SIPALINGREKAP-SOP-GUIDE-OFFICIAL/pub',
+      steps: [
+        {
+          num: 1,
+          title: 'Konfigurasi Lomba & Dewan Juri',
+          desc: 'Buka Web App, masukkan judul kejuaraan, bobot poin PBB, Danton, dan Vafor, serta daftarkan akun token untuk masing-masing dewan juri lapangan.',
+        },
+        {
+          num: 2,
+          title: 'Input Kontingen / Pleton Peserta',
+          desc: 'Daftarkan 2 pleton peserta percontohan untuk gladi bersih dan uji coba alur sinkronisasi data tabulasi sebelum hari H kejuaraan berlangsung.',
+        },
+        {
+          num: 3,
+          title: 'Simulasi Tap-Tap Juri & Berita Acara A4',
+          desc: 'Uji form penilaian tap-tap tanpa delay, amati perubahan klasemen realtime di layar proyektor, dan cetak Berita Acara A4 sah yang siap ditandatangani panitia.',
+        },
+      ],
+    },
     featured: true,
     date: '2026',
     role: 'Creator & Tabulation Lead',

@@ -136,6 +136,15 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
                 <span>{project.slug === 'komando-sistem-manajemen-paskibra' ? '📝 Portal Pangkalan (Live)' : project.slug === 'g7kaih-sistem-kebiasaan-anak-hebat' ? '🚀 Buka Portal & Registrasi (Live)' : '🚀 Buka Portal Demo (Live)'}</span>
               </a>
 
+              {project.onboardingGuide && (
+                <a
+                  href="#panduan-setup"
+                  class="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl font-bold text-xs text-amber-900 dark:text-amber-200 bg-amber-100/90 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-800 hover:bg-amber-200 dark:hover:bg-amber-900/60 shadow-[0_3px_0_#d97706] transition-transform active:translate-y-[1px] active:shadow-none cursor-pointer text-center whitespace-nowrap"
+                >
+                  <span>⚡ Setup Awal &amp; SOP</span>
+                </a>
+              )}
+
               {project.articleSlug && (
                 <a
                   href={`/artikel/${project.articleSlug}`}
@@ -636,6 +645,95 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
           ))}
         </div>
       </section>
+
+      <!-- ============================================================ -->
+      <!-- PANDUAN SETUP AWAL & SOP RESMI (GOOGLE DOCS SINGLE SOURCE)   -->
+      <!-- ============================================================ -->
+      {project.onboardingGuide && (
+        <section id="panduan-setup" class="mb-14 p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900/70 border-2 border-amber-200/80 dark:border-amber-900/50 shadow-sm relative overflow-hidden">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200/80 dark:border-slate-800">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800/80 mb-2">
+                <span>⚡</span>
+                <span>Onboarding &amp; Setup Awal 5 Menit</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
+                Alur Praktis Memulai Sistem Instansi Anda
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+                Ikuti 3 tahapan aklimatisasi ini agar operasional pangkalan atau kegiatan Anda langsung berjalan mulus:
+              </p>
+            </div>
+            <a
+              href={project.onboardingGuide.guideDocUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs sm:text-sm shadow-[0_4px_0_#0891b2] transition-transform active:translate-y-[1px] active:shadow-none cursor-pointer text-center shrink-0"
+            >
+              <span>📖 Buka SOP Lengkap di Google Docs</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- 3-Step Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            {project.onboardingGuide.steps.map((step) => (
+              <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 font-black text-sm flex items-center justify-center shadow-sm">
+                      {step.num}
+                    </span>
+                    <span class="text-[11px] font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider">
+                      Langkah {step.num}
+                    </span>
+                  </div>
+                  <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 mb-2">
+                    {step.title}
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+                <div class="pt-3 mt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[11px]">
+                  <span class="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    SOP Terstandar
+                  </span>
+                  <span class="text-slate-400 font-mono">Tahap {step.num}/3</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Documentation Callout Banner -->
+          <div class="p-4 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-800/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-3 text-center sm:text-left">
+              <span class="text-2xl">📄</span>
+              <div>
+                <div class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
+                  Dokumentasi Live Real-Time di Google Docs
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400">
+                  Seluruh panduan teknis, tutorial per tombol, format kop surat, hingga video simulasi disatukan di Google Docs resmi yang selalu diperbarui oleh Kang Apri.
+                </div>
+              </div>
+            </div>
+            <a
+              href={project.onboardingGuide.guideDocUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 rounded-xl text-xs font-bold text-cyan-700 dark:text-cyan-300 bg-white dark:bg-slate-800 border border-cyan-300 dark:border-cyan-700 hover:bg-cyan-100 dark:hover:bg-slate-700 transition-colors shrink-0 shadow-xs text-center"
+            >
+              Baca SOP Lengkap →
+            </a>
+          </div>
+        </section>
+      )}
 
       <!-- ============================================================ -->
       <!-- 7. FAQ OBJECTION KILLER                                       -->

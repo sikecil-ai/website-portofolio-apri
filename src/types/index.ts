@@ -51,6 +51,14 @@ export interface Project {
     answer: string;
   }[];
   articleSlug?: string;
+  onboardingGuide?: {
+    guideDocUrl: string;
+    steps: {
+      num: number;
+      title: string;
+      desc: string;
+    }[];
+  };
 }
 
 export interface SkillItem {
