@@ -38,8 +38,15 @@ const seoProps = {
   type: 'article',
 };
 
-// Convert markdown to clean semantic HTML
-const parsedContent = marked.parse(article.content);
+// Convert markdown to clean semantic HTML & wrap tables in responsive breakout containers
+const rawParsed = marked.parse(article.content);
+const rawHtml = typeof rawParsed === 'string' ? rawParsed : String(rawParsed);
+const parsedContent = rawHtml
+  .replace(
+    /<table/g,
+    '<div class="article-table-scroll-hint sm:hidden text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-1 flex items-center gap-1.5 pt-2"><span>👉</span> <span>Geser tabel ke samping untuk melihat seluruh tier &rarr;</span></div><div class="article-table-wrap"><table'
+  )
+  .replace(/<\/table>/g, '</table></div>');
 
 // Filter related articles
 const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
@@ -499,5 +506,197 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
     background: rgba(139, 92, 246, 0.08);
     border-radius: 0 1rem 1rem 0;
     font-style: normal;
+  }
+
+  /* ========================================================
+     STYLING TABEL MATRIKS & KOMPARASI (TEGAS, KOMPAK & LEBAR)
+     ======================================================== */
+  .article-table-wrap {
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    overflow-x: auto;
+    border-radius: 1rem;
+    border: 2px solid #475569; /* Garis tabel luar tegas */
+    background: #090d16;
+    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.5);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (min-width: 640px) {
+    .article-table-wrap {
+      margin-left: -2.5rem;
+      margin-right: -2.5rem;
+      border-radius: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .article-table-wrap {
+      /* Melebar seluas layar baca (breakout container) */
+      margin-left: -7rem;
+      margin-right: -7rem;
+      border-radius: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .article-table-wrap {
+      margin-left: -11rem;
+      margin-right: -11rem;
+      border-radius: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .article-table-wrap {
+      margin-left: -14rem;
+      margin-right: -14rem;
+    }
+  }
+
+  /* Light mode container */
+  html:not(.dark) .article-table-wrap {
+    border-color: #94a3b8;
+    background: #ffffff;
+    box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.1);
+  }
+
+  /* Table General */
+  .article-body table {
+    width: 100% !important;
+    min-width: 760px !important; /* Menjamin kolom lega & tidak berhimpitan */
+    border-collapse: collapse !important;
+    font-size: 0.8125rem !important; /* Font konten kecil (13px) */
+    line-height: 1.45 !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  /* Table Header */
+  .article-body thead {
+    background: #1e293b !important;
+    border-bottom: 2px solid #64748b !important;
+  }
+
+  html:not(.dark) .article-body thead {
+    background: #f1f5f9 !important;
+    border-bottom: 2px solid #94a3b8 !important;
+  }
+
+  .article-body th {
+    padding: 0.85rem 1.1rem !important;
+    font-weight: 800 !important;
+    font-size: 0.775rem !important; /* 12.4px */
+    letter-spacing: 0.03em !important;
+    text-transform: uppercase !important;
+    color: #f8fafc !important;
+    border-right: 1.5px solid #475569 !important; /* Garis vertikal tegas */
+    border-bottom: 2px solid #64748b !important;
+    white-space: nowrap !important;
+  }
+
+  html:not(.dark) .article-body th {
+    color: #0f172a !important;
+    border-right: 1.5px solid #cbd5e1 !important;
+    border-bottom: 2px solid #94a3b8 !important;
+  }
+
+  .article-body th:last-child {
+    border-right: none !important;
+  }
+
+  /* Table Body Rows */
+  .article-body tbody tr {
+    border-bottom: 1.5px solid #334155 !important; /* Garis horizontal tegas */
+    transition: background-color 0.15s ease;
+  }
+
+  html:not(.dark) .article-body tbody tr {
+    border-bottom: 1.5px solid #e2e8f0 !important;
+  }
+
+  .article-body tbody tr:nth-child(odd) {
+    background: rgba(15, 23, 42, 0.75) !important;
+  }
+
+  .article-body tbody tr:nth-child(even) {
+    background: rgba(30, 41, 59, 0.45) !important;
+  }
+
+  html:not(.dark) .article-body tbody tr:nth-child(odd) {
+    background: #ffffff !important;
+  }
+
+  html:not(.dark) .article-body tbody tr:nth-child(even) {
+    background: #f8fafc !important;
+  }
+
+  .article-body tbody tr:hover {
+    background: rgba(56, 189, 248, 0.08) !important;
+  }
+
+  html:not(.dark) .article-body tbody tr:hover {
+    background: rgba(224, 242, 254, 0.5) !important;
+  }
+
+  .article-body tbody tr:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Table Body Cells */
+  .article-body td {
+    padding: 0.8rem 1.1rem !important;
+    border-right: 1.5px solid #334155 !important; /* Garis vertikal antar sel */
+    color: #cbd5e1 !important;
+    font-size: 0.8125rem !important; /* Font konten kecil & rapi */
+    vertical-align: middle !important;
+  }
+
+  html:not(.dark) .article-body td {
+    border-right: 1.5px solid #e2e8f0 !important;
+    color: #334155 !important;
+  }
+
+  .article-body td:last-child {
+    border-right: none !important;
+  }
+
+  /* First Column Highlight (Parameter Komparasi) */
+  .article-body td:first-child {
+    font-weight: 700 !important;
+    color: #f8fafc !important;
+    background: rgba(15, 23, 42, 0.9) !important;
+    border-right: 2px solid #475569 !important;
+    white-space: nowrap !important;
+  }
+
+  html:not(.dark) .article-body td:first-child {
+    color: #0f172a !important;
+    background: #f1f5f9 !important;
+    border-right: 2px solid #cbd5e1 !important;
+  }
+
+  /* Custom Smooth Scrollbar */
+  .article-table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+  .article-table-wrap::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 4px;
+  }
+  .article-table-wrap::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 4px;
+  }
+  .article-table-wrap::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4;
+  }
+  html:not(.dark) .article-table-wrap::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  html:not(.dark) .article-table-wrap::-webkit-scrollbar-thumb {
+    background: #94a3b8;
   }
 </style>
