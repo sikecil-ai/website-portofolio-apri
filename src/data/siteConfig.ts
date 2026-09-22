@@ -2,10 +2,10 @@ import type { SiteConfig } from '../types';
 
 export const siteConfig: SiteConfig = {
   name: 'M. Apriyanto Wijaya',
-  title: 'Kang Apri — Spesialis Modernisasi Spreadsheet & Sistem Bisnis',
+  title: 'Kang Apri | Spesialis Modernisasi Spreadsheet & Sistem Bisnis',
   subtitle: 'Ubah Spreadsheet Ribet Jadi Alur Kerja Rapi, Cepat & Tanpa Biaya Server Bulanan.',
   description: 'Spesialis modernisasi spreadsheet Google Sheets & otomasi sistem bisnis tanpa biaya sewa server bulanan oleh Kang Apri (@madebyaapri) di Cibeber, Kota Cimahi.',
-  bio: 'Halo! Aku Apri (@madebyaapri). Aku bantu pemilik bisnis dan tim operasional mengubah spreadsheet ribet menjadi alur kerja yang rapi, cepat, dan membuat kerja tim jadi lebih ringan — tanpa biaya sewa server bulanan.',
+  bio: 'Halo! Aku Apri (@madebyaapri). Aku bantu pemilik bisnis dan tim operasional mengubah spreadsheet ribet menjadi alur kerja yang rapi, cepat, dan membuat kerja tim jadi lebih ringan, tanpa biaya sewa server bulanan.',
   location: 'Cibeber, Kota Cimahi, Jawa Barat',
   email: 'sohibwijaya@gmail.com',
   phone: '+6282118313655',

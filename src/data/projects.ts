@@ -3,7 +3,7 @@ import type { Project } from '../types';
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'KOMANDO — Sistem Manajemen Organisasi Paskibra',
+    title: 'KOMANDO: Sistem Manajemen Organisasi Paskibra',
     slug: 'komando-sistem-manajemen-paskibra',
     tagline: 'Manajemen 147 anggota terpadu, absensi smartphone, bank soal CBT, & laporan SPJ siap print 5 menit.',
     description: 'Aplikasi manajemen organisasi Paskibra terpadu untuk pendataan anggota aktif dan purna, absensi latihan berbasis smartphone, serta pencetakan laporan otomatis dalam 1 klik siap print.',
@@ -176,7 +176,7 @@ export const projects: Project[] = [
   },
   {
     id: '5',
-    title: 'G-7KAIH — Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
+    title: 'G-7KAIH: Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
     slug: 'g7kaih-sistem-kebiasaan-anak-hebat',
     tagline: 'Monitoring 871 siswa implementasi Gerakan 7 Kebiasaan Indonesia Hebat di MAN Kota Cimahi, input tap-tap 1 menit, streak harian, & dashboard rapor karakter siap cetak.',
     description: 'Platform SaaS monitoring Gerakan 7 Kebiasaan Indonesia Hebat untuk 871 siswa di MAN Kota Cimahi dengan form input cepat 1 menit dan dashboard guru BK.',
@@ -342,7 +342,7 @@ export const projects: Project[] = [
   },
   {
     id: '2',
-    title: 'Si Paling Rekap — Sistem Tabulasi Kejuaraan Multi Kategori',
+    title: 'Si Paling Rekap: Sistem Tabulasi Kejuaraan Multi Kategori',
     slug: 'si-paling-rekap-tabulasi-kejuaraan',
     tagline: 'Sistem tabulasi penilaian lomba LKBB real-time dengan standing klasemen instan untuk bahan evaluasi.',
     description: 'Sistem tabulasi digital penilaian lomba Paskibra dan kejuaraan multi kategori yang menghasilkan standing juara secara real-time saat perlombaan berjalan tanpa jeda rekap manual.',
@@ -520,7 +520,7 @@ export const projects: Project[] = [
   },
   {
     id: '3',
-    title: 'Si Paling Kasir — POS & Stock Management F&B Zero Cost',
+    title: 'Si Paling Kasir: POS & Stock Management F&B Zero Cost',
     slug: 'si-paling-kasir-fnb-pos-inventory',
     tagline: 'Sistem kasir smartphone, kalkulasi HPP harian, & sinkronisasi stok bahan baku tanpa biaya server.',
     description: 'Sistem otomasi operasional bisnis kuliner (F&B) untuk input penjualan cepat via smartphone, kalkulasi HPP dan laba bersih harian, serta monitoring stok bumbu dapur tanpa sewa software bulanan.',
@@ -536,7 +536,7 @@ export const projects: Project[] = [
     role: 'Creator & Business Ops Engineer',
     stats: [
       { label: 'Biaya Server', value: 'Rp 0 (Zero Cost seumur hidup)' },
-      { label: 'Efisiensi Waktu', value: 'Hemat 1–2 Jam Rekap Harian' },
+      { label: 'Efisiensi Waktu', value: 'Hemat 1 sampai 2 Jam Rekap Harian' },
       { label: 'Akurasi Stok', value: 'Sinkron Bumbu & Bahan Harian' },
     ],
     features: [
@@ -554,7 +554,7 @@ export const projects: Project[] = [
   },
   {
     id: '4',
-    title: 'Si Paling Threads — Bot Distribusi Konten & Penawaran',
+    title: 'Si Paling Threads: Bot Distribusi Konten & Penawaran',
     slug: 'si-paling-threads-auto-publisher',
     tagline: 'Otomasi penjadwalan konten & distribusi penawaran produk ke platform Threads berbasis Gemini AI.',
     description: 'Sistem automasi penerbitan konten dan penawaran produk terjadwal ke Threads menggunakan kecerdasan Google Gemini AI API yang selalu berpijak pada data nyata.',

@@ -634,10 +634,10 @@ function initMasterSheets(ss) {
   if (!pSheet) {
     pSheet = ss.insertSheet("Proyek");
     pSheet.appendRow(["ID", "Judul", "Kategori", "Tagline", "Deskripsi", "Status", "Terakhir Update"]);
-    pSheet.appendRow(["komando", "KOMANDO — Paskibra Management & Tabulation", "Organisasi", "Database 147 Anggota & Absensi 1-Klik Siap Print", "Sistem manajemen anggota dan tabulasi nilai latihan Paskibra.", "Aktif", new Date()]);
-    pSheet.appendRow(["si-paling-rekap", "Si Paling Rekap — Tabulasi Kejuaraan Real-Time", "Kejuaraan", "Live Standing LKBB 0 Detik Delay Tanpa Antre", "Sistem rekapitulasi nilai juri lomba multi-kategori teruji FORBASI 2026.", "Aktif", new Date()]);
-    pSheet.appendRow(["si-paling-kasir", "Si Paling Kasir — F&B POS & Stock Management", "Bisnis F&B", "Kasir Smartphone & Hitung HPP Bumbu Harian Otomatis", "Sistem kasir smartphone zero-server living lab Megumi Hotplate.", "Aktif", new Date()]);
-    pSheet.appendRow(["si-paling-threads", "Si Paling Threads — Auto-Publisher & Lead Bot", "AI Automation", "Distribusi Konten & Penawaran Terjadwal Gemini AI", "Bot otomasi publikasi konten dan sales funnel otomatis.", "Aktif", new Date()]);
+    pSheet.appendRow(["komando", "KOMANDO : Paskibra Management & Tabulation", "Organisasi", "Database 147 Anggota & Absensi 1-Klik Siap Print", "Sistem manajemen anggota dan tabulasi nilai latihan Paskibra.", "Aktif", new Date()]);
+    pSheet.appendRow(["si-paling-rekap", "Si Paling Rekap : Tabulasi Kejuaraan Real-Time", "Kejuaraan", "Live Standing LKBB 0 Detik Delay Tanpa Antre", "Sistem rekapitulasi nilai juri lomba multi-kategori teruji FORBASI 2026.", "Aktif", new Date()]);
+    pSheet.appendRow(["si-paling-kasir", "Si Paling Kasir : F&B POS & Stock Management", "Bisnis F&B", "Kasir Smartphone & Hitung HPP Bumbu Harian Otomatis", "Sistem kasir smartphone zero-server living lab Megumi Hotplate.", "Aktif", new Date()]);
+    pSheet.appendRow(["si-paling-threads", "Si Paling Threads : Auto-Publisher & Lead Bot", "AI Automation", "Distribusi Konten & Penawaran Terjadwal Gemini AI", "Bot otomasi publikasi konten dan sales funnel otomatis.", "Aktif", new Date()]);
     pSheet.getRange("A1:G1").setBackground("#0891B2").setFontColor("#FFFFFF").setFontWeight("bold");
   }
 
@@ -647,7 +647,7 @@ function initMasterSheets(ss) {
     profSheet = ss.insertSheet("Profil");
     profSheet.appendRow(["Kunci Parameter", "Isi Data"]);
     profSheet.appendRow(["Nama", "M. Apriyanto Wijaya (Kang Apri)"]);
-    profSheet.appendRow(["Headline", "Kang Apri — Spesialis Modernisasi Spreadsheet & Sistem Bisnis"]);
+    profSheet.appendRow(["Headline", "Kang Apri | Spesialis Modernisasi Spreadsheet & Sistem Bisnis"]);
     profSheet.appendRow(["WhatsApp", "+6282118313655"]);
     profSheet.appendRow(["Email", "sohibwijaya@gmail.com"]);
     profSheet.appendRow(["Domisili", "Cibeber, Kota Cimahi, Jawa Barat"]);
