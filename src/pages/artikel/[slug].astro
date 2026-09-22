@@ -52,7 +52,7 @@ const parsedContent = rawHtml
 const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
 
 // Prepare share URLs
-const shareText = `${article.title} — Studi Kasus Praktisi Otomasi & Sistem Bisnis oleh Kang Apri (@madebyaapri)`;
+const shareText = `${article.title}: Studi Kasus Praktisi Otomasi & Sistem Bisnis oleh Kang Apri (@madebyaapri)`;
 const waShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${shareText}\n\nBaca artikel selengkapnya di sini:\n${canonicalURL}`)}`;
 const threadsShareUrl = `https://threads.net/intent/post?text=${encodeURIComponent(`Baru baca studi kasus keren dari Kang Apri (@madebyaapri): "${article.title}"\n\nLink baca: ${canonicalURL}`)}`;
 const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Studi kasus menarik dari @madebyaapri: "${article.title}"`)}&url=${encodeURIComponent(canonicalURL)}`;
