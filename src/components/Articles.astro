@@ -1,6 +1,7 @@
 ---
-import { articles } from '../data/articles';
+import { articles, getPublishedArticles } from '../data/articles';
 
+const publishedArticles = getPublishedArticles();
 const categories = ['Semua', 'Otomasi Bisnis & F&B', 'Studi Kasus Paskibra', 'Vibecoding & AI'];
 ---
 
@@ -42,7 +43,7 @@ const categories = ['Semua', 'Otomasi Bisnis & F&B', 'Studi Kasus Paskibra', 'Vi
 
     <!-- Articles Grid (6 Initial Cards, expand on click or filter) -->
     <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-      {articles.map((article, idx) => (
+      {publishedArticles.map((article, idx) => (
         <article
           class={`article-card rounded-2xl p-6 sm:p-7 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 flex flex-col justify-between group ${
             idx >= 6 ? 'hidden-initial hidden' : ''
@@ -99,14 +100,14 @@ const categories = ['Semua', 'Otomasi Bisnis & F&B', 'Studi Kasus Paskibra', 'Vi
     </div>
 
     <!-- Show All Articles Toggle Button -->
-    {articles.length > 6 && (
+    {publishedArticles.length > 6 && (
       <div id="show-more-articles-container" class="mt-10 text-center">
         <button
           type="button"
           id="show-more-articles-btn"
           class="px-6 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all"
         >
-          Lihat Semua {articles.length} Cerita &amp; Studi Kasus ↓
+          Lihat Semua {publishedArticles.length} Cerita &amp; Studi Kasus ↓
         </button>
       </div>
     )}

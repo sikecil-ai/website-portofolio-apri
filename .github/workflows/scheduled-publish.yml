@@ -1,0 +1,36 @@
+name: Scheduled Article Publisher
+
+on:
+  schedule:
+    # Runs at 01:00 UTC (08:00 WIB) every Monday and Thursday
+    - cron: '0 1 * * 1,4'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  check-and-publish:
+    name: Check & Trigger Scheduled Articles
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify build with current date
+        run: npm run build
+
+      - name: Trigger automated release on main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore(schedule): trigger automated build for $(date +'%Y-%m-%d')"
+          git push

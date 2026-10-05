@@ -1,11 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { articles } from '../../data/articles';
+import { articles, getPublishedArticles } from '../../data/articles';
 import { siteConfig } from '../../data/siteConfig';
 import { marked } from 'marked';
 
 export function getStaticPaths() {
-  return articles.map((article) => ({
+  const publishedArticles = getPublishedArticles();
+  return publishedArticles.map((article) => ({
     params: { slug: article.slug },
     props: { article },
   }));
@@ -49,7 +50,7 @@ const parsedContent = rawHtml
   .replace(/<\/table>/g, '</table></div>');
 
 // Filter related articles
-const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
+const relatedArticles = getPublishedArticles().filter((a) => a.id !== article.id).slice(0, 3);
 
 // Prepare share URLs
 const shareText = `${article.title}: Studi Kasus Praktisi Otomasi & Sistem Bisnis oleh Kang Apri (@madebyaapri)`;

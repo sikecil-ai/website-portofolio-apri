@@ -144,6 +144,9 @@ export interface Article {
   author?: string;
   editor?: string;
   publishedDate?: string;
+  publishDateISO?: string;
+  isScheduled?: boolean;
   updatedDate?: string;
   views?: number;
 }
+

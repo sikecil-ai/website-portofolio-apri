@@ -13,6 +13,7 @@ export const articles: Article[] = [
     author: 'M. Apriyanto Wijaya (Kang Apri)',
     editor: 'Tim Redaksi @madebyaapri',
     publishedDate: '15 September 2026',
+    publishDateISO: '2026-09-15',
     updatedDate: '15 September 2026',
     excerpt: 'Panduan komprehensif membangun website Company Profile berkelas dunia dengan teknik vibecoding di era AI 2026. Kupas tuntas kurasi template tanpa bloatware, hosting edge gratis, beli domain at-cost, maintenance zero-headache, hingga matriks biaya Rp 0 vs enterprise.',
     tags: ['Vibecoding', 'Company Profile', 'Web Development 2026', 'Zero Server Cost', 'Astro', 'Vercel', 'Tailwind CSS', 'SEO Modern', 'Domain & Hosting'],
@@ -289,6 +290,7 @@ Jika Anda ingin berdiskusi mengenai modernisasi alur kerja digital, merapikan si
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Tim Redaksi @madebyaapri',
     publishedDate: '10 September 2026',
+    publishDateISO: '2026-09-10',
     updatedDate: '10 September 2026',
     excerpt: 'Refleksi jujur memegang POCO F3 di tengah gempuran iPhone 18 Pro dan HP layar lipat: Mengapa perang spesifikasi layar 4K, RAM 24GB, dan audio 192kHz sudah melampaui batas biologis pancaindra manusia.',
     tags: ['Gadget', 'Smartphone', 'POCO F3', 'Filosofi Teknologi', 'Batas Indra Manusia', 'Inovasi Software'],
@@ -456,6 +458,7 @@ Yuk bagikan ceritamu atau ngobrol santai seputar teknologi langsung via WhatsApp
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Tim Riset & Redaksi @madebyaapri',
     publishedDate: '9 September 2026',
+    publishDateISO: '2026-09-09',
     updatedDate: '9 September 2026',
     excerpt: 'Panduan menyeluruh 8 tahapan siklus pengembangan perangkat lunak (SDLC) modern: dari validasi masalah The Mom Test, PRD, desain UI/UX, arsitektur, vibecoding berpagar, QA, deployment nol-downtime, hingga observabilitas. Disertai riset 7 sumber otoritatif dunia.',
     tags: ['Cara Membuat Aplikasi', 'SDLC Modern', 'Software Engineering', 'Vibecoding', 'Arsitektur Sistem', 'DevSecOps', 'Standar Produk'],
@@ -727,6 +730,7 @@ Yuk bagikan tanggapanmu atau ngobrol alur kerja pembuatan aplikasi langsung via 
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Tim Redaksi @madebyaapri',
     publishedDate: '31 Agustus 2026',
+    publishDateISO: '2026-08-31',
     updatedDate: '1 September 2026',
     excerpt: 'Bicara jujur soal vibecoding: bukan sekadar asal pasrah ke AI, melainkan seni linguistik, struktur modular, dan disiplin lapangan yang memangkas waktu kerja dari berminggu-minggu menjadi hitungan menit.',
     tags: ['Vibecoding', 'Google Antigravity', 'Gemini AI', 'Micro Structure', 'Prompt Engineering', 'Disiplin Paskibra'],
@@ -825,6 +829,7 @@ Yuk bagikan tanggapanmu atau ngobrol santai langsung via WhatsApp di bawah!`,
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Tim Redaksi @madebyaapri',
     publishedDate: '15 Januari 2025',
+    publishDateISO: '2025-01-15',
     updatedDate: '3 September 2026',
     excerpt: 'Bagaimana drama pencairan honor pelatih melahirkan KOMANDO: sistem manajemen Paskibra 20.000 baris kode yang memangkas laporan 3 bulan jadi 5 menit siap print.',
     tags: ['KOMANDO', 'Manajemen Paskibra', 'Google Apps Script', 'Zero Server Cost', 'Cimahi'],
@@ -929,6 +934,7 @@ Yuk bagikan ceritamu atau ngobrol santai langsung bareng Kang Apri via WhatsApp 
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Pak Kholis Aliyudin, M.Si. (Guru BK MAN Kota Cimahi)',
     publishedDate: '4 September 2026',
+    publishDateISO: '2026-09-04',
     updatedDate: '4 September 2026',
     excerpt: 'Perjalanan membangun sistem G-7KAIH: silaturahmi ke guru BK Pak Kholis Aliyudin, M.Si., mengawal Gerakan 7 Kebiasaan Indonesia Hebat di MAN Kota Cimahi untuk 871 siswa.',
     tags: ['G-7KAIH', 'MAN Kota Cimahi', 'Otomasi Madrasah', 'Google Apps Script', 'Habit Tracker', 'Sedekah Alumni', 'Gemini Pro'],
@@ -1032,6 +1038,7 @@ Yuk, bagikan cerita atau konsultasikan otomasi alur kerja madrasah dan komunitas
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Kang Jabar (Pembina PPI) & Pengcab FORBASI Kota Cimahi',
     publishedDate: '30 Agustus 2026',
+    publishDateISO: '2026-08-30',
     updatedDate: '5 September 2026',
     excerpt: 'Di balik suksesnya Kejurcab FORBASI Kota Cimahi 2026: kisah dramatis live hotfix 1 jam saat standing goyang di kategori SD, merelakan tidak nonton tim sendiri, hingga standing 0 detik di-ACC 100% pelatih tanpa sengketa.',
     tags: ['Si Paling Rekap', 'FORBASI Kota Cimahi', 'Tabulasi LKBB', 'Google Apps Script', 'Zero Server Cost', 'Debater Workflow', 'Live Hotfix', 'Pemkot Cimahi'],
@@ -1199,6 +1206,7 @@ Yuk bagikan tanggapanmu atau ngobrol santai seputar sistem tabulasi lomba langsu
     author: 'M. Apriyanto Wijaya (Kang Apri)',
     editor: 'Tim Redaksi @madebyaapri',
     publishedDate: '10 Februari 2025',
+    publishDateISO: '2025-02-10',
     updatedDate: '22 September 2026',
     excerpt: 'Cerita nyata membangun aplikasi kasir toko sekali bayar tanpa langganan bernama Si Paling Kasir. Dari catatan Excel manual, lembar print harian, hingga sistem tap-tap HP yang langsung melempar pesanan ke dapur dan cara hitung hpp makanan otomatis saat orderan tembus 100 bungkus sehari.',
     tags: ['Aplikasi Kasir Sekali Bayar', 'Cara Hitung HPP Makanan', 'Si Paling Kasir', 'Otomasi Toko', 'Google Sheets Engine', 'Usaha Kuliner'],
@@ -1330,6 +1338,7 @@ Yuk, ceritakan alur tokomu dan diskusikan solusinya secara santai lewat WhatsApp
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Tim Redaksi @madebyaapri',
     publishedDate: '12 November 2024',
+    publishDateISO: '2024-11-12',
     updatedDate: '22 September 2026',
     excerpt: 'Pengalaman membangun skrip otomasi Python untuk menjadwalkan publikasi video YouTube Shorts dan mendistribusikan penawaran ke media sosial secara otomatis tanpa menyita waktu harian.',
     tags: ['Python', 'Gemini AI API', 'Social Media Bot', 'Content Scheduler', 'Automation'],
@@ -1369,6 +1378,7 @@ Apakah ada aktivitas rutin di depan komputer yang saat ini masih menyita waktu k
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Dian Pratama (Teras Tulis)',
     publishedDate: '20 Oktober 2024',
+    publishDateISO: '2024-10-20',
     updatedDate: '22 September 2026',
     excerpt: 'Layanan jasa buat website cepat Cimahi Bandung dengan sistem pemesanan 1 halaman langsung terhubung ke WhatsApp. Bebas keranjang belanja rumit dan terbukti melipatgandakan konversi penjualan jasa.',
     tags: ['Jasa Buat Website Cepat Cimahi Bandung', 'Scalev', 'Teras Tulis', 'Landing Page WhatsApp', 'Website Toko Cepat'],
@@ -1413,6 +1423,7 @@ Jika Anda adalah pelaku usaha di Cimahi, Bandung, atau sekitarnya yang membutuhk
     author: 'M. Apriyanto Wijaya (Kang Apri)',
     editor: 'Tim Redaksi @madebyaapri',
     publishedDate: '5 Januari 2025',
+    publishDateISO: '2025-01-05',
     updatedDate: '22 September 2026',
     excerpt: 'Solusi jasa ubah excel jadi aplikasi web dan jasa perapihan spreadsheet otomatis. Mengubah file Excel yang lambat, sering rusak, dan rawan salah rumus menjadi aplikasi database berbasis cloud tanpa sewa server.',
     tags: ['Jasa Ubah Excel Jadi Aplikasi', 'Jasa Perapihan Spreadsheet Otomatis', 'Google Sheets Cloud', 'Aplikasi Kasir Tanpa Server', 'Otomasi Laporan WhatsApp'],
@@ -1494,6 +1505,7 @@ Yuk, diskusikan kondisinya bersama Kang Apri! Kami bantu rapikan alur datanya da
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Kang Hadid (Paskibra Cimahi)',
     publishedDate: '18 September 2024',
+    publishDateISO: '2024-09-18',
     updatedDate: '22 September 2026',
     excerpt: 'Cara mengganti tumpukan kertas dan lembar absensi fisik menjadi aplikasi pencatat pelanggaran siswa serta buku jurnal pembiasaan siswa digital yang rapi, transparan, dan mudah dipantau dari smartphone.',
     tags: ['Aplikasi Pencatat Pelanggaran Siswa', 'Buku Jurnal Pembiasaan Siswa Digital', 'Manajemen Organisasi', 'Database Sekolah', 'Paskibra Cimahi'],
@@ -1540,6 +1552,7 @@ Mari diskusikan alur pendataan digital yang praktis dan ramah pengguna via Whats
     author: 'M. Apriyanto Wijaya (Apri)',
     editor: 'Riki Septian (Megumi Hotplate)',
     publishedDate: '22 Januari 2025',
+    publishDateISO: '2025-01-22',
     updatedDate: '22 September 2026',
     excerpt: 'Panduan cara lihat omset usaha dari hp menggunakan dashboard visual interaktif. Solusi jasa perapihan spreadsheet otomatis agar pemilik toko bisa memantau penjualan harian dan stok kritis secara real-time.',
     tags: ['Cara Lihat Omset Usaha dari HP', 'Jasa Perapihan Spreadsheet Otomatis', 'Looker Studio', 'Dashboard Omset HP', 'Business Intelligence UMKM'],
@@ -1579,3 +1592,11 @@ Yuk, kita ubah data tokomu menjadi tampilan grafik dashboard yang rapi dan mudah
   },
 ];
 
+
+export function getPublishedArticles(): Article[] {
+  const now = new Date();
+  return articles.filter((article) => {
+    if (!article.publishDateISO) return true;
+    return new Date(article.publishDateISO) <= now;
+  });
+}
