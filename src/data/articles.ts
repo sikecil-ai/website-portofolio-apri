@@ -296,7 +296,7 @@ Jika Anda ingin berdiskusi mengenai modernisasi alur kerja digital, merapikan si
     tags: ['Gadget', 'Smartphone', 'POCO F3', 'Filosofi Teknologi', 'Batas Indra Manusia', 'Inovasi Software'],
     content: `Pernahkah kita merasa bahwa perlombaan smartphone dari tahun ke tahun terasa semakin semu?
 
-Setiap beberapa bulan sekali, lini masa media sosial kita dibombardir oleh kabar peluncuran gadget mewah: Apple mengumumkan iPhone 18 Pro dengan segala gegap gempita fiturnya, Samsung merilis Galaxy Z Fold 6 dan Z Flip 6 dengan bodi lipat tipis berbanderol Rp 26 jutaan ke atas, disusul Xiaomi yang meluncurkan Xiaomi 14 Ultra berkamera Leica dan Xiaomi Mix Flip.
+Setiap beberapa bulan sekali, lini masa media sosial kita dibombardir oleh kabar peluncuran gadget mewah: Apple mengumumkan iPhone 18 Pro dengan segala gegap gempita fiturnya, Samsung merilis seri Galaxy Z Fold 8 dan Z Flip 8 dengan bodi lipat tipis berbanderol Rp 26 jutaan ke atas, disusul Xiaomi yang meluncurkan lini flagship lipat dan kamera Leica.
 
 Layar dipromosikan semakin terang hingga ribuan nits, refresh rate dipacu sampai 144Hz hingga 240Hz, kamera dipaksa tembus 200 Megapixel, dan sertifikasi audio dilabeli Hi-Res 24-bit/192kHz.
 
@@ -414,7 +414,7 @@ Penerus sejati yang menyempurnakan seluruh celah generasi lawas:
 * **Samsung Galaxy S23 FE (Kisaran Rp 7,5 hingga 8 Jutaan):** Nilai tambah utamanya terletak pada **Lensa 3x Optical Telephoto** yang menangkap perspektif potret wajah secara proporsional tanpa distorsi lensa cembung, sangat mirip dengan sudut pandang mata manusia normal.
 
 #### 3. Tips Cerdas Ekosistem iPhone: Mengapa Harus Mengincar Seri Pro Seken?
-Bagi pengguna yang sudah terbiasa menikmati layar Android 120Hz yang licin, **sangat disarankan untuk menghindari iPhone varian reguler (seperti iPhone 13, 14, 15, atau iPhone 16 standar)**. 
+Bagi pengguna yang sudah terbiasa menikmati layar Android 120Hz yang licin, **sangat disarankan untuk menghindari iPhone varian reguler (seperti iPhone 13, 14, 15, 16, hingga seri reguler terbaru)**. 
 * Seluruh iPhone varian reguler masih dibatasi pada layar **60Hz**. Mata yang sudah terbiasa dengan 120Hz akan langsung menangkap efek gerakan patah-patah saat menggulir layar.
 * **Langkah Paling Bijak:** Incar unit **iPhone 13 Pro atau iPhone 14 Pro garansi resmi seken (kisaran Rp 9,5 hingga 12 Jutaan)**. Dengan harga setara ponsel kelas menengah baru, Anda sudah mendapatkan layar 120Hz ProMotion, rangka baja tahan karat, dan kualitas perekaman video kelas industri yang memuaskan seluruh indra.
 
@@ -428,12 +428,12 @@ Fakta spesifikasi dan kajian biologis dalam tulisan ini bersumber dari rujukan k
    Rujukan: [pmc.ncbi.nlm.nih.gov/articles/PMC12559231](https://pmc.ncbi.nlm.nih.gov/articles/PMC12559231/)
 2. **Audio Engineering Society (AES) / Meyer & Moran Study**: *Audibility of a CD-Standard A/D/A Loop Inserted into High-Resolution Audio Playback*, uji dengar buta komparasi audio resolusi tinggi 24-bit/96kHz vs CD 16-bit/44,1kHz.  
    Rujukan: [realhd-audio.com/?p=3967](https://www.realhd-audio.com/?p=3967)
-3. **Samsung Global & Samsung Indonesia**: *Galaxy Z Fold 6 and Galaxy Z Flip 6 Official Launch (Juli 2024)*, pengumuman resmi perangkat lipat flagship dengan fitur Galaxy AI.  
-   Rujukan: [samsung.com/id/smartphones/galaxy-z-fold6](https://www.samsung.com/id/smartphones/galaxy-z-fold6/)
-4. **Xiaomi Global & Xiaomi Indonesia**: *Xiaomi Mix Flip & Xiaomi 14 Ultra Announcement*, peluncuran ponsel layar lipat dan flagship kamera Leica.  
+3. **Samsung Global & Samsung Indonesia**: *Galaxy Z Fold and Galaxy Z Flip Series Official Launch*, rilis resmi lini ponsel lipat flagship Samsung dengan fitur Galaxy AI.  
+   Rujukan: [samsung.com/id/smartphones](https://www.samsung.com/id/smartphones/)
+4. **Xiaomi Global & Xiaomi Indonesia**: *Xiaomi Foldable & Flagship Leica Series Announcement*, peluncuran ponsel layar lipat dan lini flagship kamera Leica.  
    Rujukan: [mi.co.id/id/product/poco-f6/specs](https://www.mi.co.id/id/product/poco-f6/specs/)
-5. **Apple Inc.**: *Apple introduces iPhone 16 and iPhone 16 Pro powered by A18 chip and Apple Intelligence (September 2024)*.  
-   Rujukan: [apple.com/newsroom/2024/09/apple-introduces-iphone-16-and-iphone-16-plus](https://www.apple.com/newsroom/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/)
+5. **Apple Inc.**: *Apple introduces iPhone Pro Series powered by Apple Intelligence*, pengumuman lini ponsel flagship Apple.  
+   Rujukan: [apple.com/newsroom](https://www.apple.com/newsroom/)
 
 ---
 
