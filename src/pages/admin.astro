@@ -295,9 +295,20 @@ import { experiences } from '../data/experiences';
             <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between gap-2 mb-3">
-                  <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 border border-cyan-200/60 dark:border-cyan-800/60">
-                    {a.category}
-                  </span>
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-cyan-50 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 border border-cyan-200/60 dark:border-cyan-800/60">
+                      {a.category}
+                    </span>
+                    {a.publishDateISO && new Date(a.publishDateISO) > new Date() ? (
+                      <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
+                        ⏳ Terjadwal ({a.publishedDate})
+                      </span>
+                    ) : (
+                      <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                        ✅ Tayang
+                      </span>
+                    )}
+                  </div>
                   <span class="text-xs text-slate-500 font-mono">{a.readTime}</span>
                 </div>
                 <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2 line-clamp-2">{a.title}</h3>
