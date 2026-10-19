@@ -900,7 +900,6 @@ const seoProps = {
 
     // 3. ScrollSpy for TOC Links (Desktop Aside Chapters, Sub-Modules & Mobile Sticky Bar)
     const sections = document.querySelectorAll('.doc-section');
-    const moduleCards = document.querySelectorAll('.module-card');
     const tocLinks = document.querySelectorAll('.toc-link');
     const tocSubLinks = document.querySelectorAll('.toc-sub-link');
     const mobileTocLinks = document.querySelectorAll('.mobile-toc-link');
@@ -929,6 +928,8 @@ const seoProps = {
           if (target === currentSectionId) {
             link.classList.add('bg-cyan-50', 'dark:bg-cyan-950/60', 'text-cyan-600', 'dark:text-cyan-400', 'font-black');
             link.classList.remove('text-slate-700', 'dark:text-slate-300');
+            // Auto scroll sidebar agar bab aktif selalu terlihat
+            link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
           } else {
             link.classList.remove('bg-cyan-50', 'dark:bg-cyan-950/60', 'text-cyan-600', 'dark:text-cyan-400', 'font-black');
             link.classList.add('text-slate-700', 'dark:text-slate-300');
@@ -955,6 +956,8 @@ const seoProps = {
           if (target === currentModuleId) {
             subLink.classList.add('bg-cyan-100/80', 'dark:bg-cyan-950/90', 'text-cyan-700', 'dark:text-cyan-300', 'font-bold', 'translate-x-1');
             subLink.classList.remove('text-slate-500', 'dark:text-slate-400');
+            // Auto scroll sidebar agar sub-modul aktif selalu terlihat
+            subLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
           } else {
             subLink.classList.remove('bg-cyan-100/80', 'dark:bg-cyan-950/90', 'text-cyan-700', 'dark:text-cyan-300', 'font-bold', 'translate-x-1');
             subLink.classList.add('text-slate-500', 'dark:text-slate-400');
