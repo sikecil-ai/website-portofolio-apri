@@ -151,7 +151,7 @@ const seoProps = {
         <aside class="no-print hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-24 self-start max-h-[calc(100vh-7rem)] overflow-y-auto rounded-3xl bg-white dark:bg-slate-900/90 border-2 border-slate-200/90 dark:border-slate-800 p-5 shadow-sm space-y-4 z-20">
           <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
             <span class="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">Daftar Isi Bab</span>
-            <span class="text-[11px] font-bold text-cyan-600 dark:text-cyan-400">6 Bab</span>
+            <span class="text-[11px] font-bold text-cyan-600 dark:text-cyan-400">{komandoDocs.chapters.length} Bab</span>
           </div>
 
           <nav class="space-y-1.5" id="toc-nav">
@@ -346,44 +346,200 @@ const seoProps = {
           </section>
 
           <!-- ============================================================ -->
-          <!-- BAB 4: PANDUAN LENGKAP 16 MODUL FITUR KOMANDO               -->
+          <!-- BAB 4: PANDUAN ANDROID (APK/PWA) & COMMAND CENTER DESKTOP   -->
+          <!-- ============================================================ -->
+          <section id="platform-mode" class="doc-section rounded-3xl bg-white dark:bg-slate-900/80 border-2 border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-sm relative scroll-mt-24">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                Bab 4
+              </span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Dukungan Multi-Perangkat</span>
+            </div>
+            
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-3">
+              📱 Panduan Instalasi Android (APK &amp; PWA) &amp; Command Center Desktop
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+              Sistem KOMANDO dirancang fleksibel: berjalan sebagai <strong>Aplikasi Android Asli (Native APK)</strong> di smartphone siswa/pelatih saat di lapangan, sekaligus menyediakan <strong>Command Center Desktop</strong> di laptop pembina untuk tata usaha markas besar.
+            </p>
+
+            <!-- Dual Android Method Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              <!-- Metode 1: APK Native -->
+              <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border-2 border-cyan-300/80 dark:border-cyan-800/80 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-black bg-cyan-600 text-white shadow-xs">
+                      Metode 1: File Komando.apk
+                    </span>
+                    <span class="text-[10px] font-mono text-cyan-600 dark:text-cyan-400">~4.6 MB</span>
+                  </div>
+                  <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 mb-2">
+                    Instalasi Berkas APK Native di Android
+                  </h3>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                    Aplikasi Android mandiri dibangun dengan engine Capacitor (<code class="text-cyan-600 dark:text-cyan-400 font-mono text-[11px]">com.komandopaskibra.app</code>), dilengkapi splash screen resmi dan ikon mandiri di menu ponsel.
+                  </p>
+
+                  <div class="space-y-3">
+                    {komandoDocs.androidInstallation.apkSteps.map((st) => (
+                      <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-cyan-600 text-white font-black text-xs flex items-center justify-center shrink-0">
+                          {st.number}
+                        </span>
+                        <div>
+                          <strong class="text-xs font-bold text-slate-900 dark:text-slate-100 block">{st.title}</strong>
+                          <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">{st.description}</p>
+                          {st.detail && (
+                            <ul class="mt-1 space-y-0.5 list-disc list-inside text-[10px] text-slate-500 dark:text-slate-400">
+                              {st.detail.map((d) => (
+                                <li>{d}</li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/80 text-[11px] text-slate-500 dark:text-slate-400 italic">
+                  💡 Bebas instalasi di seluruh tipe smartphone Android tanpa biaya lisensi Play Store.
+                </div>
+              </div>
+
+              <!-- Metode 2: PWA Cepat Chrome -->
+              <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500 text-slate-950">
+                      Metode 2: PWA Google Chrome
+                    </span>
+                    <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">0 MB Download</span>
+                  </div>
+                  <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 mb-2">
+                    Pemasangan Instan Progressive Web App (PWA)
+                  </h3>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                    Sangat cocok bagi anggota yang memori ponselnya penuh atau tidak ingin mengunduh berkas APK manual.
+                  </p>
+
+                  <div class="space-y-3">
+                    {komandoDocs.androidInstallation.pwaSteps.map((st) => (
+                      <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">
+                          {st.number}
+                        </span>
+                        <div>
+                          <strong class="text-xs font-bold text-slate-900 dark:text-slate-100 block">{st.title}</strong>
+                          <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">{st.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700/80 text-[11px] text-slate-500 dark:text-slate-400 italic">
+                  💡 Pembaruan fitur otomatis tersinkronisasi saat membuka aplikasi tanpa perlu download ulang.
+                </div>
+              </div>
+            </div>
+
+            <!-- Bagian Mode Command Center Desktop -->
+            <div class="pt-6 border-t border-slate-200 dark:border-slate-800">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
+                <div>
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-800 mb-1">
+                    <span>💻 Mode Desktop</span>
+                    <span>Parameter: ?mode=desktop</span>
+                  </div>
+                  <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-slate-100">
+                    Aktivasi Antarmuka Command Center di Laptop / PC
+                  </h3>
+                </div>
+                <div class="px-3 py-1.5 rounded-xl bg-slate-900 text-cyan-300 font-mono text-xs border border-slate-700">
+                  URL_WEB_APP?mode=desktop
+                </div>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                {komandoDocs.desktopGuide.description}
+              </p>
+
+              <!-- Highlights Desktop -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+                {komandoDocs.desktopGuide.highlights.map((hl) => (
+                  <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200 flex items-start gap-2">
+                    <span class="text-cyan-500 font-bold shrink-0">✦</span>
+                    <span>{hl}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Comparison Table -->
+              <div class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700">
+                <table class="w-full text-left text-xs">
+                  <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold uppercase tracking-wider border-b border-slate-200 dark:border-slate-700">
+                    <tr>
+                      <th class="py-3 px-4">Dimensi Perbandingan</th>
+                      <th class="py-3 px-4 text-cyan-600 dark:text-cyan-400">📱 Mobile App (Android/PWA)</th>
+                      <th class="py-3 px-4 text-amber-600 dark:text-amber-400">💻 Command Center Desktop</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                    {komandoDocs.desktopGuide.comparison.map((row) => (
+                      <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                        <td class="py-3 px-4 font-bold text-slate-900 dark:text-slate-100">{row.dimension}</td>
+                        <td class="py-3 px-4 text-slate-600 dark:text-slate-300">{row.mobileApp}</td>
+                        <td class="py-3 px-4 text-slate-600 dark:text-slate-300 font-medium">{row.desktopCenter}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============================================================ -->
+          <!-- BAB 5: PANDUAN LENGKAP 16 MODUL FITUR KOMANDO (ALUR 4 TAHAP)-->
           <!-- ============================================================ -->
           <section id="modul-fitur" class="doc-section rounded-3xl bg-white dark:bg-slate-900/80 border-2 border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-sm relative scroll-mt-24">
             <div class="flex items-center justify-between flex-wrap gap-4 mb-3">
               <div class="flex items-center gap-2">
                 <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-800">
-                  Bab 4
+                  Bab 5
                 </span>
-                <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Katalog Fitur Lengkap</span>
+                <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Bedah Alur Kerja 4 Tahap</span>
               </div>
               <span class="text-xs font-bold text-slate-500 dark:text-slate-400">
-                Total: 16 Modul Teknis (01 - 16)
+                16 Modul Terverifikasi (01 - 16)
               </span>
             </div>
             
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-2">
-              ⚡ Eksplorasi 16 Modul Fitur KOMANDO
+              ⚡ Eksplorasi 16 Modul Fitur KOMANDO (Alur 4 Tahap Lengkap)
             </h2>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-              Rincian fungsi teknis, pengguna sasaran, serta antarmuka pendukung untuk seluruh modul operasional KOMANDO:
+              Setiap modul dijelaskan dengan formula operasional baku: <strong>🎯 Janji &amp; Ekspektasi Fitur</strong> &rarr; <strong>📥 Cara Input Data</strong> &rarr; <strong>⚙️ Olah Data Sistem</strong> &rarr; <strong>📤 Bukti Hasil Nyata</strong> agar Anda dapat memverifikasi cara kerjanya secara langsung di lapangan:
             </p>
 
             <!-- Module Cards Grid -->
-            <div class="space-y-6" id="modules-container">
+            <div class="space-y-8" id="modules-container">
               {komandoDocs.modules.map((m) => (
                 <div
-                  class="module-card p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 transition-all hover:border-cyan-400/80"
+                  class="module-card p-5 sm:p-7 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 transition-all hover:border-cyan-400/80"
                   data-name={m.name.toLowerCase()}
                   data-code={m.code.toLowerCase()}
                   data-summary={m.summary.toLowerCase()}
                   data-category={m.category.toLowerCase()}
                 >
+                  <!-- Module Top Bar -->
                   <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 pb-3 border-b border-slate-200 dark:border-slate-700">
                     <div class="flex items-center gap-2.5 flex-wrap">
                       <span class="px-2.5 py-0.5 rounded-lg text-xs font-mono font-bold bg-slate-900 text-cyan-300 dark:bg-slate-950">
                         {m.code}
                       </span>
-                      <h3 class="text-sm sm:text-base font-black text-slate-900 dark:text-slate-100">
+                      <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-slate-100">
                         {m.name}
                       </h3>
                     </div>
@@ -401,16 +557,104 @@ const seoProps = {
                     {m.summary}
                   </p>
 
-                  <!-- Key Functions List -->
-                  <div class="mb-4">
-                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1.5">
-                      Fungsi Utama &amp; Operasional:
-                    </span>
-                    <ul class="space-y-1 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside">
-                      {m.keyFunctions.map((fn) => (
-                        <li>{fn}</li>
-                      ))}
-                    </ul>
+                  <!-- 4-Quadrant Operational Workflow Grid -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 my-4">
+                    <!-- Kuadran 1: Janji & Ekspektasi -->
+                    <div class="p-4 rounded-xl bg-cyan-50/80 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-800/60 flex flex-col justify-between">
+                      <div>
+                        <div class="flex items-center gap-1.5 text-xs font-black text-cyan-900 dark:text-cyan-200 uppercase tracking-wider mb-2">
+                          <span>🎯</span>
+                          <span>1. Janji &amp; Ekspektasi Fitur</span>
+                        </div>
+                        <p class="text-xs text-cyan-950 dark:text-cyan-100/90 leading-relaxed">
+                          {m.promise}
+                        </p>
+                      </div>
+                      <span class="text-[10px] text-cyan-700 dark:text-cyan-400 font-semibold block mt-3">Tuntas tanpa keraguan lapangan</span>
+                    </div>
+
+                    <!-- Kuadran 2: Input Data -->
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                      <div>
+                        <div class="flex items-center justify-between gap-1 text-xs font-black text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-2">
+                          <div class="flex items-center gap-1.5">
+                            <span>📥</span>
+                            <span>2. Cara Masukkan Data</span>
+                          </div>
+                          <span class="text-[10px] font-semibold text-slate-500 normal-case">{m.workflow.actor}</span>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1.5">
+                          <div><strong class="font-bold text-slate-800 dark:text-slate-200">Form:</strong> {m.workflow.formName}</div>
+                          <div>
+                            <strong class="font-bold text-slate-800 dark:text-slate-200">Kolom Data:</strong>
+                            <span class="text-slate-500 dark:text-slate-400">{m.workflow.inputs.join(' • ')}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-3 pt-2 border-t border-slate-200 dark:border-slate-700 text-[10px] text-cyan-600 dark:text-cyan-400 font-mono">
+                        Aksi: {m.workflow.actionButton}
+                      </div>
+                    </div>
+
+                    <!-- Kuadran 3: Olah Data (Sistem) -->
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                      <div>
+                        <div class="flex items-center gap-1.5 text-xs font-black text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-2">
+                          <span>⚙️</span>
+                          <span>3. Olah Data (Backend GAS)</span>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1.5">
+                          <div class="font-mono text-[10px] text-amber-700 dark:text-amber-400 truncate">
+                            Engine: {m.processing.backendEngine}
+                          </div>
+                          <div class="text-[10px] text-slate-500 dark:text-slate-400 truncate">
+                            Penyimpanan: {m.processing.storageTarget}
+                          </div>
+                          <ul class="pt-1 space-y-1 list-disc list-inside text-[11px] text-slate-600 dark:text-slate-300">
+                            {m.processing.automations.map((auto) => (
+                              <li>{auto}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Kuadran 4: Hasil Nyata (Output) -->
+                    <div class="p-4 rounded-xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex flex-col justify-between">
+                      <div>
+                        <div class="flex items-center justify-between gap-1 text-xs font-black text-emerald-900 dark:text-emerald-200 uppercase tracking-wider mb-2">
+                          <div class="flex items-center gap-1.5">
+                            <span>📤</span>
+                            <span>4. Hasil Nyata Terverifikasi</span>
+                          </div>
+                          {m.output.proofMetric && (
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-200/80 dark:bg-emerald-900 text-emerald-950 dark:text-emerald-200">
+                              {m.output.proofMetric}
+                            </span>
+                          )}
+                        </div>
+                        <div class="text-xs text-emerald-950 dark:text-emerald-100/90 space-y-1.5">
+                          <strong class="font-bold block text-emerald-900 dark:text-emerald-200">{m.output.title}</strong>
+                          <ul class="space-y-1 list-disc list-inside text-[11px]">
+                            {m.output.deliverables.map((del) => (
+                              <li>{del}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Device Role Banner -->
+                  <div class="p-3 rounded-xl bg-slate-200/60 dark:bg-slate-800/80 text-[11px] text-slate-600 dark:text-slate-300 flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-bold text-slate-900 dark:text-slate-100">📱 Di Smartphone:</span>
+                      <span>{m.desktopVsMobile.mobileRole}</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-bold text-slate-900 dark:text-slate-100">💻 Di Komputer:</span>
+                      <span>{m.desktopVsMobile.desktopRole}</span>
+                    </div>
                   </div>
 
                   <!-- Screenshot Preview if available -->
@@ -445,12 +689,12 @@ const seoProps = {
           </section>
 
           <!-- ============================================================ -->
-          <!-- BAB 5: PUSAT SOLUSI MANDIRI & FAQ (TROUBLESHOOTING)          -->
+          <!-- BAB 6: PUSAT SOLUSI MANDIRI & FAQ (TROUBLESHOOTING)          -->
           <!-- ============================================================ -->
           <section id="troubleshooting" class="doc-section rounded-3xl bg-white dark:bg-slate-900/80 border-2 border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-sm relative scroll-mt-24">
             <div class="flex items-center gap-2 mb-3">
               <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-800">
-                Bab 5
+                Bab 6
               </span>
               <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Pusat Bantuan Mandiri</span>
             </div>
@@ -494,7 +738,7 @@ const seoProps = {
           </section>
 
           <!-- ============================================================ -->
-          <!-- BAB 6: ESKALASI BANTUAN & KONTAK PENGEMBANG                  -->
+          <!-- BAB 7: ESKALASI BANTUAN & KONTAK PENGEMBANG                  -->
           <!-- ============================================================ -->
           <section id="eskalasi-bantuan" class="doc-section rounded-3xl bg-gradient-to-br from-cyan-900 to-slate-900 text-white p-6 sm:p-8 shadow-sm relative scroll-mt-24 overflow-hidden border-2 border-cyan-700/60">
             <div class="relative z-10 space-y-4">
@@ -506,7 +750,7 @@ const seoProps = {
                 Masih Mengalami Kendala yang Belum Terjawab?
               </h2>
               <p class="text-xs sm:text-sm text-cyan-100/90 leading-relaxed max-w-2xl">
-                Jika Anda telah mengikuti tahapan di Bab 5 namun masalah tetap berlanjut (misal: kendala script Google Cloud pangkalan atau kebutuhan modul baru), silakan hubungi tim teknis Kang Apri secara langsung.
+                Jika Anda telah mengikuti tahapan di Bab 6 namun masalah tetap berlanjut (misal: kendala script Google Cloud pangkalan atau kebutuhan modul baru), silakan hubungi tim teknis Kang Apri secara langsung.
               </p>
 
               <!-- Escalation WhatsApp Button -->
@@ -576,9 +820,8 @@ const seoProps = {
           const name = card.getAttribute('data-name') || '';
           const code = card.getAttribute('data-code') || '';
           const summary = card.getAttribute('data-summary') || '';
-          const category = card.getAttribute('data-category') || '';
-
-          const match = name.includes(query) || code.includes(query) || summary.includes(query) || category.includes(query);
+          const textContent = card.textContent?.toLowerCase() || '';
+          const match = textContent.includes(query) || name.includes(query) || code.includes(query) || summary.includes(query) || category.includes(query);
 
           if (match || query === '') {
             card.classList.remove('hidden');
