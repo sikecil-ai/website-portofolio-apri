@@ -666,13 +666,13 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
             </div>
             <a
               href={project.onboardingGuide.guideDocUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={project.onboardingGuide.guideDocUrl.startsWith('/') ? '_self' : '_blank'}
+              rel={project.onboardingGuide.guideDocUrl.startsWith('/') ? undefined : 'noopener noreferrer'}
               class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs sm:text-sm shadow-[0_4px_0_#0891b2] transition-transform active:translate-y-[1px] active:shadow-none cursor-pointer text-center shrink-0"
             >
-              <span>📖 Buka SOP Lengkap di Google Docs</span>
+              <span>{project.onboardingGuide.guideDocUrl.startsWith('/') ? '📖 Buka Dokumentasi Interaktif & Panduan' : '📖 Buka SOP Lengkap di Google Docs'}</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
           </div>
@@ -716,20 +716,20 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
               <span class="text-2xl">📄</span>
               <div>
                 <div class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
-                  Dokumentasi Live Real-Time di Google Docs
+                  {project.onboardingGuide.guideDocUrl.startsWith('/') ? 'Pusat Dokumentasi Web Resmi Terintegrasi' : 'Dokumentasi Live Real-Time di Google Docs'}
                 </div>
                 <div class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400">
-                  Seluruh panduan teknis, tutorial per tombol, format kop surat, hingga video simulasi disatukan di Google Docs resmi yang selalu diperbarui oleh Kang Apri.
+                  {project.onboardingGuide.guideDocUrl.startsWith('/') ? 'Panduan teknis 16 modul, pendaftaran pangkalan, hak akses, hingga troubleshooting mandiri tersedia lengkap dengan fitur cetak PDF.' : 'Seluruh panduan teknis, tutorial per tombol, format kop surat, hingga video simulasi disatukan di Google Docs resmi yang selalu diperbarui oleh Kang Apri.'}
                 </div>
               </div>
             </div>
             <a
               href={project.onboardingGuide.guideDocUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={project.onboardingGuide.guideDocUrl.startsWith('/') ? '_self' : '_blank'}
+              rel={project.onboardingGuide.guideDocUrl.startsWith('/') ? undefined : 'noopener noreferrer'}
               class="px-4 py-2 rounded-xl text-xs font-bold text-cyan-700 dark:text-cyan-300 bg-white dark:bg-slate-800 border border-cyan-300 dark:border-cyan-700 hover:bg-cyan-100 dark:hover:bg-slate-700 transition-colors shrink-0 shadow-xs text-center"
             >
-              Baca SOP Lengkap →
+              {project.onboardingGuide.guideDocUrl.startsWith('/') ? 'Buka Dokumentasi Web →' : 'Baca SOP Lengkap →'}
             </a>
           </div>
         </section>

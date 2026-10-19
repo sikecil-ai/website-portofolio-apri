@@ -21,7 +21,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/sikecil-ai/website-portofolio-apri',
     articleSlug: 'kisah-komando-sistem-manajemen-paskibra',
     onboardingGuide: {
-      guideDocUrl: 'https://docs.google.com/document/d/e/2PACX-1vQ-KOMANDO-SOP-GUIDE-OFFICIAL/pub',
+      guideDocUrl: '/dokumentasi/komando',
       steps: [
         {
           num: 1,
