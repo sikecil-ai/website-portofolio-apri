@@ -32,10 +32,12 @@ const seoProps = {
     </div>
   </div>
 
-  <div class="pt-20 sm:pt-24 pb-20 relative overflow-hidden bg-[#fafcff] dark:bg-[#070b14] print:bg-white print:pt-0 print:pb-0">
-    <!-- Ambient Background Glows (Screen only) -->
-    <div class="ambient-glow bg-cyan-500/10 top-20 -left-20 w-80 h-80 sm:w-96 sm:h-96 animate-pulse-glow no-print"></div>
-    <div class="ambient-glow bg-amber-500/10 top-1/2 -right-20 w-96 h-96 animate-pulse-glow no-print" style="animation-delay: 2s;"></div>
+  <div class="pt-20 sm:pt-24 pb-20 relative bg-[#fafcff] dark:bg-[#070b14] print:bg-white print:pt-0 print:pb-0">
+    <!-- Ambient Background Glows (Disimpan dalam layer terisolasi agar tidak merusak position:sticky) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 no-print" aria-hidden="true">
+      <div class="ambient-glow bg-cyan-500/10 top-20 -left-20 w-80 h-80 sm:w-96 sm:h-96 animate-pulse-glow"></div>
+      <div class="ambient-glow bg-amber-500/10 top-1/2 -right-20 w-96 h-96 animate-pulse-glow" style="animation-delay: 2s;"></div>
+    </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
@@ -125,11 +127,28 @@ const seoProps = {
         </div>
       </div>
 
+      <!-- Mobile Sticky Chapter Nav Bar (Muncul di layar HP agar daftar isi tidak hilang saat scroll) -->
+      <div class="no-print lg:hidden sticky top-16 z-30 -mx-4 px-4 py-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-y border-slate-200 dark:border-slate-800 shadow-sm mb-6">
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+          <span class="text-[10px] font-bold text-slate-400 shrink-0 uppercase tracking-wider pl-1">Bab:</span>
+          {komandoDocs.chapters.map((ch) => (
+            <a
+              href={`#${ch.id}`}
+              class="mobile-toc-link shrink-0 inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-cyan-50 dark:hover:bg-cyan-950/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors whitespace-nowrap"
+              data-target={ch.id}
+            >
+              <span>{ch.icon}</span>
+              <span>{ch.badge}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
       <!-- Main Layout: Sidebar Navigation + Content Pane -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- Left Column: Sticky Table of Contents (Desktop) -->
-        <aside class="no-print lg:col-span-4 xl:col-span-3 sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-3xl bg-white dark:bg-slate-900/90 border-2 border-slate-200/90 dark:border-slate-800 p-5 shadow-sm space-y-4">
+        <!-- Left Column: Sticky Table of Contents (Desktop Permanent Stay) -->
+        <aside class="no-print hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-24 self-start max-h-[calc(100vh-7rem)] overflow-y-auto rounded-3xl bg-white dark:bg-slate-900/90 border-2 border-slate-200/90 dark:border-slate-800 p-5 shadow-sm space-y-4 z-20">
           <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
             <span class="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">Daftar Isi Bab</span>
             <span class="text-[11px] font-bold text-cyan-600 dark:text-cyan-400">6 Bab</span>
@@ -601,34 +620,76 @@ const seoProps = {
       }
     }
 
-    // 3. ScrollSpy for TOC Links
+    // 3. ScrollSpy for TOC Links (Desktop Aside & Mobile Sticky Bar)
     const sections = document.querySelectorAll('.doc-section');
     const tocLinks = document.querySelectorAll('.toc-link');
+    const mobileTocLinks = document.querySelectorAll('.mobile-toc-link');
 
-    window.addEventListener('scroll', () => {
+    const updateActiveSection = () => {
       let currentSectionId = '';
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        if (rect.top <= 140 && rect.bottom >= 140) {
+        if (rect.top <= 180) {
           currentSectionId = section.getAttribute('id') || '';
         }
       });
 
       if (currentSectionId) {
+        // Desktop aside links
         tocLinks.forEach((link) => {
           const target = link.getAttribute('data-target');
           if (target === currentSectionId) {
-            link.classList.add('bg-cyan-50', 'dark:bg-cyan-950/60', 'text-cyan-600', 'dark:text-cyan-400');
+            link.classList.add('bg-cyan-50', 'dark:bg-cyan-950/60', 'text-cyan-600', 'dark:text-cyan-400', 'font-black');
+            link.classList.remove('text-slate-700', 'dark:text-slate-300');
           } else {
-            link.classList.remove('bg-cyan-50', 'dark:bg-cyan-950/60', 'text-cyan-600', 'dark:text-cyan-400');
+            link.classList.remove('bg-cyan-50', 'dark:bg-cyan-950/60', 'text-cyan-600', 'dark:text-cyan-400', 'font-black');
+            link.classList.add('text-slate-700', 'dark:text-slate-300');
+          }
+        });
+
+        // Mobile sticky bar links
+        mobileTocLinks.forEach((link) => {
+          const target = link.getAttribute('data-target');
+          if (target === currentSectionId) {
+            link.classList.add('bg-cyan-600', 'text-white', 'shadow-xs');
+            link.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+          } else {
+            link.classList.remove('bg-cyan-600', 'text-white', 'shadow-xs');
+            link.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
           }
         });
       }
-    });
+    };
+
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    updateActiveSection();
   });
 </script>
 
 <style>
+  /* Custom scrollbar for sticky desktop aside */
+  aside::-webkit-scrollbar {
+    width: 4px;
+  }
+  aside::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  aside::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.25);
+    border-radius: 9999px;
+  }
+  aside::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 116, 139, 0.5);
+  }
+
+  /* Hide scrollbar on mobile horizontal chapter bar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
   @media print {
     /* Hide unneeded elements when printing */
     header,
