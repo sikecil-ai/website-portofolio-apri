@@ -154,19 +154,37 @@ const seoProps = {
             <span class="text-[11px] font-bold text-cyan-600 dark:text-cyan-400">{komandoDocs.chapters.length} Bab</span>
           </div>
 
-          <nav class="space-y-1.5" id="toc-nav">
+          <nav class="space-y-1" id="toc-nav">
             {komandoDocs.chapters.map((ch) => (
-              <a
-                href={`#${ch.id}`}
-                class="toc-link group flex items-start gap-2.5 p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all"
-                data-target={ch.id}
-              >
-                <span class="text-base shrink-0 group-hover:scale-110 transition-transform">{ch.icon}</span>
-                <div class="min-w-0">
-                  <span class="block truncate font-bold text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400">{ch.title}</span>
-                  <span class="block text-[10px] text-slate-400 dark:text-slate-500 truncate">{ch.badge}</span>
-                </div>
-              </a>
+              <div>
+                <a
+                  href={`#${ch.id}`}
+                  class="toc-link group flex items-start gap-2.5 p-2 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all"
+                  data-target={ch.id}
+                >
+                  <span class="text-base shrink-0 group-hover:scale-110 transition-transform">{ch.icon}</span>
+                  <div class="min-w-0">
+                    <span class="block truncate font-bold text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400">{ch.title}</span>
+                    <span class="block text-[10px] text-slate-400 dark:text-slate-500 truncate">{ch.badge}</span>
+                  </div>
+                </a>
+
+                {ch.id === 'modul-fitur' && (
+                  <div class="ml-6 pl-2.5 border-l-2 border-slate-200 dark:border-slate-800 space-y-0.5 my-1" id="toc-submodules">
+                    {komandoDocs.modules.map((m) => (
+                      <a
+                        href={`#${m.id}`}
+                        class="toc-sub-link block py-1 px-2 rounded-lg text-[11px] font-medium text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/50 transition-colors truncate"
+                        data-target={m.id}
+                        title={`${m.code} - ${m.name}`}
+                      >
+                        <span class="font-mono text-[10px] text-cyan-600 dark:text-cyan-400 font-bold mr-1">{m.code.split('_')[0]}</span>
+                        <span>{m.name.split('&')[0].trim()}</span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
 
@@ -175,7 +193,7 @@ const seoProps = {
               <span class="text-base block mb-1">💡</span>
               <p class="text-[11px] font-bold text-amber-900 dark:text-amber-200 mb-1">Prinsip Mandiri</p>
               <p class="text-[10px] text-amber-700 dark:text-amber-400">
-                Cari solusi kendala di Bab 5 sebelum menghubungi layanan teknis pengembang.
+                Cari solusi kendala di Bab 6 sebelum menghubungi layanan teknis pengembang.
               </p>
             </div>
           </div>
@@ -523,11 +541,28 @@ const seoProps = {
               Setiap modul dijelaskan dengan formula operasional baku: <strong>🎯 Janji &amp; Ekspektasi Fitur</strong> &rarr; <strong>📥 Cara Input Data</strong> &rarr; <strong>⚙️ Olah Data Sistem</strong> &rarr; <strong>📤 Bukti Hasil Nyata</strong> agar Anda dapat memverifikasi cara kerjanya secara langsung di lapangan:
             </p>
 
+            <!-- Mobile Quick Sub-Module Scroller -->
+            <div class="lg:hidden mb-6 -mx-2 px-2 overflow-x-auto no-scrollbar pb-1">
+              <div class="flex items-center gap-1.5 whitespace-nowrap">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider shrink-0">Lompat Modul:</span>
+                {komandoDocs.modules.map((m) => (
+                  <a
+                    href={`#${m.id}`}
+                    class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-cyan-50 dark:hover:bg-cyan-950/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors shrink-0"
+                  >
+                    <span class="font-mono font-bold text-[10px] text-cyan-600 dark:text-cyan-400">{m.code.split('_')[0]}</span>
+                    <span>{m.name.split('&')[0].trim()}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
             <!-- Module Cards Grid -->
             <div class="space-y-8" id="modules-container">
               {komandoDocs.modules.map((m) => (
                 <div
-                  class="module-card p-5 sm:p-7 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 transition-all hover:border-cyan-400/80"
+                  id={m.id}
+                  class="module-card scroll-mt-24 p-5 sm:p-7 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 transition-all hover:border-cyan-400/80"
                   data-name={m.name.toLowerCase()}
                   data-code={m.code.toLowerCase()}
                   data-summary={m.summary.toLowerCase()}
@@ -863,9 +898,11 @@ const seoProps = {
       }
     }
 
-    // 3. ScrollSpy for TOC Links (Desktop Aside & Mobile Sticky Bar)
+    // 3. ScrollSpy for TOC Links (Desktop Aside Chapters, Sub-Modules & Mobile Sticky Bar)
     const sections = document.querySelectorAll('.doc-section');
+    const moduleCards = document.querySelectorAll('.module-card');
     const tocLinks = document.querySelectorAll('.toc-link');
+    const tocSubLinks = document.querySelectorAll('.toc-sub-link');
     const mobileTocLinks = document.querySelectorAll('.mobile-toc-link');
 
     const updateActiveSection = () => {
@@ -874,6 +911,14 @@ const seoProps = {
         const rect = section.getBoundingClientRect();
         if (rect.top <= 180) {
           currentSectionId = section.getAttribute('id') || '';
+        }
+      });
+
+      let currentModuleId = '';
+      moduleCards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top <= 220) {
+          currentModuleId = card.getAttribute('id') || '';
         }
       });
 
@@ -900,6 +945,25 @@ const seoProps = {
             link.classList.remove('bg-cyan-600', 'text-white', 'shadow-xs');
             link.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
           }
+        });
+      }
+
+      // Highlight active sub-module if currently inside Bab 5
+      if (currentSectionId === 'modul-fitur' && currentModuleId) {
+        tocSubLinks.forEach((subLink) => {
+          const target = subLink.getAttribute('data-target');
+          if (target === currentModuleId) {
+            subLink.classList.add('bg-cyan-100/80', 'dark:bg-cyan-950/90', 'text-cyan-700', 'dark:text-cyan-300', 'font-bold', 'translate-x-1');
+            subLink.classList.remove('text-slate-500', 'dark:text-slate-400');
+          } else {
+            subLink.classList.remove('bg-cyan-100/80', 'dark:bg-cyan-950/90', 'text-cyan-700', 'dark:text-cyan-300', 'font-bold', 'translate-x-1');
+            subLink.classList.add('text-slate-500', 'dark:text-slate-400');
+          }
+        });
+      } else {
+        tocSubLinks.forEach((subLink) => {
+          subLink.classList.remove('bg-cyan-100/80', 'dark:bg-cyan-950/90', 'text-cyan-700', 'dark:text-cyan-300', 'font-bold', 'translate-x-1');
+          subLink.classList.add('text-slate-500', 'dark:text-slate-400');
         });
       }
     };
