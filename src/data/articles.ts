@@ -1,6 +1,151 @@
 import type { Article } from '../types';
 
 export const articles: Article[] = [
+  {
+    id: '16',
+    title: 'Berapa Biaya Pembuatan Sistem Monitoring Karakter Sekolah G-7KAIH? Rincian Investasi, Rp 0 Server, & Hemat Biaya Kertas Rp 12 Juta/Tahun',
+    slug: 'biaya-sistem-monitoring-karakter-sekolah-g7kaih',
+    category: 'Otomasi Google Sheets (GAS)',
+    readTime: '10 Menit Baca',
+    date: '2026',
+    coverEmoji: '🏫',
+    projectRelation: 'G-7KAIH: Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
+    editor: 'Tim Redaksi @madebyaapri',
+    publishedDate: '3 November 2026',
+    publishDateISO: '2026-11-03',
+    updatedDate: '3 November 2026',
+    excerpt: 'Kupas tuntas transparansi biaya pembuatan sistem monitoring pembiasaan karakter siswa G-7KAIH. Rincian biaya setup sekali bayar, Rp 0 biaya server bulanan seumur hidup, kalkulasi penghematan fotokopi kertas Rp 12 juta/tahun, hingga alur implementasi 3 hari kerja.',
+    tags: ['G-7KAIH', 'Biaya Sistem Sekolah', 'Otomasi Madrasah', 'Google Apps Script', 'Zero Server Cost', 'Buku Kontrol Siswa', 'Karakter Siswa', 'MAN Kota Cimahi', 'Investasi Sekolah'],
+    content: `Pertanyaan yang paling sering mendarat di pesan masuk (DM) dan WhatsApp saya setelah cerita sistem G-7KAIH di MAN Kota Cimahi beredar adalah:
+
+**"Kang Apri, berapa sih biaya pembuatan dan pemasangan sistem G-7KAIH untuk sekolah kami? Apakah ada biaya langganan bulanan per siswa seperti aplikasi lain?"**
+
+Pertanyaan ini sangat wajar. Banyak kepala sekolah, pengurus yayasan pendidikan, hingga guru Bimbingan Konseling (BK) yang sudah trauma dengan tawaran vendor perangkat lunak. Biasanya skenarionya mirip: di awal dibilang gratis atau murah, tapi begitu dipasang, sekolah dibebani biaya sewa server bulanan, biaya lisensi per kepala siswa yang membengkak tiap semester, hingga biaya perbaikan yang tak ada habisnya.
+
+Sebagai developer mandiri yang membangun sistem dari keresahan nyata di lapangan bersama guru BK MAN Kota Cimahi, Pak Kholis Aliyudin, M.Si, saya ingin membuka seluruh rincian angka, kalkulasi penghematan, dan matriks investasi ini secara terang benderang tanpa ada yang disembunyikan.
+
+Mari kita bedah faktanya satu per satu.
+
+---
+
+### 1. Biaya Tersembunyi Buku Kontrol Kertas: Anggaran Rp 12 Juta yang Terbakar Tiap Tahun
+
+Sebelum bicara biaya sistem digital, mari kita hitung pengeluaran riil yang selama ini dianggap "biasa" oleh sekolah: **buku kontrol kebiasaan, lembar mutabaah ibadah, atau kartu tata tertib berbasis fotokopi kertas**.
+
+Mari ambil contoh nyata skala sekolah menengah atau madrasah dengan populasi 800 hingga 1.000 siswa (seperti MAN Kota Cimahi yang memiliki 871 siswa aktif):
+
+| Pos Pengeluaran Kertas Manual | Perhitungan Biaya Riil | Total Anggaran per Tahun |
+| :--- | :--- | :--- |
+| **Fotokopi Jurnal Kebiasaan Bulanan** | 871 siswa x 12 lembar x Rp 300 x 10 bulan aktif | **Rp 31.356.000 / tahun** |
+| **Buku Saku Kontrol Sederhana (Cetak Percetakan)** | 871 siswa x Rp 15.000 (cetak awal tahun ajaran) | **Rp 13.065.000 / tahun** |
+| **Waktu Lembur Guru BK & Wali Kelas** | Rekap manual 871 lembar per minggu (12 jam kerja guru) | Tak ternilai (menyita fokus mengajar) |
+
+Bahkan jika sekolah hanya mencetak lembaran ringkas secara hemat, rata-rata pengeluaran fotokopi lembar mutabaah dan jurnal karakter berkisar antara **Rp 1.000.000 hingga Rp 1.500.000 per bulan**. Dalam satu tahun kalender ajaran, dana kas sekolah atau dana BOS yang terbakar untuk tumpukan kertas mencapai **Rp 10.000.000 hingga Rp 15.000.000**.
+
+Lalu, apa hasil akhir dari tumpukan kertas jutaan rupiah tersebut?
+1. **Lembaran Hilang & Rusak:** Kertas lecek di dasar tas siswa, tertinggal saat akhir pekan, atau sobek terkena tumpahan botol minum.
+2. **Sindrom Centang Kilat:** Siswa baru mengisi checklist 10 menit sebelum jam masuk sekolah, sehingga data ibadah dan kebiasaan tidak menggambarkan fakta perilaku yang sesungguhnya.
+3. **Data Mati Tanpa Analisis:** Lembaran kertas yang sudah dikumpulkan hanya menumpuk di lemari ruang BK karena guru tidak memiliki waktu untuk mengetik ulang ratusan data tersebut ke Excel satu per satu.
+
+---
+
+### 2. Mengapa Sistem G-7KAIH Bebas Biaya Server Seumur Hidup (Rp 0 / Bulan)?
+
+Banyak pimpinan sekolah heran ketika saya sampaikan bahwa sistem G-7KAIH **tidak memerlukan biaya sewa server bulanan (Rp 0 seumur hidup)**.
+
+*"Kang Apri, kok bisa tanpa server? Nanti kalau 800 siswa buka bersamaan jam 6 pagi apa tidak tumbang?"*
+
+Rahasia teknologinya terletak pada arsitektur **Google Apps Script (GAS) Web Engine** yang terintegrasi langsung dengan ekosistem **Google Workspace for Education**:
+
+1. **Infrastruktur Google Tingkat Dunia:** Sistem tidak menyewa server VPS mandiri yang rawan macet dan butuh bayar ratusan ribu per bulan. Seluruh komputasi berjalan di atas cloud milik Google yang memiliki jaminan uptime 99,9%.
+2. **Database Google Sheets Terstruktur:** Data catatan kebiasaan tersimpan aman di spreadsheet master milik akun Google resmi sekolah Anda sendiri. Tidak ada pihak luar yang memegang data pribadi siswa.
+3. **Format Progressive Web App (PWA) Ringan:** Siswa tidak perlu mengunduh aplikasi berukuran 80 MB dari Google Play Store yang sering ditolak karena memori HP penuh. Siswa cukup membuka tautan portal cepat (kecepatan muat di bawah 0,3 detik), mengisi 7 butir kebiasaan dengan tap-tap jempol selama 1 menit, dan laporan langsung masuk ke dashboard guru.
+
+Karena tidak ada biaya server pihak ketiga yang harus dibayar setiap bulan, saya tidak perlu membebani sekolah Anda dengan biaya langganan bulanan. Anda membayar jasa perancangan, penyesuaian alur, dan pelatihan di awal, setelah itu sistem menjadi aset milik penuh sekolah Anda selamanya.
+
+---
+
+### 3. Matriks Paket Investasi Sistem G-7KAIH (Standar 2026)
+
+Untuk memberikan kepastian bagi pihak pengelola madrasah, sekolah swasta, maupun sekolah negeri, berikut adalah transparansi skema investasi pembuatan dan adopsi sistem G-7KAIH:
+
+| Komponen & Fitur Layanan | Paket Percontohan (Hingga 400 Siswa) | Paket Sekolah Penuh (500 - 1.200 Siswa) | Paket Yayasan Multi-Kampus (SD, SMP, SMA/SMK) |
+| :--- | :---: | :---: | :---: |
+| **Kapasitas Database Siswa** | 1 s.d. 400 Siswa | 500 s.d. 1.200 Siswa (Standar MAN Cimahi) | Tanpa Batas Kuota Siswa |
+| **Web Portal Input Siswa (Tap-Tap 1 Menit)** | Ada | Ada | Ada (Multi-Sekolah) |
+| **7 Indikator Kebiasaan Nasional** | Standar Baku | Kustom Sesuai Tata Tertib Sekolah | Kustom Per Jenjang Pendidikan |
+| **Fitur Streak & Validasi Live Checkmark** | Ada | Ada | Ada |
+| **Dashboard Pemantauan Guru BK & Wali Kelas** | Standar Ringkas | Analisis Tren Kepatuhan 7 Hari & Filter Kelas | Dashboard Konsolidasi Pengurus Yayasan |
+| **Modul Ekspor Rapor Karakter PDF 1-Klik** | Belum Termasuk | Siap Cetak untuk Lampiran Rapor | Siap Cetak dengan Kop Surat Masing-Masing |
+| **Hak Milik Database di Google Drive Sekolah** | Milik Sekolah 100% | Milik Sekolah 100% | Milik Yayasan 100% |
+| **Biaya Server & Hosting Bulanan** | **Rp 0 / Selamanya** | **Rp 0 / Selamanya** | **Rp 0 / Selamanya** |
+| **Waktu Pengerjaan & Setup** | 2 s.d. 3 Hari Kerja | 3 s.d. 5 Hari Kerja | 7 s.d. 10 Hari Kerja |
+| **Sesi Pelatihan Operator & Guru BK** | 1 Sesi Daring | 1 Sesi Pendampingan + Video Panduan | 2 Sesi Pelatihan Terpadu |
+| **Investasi Setup Sistem (Sekali Bayar)** | **Rp 2.750.000** | **Rp 4.850.000** | **Rp 7.500.000** |
+
+*Catatan: Tidak ada biaya tersembunyi. Tidak ada biaya langganan per bulan. Tidak ada biaya perpanjangan domain jika menggunakan domain bawaan Google Workspace sekolah.*
+
+---
+
+### 4. Simulasi Balik Modal (ROI): Sekolah Untung Bersih Mulai Bulan ke-4
+
+Mari kita bandingkan secara matematis antara tetap bertahan dengan kertas fotokopi manual vs beralih ke sistem digital G-7KAIH Paket Sekolah Penuh (Rp 4.850.000):
+
+* **Tahun Pertama:**
+  * Pengeluaran fotokopi kertas jika manual: **Rp 12.000.000**
+  * Pengeluaran investasi setup G-7KAIH: **Rp 4.850.000**
+  * Biaya server operasional: **Rp 0**
+  * **Uang kas sekolah yang berhasil diselamatkan di tahun pertama: Rp 7.150.000.**
+  * *Titik Balik Modal (Break Even Point): Tercapai pada bulan ke-4.*
+
+* **Tahun Kedua, Ketiga, dan Seterusnya:**
+  * Biaya fotokopi manual: Rp 12.000.000 per tahun.
+  * Biaya operasional G-7KAIH: **Rp 0**.
+  * **Sekolah menghemat dana operasional bersih Rp 12.000.000 setiap tahunnya.**
+
+Dana belasan juta rupiah yang tadinya habis untuk kertas yang berakhir di tempat sampah kini bisa dialihkan sekolah untuk pos yang jauh lebih bermanfaat: perbaikan fasilitas laboratorium, beasiswa siswa berprestasi, atau apresiasi kegiatan pembinaan karakter guru BK.
+
+---
+
+### 5. Apa Saja yang Diterima Sekolah? (Daftar Deliverables Lengkap)
+
+Ketika sekolah Anda bermitra dengan saya untuk mengadopsi sistem G-7KAIH, berikut adalah aset resmi yang diserahkan dan dipasang ke Google Drive sekolah:
+
+1. **Web App Portal Siswa:** Tautan antarmuka cepat yang bisa diakses dari smartphone siswa atau komputer sekolah.
+2. **Database Master Google Sheets:** Skema tabel data yang sudah dioptimalkan dengan rumus agregasi otomatis, pemisahan tab per rombel/kelas, dan proteksi formula dari salah edit.
+3. **Dashboard Statistik Guru BK:** Tampilan pemantauan visual dengan grafik bar kebiasaan 7 hari terakhir, daftar siswa yang memerlukan konseling khusus, dan filter ranking kepatuhan per kelas.
+4. **Modul Rapor Karakter PDF Otomatis:** Fitur pencetak lembar capaian karakter siswa dalam format PDF resmi yang siap ditandatangani kepala sekolah dan diserahkan ke wali murid saat pembagian rapor semesteran.
+5. **Video Panduan & SOP Operasional:** Dokumentasi langkah demi langkah cara menambah siswa baru, mengganti wali kelas, hingga panduan pengisian untuk siswa baru saat masa orientasi (MPLS/Matsama).
+6. **Garansi Teknis & Pendampingan 30 Hari:** Jaminan perbaikan jika ditemukan kendala teknis atau kebutuhan penyesuaian kecil selama satu bulan pertama pemakaian.
+
+---
+
+### 6. Alur Pemasangan Praktis: Hanya Membutuhkan 3 Hari Kerja
+
+Mengadopsi sistem G-7KAIH tidak membutuhkan waktu berbulan-bulan yang mengganggu jadwal pelajaran:
+
+* **Hari ke-1 (Penyelarasan Indikator):** Kita berdiskusi via WhatsApp atau Zoom untuk menetapkan 7 butir kebiasaan karakter yang berlaku di sekolah Anda (misalnya menambahkan indikator sholat dhuha, hafalan juz amma, atau infaq jumat). Pihak sekolah menyerahkan data nama siswa dan kelas dalam format file Excel.
+* **Hari ke-2 (Pembangunan Sistem & Impor Data):** Saya menyusun database master di Google Drive sekolah, menghubungkan engine skrip, mengimpor seluruh data rombel siswa, dan melakukan pengujian form submisi.
+* **Hari ke-3 (Simulasi & Serah Terima):** Sesi demo pengisian bersama tim guru BK atau operator sekolah. Begitu simulasi dinyatakan lancar, tautan portal langsung siap dibagikan ke wali kelas dan siswa untuk mulai digunakan.
+
+---
+
+### Ingin Menghentikan Boros Kertas dan Memiliki Sistem Monitoring Karakter Modern?
+
+Membangun karakter disiplin dan ibadah siswa bukan soal memperbanyak lembaran fotokopi yang menumpuk di meja guru, melainkan soal menghadirkan kebiasaan nyata yang terpantau secara konsisten, jujur, dan membahagiakan bagi siswa.
+
+Jika sekolah atau madrasah tempat Bapak dan Ibu mengabdi ingin bertransformasi memiliki sistem monitoring pembiasaan karakter seperti yang telah berjalan di MAN Kota Cimahi:
+
+👉 [**Pelajari Dokumentasi Lengkap & Demo Sistem G-7KAIH**](/sistem/g7kaih-sistem-kebiasaan-anak-hebat)
+
+Nah, bagaimana dengan sistem pencatatan kebiasaan dan mutabaah di sekolah Bapak/Ibu saat ini? Berapa banyak lembar kertas dan waktu rekap yang masih dihabiskan setiap bulannya?
+
+Yuk, kita diskusikan alur pembiasaan siswa yang paling cocok untuk diterapkan di sekolah Anda:
+
+👉 [**Konsultasi Penawaran & Jadwalkan Demo Live G-7KAIH via WhatsApp (+62 821-1831-3655)**](https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20membaca%20artikel%20rincian%20biaya%20G-7KAIH%20di%20madebyaapri.vercel.app.%20Saya%20tertarik%20mengadopsi%20sistem%20ini%20untuk%20[Nama%20Sekolah/Madrasah].%20Boleh%20minta%20info%20jadwal%20demo%20dan%20diskusi%20kebutuhannya%20Kang%3F)
+`
+  },
 {
     id: '13',
     title: 'Panduan Lengkap Bikin Website Company Profile Modern dengan Vibecoding: Dari Rp 0, Desain Mewah, Hingga Bebas Sewa Server Seumur Hidup',
