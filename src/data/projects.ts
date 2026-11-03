@@ -220,9 +220,9 @@ export const projects: Project[] = [
     stats: [
       { label: 'Rating Pengguna', value: '5.0 ★', icon: '⭐' },
       { label: 'Siswa Terkelola', value: '871 Siswa', icon: '👥' },
+      { label: 'Biaya Langganan', value: 'Rp 500/Siswa/Bln', icon: '💰' },
       { label: 'Kecepatan Input', value: '1 Menit', icon: '⚡' },
-      { label: 'Biaya Server Bulanan', value: 'Rp 0', icon: '💰' },
-      { label: 'Konsistensi Terpantau', value: '7 Kebiasaan', icon: '🛡️' },
+      { label: 'Biaya Server Bulanan', value: 'Rp 0', icon: '🛡️' },
     ],
     features: [
       'Formulir input tap-tap cepat ramah smartphone (1 menit selesai)',
@@ -314,7 +314,7 @@ export const projects: Project[] = [
       { label: 'Engine Aplikasi', value: 'Google Apps Script (GAS Web App Framework)' },
       { label: 'Database Relasional', value: 'Google Sheets Engine (doGet & doPost API)' },
       { label: 'Dashboard Admin', value: 'Responsive Web Interface (Desktop & Mobile)' },
-      { label: 'Biaya Server Bulanan', value: 'Rp 0 / Bebas Biaya Server Seumur Hidup' },
+      { label: 'Skema Langganan', value: 'Rp 500 / Siswa / Bulan (Bebas Biaya Server)' },
       { label: 'Basis Pengguna', value: '871 Siswa Aktif (Kelas X & XI MAN Kota Cimahi)' },
       { label: 'Dukungan Resmi', value: 'Kepala Madrasah, Guru BK, & Wali Kelas MAN Kota Cimahi' },
     ],
@@ -326,6 +326,10 @@ export const projects: Project[] = [
       {
         question: 'Apakah sistem ini bisa menampung ribuan siswa tanpa server berbayar?',
         answer: 'Bisa! Arsitektur Google Apps Script yang terhubung ke Google Sheets Engine mampu menangani ribuan transaksi harian dengan kuota gratis Google Workspace yang sangat melimpah.',
+      },
+      {
+        question: 'Berapa biaya adopsi sistem G-7KAIH untuk sekolah kami?',
+        answer: 'Sangat terjangkau: hanya Rp 500 per siswa per bulan tanpa biaya sewa server seumur hidup. Skema ini menghemat lebih dari 85% anggaran operasional dibandingkan biaya fotokopi lembar mutabaah kertas yang mencapai Rp 3.000 hingga Rp 4.500 per siswa per bulannya.',
       },
       {
         question: 'Bisakah sekolah atau madrasah lain mengadopsi sistem G-7KAIH ini?',
