@@ -7,6 +7,8 @@ export interface Props {
   image?: string;
   canonicalURL?: string;
   type?: string;
+  noindex?: boolean;
+  extraSchemas?: Record<string, unknown>[];
 }
 
 const {
@@ -15,6 +17,8 @@ const {
   image = siteConfig.ogImage,
   canonicalURL = siteConfig.url,
   type = 'website',
+  noindex = false,
+  extraSchemas = [],
 } = Astro.props;
 
 const fullImageURL = image.startsWith('http')
@@ -238,7 +242,12 @@ const breadcrumbSchema = {
 <meta name="publisher" content="M. Apriyanto Wijaya (@madebyaapri)" />
 <meta name="keywords" content={siteConfig.keywords.join(', ')} />
 <link rel="canonical" href={canonicalURL} />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta
+  name="robots"
+  content={noindex
+    ? 'noindex, nofollow'
+    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
+/>
 
 <!-- Geo Local SEO Tags (Kota Cimahi, Jawa Barat) -->
 <meta name="geo.region" content="ID-JB" />
@@ -275,3 +284,6 @@ const breadcrumbSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+{extraSchemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

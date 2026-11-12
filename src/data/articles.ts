@@ -138,6 +138,8 @@ Jika sekolah atau madrasah tempat Bapak dan Ibu mengabdi ingin menerapkan sistem
 
 👉 [**Pelajari Showcase Lengkap & Tangkapan Layar Sistem G-7KAIH**](/sistem/g7kaih-sistem-kebiasaan-anak-hebat)
 
+👉 [**Baca Cerita Lapangan 871 Siswa di MAN Kota Cimahi**](/artikel/kisah-g7kaih-mankoci-sistem-kebiasaan-siswa)
+
 Mari kita diskusikan kebutuhan pembiasaan karakter dan simulasi jumlah siswa di sekolah Bapak/Ibu:
 
 👉 [**Konsultasi & Jadwalkan Demo Live G-7KAIH via WhatsApp (+62 821-1831-3655)**](https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20membaca%20artikel%20biaya%20G-7KAIH%20(Rp%20500/siswa/bulan)%20di%20madebyaapri.vercel.app.%20Saya%20tertarik%20mengadopsi%20sistem%20ini%20untuk%20[Nama%20Sekolah/Madrasah].%20Boleh%20minta%20info%20jadwal%20demo%20dan%20diskusi%20kebutuhannya%20Kang%3F)
@@ -1388,6 +1390,8 @@ Penasaran bagaimana tampilan antarmuka mobile tap-tap 1 menit dan dashboard desk
 
 👉 **[Buka Lembar Etalase Aplikasi G-7KAIH di Sini (Play Store Style) →](/sistem/g7kaih-sistem-kebiasaan-anak-hebat)**
 
+👉 **[Lihat Rincian Biaya Rp 500/Siswa/Bulan & Simulasi Penghematan Kertas →](/artikel/biaya-sistem-monitoring-karakter-sekolah-g7kaih)**
+
 ---
 
 ### Filosofi Lapangan: Berani Unjuk Gigi & Menjaga Silaturahmi
@@ -1403,7 +1407,7 @@ Sistem G-7KAIH membuktikan bahwa program karakter Gerakan 7 Kebiasaan Indonesia 
 
 **Bagaimana sistem pemantauan karakter atau administrasi di sekolah, pesantren, atau komunitas Anda saat ini? Apakah masih berkutat dengan tumpukan kertas fisik?**
 
-Yuk, bagikan cerita atau konsultasikan otomasi alur kerja madrasah dan komunitasmu langsung bersama Kang Apri via WhatsApp!`,
+👉 [**Konsultasi Alur & Jadwalkan Demo G-7KAIH via WhatsApp (+62 821-1831-3655)**](https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20membaca%20kisah%20G-7KAIH%20MAN%20Kota%20Cimahi%20di%20madebyaapri.vercel.app%20dan%20tertarik%20diskusi%20implementasi%20buku%20jurnal%20pembiasaan%20siswa%20digital%20untuk%20sekolah%20kami.)`,
   },
 {
     id: '10',

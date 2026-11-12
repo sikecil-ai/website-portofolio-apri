@@ -5,10 +5,13 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://madebyaapri.vercel.app',
+  trailingSlash: 'never',
   integrations: [
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes('/admin'),
+    }),
   ],
 });

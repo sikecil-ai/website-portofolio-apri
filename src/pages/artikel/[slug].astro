@@ -28,16 +28,51 @@ const ogImageMap: Record<string, string> = {
   'otomasi-bot-python-ai-content-publisher': '/images/og-autocontent.png',
   'cara-membuat-aplikasi-modern-standar-sdlc': '/images/og-image.png',
   'puncak-teknologi-smartphone-batasan-indra-manusia': '/images/og-image.png',
+  'sejarah-kecerdasan-buatan-ai': '/images/og-image.png',
+  'level-penggunaan-ai-dunia-nyata': '/images/og-image.png',
 };
 
 const articleOgImage = ogImageMap[article.slug] || '/images/og-image.png';
+const fullArticleImage = articleOgImage.startsWith('http')
+  ? articleOgImage
+  : `${siteConfig.url}${articleOgImage}`;
+
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL,
+  },
+  headline: article.title,
+  description: article.excerpt,
+  image: [fullArticleImage],
+  datePublished: article.publishDateISO || '2026-01-01',
+  dateModified: article.publishDateISO || '2026-01-01',
+  author: {
+    '@type': 'Person',
+    '@id': `${siteConfig.url}/#person`,
+    name: article.author || siteConfig.author,
+    url: siteConfig.url,
+  },
+  publisher: {
+    '@type': 'Person',
+    '@id': `${siteConfig.url}/#person`,
+    name: siteConfig.author,
+    url: siteConfig.url,
+  },
+  articleSection: article.category,
+  keywords: article.tags.join(', '),
+  inLanguage: 'id-ID',
+};
 
 const seoProps = {
   title: `${article.title} | Kang Apri (@madebyaapri)`,
   description: article.excerpt,
   image: articleOgImage,
   canonicalURL: canonicalURL,
-  type: 'article',
+  type: 'article' as const,
+  extraSchemas: [blogPostingSchema],
 };
 
 // Convert markdown to clean semantic HTML & wrap tables in responsive breakout containers

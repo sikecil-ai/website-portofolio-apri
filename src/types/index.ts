@@ -127,6 +127,8 @@ export interface SEOProps {
   canonicalURL?: string;
   type?: 'website' | 'article' | 'profile';
   publishDate?: string;
+  noindex?: boolean;
+  extraSchemas?: Record<string, unknown>[];
 }
 
 export interface Article {
