@@ -836,7 +836,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
   <!-- ============================================================ -->
   <div
     id="screenshot-lightbox"
-    class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-200 flex flex-col justify-between p-3 sm:p-5 select-none"
+    class="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-200 flex flex-col justify-between p-3 sm:p-5 select-none"
     role="dialog"
     aria-modal="true"
     aria-label="Penampil Tangkapan Layar Penuh"
@@ -859,7 +859,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
         <button
           type="button"
           id="lightbox-close-btn"
-          class="w-9 h-9 rounded-xl bg-slate-900 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 border border-slate-700 flex items-center justify-center transition-colors cursor-pointer text-lg font-bold"
+          class="w-11 h-11 rounded-xl bg-slate-900 hover:bg-rose-500/20 text-slate-300 hover:text-rose-400 border border-slate-700 flex items-center justify-center transition-colors cursor-pointer text-lg font-bold"
           aria-label="Tutup"
         >
           ✕
@@ -868,7 +868,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
     </div>
 
     <!-- Lightbox Center Viewport -->
-    <div class="relative flex-1 flex items-center justify-center my-2 sm:my-3 overflow-hidden max-w-5xl lg:max-w-6xl xl:max-w-7xl w-full mx-auto">
+    <div id="lightbox-viewport" class="relative flex-1 flex items-center justify-center my-2 sm:my-3 overflow-hidden max-w-5xl lg:max-w-6xl xl:max-w-7xl w-full mx-auto">
       <!-- Floating Prev Button -->
       <button
         type="button"
@@ -1017,6 +1017,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
     const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
     const lightboxNextBtn = document.getElementById('lightbox-next-btn');
     const lightboxScrollContainer = document.getElementById('lightbox-scroll-container');
+    const lightboxViewport = document.getElementById('lightbox-viewport');
 
     const screenshotCards = Array.from(document.querySelectorAll('.screenshot-card'));
     let currentIndex = 0;
@@ -1152,7 +1153,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
     // Close on backdrop click (outside phone frame)
     if (lightbox) {
       lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
+        if (e.target === lightbox || e.target === lightboxViewport) closeLightbox();
       });
     }
 
