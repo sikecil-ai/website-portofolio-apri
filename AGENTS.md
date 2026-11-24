@@ -1,4 +1,4 @@
-﻿# AGENTS.md - Website Portofolio Apri (madebyaapri)
+# AGENTS.md - Website Portofolio Apri (madebyaapri)
 
 Panduan kemudi AI Agentic Engineering untuk repositori Website Portofolio Apri.
 
@@ -30,5 +30,9 @@ Panduan kemudi AI Agentic Engineering untuk repositori Website Portofolio Apri.
 
 ## 3. Workflow Pengembangan
 1. **Analisis Debater & SDD**: Sebelum coding perubahan besar, buat analisis SQ $\to$ AREL $\to$ Blast Radius Guard, dan tunggu persetujuan user.
-2. **Verifikasi Build**: Selalu jalankan `npm run build` sebelum push ke Git.
-3. **Push to Production**: Push ke branch `main` untuk memicu deploy otomatis ke `https://madebyaapri.vercel.app/`.
+2. **Antigravity Power Pack Standards**:
+   - Terapkan pemisahan giliran (*Design Turn* vs *Execution Turn*) dan delegasi subagent read-only (`research`).
+   - Kunci batasan file (*File Scope Lock*) sebelum menyunting kode.
+   - Gunakan standar Conventional Commits dan pengujian antarmuka tangguh berbasis Playwright Page Object Model (POM).
+3. **Verifikasi Build**: Selalu jalankan `npm run build` sebelum push ke Git.
+4. **Push to Production**: Push ke branch `main` untuk memicu deploy otomatis ke `https://madebyaapri.vercel.app/`.
