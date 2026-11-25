@@ -1,0 +1,10 @@
+<svg width="280" height="75" viewBox="0 0 280 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(6, 6)">
+    <rect x="25" y="8" width="10" height="48" rx="5" fill="#142D43"/>
+    <path d="M 22 40 C 10 40, 6 25, 12 14 C 22 14, 24 28, 22 40 Z" fill="#315C50"/>
+    <path d="M 38 40 C 50 40, 54 25, 48 14 C 38 14, 36 28, 38 40 Z" fill="#5C8980"/>
+    <circle cx="30" cy="6" r="4.5" fill="#B89A60"/>
+  </g>
+  <text x="75" y="42" font-family="'Plus Jakarta Sans', Helvetica, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="3" fill="#142D43">INKARSA</text>
+  <text x="76" y="58" font-family="'Plus Jakarta Sans', Helvetica, Arial, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1.8" fill="#315C50">INOVASI KARYA SEMESTA RAYA</text>
+</svg>

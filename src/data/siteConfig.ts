@@ -1,20 +1,20 @@
 import type { SiteConfig } from '../types';
 
 export const siteConfig: SiteConfig = {
-  name: 'M. Apriyanto Wijaya',
-  title: 'Kang Apri | Spesialis Modernisasi Spreadsheet & Sistem Bisnis',
-  subtitle: 'Ubah Spreadsheet Ribet Jadi Alur Kerja Rapi, Cepat & Tanpa Biaya Server Bulanan.',
-  description: 'Spesialis modernisasi spreadsheet Google Sheets & otomasi sistem bisnis tanpa biaya sewa server bulanan oleh Kang Apri (@madebyaapri) di Cibeber, Kota Cimahi.',
-  bio: 'Halo! Aku Apri (@madebyaapri). Aku bantu pemilik bisnis dan tim operasional mengubah spreadsheet ribet menjadi alur kerja yang rapi, cepat, dan membuat kerja tim jadi lebih ringan, tanpa biaya sewa server bulanan.',
-  location: 'Cibeber, Kota Cimahi, Jawa Barat',
+  name: 'INKARSA — Inovasi Karya Semesta Raya',
+  title: 'INKARSA | Inovasi Karya Semesta Raya — Solusi Teknologi & Otomasi oleh Kang Apri',
+  subtitle: 'Menumbuhkan Potensi. Menghadirkan Manfaat.',
+  description: 'INKARSA (Inovasi Karya Semesta Raya) adalah studio solusi teknologi, sistem SaaS pendidikan & UMKM, serta otomasi alur kerja tanpa biaya sewa server yang diarsiteki oleh M. Apriyanto Wijaya (Kang Apri / @madebyaapri) di Kota Cimahi.',
+  bio: 'INKARSA (Inovasi Karya Semesta Raya) dibangun bersama Kang Apri (@madebyaapri) untuk membantu institusi pendidikan, organisasi, dan pemilik bisnis mengubah alur kerja manual menjadi sistem digital yang rapi, cepat, dan bebas biaya server bulanan.',
+  location: 'Puri Fajar A5 No. 2, Cibeber, Kota Cimahi, Jawa Barat',
   email: 'sohibwijaya@gmail.com',
   phone: '+6282118313655',
   url: 'https://madebyaapri.vercel.app',
   ogImage: '/images/og-image.png',
-  author: 'M. Apriyanto Wijaya (Kang Apri)',
+  author: 'M. Apriyanto Wijaya (Kang Apri) — Founder, INKARSA',
   status: {
     available: true,
-    text: 'Tersedia untuk Modernisasi Spreadsheet & Sistem Bisnis via WhatsApp',
+    text: 'INKARSA • Tersedia untuk Konsultasi Sistem & Otomasi Bisnis via WhatsApp',
   },
   socialLinks: [
     {
@@ -60,6 +60,9 @@ export const siteConfig: SiteConfig = {
     { name: 'Kontak', href: '/#kontak' },
   ],
   keywords: [
+    'INKARSA',
+    'Inovasi Karya Semesta Raya',
+    'INKARSA Cimahi',
     'madebyaapri',
     'Kang Apri Cimahi',
     'M. Apriyanto Wijaya',

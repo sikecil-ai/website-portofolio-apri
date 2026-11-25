@@ -27,7 +27,42 @@ const fullImageURL = image.startsWith('http')
 
 const baseSiteUrl = siteConfig.url;
 
-// Schema 1: Person (E-E-A-T Authority for Kang Apri)
+// Schema 0: Organization (Corporate Holding INKARSA — Inovasi Karya Semesta Raya)
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${baseSiteUrl}/#organization`,
+  name: 'INKARSA (Inovasi Karya Semesta Raya)',
+  alternateName: ['INKARSA', 'Made by Apri', '@madebyaapri'],
+  url: baseSiteUrl,
+  logo: `${baseSiteUrl}/images/logo-inkarsa.svg`,
+  slogan: 'Menumbuhkan Potensi. Menghadirkan Manfaat.',
+  description: siteConfig.description,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  founder: {
+    '@id': `${baseSiteUrl}/#person`,
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Puri Fajar A5 No. 2, Cibeber',
+    addressLocality: 'Kota Cimahi',
+    addressRegion: 'Jawa Barat',
+    postalCode: '40531',
+    addressCountry: 'ID',
+  },
+  sameAs: [
+    'https://instagram.com/madebyaapri',
+    'https://www.threads.net/@madebyaapri',
+    'https://tiktok.com/@madebyaapri',
+    'https://www.youtube.com/@madebyaapri',
+    'https://linkedin.com/in/apriyanto-wijaya',
+    'https://github.com/sikecil-ai',
+    'https://wa.me/6282118313655',
+  ],
+};
+
+// Schema 1: Person (E-E-A-T Authority for Kang Apri — Founder & Technology Lead)
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -36,7 +71,10 @@ const personSchema = {
   alternateName: ['Kang Apri', '@madebyaapri', 'Muhammad Apriyanto Wijaya', 'Apriyanto Wijaya'],
   url: baseSiteUrl,
   image: fullImageURL,
-  jobTitle: 'Workflow Automation Specialist & Zero Server Cost Architecture Developer',
+  jobTitle: 'Founder & Technology Lead, INKARSA',
+  worksFor: {
+    '@id': `${baseSiteUrl}/#organization`,
+  },
   description: siteConfig.bio,
   email: siteConfig.email,
   telephone: siteConfig.phone,
@@ -72,9 +110,12 @@ const websiteSchema = {
   '@type': 'WebSite',
   '@id': `${baseSiteUrl}/#website`,
   url: baseSiteUrl,
-  name: 'Kang Apri (@madebyaapri) : Otomasi Alur Kerja & Sistem Bisnis Tanpa Server',
+  name: 'INKARSA (Inovasi Karya Semesta Raya) | Solusi Teknologi & Otomasi oleh Kang Apri',
   description: siteConfig.description,
   publisher: {
+    '@id': `${baseSiteUrl}/#organization`,
+  },
+  creator: {
     '@id': `${baseSiteUrl}/#person`,
   },
   inLanguage: 'id-ID',
@@ -132,7 +173,7 @@ const faqSchema = {
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Sistem Otomasi & Aplikasi by M. Apriyanto Wijaya (@madebyaapri)',
+  name: 'Ekosistem Sistem & Produk Digital INKARSA oleh Kang Apri (@madebyaapri)',
   itemListElement: [
     {
       '@type': 'SoftwareApplication',
@@ -140,6 +181,8 @@ const itemListSchema = {
       name: 'KOMANDO : Sistem Manajemen Organisasi Paskibra',
       operatingSystem: 'Web, Android, iOS',
       applicationCategory: 'BusinessApplication',
+      creator: { '@id': `${baseSiteUrl}/#organization` },
+      author: { '@id': `${baseSiteUrl}/#person` },
       offers: {
         '@type': 'Offer',
         price: '0',
@@ -152,6 +195,8 @@ const itemListSchema = {
       name: 'Si Paling Rekap : Sistem Tabulasi Kejuaraan Multi-Kategori Real-Time',
       operatingSystem: 'Web, Mobile, Tablet',
       applicationCategory: 'SportsApplication',
+      creator: { '@id': `${baseSiteUrl}/#organization` },
+      author: { '@id': `${baseSiteUrl}/#person` },
     },
     {
       '@type': 'SoftwareApplication',
@@ -159,6 +204,8 @@ const itemListSchema = {
       name: 'G-7KAIH : Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
       operatingSystem: 'Web, Android, iOS',
       applicationCategory: 'EducationalApplication',
+      creator: { '@id': `${baseSiteUrl}/#organization` },
+      author: { '@id': `${baseSiteUrl}/#person` },
     },
     {
       '@type': 'SoftwareApplication',
@@ -166,6 +213,8 @@ const itemListSchema = {
       name: 'Si Paling Kasir : Sistem POS, HPP & Inventaris F&B Zero Server Cost',
       operatingSystem: 'Web, Android POS, Desktop',
       applicationCategory: 'FinanceApplication',
+      creator: { '@id': `${baseSiteUrl}/#organization` },
+      author: { '@id': `${baseSiteUrl}/#person` },
     },
     {
       '@type': 'SoftwareApplication',
@@ -173,6 +222,8 @@ const itemListSchema = {
       name: 'Si Paling Threads : Bot Distribusi Konten & AI Auto-Publisher',
       operatingSystem: 'Cross-platform Cloud Python',
       applicationCategory: 'MarketingApplication',
+      creator: { '@id': `${baseSiteUrl}/#organization` },
+      author: { '@id': `${baseSiteUrl}/#person` },
     },
   ],
 };
@@ -181,9 +232,12 @@ const itemListSchema = {
 const blogSchema = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  name: 'Studi Kasus & Artikel Otomasi by Kang Apri (@madebyaapri)',
+  name: 'Studi Kasus & Artikel Inovasi Teknologi INKARSA by Kang Apri (@madebyaapri)',
   url: `${baseSiteUrl}/#artikel`,
-  description: 'Kumpulan cerita nyata di balik layar, studi kasus otomasi bisnis tanpa server, dan sistem penjurian Paskibra.',
+  description: 'Kumpulan cerita nyata di balik layar, studi kasus otomasi bisnis tanpa server, digitalisasi sekolah, dan sistem penjurian.',
+  publisher: {
+    '@id': `${baseSiteUrl}/#organization`,
+  },
   author: {
     '@id': `${baseSiteUrl}/#person`,
   },
@@ -239,7 +293,7 @@ const breadcrumbSchema = {
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="author" content={siteConfig.author} />
-<meta name="publisher" content="M. Apriyanto Wijaya (@madebyaapri)" />
+<meta name="publisher" content="INKARSA — Inovasi Karya Semesta Raya (Kang Apri / @madebyaapri)" />
 <meta name="keywords" content={siteConfig.keywords.join(', ')} />
 <link rel="canonical" href={canonicalURL} />
 <meta
@@ -265,7 +319,7 @@ const breadcrumbSchema = {
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content={title} />
-<meta property="og:site_name" content="madebyaapri | Kang Apri" />
+<meta property="og:site_name" content="INKARSA | Inovasi Karya Semesta Raya (Kang Apri)" />
 <meta property="og:locale" content="id_ID" />
 
 <!-- Twitter Card -->
@@ -278,6 +332,7 @@ const breadcrumbSchema = {
 <meta name="twitter:creator" content="@madebyaapri" />
 
 <!-- Structured Data JSON-LD Schemas -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
