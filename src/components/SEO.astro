@@ -33,7 +33,7 @@ const organizationSchema = {
   '@type': 'Organization',
   '@id': `${baseSiteUrl}/#organization`,
   name: 'INKARSA (Inovasi Karya Semesta Raya)',
-  alternateName: ['INKARSA', 'Made by Apri', '@madebyaapri'],
+  alternateName: ['INKARSA', 'Studio INKARSA', 'Inovasi Karya Semesta Raya'],
   url: baseSiteUrl,
   logo: `${baseSiteUrl}/images/logo-inkarsa.svg`,
   slogan: 'Menumbuhkan Potensi. Menghadirkan Manfaat.',
@@ -68,7 +68,7 @@ const personSchema = {
   '@type': 'Person',
   '@id': `${baseSiteUrl}/#person`,
   name: 'M. Apriyanto Wijaya',
-  alternateName: ['Kang Apri', '@madebyaapri', 'Muhammad Apriyanto Wijaya', 'Apriyanto Wijaya'],
+  alternateName: ['Kang Apri', 'Muhammad Apriyanto Wijaya', 'Apriyanto Wijaya'],
   url: baseSiteUrl,
   image: fullImageURL,
   jobTitle: 'Founder & Technology Lead, INKARSA',
@@ -121,59 +121,11 @@ const websiteSchema = {
   inLanguage: 'id-ID',
 };
 
-// Schema 3: FAQPage (Google Rich Snippets)
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Apa yang dimaksud dengan Zero Server Cost Architecture?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Zero Server Cost Architecture adalah pendekatan perancangan sistem perangkat lunak yang memanfaatkan ekosistem cloud gratis seperti Google Workspace, Google Apps Script, dan Google Sheets sebagai database engine.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Bagaimana alur kerja aplikasi tabulasi lomba Paskibra KOMANDO?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Juri menginput nilai langsung melalui formulir digital di smartphone. Nilai otomatis tersinkronisasi secara real-time (0 detik jeda) ke engine kalkulasi terpusat.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Berapa lama estimasi pengerjaan sebuah sistem kustom?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Waktu pengerjaan umumnya berkisar antara 3 hingga 7 hari kerja tergantung pada kompleksitas modul yang dibutuhkan.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Apakah data transaksi dan keuangan bisnis saya aman di Google Sheets?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sangat aman. Seluruh database tersimpan di akun Google Workspace milik Anda sendiri dengan standar enkripsi enterprise dari Google.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Bagaimana cara berkonsultasi mengenai kebutuhan otomasi saya?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Anda dapat langsung mengklik tombol WhatsApp di website untuk mendiskusikan proses bisnis atau alur kerja yang ingin diotomasi.',
-      },
-    },
-  ],
-};
-
 // Schema 4: ItemList for Software Products
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Ekosistem Sistem & Produk Digital INKARSA oleh Kang Apri (@madebyaapri)',
+  name: 'Ekosistem Sistem & Produk Digital INKARSA oleh Kang Apri',
   itemListElement: [
     {
       '@type': 'SoftwareApplication',
@@ -232,7 +184,7 @@ const itemListSchema = {
 const blogSchema = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  name: 'Studi Kasus & Artikel Inovasi Teknologi INKARSA by Kang Apri (@madebyaapri)',
+  name: 'Studi Kasus & Artikel Inovasi Teknologi INKARSA oleh Kang Apri',
   url: `${baseSiteUrl}/#artikel`,
   description: 'Kumpulan cerita nyata di balik layar, studi kasus otomasi bisnis tanpa server, digitalisasi sekolah, dan sistem penjurian.',
   publisher: {
@@ -257,25 +209,31 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 2,
+      name: 'Tentang INKARSA',
+      item: `${baseSiteUrl}/inkarsa`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
       name: 'Sistem & Solusi',
       item: `${baseSiteUrl}/#proyek`,
     },
     {
       '@type': 'ListItem',
-      position: 3,
+      position: 4,
+      name: 'Layanan & Biaya',
+      item: `${baseSiteUrl}/#layanan`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 5,
       name: 'Artikel & Studi Kasus',
       item: `${baseSiteUrl}/#artikel`,
     },
     {
       '@type': 'ListItem',
-      position: 4,
-      name: 'Investasi & Biaya',
-      item: `${baseSiteUrl}/#investasi`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 5,
-      name: 'FAQ',
+      position: 6,
+      name: 'FAQ & Onboarding',
       item: `${baseSiteUrl}/#faq`,
     },
   ],
@@ -293,7 +251,7 @@ const breadcrumbSchema = {
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="author" content={siteConfig.author} />
-<meta name="publisher" content="INKARSA — Inovasi Karya Semesta Raya (Kang Apri / @madebyaapri)" />
+<meta name="publisher" content="INKARSA - Inovasi Karya Semesta Raya (Kang Apri)" />
 <meta name="keywords" content={siteConfig.keywords.join(', ')} />
 <link rel="canonical" href={canonicalURL} />
 <meta
@@ -329,13 +287,11 @@ const breadcrumbSchema = {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={fullImageURL} />
 <meta name="twitter:image:alt" content={title} />
-<meta name="twitter:creator" content="@madebyaapri" />
 
 <!-- Structured Data JSON-LD Schemas -->
 <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

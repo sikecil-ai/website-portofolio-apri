@@ -5,12 +5,12 @@ import ThemeToggle from './ThemeToggle.astro';
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
-    <nav class="flex items-center justify-between px-4 sm:px-5 py-2 rounded-2xl glass-panel bg-white/85 dark:bg-slate-900/85 border border-slate-200/80 dark:border-slate-800/80 shadow-sm backdrop-blur-md transition-all duration-300">
+    <nav aria-label="Navigasi Utama" class="flex items-center justify-between px-4 sm:px-5 py-2 rounded-2xl glass-panel bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800/80 shadow-sm backdrop-blur-md transition-all duration-300">
       
       <!-- Brand Logo INKARSA -->
-      <a href="/#beranda" class="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-brand-500/50 rounded-xl p-1 flex-shrink-0">
+      <a href="/#beranda" class="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-cyan-500/50 rounded-xl p-1 flex-shrink-0">
         <div class="relative w-9 h-9 rounded-xl bg-[#142D43] dark:bg-slate-800 border border-[#315C50]/40 p-1 shadow-md shadow-slate-900/10 group-hover:shadow-emerald-500/20 transition-all duration-300 group-hover:scale-105 flex items-center justify-center">
-          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" aria-hidden="true">
             <rect x="25" y="10" width="10" height="44" rx="5" fill="#F5F3EC"/>
             <path d="M 22 40 C 10 40, 6 25, 12 14 C 22 14, 24 28, 22 40 Z" fill="#315C50"/>
             <path d="M 38 40 C 50 40, 54 25, 48 14 C 38 14, 36 28, 38 40 Z" fill="#5C8980"/>
@@ -27,16 +27,60 @@ import ThemeToggle from './ThemeToggle.astro';
         </div>
       </a>
 
-      <!-- Desktop Navigation Links: 1-line clean, no wrapping, single words -->
-      <div class="hidden lg:flex items-center gap-1 flex-nowrap whitespace-nowrap">
-        {siteConfig.navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="px-2.5 py-1 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/70 rounded-lg transition-all whitespace-nowrap"
-          >
-            {link.name}
-          </a>
-        ))}
+      <!-- Desktop Navigation Links: Streamlined 5-item UX + Submenu Dropdown -->
+      <div class="hidden lg:flex items-center gap-1.5 flex-nowrap whitespace-nowrap">
+        {siteConfig.navLinks.map((link) =>
+          link.children && link.children.length > 0 ? (
+            <div class="relative nav-dropdown group">
+              <button
+                type="button"
+                class="nav-dropdown-trigger inline-flex items-center gap-1 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-xl transition-all whitespace-nowrap cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-500/40"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span>{link.name}</span>
+                <svg class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200 group-hover:rotate-180 nav-dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <!-- Dropdown Panel -->
+              <div class="nav-dropdown-menu absolute left-0 top-full pt-2 w-72 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 transition-all duration-200 z-50">
+                <div class="p-2 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 shadow-xl backdrop-blur-xl space-y-1 whitespace-normal">
+                  {link.children.map((sub, idx) => (
+                    <a
+                      href={sub.href}
+                      class={`block p-3 rounded-xl transition-colors ${
+                        idx === 0
+                          ? 'bg-cyan-50/70 dark:bg-cyan-950/50 hover:bg-cyan-100/80 dark:hover:bg-cyan-900/60 border border-cyan-200/70 dark:border-cyan-800/60'
+                          : 'hover:bg-slate-100/80 dark:hover:bg-slate-800/80'
+                      }`}
+                    >
+                      <div class="text-xs font-bold text-slate-900 dark:text-slate-100 flex items-center justify-between">
+                        <span>{sub.name}</span>
+                        {idx === 0 && (
+                          <span class="px-1.5 py-0.5 text-[9px] font-black uppercase rounded bg-cyan-600 text-white">Profil</span>
+                        )}
+                      </div>
+                      {sub.desc && (
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+                          {sub.desc}
+                        </div>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <a
+              href={link.href}
+              class="px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-xl transition-all whitespace-nowrap"
+            >
+              {link.name}
+            </a>
+          )
+        )}
       </div>
 
       <!-- Action Area: WhatsApp CTA + Theme Toggle + Mobile Toggle -->
@@ -47,23 +91,25 @@ import ThemeToggle from './ThemeToggle.astro';
           href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berkonsultasi%20mengenai%20solusi%20otomasi/sistem%20alur%20kerja."
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-sm shadow-emerald-500/25 transition-all active:scale-95 whitespace-nowrap"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 min-h-[40px] text-xs font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-sm shadow-emerald-500/25 transition-all active:scale-95 whitespace-nowrap"
         >
           <span class="text-xs">💬</span>
           <span>Konsultasi WA</span>
         </a>
 
-        <!-- Mobile Menu Button -->
+        <!-- Mobile Menu Button (>= 44x44px touch target) -->
         <button
           id="mobile-menu-btn"
           type="button"
           aria-label="Buka menu navigasi mobile"
-          class="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          class="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500/40"
         >
-          <svg id="menu-open-icon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="menu-open-icon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
-          <svg id="menu-close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="menu-close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
@@ -73,23 +119,44 @@ import ThemeToggle from './ThemeToggle.astro';
     <!-- Mobile Drawer Menu -->
     <div
       id="mobile-menu"
-      class="hidden lg:hidden mt-2 p-4 rounded-2xl glass-panel bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-xl animate-fade-in"
+      class="hidden lg:hidden mt-2 p-4 rounded-2xl glass-panel bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-xl animate-fade-in max-h-[80vh] overflow-y-auto"
     >
       <div class="flex flex-col gap-1">
-        {siteConfig.navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="mobile-link px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-50 dark:hover:bg-slate-800/80 hover:text-brand-600 dark:hover:text-brand-400 rounded-xl transition-all"
-          >
-            {link.name}
-          </a>
-        ))}
+        {siteConfig.navLinks.map((link) =>
+          link.children && link.children.length > 0 ? (
+            <div class="my-1 p-2 rounded-xl bg-slate-50/90 dark:bg-slate-800/50 border border-slate-200/70 dark:border-slate-700/60">
+              <div class="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-400">
+                {link.name} &amp; Panduan
+              </div>
+              <div class="flex flex-col gap-0.5 mt-1">
+                {link.children.map((sub) => (
+                  <a
+                    href={sub.href}
+                    class="mobile-link px-3 py-2.5 min-h-[44px] flex flex-col justify-center text-sm font-medium text-slate-800 dark:text-slate-100 hover:bg-white dark:hover:bg-slate-800 hover:text-cyan-600 dark:hover:text-cyan-400 rounded-lg transition-all"
+                  >
+                    <span class="font-semibold">{sub.name}</span>
+                    {sub.desc && (
+                      <span class="text-[11px] text-slate-500 dark:text-slate-400 font-normal">{sub.desc}</span>
+                    )}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a
+              href={link.href}
+              class="mobile-link px-4 py-2.5 min-h-[44px] flex items-center text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-cyan-600 dark:hover:text-cyan-400 rounded-xl transition-all"
+            >
+              {link.name}
+            </a>
+          )
+        )}
         <div class="pt-2 border-t border-slate-200 dark:border-slate-800 mt-1">
           <a
             href="https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20tertarik%20berkonsultasi%20mengenai%20solusi%20otomasi/sistem%20alur%20kerja."
             target="_blank"
             rel="noopener noreferrer"
-            class="mobile-link flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold rounded-xl text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm"
+            class="mobile-link flex items-center justify-center gap-2 w-full px-4 py-3 min-h-[44px] text-sm font-semibold rounded-xl text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm"
           >
             <span class="text-base">💬</span>
             <span>Chat WhatsApp Kang Apri</span>
@@ -101,37 +168,79 @@ import ThemeToggle from './ThemeToggle.astro';
 </header>
 
 <script>
-  const initMobileMenu = () => {
+  const initNavigation = () => {
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     const openIcon = document.getElementById('menu-open-icon');
     const closeIcon = document.getElementById('menu-close-icon');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    if (!btn || !menu || !openIcon || !closeIcon) return;
+    if (btn && menu && openIcon && closeIcon) {
+      btn.addEventListener('click', () => {
+        const isHidden = menu.classList.contains('hidden');
+        btn.setAttribute('aria-expanded', String(isHidden));
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          openIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      });
 
-    btn.addEventListener('click', () => {
-      const isHidden = menu.classList.contains('hidden');
-      if (isHidden) {
-        menu.classList.remove('hidden');
-        openIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-      } else {
-        menu.classList.add('hidden');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      }
-    });
+      mobileLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
+      });
+    }
 
-    mobileLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
+    // Desktop click/keyboard toggle for submenu dropdowns
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach((dd) => {
+      const trigger = dd.querySelector('.nav-dropdown-trigger');
+      const panel = dd.querySelector('.nav-dropdown-menu');
+      const arrow = dd.querySelector('.nav-dropdown-arrow');
+      if (!trigger || !panel) return;
+
+      const setOpen = (open: boolean) => {
+        trigger.setAttribute('aria-expanded', String(open));
+        if (open) {
+          panel.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1');
+          panel.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          if (arrow) arrow.classList.add('rotate-180');
+        } else {
+          panel.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
+          panel.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          if (arrow) arrow.classList.remove('rotate-180');
+        }
+      };
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = trigger.getAttribute('aria-expanded') === 'true';
+        setOpen(!expanded);
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dd.contains(e.target as Node)) {
+          setOpen(false);
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          setOpen(false);
+        }
       });
     });
   };
 
-  initMobileMenu();
-  document.addEventListener('astro:after-swap', initMobileMenu);
+  initNavigation();
+  document.addEventListener('astro:after-swap', initNavigation);
 </script>

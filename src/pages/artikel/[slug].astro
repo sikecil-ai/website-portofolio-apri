@@ -82,7 +82,7 @@ const blogPostingSchema = {
 };
 
 const seoProps = {
-  title: `${article.title} | Kang Apri (@madebyaapri)`,
+  title: `${article.title} | INKARSA - Kang Apri`,
   description: article.excerpt,
   image: articleOgImage,
   canonicalURL: canonicalURL,
@@ -104,10 +104,10 @@ const parsedContent = rawHtml
 const relatedArticles = getPublishedArticles().filter((a) => a.id !== article.id).slice(0, 3);
 
 // Prepare share URLs
-const shareText = `${article.title}: Studi Kasus Praktisi Otomasi & Sistem Bisnis oleh Kang Apri (@madebyaapri)`;
+const shareText = `${article.title}: Studi Kasus Praktisi Otomasi & Sistem Bisnis oleh Kang Apri (INKARSA)`;
 const waShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${shareText}\n\nBaca artikel selengkapnya di sini:\n${canonicalURL}`)}`;
-const threadsShareUrl = `https://threads.net/intent/post?text=${encodeURIComponent(`Baru baca studi kasus keren dari Kang Apri (@madebyaapri): "${article.title}"\n\nLink baca: ${canonicalURL}`)}`;
-const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Studi kasus menarik dari @madebyaapri: "${article.title}"`)}&url=${encodeURIComponent(canonicalURL)}`;
+const threadsShareUrl = `https://threads.net/intent/post?text=${encodeURIComponent(`Baru baca studi kasus keren dari Kang Apri (INKARSA): "${article.title}"\n\nLink baca: ${canonicalURL}`)}`;
+const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Studi kasus menarik dari Kang Apri (INKARSA): "${article.title}"`)}&url=${encodeURIComponent(canonicalURL)}`;
 const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalURL)}`;
 ---
 
@@ -176,15 +176,15 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-purple-600 to-cyan-500 p-0.5 shadow-sm flex-shrink-0">
                 <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-white font-bold text-xs font-mono">
-                  mba
+                  KA
                 </div>
               </div>
               <div>
                 <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Penulis</span>
                 <h4 class="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm">
-                  {article.author || 'M. Apriyanto Wijaya (Apri)'}
+                  {article.author || 'M. Apriyanto Wijaya (Kang Apri)'}
                 </h4>
-                <p class="text-[11px] text-slate-500 dark:text-slate-400">@madebyaapri • Praktisi Otomasi</p>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">Kang Apri • Praktisi Otomasi INKARSA</p>
               </div>
             </div>
 
@@ -196,7 +196,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
               <div>
                 <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Penyunting &amp; Redaksi</span>
                 <h4 class="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm">
-                  {article.editor || 'Tim Redaksi @madebyaapri'}
+                  {article.editor || 'Tim Redaksi INKARSA'}
                 </h4>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">
                   Dimutakhirkan: {article.updatedDate || '1 September 2026'}
@@ -482,7 +482,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
       if (!btn) return;
 
       btn.addEventListener('click', async () => {
-        const igText = `Baca studi kasus menarik dari Kang Apri (@madebyaapri):\n"${articleTitle}"\n\nLink artikel: ${canonicalURL}`;
+        const igText = `Baca studi kasus menarik dari Kang Apri (INKARSA):\n"${articleTitle}"\n\nLink artikel: ${canonicalURL}`;
         try {
           if (navigator.share) {
             await navigator.share({

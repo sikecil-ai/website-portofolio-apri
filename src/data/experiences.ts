@@ -43,7 +43,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: '4',
     role: 'Bot Otomasi Konten Media Sosial & Sales Scheduler',
-    company: 'Eksperimen Otomasi Mandiri (@madebyaapri)',
+    company: 'Eksperimen Otomasi Mandiri (INKARSA - Kang Apri)',
     period: '2024 - Sekarang',
     description: 'Membangun bot cerdas berbasis Python dan Gemini AI API untuk memantau folder video lokal, menghasilkan copywriting penawaran persuasif, dan menjadwalkan publikasi otomatis.',
     highlights: [

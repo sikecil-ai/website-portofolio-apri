@@ -1,24 +1,64 @@
 ---
+const onboardingResources = [
+  {
+    icon: '🚀',
+    badge: 'Onboarding 3 Hari Kerja',
+    title: 'Alur Aktivasi & Setup G-7KAIH',
+    description: 'Panduan aktivasi sistem jurnal pembiasaan 7 karakter siswa, impor data kelas/rombel, hingga uji coba input wali kelas & siswa (Rp 500/siswa/bulan).',
+    href: '/sistem/g7kaih-sistem-kebiasaan-anak-hebat#panduan-setup',
+    cta: 'Lihat Alur Setup G-7KAIH →',
+  },
+  {
+    icon: '📖',
+    badge: 'Dokumentasi Resmi 16 Modul',
+    title: 'Buku Manual & Panduan KOMANDO',
+    description: 'Pusat dokumentasi lengkap pendaftaran pangkalan, 4 tingkat hak akses admin-pelatih-anggota, serta solusi kendala teknis siap cetak PDF.',
+    href: '/dokumentasi/komando',
+    cta: 'Buka Dokumentasi KOMANDO →',
+  },
+  {
+    icon: '🎬',
+    badge: 'Tutorial & Pendampingan Live',
+    title: 'Video Panduan & SOP Lapangan',
+    description: 'Setiap serah terima sistem dilengkapi video tutorial singkat per peran (kasir, juri, guru BK, atau operator) plus sesi tanya jawab via WhatsApp/Meet.',
+    href: 'https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20mau%20minta%20akses%20video%20tutorial%20dan%20panduan%20onboarding%20sistem%20INKARSA.',
+    cta: 'Minta Panduan via WA Kang Apri →',
+    external: true,
+  },
+];
+
 const faqs = [
   {
+    question: 'Bagaimana alur onboarding aplikasi dari daftar hingga tim siap pakai di lapangan?',
+    answer: 'Alur onboarding dirancang simpel dalam 3 langkah: (1) Sesi pemetaan kebutuhan dan data master (daftar kelas, menu kasir, atau kategori lomba), (2) Penyalinan serta konfigurasi sistem ke akun Google Workspace milik instansi atau bisnis Anda, dan (3) Simulasi uji coba input bersama admin serta operator lapangan selama 3 hingga 5 hari kerja (khusus G-7KAIH bisa live dalam 3 hari kerja).',
+  },
+  {
+    question: 'Apakah tersedia video tutorial, buku panduan (SOP), dan dokumentasi resmi untuk tim yang awam IT?',
+    answer: 'Ya, sangat lengkap. Setiap sistem dari INKARSA dan Kang Apri selalu disertai dokumen SOP langkah demi langkah, video tutorial cara pakai per tombol yang mudah ditonton dari HP, serta portal dokumentasi interaktif (seperti Pusat Dokumentasi Resmi KOMANDO untuk 16 modul Paskibra di /dokumentasi/komando). Tim Anda juga didampingi langsung lewat Google Meet atau WhatsApp sampai benar-benar lancar.',
+  },
+  {
+    question: 'Di mana saya bisa membaca dokumentasi fitur dan panduan troubleshooting mandiri?',
+    answer: 'Dokumentasi terstruktur tersedia langsung pada setiap halaman detail sistem di tab "Setup Awal & SOP" maupun di halaman khusus /dokumentasi/komando yang dilengkapi fitur pencarian modul dan tombol Cetak/Unduh PDF. Jika ditemukan kendala spesifik di lapangan, Anda dapat menghubungi Kang Apri via WhatsApp untuk bantuan cepat.',
+  },
+  {
     question: 'Apakah benar-benar tanpa biaya sewa server bulanan (Zero Server Cost)?',
-    answer: 'Ya, 100% benar! Kami memanfaatkan arsitektur serverless Google Workspace (Google Sheets Database Engine, Google Apps Script, dan Looker Studio) yang disediakan gratis oleh Google. Anda tidak perlu membayar langganan server VPS atau software bulanan ratusan ribu rupiah seumur hidup.',
+    answer: 'Ya, 100% benar. Arsitektur sistem memanfaatkan Google Workspace, Google Sheets Database Engine, Google Apps Script, dan Looker Studio yang berjalan langsung di infrastruktur cloud milik Google. Anda bebas dari tagihan sewa VPS atau biaya server bulanan seumur hidup.',
   },
   {
-    question: 'Bisnis apa saja yang bisa dibuatkan sistem otomasi alur kerja & aplikasi kasir?',
-    answer: 'Semua jenis usaha! Kami telah menangani bisnis kuliner (F&B), toko retail, klinik, jasa penulisan, event organizer, panitia lomba Paskibra/LKBB, hingga administrasi sekolah. Sistem dirancang mengikuti alur kerja unik tim Anda.',
+    question: 'Bagaimana skema biaya untuk sistem sekolah G-7KAIH, tabulasi lomba, dan sistem kustom?',
+    answer: 'Biaya dibuat transparan sesuai kebutuhan: untuk sekolah yang mengadopsi G-7KAIH (Jurnal 7 Kebiasaan Anak Indonesia Hebat), biayanya hanya Rp 500 per siswa per bulan dengan server Rp 0. Untuk lisensi siap pakai lainnya atau sewa per event kejuaraan mulai Rp 1.500.000, dan rancang bangun sistem kustom penuh mulai Rp 1.500.000 sekali bayar.',
   },
   {
-    question: 'Berapa lama proses pembuatan dan implementasi sistem otomasi?',
-    answer: 'Untuk kebutuhan standar (seperti sistem kasir F&B atau tabulasi lomba), waktu pengerjaan umumnya memakan waktu 3 hingga 5 hari kerja sudah siap pakai dan teruji langsung di lapangan.',
+    question: 'Bagaimana keamanan serta kepemilikan data transaksi, keuangan, dan data siswa?',
+    answer: 'Seluruh database tersimpan penuh di akun Google Drive atau Google Workspace milik sekolah/bisnis Anda sendiri, bukan di server pribadi pengembang. Hak akses diatur ketat per peran pengguna (role-based) dan dilindungi keamanan berlapis standar Google Enterprise.',
   },
   {
-    question: 'Bagaimana jika tim saya masih awam teknologi? Apakah ada panduannya?',
-    answer: 'Tentu saja! Setiap sistem yang kami bangun dirancang sangat simpel (cukup pakai smartphone). Kami juga menyertakan buku panduan (SOP) + video tutorial cara pakai 1-klik dan sesi pendampingan via Google Meet / WhatsApp hingga tim Anda lancar mengoperasikannya.',
+    question: 'Bisnis atau instansi apa saja yang cocok menggunakan solusi dari INKARSA?',
+    answer: 'Sekolah dan madrasah (jurnal karakter G-7KAIH, presensi, konseling BK), organisasi Paskibra dan ekstrakurikuler (KOMANDO), panitia kejuaraan LKBB/event (Si Paling Rekap), serta bisnis F&B, retail, klinik, dan jasa yang membutuhkan kasir, hitung HPP, atau perapihan spreadsheet otomatis.',
   },
   {
-    question: 'Bagaimana cara memesan aplikasi tabulasi lomba Paskibra & LKBB?',
-    answer: 'Cukup klik tombol WhatsApp di website ini dan sampaikan tanggal event serta jumlah pleton/kategori yang akan dilombakan. Kami akan menyiapkan sistem tabulasi live real-time 0 detik untuk kejuaraan Anda.',
+    question: 'Bagaimana jika ke depan ada perubahan aturan sekolah, format rapor, atau perlu update fitur?',
+    answer: 'Karena seluruh modul dibangun secara modular bersama Kang Apri, penyesuaian kolom form, rumus laporan PDF, atau penambahan fitur baru dapat dilakukan cepat tanpa harus membongkar ulang seluruh sistem dari nol.',
   },
 ];
 
@@ -37,25 +77,57 @@ const faqPageSchema = {
 ---
 
 <section id="faq" class="relative py-24 sm:py-32 bg-slate-50/50 dark:bg-[#070b14]/50 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-20">
-  <!-- FAQ Structured Data for Google SERP Accordions -->
+  <!-- Single Canonical FAQ Structured Data for Google SERP Accordions -->
   <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema)} />
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
-    <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
+    <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
       <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-cyan-700 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
         <span>❓</span>
-        <span>Pertanyaan Umum &amp; FAQ</span>
+        <span>FAQ, Onboarding, Tutorial &amp; Dokumentasi</span>
       </div>
       
       <h2 class="type-h2 mb-4">
-        Pertanyaan yang <span class="text-gradient-cyan">Sering Diajukan</span>
+        Pusat Panduan &amp; <span class="text-gradient-cyan">Pertanyaan Umum</span>
       </h2>
       
       <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-        Jawaban transparan seputar sistem otomasi alur kerja tanpa server, aplikasi kasir UMKM, dan tabulasi lomba Paskibra.
+        Akses cepat alur onboarding hari pertama, video tutorial penggunaan, dokumentasi resmi sistem, hingga kejelasan biaya bersama Kang Apri.
       </p>
+    </div>
+
+    <!-- Onboarding, Tutorial & Documentation Resource Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+      {onboardingResources.map((res) => (
+        <a
+          href={res.href}
+          target={res.external ? '_blank' : undefined}
+          rel={res.external ? 'noopener noreferrer' : undefined}
+          class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-all shadow-sm flex flex-col justify-between group"
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-950/70 flex items-center justify-center text-xl">
+                {res.icon}
+              </span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[10px] font-bold uppercase tracking-wider">
+                {res.badge}
+              </span>
+            </div>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 mb-1.5 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+              {res.title}
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              {res.description}
+            </p>
+          </div>
+          <span class="text-xs font-bold text-cyan-700 dark:text-cyan-400 inline-flex items-center gap-1 pt-3 border-t border-slate-100 dark:border-slate-800">
+            {res.cta}
+          </span>
+        </a>
+      ))}
     </div>
 
     <!-- FAQ Accordion Container -->
@@ -64,17 +136,17 @@ const faqPageSchema = {
         <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden transition-all shadow-sm">
           <button
             type="button"
-            class="faq-trigger w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+            class="faq-trigger w-full min-h-[52px] p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500/40"
             aria-expanded="false"
           >
             <span class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100">
               {faq.question}
             </span>
-            <span class="faq-icon w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-cyan-600 dark:text-cyan-400 font-bold transition-transform duration-300 flex-shrink-0">
+            <span class="faq-icon w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-cyan-600 dark:text-cyan-400 font-bold transition-transform duration-300 flex-shrink-0" aria-hidden="true">
               +
             </span>
           </button>
-          <div class="faq-content hidden px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800">
+          <div class="faq-content hidden px-5 sm:px-6 pb-6 pt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800">
             {faq.answer}
           </div>
         </div>
@@ -94,7 +166,6 @@ const faqPageSchema = {
         const icon = trigger.querySelector('.faq-icon') as HTMLElement | null;
         const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
 
-        // Toggle state
         trigger.setAttribute('aria-expanded', String(!isExpanded));
 
         if (content) {

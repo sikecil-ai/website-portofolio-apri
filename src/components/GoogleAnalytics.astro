@@ -6,78 +6,88 @@ export interface Props {
 const { measurementId = 'G-KRQSJ5S3PC' } = Astro.props;
 ---
 
-<!-- Google tag (gtag.js) - GA4 Tracking with Event Dispatcher -->
+<!-- Google tag (gtag.js) - Deferred Idle Loader to Protect Core Web Vitals TBT -->
 {measurementId && (
-  <>
-    <script
-      is:inline
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-    ></script>
-    <script is:inline define:vars={{ measurementId }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', measurementId, {
-        page_path: window.location.pathname,
-        send_page_view: true,
-        anonymize_ip: true,
+  <script is:inline define:vars={{ measurementId }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', measurementId, {
+      page_path: window.location.pathname,
+      send_page_view: true,
+      anonymize_ip: true,
+    });
+
+    // Load gtag.js cleanly after page load / idle so it never blocks TBT
+    const loadGtagScript = () => {
+      if (window.__gtagLoaded) return;
+      window.__gtagLoaded = true;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+      document.head.appendChild(s);
+    };
+
+    if ('requestIdleCallback' in window) {
+      window.addEventListener('load', () => {
+        window.requestIdleCallback(loadGtagScript, { timeout: 3000 });
+      });
+    } else {
+      window.addEventListener('load', () => {
+        setTimeout(loadGtagScript, 1500);
+      });
+    }
+    ['pointerdown', 'keydown', 'scroll'].forEach((evt) => {
+      window.addEventListener(evt, loadGtagScript, { once: true, passive: true });
+    });
+
+    // Advanced WhatsApp & CRO Event Tracking
+    const initTracking = () => {
+      document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach((el) => {
+        el.addEventListener('click', () => {
+          loadGtagScript();
+          const href = el.getAttribute('href') || '';
+          const section = el.closest('section')?.id || 'general';
+          const label = el.textContent?.trim() || 'WhatsApp CTA';
+
+          gtag('event', 'generate_lead', {
+            event_category: 'WhatsApp',
+            event_label: label,
+            section_id: section,
+            destination: href,
+            value: 1,
+          });
+        });
       });
 
-      // Advanced WhatsApp & CRO Event Tracking
-      const initTracking = () => {
-        // Track all WhatsApp Buttons with section contextual data
-        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach((el) => {
-          el.addEventListener('click', () => {
-            const href = el.getAttribute('href') || '';
-            const section = el.closest('section')?.id || 'general';
-            const label = el.textContent?.trim() || 'WhatsApp CTA';
-
-            if (typeof gtag === 'function') {
-              gtag('event', 'generate_lead', {
-                event_category: 'WhatsApp',
-                event_label: label,
-                section_id: section,
-                destination: href,
-                value: 1,
-              });
-            }
+      document.querySelectorAll('.article-card, a[href*="/artikel/"]').forEach((el) => {
+        el.addEventListener('click', () => {
+          loadGtagScript();
+          gtag('event', 'select_content', {
+            content_type: 'article',
+            item_id: el.getAttribute('href') || '',
           });
         });
+      });
 
-        // Track Article Card / Case Study Clicks
-        document.querySelectorAll('.article-card, a[href*="/artikel/"]').forEach((el) => {
-          el.addEventListener('click', () => {
-            if (typeof gtag === 'function') {
-              gtag('event', 'select_content', {
-                content_type: 'article',
-                item_id: el.getAttribute('href') || '',
-              });
-            }
+      document.querySelectorAll('.project-card, a[href*="/sistem/"]').forEach((el) => {
+        el.addEventListener('click', () => {
+          loadGtagScript();
+          gtag('event', 'select_item', {
+            item_list_name: 'Project Showcase',
+            item_id: el.getAttribute('href') || '',
           });
         });
+      });
+    };
 
-        // Track Project Showcase / Detail Clicks
-        document.querySelectorAll('.project-card, a[href*="/sistem/"]').forEach((el) => {
-          el.addEventListener('click', () => {
-            if (typeof gtag === 'function') {
-              gtag('event', 'select_item', {
-                item_list_name: 'Project Showcase',
-                item_id: el.getAttribute('href') || '',
-              });
-            }
-          });
-        });
-      };
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initTracking);
-      } else {
-        initTracking();
-      }
-      document.addEventListener('astro:after-swap', initTracking);
-    </script>
-  </>
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTracking);
+    } else {
+      initTracking();
+    }
+    document.addEventListener('astro:after-swap', initTracking);
+  </script>
 )}

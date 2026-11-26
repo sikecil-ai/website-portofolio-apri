@@ -25,7 +25,7 @@ const ogImageMap: Record<string, string> = {
 const projectOgImage = ogImageMap[project.slug] || project.image || '/images/og-image.png';
 
 const seoProps = {
-  title: `${project.title} | INKARSA — Solusi Sistem oleh Kang Apri (@madebyaapri)`,
+  title: `${project.title} | INKARSA - Solusi Sistem oleh Kang Apri`,
   description: project.description,
   image: projectOgImage,
   canonicalURL: canonicalURL,
@@ -165,7 +165,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
             </div>
 
             <p class="text-[11px] text-slate-500 dark:text-slate-400 pt-0.5">
-              Dikembangkan oleh <strong>{project.developer || 'M. Apriyanto Wijaya (@madebyaapri)'}</strong> • Praktisi Otomasi &amp; Zero Server Cost
+              Dikembangkan oleh <strong>{project.developer || 'M. Apriyanto Wijaya (Kang Apri)'}</strong> • Praktisi Otomasi &amp; Zero Server Cost
             </p>
 
           </div>
@@ -186,7 +186,7 @@ const waClosingUrl = `https://wa.me/6282118313655?text=${encodeURIComponent(waCl
                     <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
                   </div>
                   <div class="px-2.5 py-0.5 rounded-md bg-slate-900/80 text-[8px] font-mono text-slate-400 max-w-[180px] truncate border border-slate-700">
-                    {project.slug === 'si-paling-rekap-tabulasi-kejuaraan' ? 'sipalingrekap.madebyapri.live' : (project.demoUrl || 'https://sites.google.com/view/g7kaih')}
+                    {project.demoUrl ? project.demoUrl.replace('https://', '') : 'inkarsa.web.app'}
                   </div>
                   <span class="text-[8px] font-bold text-cyan-400 uppercase tracking-wider">Desktop Admin</span>
                 </div>

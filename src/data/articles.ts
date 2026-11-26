@@ -9,9 +9,9 @@ export const articles: Article[] = [
     readTime: '8 Menit Baca',
     date: '2026',
     coverEmoji: '🚀',
-    projectRelation: 'Arsitektur Web Modern & Standar Produksi @madebyaapri',
+    projectRelation: 'Arsitektur Web Modern & Standar Produksi INKARSA',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '31 Desember 2026',
     publishDateISO: '2026-12-31',
     updatedDate: '31 Desember 2026',
@@ -63,7 +63,7 @@ Menata ulang alur kerja bisnis tidak harus menunggu proyek besar bernilai puluha
 
 Jadikan tahun baru ini sebagai titik balik di mana Anda dan tim operasional bisa fokus mengembangkan bisnis dan melayani pelanggan, bukan lagi terkuras emosi mengurusi file spreadsheet yang lemot.
 
-👉 [**Pelajari Showcase Sistem & Cerita Lapangan Portofolio @madebyaapri**](/#proyek)
+👉 [**Pelajari Showcase Sistem & Cerita Lapangan Portofolio INKARSA & Kang Apri**](/#proyek)
 
 Mari kita diskusikan alur kerja tim Anda yang ingin dirapikan lewat WhatsApp:
 
@@ -77,9 +77,9 @@ Mari kita diskusikan alur kerja tim Anda yang ingin dirapikan lewat WhatsApp:
     readTime: '8 Menit Baca',
     date: '2026',
     coverEmoji: '⚙️',
-    projectRelation: 'Layanan Sistem Kustom Kang Apri (@madebyaapri)',
+    projectRelation: 'Layanan Sistem Kustom INKARSA & Kang Apri',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '28 Desember 2026',
     publishDateISO: '2026-12-28',
     updatedDate: '28 Desember 2026',
@@ -124,7 +124,7 @@ Karena tidak ada pihak ketiga yang menagih biaya server komputasi setiap bulan, 
 
 ### 3. Pendekatan Solopreneur Engineer: Langsung Tuntas Tanpa Birokrasi
 
-Ketika Anda bermitra dengan saya di madebyaapri, Anda tidak berhadapan dengan perantara sales yang hanya pandai presentasi tetapi tidak mengerti teknis pengkodean. Anda berdiskusi langsung dengan perancang sistem yang terjun memetakan masalah lapangan, menulis kodenya, menguji keamanannya, hingga mendampingi pelatihan operator.
+Ketika Anda bermitra dengan Kang Apri di INKARSA, Anda tidak berhadapan dengan perantara sales yang hanya pandai presentasi tetapi tidak mengerti teknis pengkodean. Anda berdiskusi langsung dengan perancang sistem yang terjun memetakan masalah lapangan, menulis kodenya, menguji keamanannya, hingga mendampingi pelatihan operator.
 
 Pendekatan ini memangkas waktu revisi dari hitungan minggu menjadi hitungan jam. Setiap masukan dari tim langsung diwujudkan ke dalam prototipe kerja nyata yang bisa langsung dites dari ponsel.
 
@@ -150,7 +150,7 @@ Mari diskusikan alur unik di organisasi atau bisnis Anda lewat WhatsApp untuk me
     coverEmoji: '💰',
     projectRelation: 'G-7KAIH: Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '24 Desember 2026',
     publishDateISO: '2026-12-24',
     updatedDate: '24 Desember 2026',
@@ -195,7 +195,7 @@ Tagihan penagihan diserahkan dalam bentuk invoice resmi dan kuitansi bermaterai 
 
 Ketika madrasah atau sekolah Anda bermitra dengan saya untuk adopsi sistem G-7KAIH, pihak sekolah akan menerima kelengkapan administrasi belanja resmi:
 * Surat Penawaran dan Perjanjian Kerjasama Layanan Digital Kesiswaan.
-* Lembar Rincian Tagihan (Invoice) resmi dengan cap stempel madebyaapri.
+* Lembar Rincian Tagihan (Invoice) resmi dengan cap stempel INKARSA.
 * Kuitansi Pembayaran Sah bermaterai sesuai regulasi keuangan negara.
 * Berita Acara Serah Terima (BAST) sistem dan tautan portal kesiswaan aktif.
 
@@ -221,9 +221,9 @@ Silakan hubungi saya melalui WhatsApp untuk meminta draf dokumen penawaran resmi
     readTime: '7 Menit Baca',
     date: '2026',
     coverEmoji: '🌐',
-    projectRelation: 'Layanan Pembuatan Website Kilat @madebyaapri',
+    projectRelation: 'Layanan Pembuatan Website Kilat INKARSA & Kang Apri',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '21 Desember 2026',
     publishDateISO: '2026-12-21',
     updatedDate: '21 Desember 2026',
@@ -291,7 +291,7 @@ Konsultasikan produk atau layanan yang ingin Anda pasarkan secara online lewat c
     coverEmoji: '📱',
     projectRelation: 'G-7KAIH: Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '17 Desember 2026',
     publishDateISO: '2026-12-17',
     updatedDate: '17 Desember 2026',
@@ -363,7 +363,7 @@ Mari diskusikan simulasi pemasangan sistem G-7KAIH untuk madrasah atau sekolah B
     coverEmoji: '🍳',
     projectRelation: 'Si Paling Kasir: Sistem POS, HPP & Inventaris F&B',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '14 Desember 2026',
     publishDateISO: '2026-12-14',
     updatedDate: '14 Desember 2026',
@@ -435,7 +435,7 @@ Mari kita bedah resep HPP dan alur kasir kedai kuliner Anda lewat WhatsApp:
     coverEmoji: '🎖️',
     projectRelation: 'KOMANDO: Sistem Manajemen Organisasi Paskibra',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '10 Desember 2026',
     publishDateISO: '2026-12-10',
     updatedDate: '10 Desember 2026',
@@ -503,7 +503,7 @@ Silakan hubungi saya lewat WhatsApp jika ingin berkonsultasi mengenai penerapan 
     coverEmoji: '🏫',
     projectRelation: 'G-7KAIH: Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '7 Desember 2026',
     publishDateISO: '2026-12-07',
     updatedDate: '7 Desember 2026',
@@ -570,9 +570,9 @@ Hubungi saya via WhatsApp untuk meminta simulasi jumlah siswa dan penjadwalan de
     readTime: '8 Menit Baca',
     date: '2026',
     coverEmoji: '📑',
-    projectRelation: 'Otomasi Spreadsheet & Dashboard Bisnis @madebyaapri',
+    projectRelation: 'Otomasi Spreadsheet & Dashboard Bisnis INKARSA',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '3 Desember 2026',
     publishDateISO: '2026-12-03',
     updatedDate: '3 Desember 2026',
@@ -640,7 +640,7 @@ Kirimkan contoh format file spreadsheet Anda lewat WhatsApp untuk evaluasi awal 
     coverEmoji: '📋',
     projectRelation: 'G-7KAIH: Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '30 November 2026',
     publishDateISO: '2026-11-30',
     updatedDate: '30 November 2026',
@@ -709,9 +709,9 @@ Konsultasikan pedoman tata tertib dan format pembiasaan karakter di sekolah Anda
     readTime: '8 Menit Baca',
     date: '2026',
     coverEmoji: '📊',
-    projectRelation: 'Otomasi Spreadsheet & Dashboard Bisnis @madebyaapri',
+    projectRelation: 'Otomasi Spreadsheet & Dashboard Bisnis INKARSA',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '26 November 2026',
     publishDateISO: '2026-11-26',
     updatedDate: '26 November 2026',
@@ -797,7 +797,7 @@ Ceritakan masalah spreadsheet atau alur kerja yang paling sering bikin pusing di
     coverEmoji: '🏆',
     projectRelation: 'Si Paling Rekap: Sistem Tabulasi Kejuaraan Real-Time',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '23 November 2026',
     publishDateISO: '2026-11-23',
     updatedDate: '23 November 2026',
@@ -879,7 +879,7 @@ Ceritakan format penilaian, jumlah juri, dan jadwal acara Anda kepada saya lewat
     coverEmoji: '🌱',
     projectRelation: 'G-7KAIH: Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '19 November 2026',
     publishDateISO: '2026-11-19',
     updatedDate: '19 November 2026',
@@ -961,7 +961,7 @@ Mari diskusikan jumlah rombel dan format 7 indikator kebiasaan yang sesuai denga
     coverEmoji: '🍳',
     projectRelation: 'Si Paling Kasir: Sistem POS, HPP & Inventaris F&B',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '16 November 2026',
     publishDateISO: '2026-11-16',
     updatedDate: '16 November 2026',
@@ -1046,7 +1046,7 @@ Mari diskusikan alur dapur, resep HPP, dan sistem kasir toko yang paling pas unt
     coverEmoji: '🚀',
     projectRelation: 'G-7KAIH: Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '12 November 2026',
     publishDateISO: '2026-11-12',
     updatedDate: '12 November 2026',
@@ -1128,7 +1128,7 @@ Silakan kirim jumlah siswa di sekolah atau madrasah Bapak/Ibu lewat WhatsApp unt
     coverEmoji: '🏫',
     projectRelation: 'G-7KAIH: Sistem Monitoring Gerakan 7 Kebiasaan Anak Indonesia Hebat',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '3 November 2026',
     publishDateISO: '2026-11-03',
     updatedDate: '3 November 2026',
@@ -1259,7 +1259,7 @@ Jika sekolah atau madrasah tempat Bapak dan Ibu mengabdi ingin menerapkan sistem
 
 Mari kita diskusikan kebutuhan pembiasaan karakter dan simulasi jumlah siswa di sekolah Bapak/Ibu:
 
-👉 [**Konsultasi & Jadwalkan Demo Live G-7KAIH via WhatsApp (+62 821-1831-3655)**](https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20membaca%20artikel%20biaya%20G-7KAIH%20(Rp%20500/siswa/bulan)%20di%20madebyaapri.vercel.app.%20Saya%20tertarik%20mengadopsi%20sistem%20ini%20untuk%20[Nama%20Sekolah/Madrasah].%20Boleh%20minta%20info%20jadwal%20demo%20dan%20diskusi%20kebutuhannya%20Kang%3F)
+👉 [**Konsultasi & Jadwalkan Demo Live G-7KAIH via WhatsApp (+62 821-1831-3655)**](https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20membaca%20artikel%20biaya%20G-7KAIH%20(Rp%20500/siswa/bulan)%20di%20website%20resmi%20INKARSA.%20Saya%20tertarik%20mengadopsi%20sistem%20ini%20untuk%20[Nama%20Sekolah/Madrasah].%20Boleh%20minta%20info%20jadwal%20demo%20dan%20diskusi%20kebutuhannya%20Kang%3F)
 `
   },
 {
@@ -1270,9 +1270,9 @@ Mari kita diskusikan kebutuhan pembiasaan karakter dan simulasi jumlah siswa di 
     readTime: '12 Menit Baca',
     date: '2026',
     coverEmoji: '🏢',
-    projectRelation: 'Arsitektur Web Modern & Standar Produksi @madebyaapri',
+    projectRelation: 'Arsitektur Web Modern & Standar Produksi INKARSA',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '15 September 2026',
     publishDateISO: '2026-09-15',
     updatedDate: '15 September 2026',
@@ -1345,7 +1345,7 @@ Masih menyewa shared hosting cPanel seharga Rp 100.000 sampai Rp 200.000 per bul
 Website Company Profile pada hakikatnya adalah **situs penyaji informasi dan penangkap prospek (lead generation)**. Kontennya tidak berubah setiap detik. Maka arsitektur terbaik untuk kebutuhan ini adalah **Static Site Generation (SSG) / Jamstack** yang dihosting di atas **Global Edge Network**.
 
 #### Rekomendasi Hosting Paling Unggul:
-1. **Vercel (Pilihan Utama @madebyaapri):**  
+1. **Vercel (Pilihan Utama INKARSA & Kang Apri):**  
    * **Infrastruktur:** Didukung jaringan Edge global di ratusan kota dunia. Waktu muat (*latency*) dari Jakarta atau Bandung rata-rata di bawah 50 milidetik.
    * **Zero Server Cost:** Paket *Hobby Tier* Vercel menyediakan kuota bandwidth 100 GB per bulan secara **GRATIS seumur hidup**. Untuk website Company Profile yang dikunjungi 10.000 hingga 50.000 orang per bulan, kuota gratis ini sudah lebih dari cukup dan tidak akan pernah habis.
    * **Otomasi CI/CD dari GitHub:** Setiap kali Anda mengedit kode atau menambah artikel di repository GitHub, Vercel akan otomatis melakukan proses *build* dan menerbitkan revisi terbaru ke seluruh dunia dalam waktu 10-15 detik.
@@ -1547,9 +1547,9 @@ Jika Anda ingin berdiskusi mengenai modernisasi alur kerja digital, merapikan si
     readTime: '9 Menit Baca',
     date: '2026',
     coverEmoji: '🧠',
-    projectRelation: 'Evolusi AI & Fondasi Sistem Cerdas @madebyaapri',
+    projectRelation: 'Evolusi AI & Fondasi Sistem Cerdas INKARSA',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '8 Oktober 2026',
     publishDateISO: '2026-10-08',
     isScheduled: true,
@@ -1674,9 +1674,9 @@ Yuk bagikan pengalamanmu atau berdiskusi santai seputar pemanfaatan teknologi la
     readTime: '8 Menit Baca',
     date: '2026',
     coverEmoji: '📈',
-    projectRelation: 'Penerapan Praktis AI & Otomasi Alur Kerja @madebyaapri',
+    projectRelation: 'Penerapan Praktis AI & Otomasi Alur Kerja INKARSA',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '12 Oktober 2026',
     publishDateISO: '2026-10-12',
     isScheduled: true,
@@ -1784,9 +1784,9 @@ Yuk diskusikan kebutuhan sistemmu atau ngobrol santai seputar otomatisasi alur k
     readTime: '7 Menit Baca',
     date: '2026',
     coverEmoji: '📱',
-    projectRelation: 'Refleksi & Filosofi Hardware @madebyaapri',
-    author: 'M. Apriyanto Wijaya (Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    projectRelation: 'Refleksi & Filosofi Hardware INKARSA',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '10 September 2026',
     publishDateISO: '2026-09-10',
     updatedDate: '10 September 2026',
@@ -1952,9 +1952,9 @@ Yuk bagikan ceritamu atau ngobrol santai seputar teknologi langsung via WhatsApp
     readTime: '8 Menit Baca',
     date: '2026',
     coverEmoji: '🏗️',
-    projectRelation: 'Standar Rekayasa Aplikasi @madebyaapri',
-    author: 'M. Apriyanto Wijaya (Apri)',
-    editor: 'Tim Riset & Redaksi @madebyaapri',
+    projectRelation: 'Standar Rekayasa Aplikasi INKARSA',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
+    editor: 'Tim Riset & Redaksi INKARSA',
     publishedDate: '9 September 2026',
     publishDateISO: '2026-09-09',
     updatedDate: '9 September 2026',
@@ -2225,8 +2225,8 @@ Yuk bagikan tanggapanmu atau ngobrol alur kerja pembuatan aplikasi langsung via 
     date: '2026',
     coverEmoji: '🧠',
     projectRelation: 'Antigravity & Gemini AI Ecosystem',
-    author: 'M. Apriyanto Wijaya (Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '31 Agustus 2026',
     publishDateISO: '2026-08-31',
     updatedDate: '1 September 2026',
@@ -2324,8 +2324,8 @@ Yuk bagikan tanggapanmu atau ngobrol santai langsung via WhatsApp di bawah!`,
     date: '2026',
     coverEmoji: '🎖️',
     projectRelation: 'Aplikasi KOMANDO Paskibra',
-    author: 'M. Apriyanto Wijaya (Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '15 Januari 2025',
     publishDateISO: '2025-01-15',
     updatedDate: '3 September 2026',
@@ -2429,7 +2429,7 @@ Yuk bagikan ceritamu atau ngobrol santai langsung bareng Kang Apri via WhatsApp 
     date: '2026',
     coverEmoji: '🏫',
     projectRelation: 'G-7KAIH, Gerakan 7 Kebiasaan Indonesia Hebat di MAN Kota Cimahi',
-    author: 'M. Apriyanto Wijaya (Apri)',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
     editor: 'Pak Kholis Aliyudin, M.Si. (Guru BK MAN Kota Cimahi)',
     publishedDate: '4 September 2026',
     publishDateISO: '2026-09-04',
@@ -2524,7 +2524,7 @@ Sistem G-7KAIH membuktikan bahwa program karakter Gerakan 7 Kebiasaan Indonesia 
 
 **Bagaimana sistem pemantauan karakter atau administrasi di sekolah, pesantren, atau komunitas Anda saat ini? Apakah masih berkutat dengan tumpukan kertas fisik?**
 
-👉 [**Konsultasi Alur & Jadwalkan Demo G-7KAIH via WhatsApp (+62 821-1831-3655)**](https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20membaca%20kisah%20G-7KAIH%20MAN%20Kota%20Cimahi%20di%20madebyaapri.vercel.app%20dan%20tertarik%20diskusi%20implementasi%20buku%20jurnal%20pembiasaan%20siswa%20digital%20untuk%20sekolah%20kami.)`,
+👉 [**Konsultasi Alur & Jadwalkan Demo G-7KAIH via WhatsApp (+62 821-1831-3655)**](https://wa.me/6282118313655?text=Halo%20Kang%20Apri,%20saya%20membaca%20kisah%20G-7KAIH%20MAN%20Kota%20Cimahi%20di%20website%20resmi%20INKARSA%20dan%20tertarik%20diskusi%20implementasi%20buku%20jurnal%20pembiasaan%20siswa%20digital%20untuk%20sekolah%20kami.)`,
   },
 {
     id: '10',
@@ -2535,7 +2535,7 @@ Sistem G-7KAIH membuktikan bahwa program karakter Gerakan 7 Kebiasaan Indonesia 
     date: '2026',
     coverEmoji: '⏱️',
     projectRelation: 'Si Paling Rekap, Tabulasi Kejuaraan Real-Time',
-    author: 'M. Apriyanto Wijaya (Apri)',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
     editor: 'Kang Jabar (Pembina PPI) & Pengcab FORBASI Kota Cimahi',
     publishedDate: '30 Agustus 2026',
     publishDateISO: '2026-08-30',
@@ -2704,7 +2704,7 @@ Yuk bagikan tanggapanmu atau ngobrol santai seputar sistem tabulasi lomba langsu
     coverEmoji: '🥩',
     projectRelation: 'Si Paling Kasir & Otomasi F&B',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '10 Februari 2025',
     publishDateISO: '2025-02-10',
     updatedDate: '22 September 2026',
@@ -2835,8 +2835,8 @@ Yuk, ceritakan alur tokomu dan diskusikan solusinya secara santai lewat WhatsApp
     date: '2024',
     coverEmoji: '🤖',
     projectRelation: 'Auto Content Publisher Bot',
-    author: 'M. Apriyanto Wijaya (Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '12 November 2024',
     publishDateISO: '2024-11-12',
     updatedDate: '22 September 2026',
@@ -2875,7 +2875,7 @@ Apakah ada aktivitas rutin di depan komputer yang saat ini masih menyita waktu k
     date: '2024',
     coverEmoji: '🛒',
     projectRelation: 'Scalev Storefront & Teras Tulis',
-    author: 'M. Apriyanto Wijaya (Apri)',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
     editor: 'Dian Pratama (Teras Tulis)',
     publishedDate: '20 Oktober 2024',
     publishDateISO: '2024-10-20',
@@ -2921,7 +2921,7 @@ Jika Anda adalah pelaku usaha di Cimahi, Bandung, atau sekitarnya yang membutuhk
     coverEmoji: '⚡',
     projectRelation: 'Google Workspace Ecosystem & Aplikasi Spreadsheet',
     author: 'M. Apriyanto Wijaya (Kang Apri)',
-    editor: 'Tim Redaksi @madebyaapri',
+    editor: 'Tim Redaksi INKARSA',
     publishedDate: '5 Januari 2025',
     publishDateISO: '2025-01-05',
     updatedDate: '22 September 2026',
@@ -3002,7 +3002,7 @@ Yuk, diskusikan kondisinya bersama Kang Apri! Kami bantu rapikan alur datanya da
     date: '2024',
     coverEmoji: '📋',
     projectRelation: 'SOP & Database Paskibra dan Sekolah',
-    author: 'M. Apriyanto Wijaya (Apri)',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
     editor: 'Kang Hadid (Paskibra Cimahi)',
     publishedDate: '18 September 2024',
     publishDateISO: '2024-09-18',
@@ -3049,7 +3049,7 @@ Mari diskusikan alur pendataan digital yang praktis dan ramah pengguna via Whats
     date: '2025',
     coverEmoji: '📊',
     projectRelation: 'Looker Studio Dashboard & Monitoring Usaha',
-    author: 'M. Apriyanto Wijaya (Apri)',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
     editor: 'Riki Septian (Megumi Hotplate)',
     publishedDate: '22 Januari 2025',
     publishDateISO: '2025-01-22',

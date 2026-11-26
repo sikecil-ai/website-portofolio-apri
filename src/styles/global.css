@@ -109,7 +109,7 @@
   }
 
   /* =============================================
-     TYPOGRAPHY DESIGN TOKENS — @madebyaapri
+     TYPOGRAPHY DESIGN TOKENS — INKARSA / Kang Apri
      Single Source of Truth for all text levels
      ============================================= */
 
@@ -141,22 +141,24 @@
   }
 }
 
-/* Background Grids & Ambient Glow */
+/* Background Grids & Ambient Glow (Zero-Repaint Performance Safe) */
 .ambient-glow {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(100px);
-  opacity: 0.45;
+  filter: blur(72px);
+  opacity: 0.35;
   pointer-events: none;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.35; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.08); }
+  contain: strict;
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 8s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+/* Defer layout/paint of offscreen sections while keeping 100% HTML SSR for SEO */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
 }
 
 /* Zero-Gravity Floating Animations for Hero Profile & Badges */

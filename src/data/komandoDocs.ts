@@ -108,7 +108,7 @@ export const komandoDocs: KomandoDocsData = {
     lastUpdated: 'Oktober 2026',
     totalModules: 16,
     platform: 'Google Apps Script + Google Sheets Relasional + Capacitor Android APK + PWA',
-    author: 'M. Apriyanto Wijaya (@madebyaapri)',
+    author: 'M. Apriyanto Wijaya (Kang Apri)',
     waHelpUrl: 'https://wa.me/6282118313655?text=Halo%20Kang%20Apri%2C%20saya%20sedang%20membaca%20Dokumentasi%20Alur%20Fitur%20KOMANDO%20dan%20memerlukan%20bantuan%20terkait%3A%20',
   },
 
